@@ -16,7 +16,7 @@ const Home = () => {
     nav("/NewAccount");
   };
   const onComunity = () => {
-    nav("/Comunity");
+    nav("/Community");
   };
 
   return (
@@ -24,15 +24,23 @@ const Home = () => {
       <div className="Logo">
         <Logo />
       </div>
-      <div className="wrapper">
+      <div className="wrapper_menu">
         <Button text={"마이페이지"} type={"myPage"} onClick={onMyPage} />
-
-        <Button text={"로그인"} type={"myPage"} onClick={onLogin} />
-
-        <Button text={"회원가입"} type={"myPage"} onClick={onNewAccount} />
+        <div className="Login">
+          <Button text={"로그인"} type={"myPage"} onClick={onLogin} />
+        </div>
+        /
+        <div className="NewAccount">
+          <Button text={"회원가입"} type={"myPage"} onClick={onNewAccount} />
+        </div>
       </div>
       <div className="Comunity">
-        <Button text={"커뮤니티"} type={"myPage"} onClick={onComunity} />
+        <Button text={"커뮤니티"} type={"Comunity"} onClick={onComunity} />
+      </div>
+      <div className="wrapper_main">
+        ㅇ<div className="Kiosk"></div>
+        <div className="NaverBook"></div>
+        <div className="Map"></div>
       </div>
     </div>
   );
