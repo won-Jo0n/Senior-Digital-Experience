@@ -13,13 +13,13 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/" element={<NewAccount />} />
-        <Route path="/" element={<MyPage />} />
-        <Route path="/" element={<Kiosk />} />
-        <Route path="/" element={<NaverBook />} />
-        <Route path="/" element={<Map />} />
-        <Route path="/" element={<Community />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/NewAccount" element={<NewAccount />} />
+        <Route path="/MyPage" element={<MyPage />} />
+        <Route path="/Kiosk" element={<Kiosk />} />
+        <Route path="/NaverBook" element={<NaverBook />} />
+        <Route path="/Map" element={<Map />} />
+        <Route path="/Community" element={<Community />} />
       </Routes>
     </>
   );
