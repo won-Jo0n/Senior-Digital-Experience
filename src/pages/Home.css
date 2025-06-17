@@ -12,25 +12,41 @@
   margin: 20px 0;
 }
 
-.Home .wrapper {
+.Home .wrapper_menu {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 100%;
   max-width: 1100px;
   padding: 10px 20px;
 }
+.Login,
+.NewAccount {
+  margin-left: auto;
+}
+.Login {
+  margin-right: 5px;
+}
+.NewAccount {
+  margin-left: 5px;
+}
 
-.wrapper Button {
+.wrapper_menu Button {
   margin: 0 10px;
 }
 
 .Comunity {
-  background-color: #f9f6ec;
-  color: #000;
-  font-weight: bold;
-  font-size: 24px;
+  background-color: white;
+  width: 80%;
   text-align: center;
+  padding: 20px 40px;
+  border-radius: 10px;
+  margin: 30px 0;
+}
+
+.wrapper_main {
+  width: 80%;
+  background-color: white;
   padding: 20px 40px;
   border-radius: 10px;
   margin: 30px 0;
