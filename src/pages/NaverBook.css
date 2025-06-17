@@ -1,0 +1,64 @@
+.naverbook-container {
+  font-family: "Arial", sans-serif;
+  border: 1px solid #ddd;
+  padding: 16px;
+  max-width: 500px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.naverbook-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.clinic-info h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.clinic-info .sub {
+  font-size: 14px;
+  color: #888;
+  margin: 4px 0;
+}
+
+.naverbook-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.naverbook-actions button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.naverbook-actions .reserve {
+  background: #03c75a;
+  color: #fff;
+  border: none;
+}
+
+.naverbook-details p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.naverbook-details a {
+  color: #0073e6;
+  text-decoration: none;
+}
