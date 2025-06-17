@@ -7,10 +7,49 @@ import Kiosk from "./pages/Kiosk";
 import NaverBook from "./pages/NaverBook";
 import Map from "./pages/Map";
 import Community from "./pages/Community";
+import Popup from "./components/Popup";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
+  const onCreate = (createDate, emotionId, content) => {
+    dispatch({
+      type: "CREATE",
+      data: {
+        id: idRef.current++,
+        createDate,
+        emotionId,
+        content,
+      },
+    });
+  };
+
+  const onUpdate = (id, createDate, emotionId, content) => {
+    dispatch({
+      type: "UPDATE",
+      data: {
+        id: id,
+        createDate,
+        emotionId,
+        content,
+      },
+    });
+  };
+  const onDelete = (id) => {
+    dispatch({
+      type: "DELETE",
+      id,
+    });
+  };
+
   return (
     <>
+      <button
+        onClick={() => {
+          <Popup></Popup>;
+        }}
+      >
+        qwer
+      </button>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Login" element={<Login />} />
