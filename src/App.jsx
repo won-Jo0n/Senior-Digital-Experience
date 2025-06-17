@@ -48,7 +48,7 @@ function App() {
           <Popup></Popup>;
         }}
       >
-        qwer
+        {/* qwer */}
       </button>
       <Routes>
         <Route path="/" element={<Home />} />
