@@ -5,7 +5,7 @@ const PhoneForm = () => {
     <div className="PhoneForm">
       <Header />
       <div className="PhoneImg">
-        <img src="#"></img>
+        <img src="/phone.png" alt="phone"></img>
       </div>
     </div>
   );
