@@ -4,11 +4,15 @@ const NaverBook = () => {
   return (
     <div className="NaverBook">
       <div className="image-section">
-        <img src="/img1.png" alt="logo" />
-        <img src="/img2.png" alt="doctor1" />
-        <img src="/img3.png" alt="doctor2" />
-        <img src="/img4.png" alt="clinic1" />
-        <div className="more-image">+8</div>
+        <img src="/img1.png" alt="logo" className="logo" />
+        <div className="image2">
+          <img src="/img2.png" alt="sewin" />
+          <img src="/img2.png" alt="jinsung" />
+        </div>
+        <div className="image3">
+          <img src="/img3.png" alt="wonJoon" />
+          <img src="/img4.png" alt="jiwon" />
+        </div>
       </div>
 
       <h2 className="clinic-title">
