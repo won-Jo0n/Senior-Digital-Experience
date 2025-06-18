@@ -13,7 +13,7 @@ const NaverBook = () => {
       <div className="image-section">
         <img src="/img1.png" alt="logo" className="logoImg" />
         <div className="image2">
-          <img src="/img2.png" alt="sewin" />
+          <img src="/img2.png" alt="sewon" />
           <img src="/img2.png" alt="jinsung" />
         </div>
         <div className="image3">
