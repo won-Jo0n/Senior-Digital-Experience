@@ -1,0 +1,22 @@
+.coffee_menu {
+  border: 1px solid black;
+  width: 200px;
+  background-color: white;
+}
+.coffee_menu > .coffee_img {
+  border: 1px solid black;
+  width: 230px;
+}
+
+.coffee_menu {
+  border: 1px solid black;
+  width: 290px;
+  margin-left: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.coffee_name {
+  border: 1px solid black;
+  text-align: center;
+}

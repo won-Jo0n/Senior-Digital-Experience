@@ -5,9 +5,9 @@ import coffee_ColdLatte from "../assets/coffee/coffee_ColdLatte.png";
 import coffee_DalgonaLatte from "../assets/coffee/coffee_DalgonaLatte.png";
 import coffee_Decold from "../assets/coffee/coffee_Decold.png";
 import coffee_Moka from "../assets/coffee/coffee_Moka.png";
-import coffee_Vanillal from "../assets/coffee/coffee_Vanillal.png";
-
+import coffee_Vanilla from "../assets/coffee/coffee_Vanilla.png";
 export function getCoffeeImage(coffeeId) {
+  console.log(coffeeId);
   switch (coffeeId) {
     case 1:
       return coffee_Americano;
@@ -24,7 +24,7 @@ export function getCoffeeImage(coffeeId) {
     case 7:
       return coffee_Moka;
     case 8:
-      return coffee_Vanillal;
+      return coffee_Vanilla;
     default:
       return null;
   }
