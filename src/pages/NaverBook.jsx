@@ -1,4 +1,5 @@
 const NaverBook = () => {
+  // 첫번쨰 페이지
   return (
     <div className="NaverBook">
       <div className="naverbook-header">
