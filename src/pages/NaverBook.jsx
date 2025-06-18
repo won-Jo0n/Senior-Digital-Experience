@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import "./NaverBook.css";
 
 const NaverBook = () => {
+  const nav = useNavigate();
+
+  const secondPage = () => {
+    nav("/page01");
+  };
+
   return (
     <div className="NaverBook">
       <div className="image-section">
@@ -31,7 +38,9 @@ const NaverBook = () => {
       </div> */}
 
       <div className="action-buttons">
-        <button className="green">예약</button>
+        <button className="green" onClick={secondPage} type="secondPage">
+          예약
+        </button>
         <button className="gray">문의</button>
       </div>
 
