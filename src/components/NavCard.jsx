@@ -1,10 +1,12 @@
 import "./NavCard.css";
+import { getNavCardImage } from "../util/getNavCardImage";
 
-const NavCard = ({ title, explanation }) => {
+const NavCard = ({ title, explanation, cardImage }) => {
   return (
     <div className="NavCard">
       <div>
-        <h4>{title}</h4>
+        <img className="NavCardImage" src={getNavCardImage(cardImage)} />
+        <h4 className="title">{title}</h4>
         <div className="explanation">{explanation}</div>
       </div>
     </div>
