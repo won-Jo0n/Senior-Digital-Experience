@@ -4,7 +4,7 @@ const NaverBook = () => {
   return (
     <div className="NaverBook">
       <div className="image-section">
-        <img src="/img1.png" alt="logo" className="logo" />
+        <img src="/img1.png" alt="logo" className="logoImg" />
         <div className="image2">
           <img src="/img2.png" alt="sewin" />
           <img src="/img2.png" alt="jinsung" />
