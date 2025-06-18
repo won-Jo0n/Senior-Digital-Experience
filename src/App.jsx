@@ -81,6 +81,7 @@ function App() {
     setIsLoading(true);
   }, []);
   const onCreate = (phoneNum, password, birth) => {
+    var mission = [false, false, false];
     dispatch({
       type: "CREATE",
       data: {
@@ -88,21 +89,13 @@ function App() {
         phoneNum,
         password,
         birth,
-        [false,false,false],
+        mission,
         boardWrite,
       },
     });
   };
 
-  const onUpdate = (
-    id,
-    phoneNum,
-    password,
-    birth,
-    mission,
-    coupon,
-    boardWrite
-  ) => {
+  const onUpdate = (id, phoneNum, password, birth, mission, boardWrite) => {
     dispatch({
       type: "UPDATE",
       data: {
@@ -111,7 +104,6 @@ function App() {
         password,
         birth,
         mission,
-        coupon,
         boardWrite,
       },
     });
