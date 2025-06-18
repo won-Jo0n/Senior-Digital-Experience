@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
 import NavCard from "../components/NavCard";
+
 const Home = () => {
   const nav = useNavigate();
 
@@ -18,6 +19,9 @@ const Home = () => {
   };
   const onComunity = () => {
     nav("/Community");
+  };
+  const onMap = () => {
+    nav("/Map");
   };
 
   return (
@@ -55,6 +59,7 @@ const Home = () => {
           title={"주변 복지 시설 보기"}
           explanation={"부가적인 설명입니다."}
           cardImage={3}
+          onClick={onMap}
         />
       </div>
     </div>
