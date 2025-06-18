@@ -1,12 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import "./NaverBook.css";
 
 const NaverBook = () => {
+  const nav = useNavigate();
+
+  const secondPage = () => {
+    nav("/page01");
+  };
+
   return (
     <div className="NaverBook">
       <div className="image-section">
         <img src="/img1.png" alt="logo" className="logoImg" />
         <div className="image2">
-          <img src="/img2.png" alt="sewin" />
+          <img src="/img2.png" alt="sewon" />
           <img src="/img2.png" alt="jinsung" />
         </div>
         <div className="image3">
@@ -31,7 +38,9 @@ const NaverBook = () => {
       </div> */}
 
       <div className="action-buttons">
-        <button className="green">예약</button>
+        <button className="green" onClick={secondPage} type="secondPage">
+          예약
+        </button>
         <button className="gray">문의</button>
       </div>
 
