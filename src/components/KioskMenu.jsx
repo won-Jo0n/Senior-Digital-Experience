@@ -3,6 +3,7 @@ import KioskCoffee from "./KioskCoffee";
 import KioskCake from "../components/KioskCake";
 import KioskDrink from "../components/KioskDrink";
 import { coffeeList } from "../util/cafeMenu-coffeeList";
+
 const KioskMenu = () => {
   //kioskMenu 보여주는 컴퍼넌트
 
