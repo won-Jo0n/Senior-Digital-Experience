@@ -95,7 +95,7 @@
 }
 
 .action-buttons .green {
-  
+  cursor: pointer;
   width: 250px;
   background-color: #03c75a;
   color: #fff;
@@ -107,6 +107,7 @@
 
 
 .action-buttons .gray {
+  cursor: pointer;
   width: 150px;
   background-color: #eee;
   color: #333;
