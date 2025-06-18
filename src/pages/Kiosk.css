@@ -1,7 +1,13 @@
 .KioskDisplay {
-  width: 70vh;
+  width: 900px;
   height: 100vh;
-  border: 1px solid rgb(252, 174, 174);
-  margin-left: 35%;
+  margin-left: 30%;
+}
+
+.ControlBar {
   background-color: white;
+}
+.KioskMenuDisplay {
+  background-color: white;
+  background-size: 800px;
 }
