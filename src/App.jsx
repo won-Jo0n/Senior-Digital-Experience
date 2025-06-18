@@ -121,8 +121,8 @@ function App() {
       <DataStateContext.Provider value={data}>
         <DataDispatchContext.Provider value={{ onCreate, onUpdate, onDelete }}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Login" element={<Login />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/Home" element={<Home />} />
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
             <Route path="/Kiosk" element={<Kiosk />} />
