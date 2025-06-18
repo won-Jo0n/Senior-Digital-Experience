@@ -2,7 +2,7 @@ import "./Kiosk.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Button from "../components/Button";
-import KioskMenu from "../components/KioskMenu";
+import KioskMenu from "../components/KioskComponents/KioskMenu";
 
 const Kiosk = () => {
   const nav = useNavigate();
@@ -10,13 +10,14 @@ const Kiosk = () => {
     <div className="KioskDisplay">
       <div className="ControlBar">
         <Header
-          title="로고이미지"
+          title={"로고 넣기"}
           rightChild={
             <Button
               onClick={() => {
                 nav("/");
               }}
               text={"홈으로"}
+              type={"home"}
             />
           }
         />
