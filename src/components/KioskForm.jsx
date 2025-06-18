@@ -5,7 +5,7 @@ const KioskForm = () => {
     <div className="KioskForm">
       <Header />
       <div className="KioskImg">
-        <img src="#"></img>
+        <img src="/koisk.png"></img>
       </div>
     </div>
   );
