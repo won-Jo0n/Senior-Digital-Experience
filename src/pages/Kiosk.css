@@ -1,55 +1,7 @@
 .KioskDisplay {
   width: 70vh;
   height: 100vh;
-  border: 1px solid black;
+  border: 1px solid rgb(252, 174, 174);
   margin-left: 35%;
-}
-.promotional {
-  border: 1px solid rgb(110, 92, 92);
-  height: 15%;
-}
-
-.MenuBar {
-  border: 1px solid rgb(110, 92, 92);
-  height: 6%;
-}
-
-.button_coffee {
-  width: 34%;
-  height: 100%;
-  justify-content: flex-start;
-  font-size: 40px;
   background-color: white;
-  border: none;
-}
-.button_coffee:hover {
-  color: white;
-  background-color: #ab1f2e;
-}
-
-.button_drink {
-  width: 33%;
-  height: 100%;
-  justify-content: center;
-  font-size: 40px;
-  background-color: white;
-  border: none;
-}
-.button_drink:hover {
-  color: white;
-  background-color: #ab1f2e;
-}
-
-.button_cake {
-  width: 33%;
-  height: 100%;
-  justify-content: flex-end;
-  font-size: 40px;
-  background-color: white;
-  border: none;
-}
-
-.button_cake:hover {
-  color: white;
-  background-color: #ab1f2e;
 }

@@ -21,18 +21,8 @@ const Kiosk = () => {
           }
         />
       </div>
-      <div className="promotional banner">광고</div>
-      <div className="MenuBar">
-        <button
-          className="button_coffee"
-          onClick={() => {
-            <KioskMenu />;
-          }}
-        >
-          커피
-        </button>
-        <button className="button_drink">음료</button>
-        <button className="button_cake">케이크</button>
+      <div>
+        <KioskMenu />
       </div>
     </div>
   );
