@@ -45,8 +45,8 @@ function App() {
       id: 1, // 각 일기를 구분 할 수 있는 key 필요
       phoneNum: "01020081973",
       password: "qwer1234",
+      birth: "2000-09-14",
       mission: [true, true, true],
-      coupon: [true, true, true],
       boardWrite: [],
     },
   ];
@@ -80,27 +80,36 @@ function App() {
     });
     setIsLoading(true);
   }, []);
-  const onCreate = (createDate, emotionId, content) => {
+  const onCreate = (phoneNum, password, birth) => {
     dispatch({
       type: "CREATE",
       data: {
         id: idRef.current++,
         phoneNum,
         password,
-        mission,
-        coupon,
+        birth,
+        [false,false,false],
         boardWrite,
       },
     });
   };
 
-  const onUpdate = (id, createDate, emotionId, content) => {
+  const onUpdate = (
+    id,
+    phoneNum,
+    password,
+    birth,
+    mission,
+    coupon,
+    boardWrite
+  ) => {
     dispatch({
       type: "UPDATE",
       data: {
         id: id,
         phoneNum,
         password,
+        birth,
         mission,
         coupon,
         boardWrite,
@@ -121,8 +130,8 @@ function App() {
       <DataStateContext.Provider value={data}>
         <DataDispatchContext.Provider value={{ onCreate, onUpdate, onDelete }}>
           <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/Login" element={<Login />} />
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
             <Route path="/Kiosk" element={<Kiosk />} />

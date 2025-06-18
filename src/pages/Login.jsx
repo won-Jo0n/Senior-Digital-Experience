@@ -14,7 +14,7 @@ const Login = () => {
         value.phoneNum === phoneNumValue.current &&
         value.password === passwordValue.current
       ) {
-        navigate("/Home", { replace: true });
+        navigate("/", { replace: true });
       }
     });
   };
