@@ -1,3 +1,5 @@
+import "./NaverBook.css";
+
 const NaverBook = () => {
   // 첫번쨰 페이지
   return (
@@ -21,11 +23,11 @@ const NaverBook = () => {
       </div>
 
       <div className="naverbook-details">
-        <p>📍 서울 중구 무교로 13 6층</p>
-        <p>🚇 시청역 1,2호선 4번 출구에서 192m</p>
-        <p>🕑 진료 중 · 14:00에 휴게시간</p>
-        <p>📞 02-756-6322</p>
-        <p>👨‍⚕️ 정신건강의학과 전문의 2명</p>
+        <p>서울 중구 무교로 13 6층</p>
+        <p>시청역 1,2호선 4번 출구에서 192m</p>
+        <p>진료 중 · 14:00에 휴게시간</p>
+        <p>02-756-6322</p>
+        <p>정신건강의학과 전문의 2명</p>
         <p>http://skymentalhealth.com</p>
       </div>
     </div>
