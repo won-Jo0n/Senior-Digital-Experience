@@ -41,11 +41,20 @@ const Home = () => {
         <Button text={"커뮤니티"} type={"Comunity"} onClick={onComunity} />
       </div>
       <div className="wrapper_main">
-        <NavCard title={"키오스크"} explanation={"부가적인 설명입니다."} />
-        <NavCard title={"병원예약"} explanation={"부가적인 설명입니다."} />
+        <NavCard
+          title={"키오스크"}
+          explanation={"부가적인 설명입니다."}
+          cardImage={1}
+        />
+        <NavCard
+          title={"병원예약"}
+          explanation={"부가적인 설명입니다."}
+          cardImage={2}
+        />
         <NavCard
           title={"주변 복지 시설 보기"}
           explanation={"부가적인 설명입니다."}
+          cardImage={3}
         />
       </div>
     </div>
