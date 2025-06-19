@@ -1,13 +1,14 @@
-import drink_appleMango from "../assets/coffee/drink_appleMango.png";
-import drink_appleMintTea from "../assets/coffee/drink_appleMintTea.png";
-import drink_lemonTea from "../assets/coffee/drink_lemonTea.png";
-import drink_mintCholoate from "../assets/coffee/drink_mintCholoate.png";
-import drink_peachBlackTea from "../assets/coffee/drink_peachBlackTea.png";
-import drink_signMusketAde from "../assets/coffee/drink_signMusketAde.png";
-import drink_strawberryMilk from "../assets/coffee/drink_strawberryMilk.png";
-import drink_Sweetpotatolatte from "../assets/coffee/drink_Sweetpotatolatte.png";
+import drink_appleMango from "../assets/drink/drink_appleMango.jpg";
+import drink_appleMintTea from "../assets/drink/drink_appleMintTea.jpg";
+import drink_lemonTea from "../assets/drink/drink_lemonTea.jpg";
+import drink_mintCholoate from "../assets/drink/drink_mintCholoate.jpg";
+import drink_peachBlackTea from "../assets/drink/drink_peachBlackTea.jpg";
+import drink_signMusketAde from "../assets/drink/drink_signMusketAde.jpg";
+import drink_strawberryMilk from "../assets/drink/drink_strawberryMilk.jpg";
+import drink_SweetpotatoLatte from "../assets/drink/drink_SweetpotatoLatte.jpg";
 
-export function getCoffeeImage(drinkId) {
+export function getDrinkImage(drinkId) {
+  console.log("음료 아이디:" + drinkId);
   switch (drinkId) {
     case 1:
       return drink_appleMango;
@@ -24,7 +25,7 @@ export function getCoffeeImage(drinkId) {
     case 7:
       return drink_strawberryMilk;
     case 8:
-      return drink_Sweetpotatolatte;
+      return drink_SweetpotatoLatte;
     default:
       return null;
   }

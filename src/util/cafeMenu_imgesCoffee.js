@@ -7,7 +7,7 @@ import coffee_Decold from "../assets/coffee/coffee_Decold.png";
 import coffee_Moka from "../assets/coffee/coffee_Moka.png";
 import coffee_Vanilla from "../assets/coffee/coffee_Vanilla.png";
 export function getCoffeeImage(coffeeId) {
-  console.log(coffeeId);
+  console.log("커피 이미지 아이디:" + coffeeId);
   switch (coffeeId) {
     case 1:
       return coffee_Americano;

@@ -1,13 +1,14 @@
-import cake_cheeseCake from "../assets/coffee/cake_cheeseCake.png";
-import cake_icebox from "../assets/coffee/cake_icebox.png";
-import cake_redVelvet from "../assets/coffee/cake_redVelvet.png";
-import cake_straeberryRIngDIngDoCake from "../assets/coffee/cake_straeberryRIngDIngDoCake.png";
-import cake_strawberryChocolateCake from "../assets/coffee/cake_strawberryChocolateCake.png";
-import cake_tiramisucake from "../assets/coffee/cake_tiramisucake.png";
-import cake_whippedCreamChiffon from "../assets/coffee/cake_whippedCreamChiffon.png";
-import cake_whiteCherryCake from "../assets/coffee/cake_whiteCherryCake.png";
+import cake_cheeseCake from "../assets/cake/cake_cheeseCake.jpg";
+import cake_icebox from "../assets/cake/cake_icebox.jpg";
+import cake_redVelvet from "../assets/cake/cake_redVelvet.jpg";
+import cake_straeberryRIngDIngDoCake from "../assets/cake/cake_straeberryRIngDIngDoCake.jpg";
+import cake_strawberryChocolateCake from "../assets/cake/cake_strawberryChocolateCake.jpg";
+import cake_tiramisucake from "../assets/cake/cake_tiramisucake.jpg";
+import cake_whippedCreamChiffon from "../assets/cake/cake_whippedCreamChiffon.jpg";
+import cake_whiteCherryCake from "../assets/cake/cake_whiteCherryCake.jpg";
 
-export function getCoffeeImage(CakeId) {
+export function getCakeImage(CakeId) {
+  console.log("케이크 아이디:" + CakeId);
   switch (CakeId) {
     case 1:
       return cake_cheeseCake;

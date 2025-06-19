@@ -1,0 +1,25 @@
+.drink_menu > .wrapper {
+  width: 200px;
+}
+.wrapper > .drink_img {
+  width: 280px;
+  height: 260px;
+  margin-left: 50px;
+}
+
+.drink_menu {
+  width: 290px;
+  margin-left: 5px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.drink_name {
+  width: 300px;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+  margin-left: 40px;
+}
