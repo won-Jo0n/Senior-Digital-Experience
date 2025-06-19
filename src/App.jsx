@@ -90,21 +90,25 @@ function App() {
       alert("이미 가입된 전화번호입니다.");
       return;
     }
-    var mission = [false, false, false];
-    var boardWrite = [false, false, false];
-    dispatch({
-      type: "CREATE",
-      data: {
-        id: idRef.current++,
-        phoneNum,
-        password,
-        birth,
-        mission,
-        boardWrite,
-      },
-    });
-    alert("계정이 생성되었습니다.");
-    nav("/");
+    if (phoneNum && password && birth) {
+      var mission = [false, false, false];
+      var boardWrite = [false, false, false];
+      dispatch({
+        type: "CREATE",
+        data: {
+          id: idRef.current++,
+          phoneNum,
+          password,
+          birth,
+          mission,
+          boardWrite,
+        },
+      });
+      alert("계정이 생성되었습니다.");
+      nav("/");
+    } else {
+      alert("입력란을 채워주세요!");
+    }
   };
 
   const onUpdate = (id, phoneNum, password, birth, mission, boardWrite) => {
