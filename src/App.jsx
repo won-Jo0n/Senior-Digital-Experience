@@ -237,6 +237,8 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
+            <Route path="/Kiosk" element={<KioskStart />}></Route>
+            <Route path="/Kiosk/:1" element={<Kiosk />}></Route>
             <Route
               path="/NaverBook/page01"
               element={<NaverBook_page01 />}
