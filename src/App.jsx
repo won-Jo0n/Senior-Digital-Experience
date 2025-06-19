@@ -3,16 +3,17 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NewAccount from "./pages/NewAccount";
 import MyPage from "./pages/MyPage";
-import Kiosk from "./pages/Kiosk";
-import NaverBook from "./pages/NaverBook";
 import Map from "./pages/Map";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
-import Popup from "./components/Popup";
-import KioskStartDisplay from "./pages/KioskStartDisplay";
+import KioskStart from "./pages/Kiosk_Start";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { createContext } from "react";
 import { useEffect, useReducer, useRef, useState } from "react";
+import NaverBook_page01 from "./pages/NaverBookPages/NaverBook_page01";
+import NaverBook_page02 from "./pages/NaverBookPages/NaverBook_page02";
+import NaverBook_page03 from "./pages/NaverBookPages/NaverBook_page03";
+import Kiosk from "./pages/Kiosk";
 
 function reducer(state, action) {
   console.log(state, action);
@@ -150,8 +151,17 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
-            <Route path="/Kiosk" element={<KioskStartDisplay />} />
-            <Route path="/NaverBook" element={<NaverBook />} />
+            <Route path="/Kiosk" element={<KioskStart />} />
+            <Route path="/Kiosk/:1" element={<Kiosk />} />
+            <Route path="/NaverBook" element={<NaverBook_page01 />} />
+            <Route
+              path="/NaverBook/:page02"
+              element={<NaverBook_page02 />}
+            ></Route>
+            <Route
+              path="/NaverBook/:page03"
+              element={<NaverBook_page03 />}
+            ></Route>
             <Route path="/Map" element={<Map />} />
             <Route path="/Community" element={<Community />} />
             <Route path="/*" element={<NotFound />} />

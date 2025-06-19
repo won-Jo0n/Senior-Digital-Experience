@@ -1,0 +1,28 @@
+.NaverBook_page03 {
+   font-family: sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.week {
+  display: flex;
+  gap: 4px;
+}
+
+.day {
+  width: 32px;
+  height: 32px;
+  border: none;
+  text-align: center;
+  line-height: 32px;
+}

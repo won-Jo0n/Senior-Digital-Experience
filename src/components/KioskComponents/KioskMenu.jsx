@@ -71,6 +71,33 @@ const KioskMenu = () => {
         </button>
       </div>
       <div className="coffee_menu">{changeMenu()}</div>
+      <div className="orderBar">
+        <div className="orderList">
+          <b>주문 내역</b>
+        </div>
+        <div className="orderListBlank"> 주문 내역 칸 </div>
+        <div>
+          <div className="orderTotal">
+            <div className="orderTotalNum">
+              총수량:
+              <span>0개</span>
+            </div>
+            <div className="orderTotalMoney">
+              총금액:
+              <span>0원</span>
+            </div>
+          </div>
+          <div className="olderOption">
+            <div>
+              <button className="clearBtn">지우기</button>
+              <button className="olderBtn">주문하기</button>
+            </div>
+            <div className="resetOption">
+              <button className="resetBtn">처음으로</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
