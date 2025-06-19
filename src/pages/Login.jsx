@@ -1,30 +1,37 @@
 import { useContext, useRef, useState } from "react";
 import Button from "../components/Button";
 import { DataStateContext } from "../App";
+import { DataDispatchContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const data = useContext(DataStateContext);
+  const userState = useContext(DataStateContext);
+  const { onLogin } = useContext(DataDispatchContext);
   const phoneNumValue = useRef("");
   const passwordValue = useRef("");
   const [phoneNum, setPhoneNum] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const loginOnClick = () => {
-    data.map((value) => {
-      if (value.phoneNum === phoneNum && value.password === password) {
-        alert("당신의 도전을 응원합니다!");
-        navigate("/", { replace: true });
-      } else if (value.phoneNum === phoneNum && value.password !== password) {
+    const userFound = userState.data.find(
+      (value) => value.phoneNum === phoneNum && value.password === password
+    );
+    if (userFound) {
+      alert("당신의 도전을 응원합니다!");
+      onLogin();
+      navigate("/", { replace: true });
+    } else {
+      const phoneNumExists = userState.data.some(
+        (value) => value.phoneNum === phoneNum
+      );
+      if (phoneNumExists) {
         passwordValue.current.focus();
         alert("비밀번호를 확인해주세요!");
-      } else if (value.phoneNum !== phoneNum && value.password === password) {
-        phoneNumValue.current.focus();
-        alert("아이디를 확인해주세요!");
       } else {
-        alert("가입된 정보가 없습니다 회원가입을 진행 해주세요!");
+        phoneNumValue.current.focus();
+        alert("가입된 정보가 없습니다. 회원가입을 진행 해주세요!");
       }
-    });
+    }
   };
   const newAccountOnClick = () => {
     navigate("/NewAccount", { replace: true });

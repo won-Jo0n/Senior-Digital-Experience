@@ -8,3 +8,7 @@
   color: #1f2e25;
   background-color: white;
 }
+
+.Button_none {
+  display: none;
+}
