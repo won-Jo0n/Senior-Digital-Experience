@@ -3,10 +3,13 @@ import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
 import NavCard from "../components/NavCard";
+import { useContext } from "react";
+import { DataStateContext } from "../App";
 
 const Home = () => {
   const nav = useNavigate();
-
+  const userState = useContext(DataStateContext);
+  console.log(userState.isLogin);
   // nav
   const onMyPage = () => {
     nav("/MyPage");
@@ -37,14 +40,26 @@ const Home = () => {
       </div>
       <div className="wrapper_menu">
         <div className="MyPage">
-          <Button text={"마이페이지"} type={"myPage"} onClick={onMyPage} />
+          <Button
+            text={"마이페이지"}
+            type={`${userState.isLogin ? "MyPage" : "none"}`}
+            onClick={onMyPage}
+          />
         </div>
         <div className="Login">
-          <Button text={"로그인"} type={"myPage"} onClick={onLogin} />
+          <Button
+            text={"로그인"}
+            type={`${userState.isLogin ? "none" : "Login"}`}
+            onClick={onLogin}
+          />
         </div>
-        /
+
         <div className="NewAccount">
-          <Button text={"회원가입"} type={"myPage"} onClick={onNewAccount} />
+          <Button
+            text={"회원가입"}
+            type={`${userState.isLogin ? "none" : "NewAccount"}`}
+            onClick={onNewAccount}
+          />
         </div>
       </div>
       <div className="Comunity">
