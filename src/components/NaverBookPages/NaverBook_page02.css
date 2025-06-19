@@ -1,0 +1,83 @@
+.NaverBook_page02 {
+  padding: 20px;
+  color: #333;
+}
+.NaverBook_Header {
+  position: relative;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+  height: 160px; 
+}
+
+.NaverBook_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #5ab27f 0%, #1a7342 100%);
+  z-index: 0;
+}
+
+.NaverBook_content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  color: white;
+}
+
+h4 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.page02_wrapper {
+  margin-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+}
+
+.naverBookDiv {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.secondBookButton {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondBookButton:hover {
+  background-color: #f0f0f0;
+}
+
+.smallWord {
+  font-size: 13px;
+  color: #555;
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.bookBtn {
+  padding: 8px 16px;
+  background-color: #03c75a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.bookBtn:hover {
+  background-color: #02b14c;
+}
