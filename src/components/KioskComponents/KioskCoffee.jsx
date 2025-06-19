@@ -8,6 +8,7 @@ const KioskCoffee = ({ coffeeId, coffeeName, onClick }) => {
   return (
     <div className="coffee_menu">
       <div className="wrapper">
+        {/* 이미지 클릭시 해당 정보 modal로 전달..? */}
         <img
           className="coffee_img"
           src={getCoffeeImage(coffeeId)}

@@ -13,8 +13,18 @@ const KioskMenu = () => {
   //카테고리 선택시 div 안 메뉴들 변함
   const [pickMenu, setPickMenu] = useState("coffee");
   const [onModal, setOnModal] = useState(false);
+
+  //선택된 상품의 객체를 저장할 state
+  const [selectedItem, setSelectedItem] = useState({});
   console.log("현재 onModal 값:", onModal);
   console.log("현재 pickMenu 값:", pickMenu);
+  console.log("현재 selectedItem 값:", selectedItem);
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item); // 클릭된 아이템 정보 저장
+    setOnModal(true); // 모달 열기
+  };
+
   const changeMenu = () => {
     if (pickMenu === "coffee") {
       return coffeeList.map((item) => (
@@ -22,10 +32,7 @@ const KioskMenu = () => {
           key={item.coffeeId}
           coffeeId={item.coffeeId}
           coffeeName={item.coffeeName}
-          onClick={() => {
-            console.log("sss");
-            setOnModal(true);
-          }}
+          onClick={() => handleItemClick(item)}
         />
       ));
     } else if (pickMenu === "drink") {
@@ -34,10 +41,7 @@ const KioskMenu = () => {
           key={item.drinkId}
           drinkId={item.drinkId}
           drinkName={item.drinkName}
-          onClick={() => {
-            console.log("aaa");
-            setOnModal(true);
-          }}
+          onClick={() => handleItemClick(item)}
         />
       ));
     } else if (pickMenu === "cake") {
@@ -46,10 +50,7 @@ const KioskMenu = () => {
           key={item.CakeId}
           CakeId={item.CakeId}
           CakeName={item.CakeName}
-          onClick={() => {
-            console.log("vvv");
-            setOnModal(true);
-          }}
+          onClick={() => handleItemClick(item)}
         />
       ));
     }
@@ -117,9 +118,9 @@ const KioskMenu = () => {
         <div>
           {onModal === true ? (
             <KioskModal
-              onClick={() => {
-                setOnModal(false);
-              }}
+              selectedItem={selectedItem}
+              pickMenu={pickMenu}
+              setOnModal={setOnModal}
             />
           ) : (
             !onModal
