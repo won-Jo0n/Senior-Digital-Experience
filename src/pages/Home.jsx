@@ -27,7 +27,7 @@ const Home = () => {
     nav("/Kiosk");
   };
   const onNaverBook = () => {
-    nav("/NaverBook");
+    nav("/NaverBook/page01");
   };
   const onMap = () => {
     nav("/Map");

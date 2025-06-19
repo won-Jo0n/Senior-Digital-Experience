@@ -13,6 +13,8 @@ import { useEffect, useReducer, useRef, useState } from "react";
 import NaverBook_page01 from "./pages/NaverBookPages/NaverBook_page01";
 import NaverBook_page02 from "./pages/NaverBookPages/NaverBook_page02";
 import NaverBook_page03 from "./pages/NaverBookPages/NaverBook_page03";
+import NaverBook_page04 from "./pages/NaverBookPages/NaverBook_page04";
+import NaverBook_page05 from "./pages/NaverBookPages/NaverBook_page05";
 import Kiosk from "./pages/Kiosk";
 
 function reducer(state, action) {
@@ -66,6 +68,7 @@ export const DataDispatchContext = createContext();
 function App() {
   const nav = useNavigate();
   const [isLogin, setIslogin] = useState(false);
+  const [loginedId, setLoginedId] = useState(null);
   console.log(isLogin);
   const mockData = [
     {
@@ -209,7 +212,9 @@ function App() {
       id,
     });
   };
-  const onLogin = () => {
+  const onLogin = (id) => {
+    console.log(id);
+    setLoginedId(id);
     setIslogin(true);
   };
   if (!isLoading) {
@@ -220,7 +225,7 @@ function App() {
   }
   return (
     <>
-      <DataStateContext.Provider value={{ data, communityData, isLogin }}>
+      <DataStateContext.Provider value={{ data,communityData, isLogin, loginedId }}>
         <DataDispatchContext.Provider
           value={{ onCreate, onUpdate, onDelete, onLogin, onCreateCommunity }}
         >
@@ -229,16 +234,25 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
-            <Route path="/Kiosk" element={<KioskStart />} />
-            <Route path="/Kiosk/:1" element={<Kiosk />} />
-            <Route path="/NaverBook" element={<NaverBook_page01 />} />
             <Route
-              path="/NaverBook/:page02"
+              path="/NaverBook/page01"
+              element={<NaverBook_page01 />}
+            ></Route>
+            <Route
+              path="/NaverBook/page02"
               element={<NaverBook_page02 />}
             ></Route>
             <Route
-              path="/NaverBook/:page03"
+              path="/NaverBook/page03"
               element={<NaverBook_page03 />}
+            ></Route>
+            <Route
+              path="/NaverBook/page04"
+              element={<NaverBook_page04 />}
+            ></Route>
+            <Route
+              path="/NaverBook/page05"
+              element={<NaverBook_page05 />}
             ></Route>
             <Route path="/Map" element={<Map />} />
             <Route path="/Community" element={<Community />} />

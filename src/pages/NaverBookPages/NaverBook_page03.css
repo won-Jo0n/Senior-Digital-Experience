@@ -8,21 +8,56 @@
   border-radius: 10px;
 }
 
-.calendar {
+.NaverBook_page03 .thirdBookDiv {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+}
+
+
+.calendarDay .calendar {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.week {
+.calendarDay .week {
   display: flex;
   gap: 4px;
 }
 
-.day {
+.calendarDay .day {
+  padding: 10px;
   width: 32px;
   height: 32px;
   border: none;
   text-align: center;
   line-height: 32px;
+  cursor: pointer;
 }
+
+
+
+.calendarHeader button{
+border-style: none;
+border: none;
+background-color:  #fff;
+cursor: pointer;
+}
+
+.calendarDay .day:hover{
+  background-color: #03c75a;
+  color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+}
+
+.amButton Button{
+  display: flex;
+  border: 1px solid black;
+} 
