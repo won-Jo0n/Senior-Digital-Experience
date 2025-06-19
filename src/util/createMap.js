@@ -1,31 +1,26 @@
 export default function createMap(
   containerID,
   options = {},
-  markerPosition = {}
+  markerPosition = []
 ) {
   var mapContainer = document.getElementById(containerID); // 지도를 표시할 div
   const map = new window.kakao.maps.Map(mapContainer, options);
-
+  console.log(markerPosition);
   for (let i = 0; i < markerPosition.length; i++) {
-    var marker = new window.kakao.maps.Marker({
-      position: markerPosition[i].lating,
-    });
-    const iwContent = "<div>hi</div>";
-    const iwPosition = markerPosition[i].lating; //인포윈도우 표시 위치입니다
-
-    var infowindow = new window.kakao.maps.InfoWindow({
-      position: iwPosition,
-      content: iwContent,
+    const marker = new window.kakao.maps.Marker({
+      position: markerPosition[i].Latlng,
+      clickable: true,
     });
     marker.setMap(map);
-    window.kakao.maps.event.addListener(marker, "mouseover", function () {
-      // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
-      infowindow.open(map, marker);
+    const iwContent = markerPosition[i].content, // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+      iwRemoveable = true;
+    const infowindow = new window.kakao.maps.InfoWindow({
+      content: iwContent,
+      removable: iwRemoveable,
     });
-    // 마커에 마우스아웃 이벤트를 등록합니다
-    window.kakao.maps.event.addListener(marker, "mouseout", function () {
-      // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
-      infowindow.close();
+    window.kakao.maps.event.addListener(marker, "click", function () {
+      // 마커 위에 인포윈도우를 표시합니다
+      infowindow.open(map, marker);
     });
   }
   // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다

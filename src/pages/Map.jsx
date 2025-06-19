@@ -10,20 +10,20 @@ const Map = () => {
     };
     const markerPosition = [
       {
-        content: "<div>카카오</div>",
-        lating: new window.kakao.maps.LatLng(33.450701, 126.570667),
+        content: "<div>1</div>",
+        Latlng: new window.kakao.maps.LatLng(33.451701, 126.570667),
       },
       {
-        content: "<div>생태연못</div>",
-        lating: new window.kakao.maps.LatLng(34.450701, 126.570667),
+        content: "<div>2</div>",
+        Latlng: new window.kakao.maps.LatLng(33.452701, 126.570667),
       },
       {
-        content: "<div>텃밭</div>",
-        lating: new window.kakao.maps.LatLng(35.450701, 126.570667),
+        content: "<div>3</div>",
+        Latlng: new window.kakao.maps.LatLng(33.453701, 126.570667),
       },
       {
-        content: "<div>근린공원</div>",
-        lating: new window.kakao.maps.LatLng(36.450701, 126.570667),
+        content: "<div>4</div>",
+        Latlng: new window.kakao.maps.LatLng(33.454701, 126.570667),
       },
     ];
 
