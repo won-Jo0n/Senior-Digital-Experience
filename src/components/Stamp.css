@@ -1,0 +1,17 @@
+.stampDiv {
+  width: 240px;
+  height: 240px;
+  perspective: 1000px;
+  display: inline-block;
+}
+
+.stamp {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+  will-change: transform;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
