@@ -16,6 +16,7 @@ import NaverBook_page03 from "./pages/NaverBookPages/NaverBook_page03";
 import NaverBook_page04 from "./pages/NaverBookPages/NaverBook_page04";
 import NaverBook_page05 from "./pages/NaverBookPages/NaverBook_page05";
 import Kiosk from "./pages/Kiosk";
+import Community_content from "./pages/Community_content";
 
 function reducer(state, action) {
   let nextState;
@@ -67,7 +68,7 @@ export const DataStateContext = createContext();
 export const DataDispatchContext = createContext();
 function App() {
   const nav = useNavigate();
-  const [isLogin, setIslogin] = useState(false);
+  const [isLogin, setIslogin] = useState("");
   const [loginedId, setLoginedId] = useState(null);
   console.log(isLogin);
   const mockData = [
@@ -86,6 +87,7 @@ function App() {
       title: "안녕하세요, 집인데 집 가고싶어요.......",
       userName: "땡떙땡",
       text: "안녕하세요, faldfnhlasdfnlsndlfnsalkfnklsndflkansdlkfnslkandfklasdnfk",
+      isAnswer: "",
     },
   ];
 
@@ -213,9 +215,8 @@ function App() {
     });
   };
   const onLogin = (id) => {
-    console.log(id);
     setLoginedId(id);
-    setIslogin(true);
+    setIslogin("LOGIN");
   };
   if (!isLoading) {
     console.log("아직 다 안올라왔다잉");
@@ -225,12 +226,14 @@ function App() {
   }
   return (
     <>
-      <DataStateContext.Provider value={{ data,communityData, isLogin, loginedId }}>
+      <DataStateContext.Provider
+        value={{ data, communityData, isLogin, loginedId }}
+      >
         <DataDispatchContext.Provider
           value={{ onCreate, onUpdate, onDelete, onLogin, onCreateCommunity }}
         >
           <Routes>
-            <Route path="/" element={<Home isLogin={isLogin} />} />
+            <Route path="/" element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
@@ -256,6 +259,10 @@ function App() {
             ></Route>
             <Route path="/Map" element={<Map />} />
             <Route path="/Community" element={<Community />} />
+            <Route
+              path="/Community_content/:id"
+              element={<Community_content />}
+            />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </DataDispatchContext.Provider>
