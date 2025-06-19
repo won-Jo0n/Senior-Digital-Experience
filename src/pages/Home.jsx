@@ -49,7 +49,7 @@ const Home = () => {
         <div className="Login">
           <Button
             text={"로그인"}
-            type={`${userState.isLogin ? "none" : "Login"}`}
+            type={`${userState.isLogin === "LOGIN" ? "none" : "Login"}`}
             onClick={onLogin}
           />
         </div>
