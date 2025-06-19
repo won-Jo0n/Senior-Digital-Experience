@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import "./NaverBook_page03.css";
 import { useState } from "react";
+import Button from "../../components/Button";
 
 const NaverBook_page03 = () => {
   const nav = useNavigate();
 
   const forthPage = () => {
-    nav("/page04");
+    nav("/NaverBook/page04");
   };
 
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -64,7 +65,7 @@ const NaverBook_page03 = () => {
   };
   return (
     <div className="NaverBook_page03">
-      <div className="secondBookButton" onClick={forthPage}>
+      <div className="thirdBookDiv">
         <h3>해봐YOU의원_네이버예약</h3>
         <p>
           해봐YOU의원 네이버 예약입니다. 간편하게 예약하고 문의해주세요.
@@ -72,11 +73,11 @@ const NaverBook_page03 = () => {
         </p>
       </div>
       <div className="action-buttons">
-        <button>예약하기</button>
-        <button>상세정보</button>
-        <button>리뷰</button>
+        <Button text={"예약하기"} />
+        <Button text={"상세정보"} />
+        <Button text={"리뷰"} />
       </div>
-      <div>
+      <div className="allCalendar">
         <h3>날짜와 시간을 선택해주세요</h3>
         <div className="calendar">
           <div className="calendarHeader">
@@ -84,7 +85,13 @@ const NaverBook_page03 = () => {
             {year}.{month + 1}
             <button onClick={handleNextMonth}>▶</button>
           </div>
-          <div className="calendarWeek"></div>
+          <div className="calendarWeek">
+            {/* {["일", "월", "화", "수", "목", "금", "토"].map((day, index) => (
+              <div className="weekday" key={index}>
+                {day()}
+              </div>
+            ))} */}
+          </div>
           <div className="calendarDay">
             {weeks.map((week, weekIndex) => (
               <div className="week" key={weekIndex}>
@@ -97,6 +104,47 @@ const NaverBook_page03 = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="clockbutton">
+        <hr />
+        <div className="amButton">
+          <p>오전</p>
+          <Button text={"9 : 00"}></Button>
+          <Button text={"9 : 30"}></Button>
+          <Button text={"10 : 00"}></Button>
+          <Button text={"10 : 30"}></Button>
+          <br />
+          <Button text={"11 : 00"}></Button>
+          <Button text={"11 : 30"}></Button>
+        </div>
+        <div className="pmButton">
+          <p>오전</p>
+          <Button text={"12 : 00"} type={"type"}></Button>
+          <Button text={"12 : 30"}></Button>
+          <Button text={"1 : 00"}></Button>
+          <Button text={"1 : 30"}></Button>
+          <br />
+          <Button text={"2: 00"}></Button>
+          <Button text={"2 : 30"}></Button>
+          <Button text={"3 : 00"}></Button>
+          <Button text={"3 : 30"}></Button>
+          <br />
+          <Button text={"4 : 00"}></Button>
+          <Button text={"4 : 30"}></Button>
+          <Button text={"5: 00"}></Button>
+          <Button text={"5 : 30"}></Button>
+          <br />
+          <Button text={"6 : 00"}></Button>
+          <Button text={"6 : 30"}></Button>
+          <Button text={"7 : 00"}></Button>
+          <Button text={"7 : 30"}></Button>
+          <br />
+          <Button text={"8: 00"}></Button>
+        </div>
+      </div>
+      <div>
+        <Button text={"💬"} />
+        <Button onClick={forthPage} text={"다음 단계"} />
       </div>
     </div>
   );
