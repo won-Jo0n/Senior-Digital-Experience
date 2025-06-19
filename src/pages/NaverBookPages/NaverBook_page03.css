@@ -8,6 +8,17 @@
   border-radius: 10px;
 }
 
+.NaverBook_page03 .thirdBookDiv {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+}
+
+
 .calendarDay .calendar {
   display: flex;
   flex-direction: column;
@@ -45,3 +56,8 @@ cursor: pointer;
     height: 32px;
     border-radius: 10px;
 }
+
+.amButton Button{
+  display: flex;
+  border: 1px solid black;
+} 
