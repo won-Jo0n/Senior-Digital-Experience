@@ -7,12 +7,17 @@ const NewAccount = () => {
   const passwordValue = useRef("");
   const birthValue = useRef("");
   const newAccountOnClick = () => {
-    dataDispatch.onCreate();
+    dataDispatch.onCreate(
+      phoneNumValue.current,
+      passwordValue.current,
+      birthValue.current
+    );
   };
   return (
     <div>
       전화번호
       <input
+        name="phoneNum"
         type="text"
         onChange={(event) => {
           phoneNumValue.current = event.target.value;
