@@ -1,7 +1,7 @@
 .NaverBook_page03 {
    font-family: sans-serif;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 100px auto;
   padding: 16px;
   background: #fff;
   border: 1px solid #e5e5e5;
@@ -58,6 +58,29 @@ cursor: pointer;
 }
 
 .amButton Button{
-  display: flex;
-  border: 1px solid black;
+  border: 1px solid #333;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
 } 
+.pmButton Button{
+  border: 1px solid #333;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+} 
+
+.calendarWeek {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weekday {
+  width: 40px;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  margin: 8px;
+}
