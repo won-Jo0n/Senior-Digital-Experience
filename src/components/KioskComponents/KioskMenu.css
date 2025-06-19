@@ -1,5 +1,5 @@
 .AllDisplay {
-  height: 100vh;
+  height: 1700px;
   background-color: white;
 }
 
@@ -10,6 +10,7 @@
 .button_coffee {
   width: 34%;
   height: 100%;
+  font-weight: bold;
   justify-content: flex-start;
   font-size: 40px;
   background-color: white;
@@ -23,6 +24,7 @@
 .button_drink {
   width: 33%;
   height: 100%;
+  font-weight: bold;
   justify-content: center;
   font-size: 40px;
   background-color: white;
@@ -36,6 +38,7 @@
 .button_cake {
   width: 33%;
   height: 100%;
+  font-weight: bold;
   justify-content: flex-end;
   font-size: 40px;
   background-color: white;
@@ -45,4 +48,88 @@
 .button_cake:hover {
   color: white;
   background-color: #ab1f2e;
+}
+
+.orderBar {
+  width: 34%;
+  height: 87%;
+  float: right;
+  border: 1px solid black;
+  padding-bottom: 100px;
+}
+
+.orderBar .orderList {
+  width: 100%;
+  height: 8%;
+  padding-top: 10px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 45px;
+}
+
+.orderBar .orderListBlank {
+  border: 1px solid black;
+  height: 72%;
+}
+
+.orderBar .orderTotal {
+  border: 1px solid black;
+  height: 160px;
+}
+
+.orderTotal .orderTotalNum {
+  height: 70px;
+  font-size: 39px;
+  padding-top: 20px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.orderTotal .orderTotalMoney {
+  height: 70px;
+  font-size: 39px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.orderTotalNum span {
+  float: right;
+  padding-right: 25px;
+  color: #ab1f2e;
+  font-weight: bold;
+}
+
+.orderTotalMoney span {
+  float: right;
+  padding-right: 25px;
+  color: #ab1f2e;
+  font-weight: bold;
+}
+
+.olderOption .clearBtn {
+  border-style: none;
+  width: 150px;
+  height: 130px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  background-color: #78787e;
+}
+.olderOption .olderBtn {
+  border-style: none;
+  width: 360px;
+  height: 130px;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: #ab1f2e;
+  color: white;
+}
+.resetOption .resetBtn {
+  border-style: none;
+  width: 510px;
+  height: 110px;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: #3e3e3f;
+  color: white;
 }

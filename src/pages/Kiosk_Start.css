@@ -1,0 +1,81 @@
+.blinking {
+  -webkit-animation: blink 0.6s ease-in-out infinite alternate;
+  -moz-animation: blink 0.6s ease-in-out infinite alternate;
+  animation: blink 0.6s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes blink {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.wrapperStartDisplay {
+  background-color: white;
+  width: 1300px;
+  height: 100vh;
+  margin-left: 30%;
+}
+
+.wrapperStartDisplay .firstDiv {
+  width: 1300px;
+  height: 60vh;
+}
+
+.wrapperStartDisplay .startImage {
+  width: 1300px;
+  height: 60vh;
+}
+
+.wrapperStartDisplay .middleDiv {
+  width: 1300px;
+  height: 60vh;
+  background-color: #3e3e3f;
+}
+
+.middleDiv .middleText {
+  padding-top: 20%;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+}
+
+.middleDiv .middleMainText {
+  padding-top: 1%;
+  text-align: center;
+  font-size: 80px;
+  color: white;
+}
+
+.middleDiv .blinking {
+  width: 150px;
+  height: 200px;
+  float: right;
+  margin-right: 80px;
+}
+
+.wrapperStartDisplay .thirdDiv {
+  width: 1300px;
+  height: 60vh;
+}

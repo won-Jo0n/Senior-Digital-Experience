@@ -62,7 +62,6 @@ const NaverBook_page03 = () => {
       new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
     );
   };
-
   return (
     <div className="NaverBook_page03">
       <div className="secondBookButton" onClick={forthPage}>

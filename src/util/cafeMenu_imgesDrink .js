@@ -8,7 +8,6 @@ import drink_strawberryMilk from "../assets/drink/drink_strawberryMilk.jpg";
 import drink_SweetpotatoLatte from "../assets/drink/drink_SweetpotatoLatte.jpg";
 
 export function getDrinkImage(drinkId) {
-  console.log("음료 아이디:" + drinkId);
   switch (drinkId) {
     case 1:
       return drink_appleMango;
