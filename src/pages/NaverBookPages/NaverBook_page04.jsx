@@ -11,7 +11,7 @@ const NaverBook_page04 = () => {
   };
 
   return (
-    <div>
+    <div className="bigContainer">
       <Header />
       <div className="bookWrapper">
         <img src="/phone.png" alt="phone"></img>

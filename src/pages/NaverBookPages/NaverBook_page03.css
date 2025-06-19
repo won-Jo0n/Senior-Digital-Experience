@@ -1,76 +1,99 @@
-.NaverBook_page03 {
-   font-family: sans-serif;
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 16px;
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
+.bigContainer {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFBF3;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-.NaverBook_page03 .thirdBookDiv {
-  padding: 12px;
-  border: 1px solid #ccc;
+.bookWrapper {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.bookWrapper img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.NaverBook_page03 {
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 20px;
+  width: 380px;
+  max-height: 685px;
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.thirdBookDiv {
+  padding: 16px;
+  border: 1px solid #ddd;
   border-radius: 10px;
   background-color: #fff;
-  margin-top: 10px;
-  transition: all 0.2s ease;
   margin-bottom: 20px;
 }
 
 
-.calendarDay .calendar {
+
+.action-buttons  {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.action-buttons .menuBtn {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.reserveBtn {
+  background-color: #494949 !important;
+  color: #fff !important;
+}
+
+.bookBtn {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  color: black;
+}
+
+.allCalendar h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.calendar {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.calendarDay .week {
+.calendarHeader {
   display: flex;
-  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
-.calendarDay .day {
-  padding: 10px;
-  width: 32px;
-  height: 32px;
+.calendarHeader button {
   border: none;
-  text-align: center;
-  line-height: 32px;
+  background: none;
+  font-size: 18px;
   cursor: pointer;
 }
-
-
-
-.calendarHeader button{
-border-style: none;
-border: none;
-background-color:  #fff;
-cursor: pointer;
-}
-
-.calendarDay .day:hover{
-  background-color: #03c75a;
-  color: #fff;
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
-}
-
-.amButton Button{
-  border: 1px solid #333;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  color: black;
-} 
-.pmButton Button{
-  border: 1px solid #333;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  color: black;
-} 
 
 .calendarWeek {
   display: flex;
@@ -78,9 +101,91 @@ cursor: pointer;
 }
 
 .weekday {
-  width: 40px;
+  width: 32px;
   text-align: center;
   font-weight: bold;
-  color: #555;
-  margin: 8px;
+  color: #777;
+}
+
+.calendarDay .week {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.day:hover {
+  background-color: #e0f6ea;
+}
+
+.day.selected {
+  background-color: #03c75a;
+  color: white;
+  font-weight: bold;
+}
+
+.clockbutton {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.timeBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeLabel {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.timeGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.timeButton {
+  padding: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  min-width: 64px;
+}
+
+.timeButton.selected {
+  background-color: #03c75a;
+  color: white;
+  border: 2px solid #03c75a;
+  font-weight: bold;
+}
+
+.nextButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.forthPageButton {
+  flex: 1;
+}
+
+.toolTipButton {
+  margin-right: 10px;
 }

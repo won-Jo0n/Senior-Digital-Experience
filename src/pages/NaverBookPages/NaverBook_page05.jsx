@@ -7,7 +7,7 @@ const NaverBook_page05 = () => {
   const nav = useNavigate();
 
   return (
-    <div>
+    <div className="bigContainer">
       <Header />
       <div className="bookWrapper">
         <img src="/phone.png" alt="phone"></img>

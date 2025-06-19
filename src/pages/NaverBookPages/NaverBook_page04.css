@@ -1,12 +1,35 @@
-.NaverBook_page04 {
-   font-family: sans-serif;
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 16px;
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
+.bigContainer {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFBF3; 
 }
+
+.bookWrapper{
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.NaverBook_page04 {
+ position: absolute;
+  top: 140px; 
+  left: 49%;
+  transform: translateX(-50%);
+  background-color: white; 
+  font-family: sans-serif;
+  padding: 16px;
+  overflow-y: auto;
+  height: 685px;
+  width: 380px;
+}
+
+.bookWrapper img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
 
 .BookCheck{
   border: 3px solid black;

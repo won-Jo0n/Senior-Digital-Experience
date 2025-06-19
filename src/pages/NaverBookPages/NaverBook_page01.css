@@ -6,17 +6,17 @@
 
 .NaverBook_page01 {
  position: absolute;
-  top: 135px; /* 폰 내부에 맞춰 조절 */
-  left: 50%;
+  top: 140px; 
+  left: 49%;
   transform: translateX(-50%);
-  max-width: 400px;
   background-color: white; 
   font-family: sans-serif;
   padding: 16px;
   overflow-y: auto;
-  max-height: 700px;
-  
+  max-height: 685px;
+  width: 380px;
 }
+
 
 .bookWrapper{
   position: relative;
