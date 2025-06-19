@@ -32,11 +32,14 @@ const Home = () => {
   const onMap = () => {
     nav("/Map");
   };
+  const goHome = () => {
+    nav("/");
+  };
 
   return (
     <div className="Home">
       <div className="Logo">
-        <Logo />
+        <Logo onCLick={goHome} />
       </div>
       <div className="wrapper_menu">
         <div className="MyPage">
