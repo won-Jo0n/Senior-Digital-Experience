@@ -9,7 +9,8 @@ import Map from "./pages/Map";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import Popup from "./components/Popup";
-import KioskStartDisplay from "./pages/KioskStartDisplay";
+import KioskStart from "./pages/Kiosk_Start";
+
 import { Routes, Route } from "react-router-dom";
 import { createContext } from "react";
 import { useEffect, useReducer, useRef, useState } from "react";
@@ -82,7 +83,6 @@ function App() {
   }, []);
   const onCreate = (phoneNum, password, birth) => {
     var mission = [false, false, false];
-    var boardWrite = [false, false, false];
     dispatch({
       type: "CREATE",
       data: {
@@ -127,7 +127,7 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
-            <Route path="/Kiosk" element={<KioskStartDisplay />} />
+            <Route path="/Kiosk" element={<KioskStart />} />
             <Route path="/NaverBook" element={<NaverBook />} />
             <Route path="/Map" element={<Map />} />
             <Route path="/Community" element={<Community />} />
