@@ -43,7 +43,7 @@ const Map = () => {
           var locPosition = new kakao.maps.LatLng(lat, lon);
           var options = {
             center: locPosition, // 지도 중심 좌표
-            level: 1, // 지도 확대 레벨
+            level: 11, // 지도 확대 레벨
           };
 
           createMap("map", options, markerPosition);
