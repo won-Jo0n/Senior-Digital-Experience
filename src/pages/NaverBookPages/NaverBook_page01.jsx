@@ -3,9 +3,8 @@ import "./NaverBook_page01.css";
 
 const NaverBook_page01 = () => {
   const nav = useNavigate();
-
   const secondPage = () => {
-    nav("/page02");
+    nav("page02");
   };
 
   return (
@@ -25,7 +24,7 @@ const NaverBook_page01 = () => {
       <h2 className="clinic-title">
         해봐YOU의원 <span>건강의학과</span>
       </h2>
-      <p className="reviews">방문자 리뷰 777 · 블로그 리뷰 77</p>
+      <p className="reviews">방문자 리뷰 49 · 블로그 리뷰 170</p>
 
       <div className="div-group">
         <img src="/naverCall.jpg"></img>
