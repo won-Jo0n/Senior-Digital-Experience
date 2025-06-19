@@ -90,7 +90,7 @@ function App() {
         password,
         birth,
         mission,
-        boardWrite,
+        // boardWrite,
       },
     });
   };
