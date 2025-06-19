@@ -13,6 +13,8 @@ import { useEffect, useReducer, useRef, useState } from "react";
 import NaverBook_page01 from "./pages/NaverBookPages/NaverBook_page01";
 import NaverBook_page02 from "./pages/NaverBookPages/NaverBook_page02";
 import NaverBook_page03 from "./pages/NaverBookPages/NaverBook_page03";
+import NaverBook_page04 from "./pages/NaverBookPages/NaverBook_page04";
+import NaverBook_page05 from "./pages/NaverBookPages/NaverBook_page05";
 import Kiosk from "./pages/Kiosk";
 
 function reducer(state, action) {
@@ -162,6 +164,14 @@ function App() {
             <Route
               path="/NaverBook/page03"
               element={<NaverBook_page03 />}
+            ></Route>
+            <Route
+              path="/NaverBook/page04"
+              element={<NaverBook_page04 />}
+            ></Route>
+            <Route
+              path="/NaverBook/page05"
+              element={<NaverBook_page05 />}
             ></Route>
             <Route path="/Map" element={<Map />} />
             <Route path="/Community" element={<Community />} />
