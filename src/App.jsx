@@ -8,7 +8,7 @@ import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import KioskStart from "./pages/Kiosk_Start";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { createContext } from "react";
+import { createContext, use } from "react";
 import { useEffect, useReducer, useRef, useState } from "react";
 import NaverBook_page01 from "./pages/NaverBookPages/NaverBook_page01";
 import NaverBook_page02 from "./pages/NaverBookPages/NaverBook_page02";
@@ -16,7 +16,6 @@ import NaverBook_page03 from "./pages/NaverBookPages/NaverBook_page03";
 import Kiosk from "./pages/Kiosk";
 
 function reducer(state, action) {
-  console.log(state, action);
   let nextState;
   switch (action.type) {
     case "INIT":
@@ -39,6 +38,29 @@ function reducer(state, action) {
   return nextState;
 }
 
+function communityReducer(state, action) {
+  let nextState;
+  switch (action.type) {
+    case "INIT":
+      return action.data;
+    case "CREATE":
+      nextState = [action.data, ...state];
+      break;
+    case "UPDATE":
+      nextState = state.map((item) =>
+        String(item.id) === String(action.data.id) ? action.data : item
+      );
+      break;
+    case "DELETE":
+      nextState = state.filter((item) => String(item.id) !== String(action.id));
+      break;
+    default:
+      return state;
+  }
+  localStorage.setItem("CommunityData", JSON.stringify(nextState));
+  return nextState;
+}
+
 export const DataStateContext = createContext();
 export const DataDispatchContext = createContext();
 function App() {
@@ -47,7 +69,7 @@ function App() {
   console.log(isLogin);
   const mockData = [
     {
-      id: 1, // 각 일기를 구분 할 수 있는 key 필요
+      id: 1, // 사용자 구분 key
       phoneNum: "01020081973",
       password: "qwer1234",
       birth: "2000-09-14",
@@ -55,36 +77,92 @@ function App() {
       boardWrite: [],
     },
   ];
+  const communityMockData = [
+    {
+      id: 1, // 커뮤니티 게시글 구분 key
+      title: "안녕하세요, 집인데 집 가고싶어요.......",
+      userName: "땡떙땡",
+      text: "안녕하세요, faldfnhlasdfnlsndlfnsalkfnklsndflkansdlkfnslkandfklasdnfk",
+    },
+  ];
 
+  // 사용자 관리 reducer
   const [data, dispatch] = useReducer(reducer, []);
+
+  // 게시글 관리 reducer
+  const [communityData, setCommunityData] = useReducer(communityReducer, []);
+
   const [isLoading, setIsLoading] = useState(true);
-  const idRef = useRef(0);
+  const userIdRef = useRef(0);
+  const communityIdRef = useRef(0);
+
   useEffect(() => {
-    const storedData = localStorage.getItem("UserStatus");
-    if (!storedData || JSON.parse(storedData).length === 0) {
-      console.log("localStorage에 데이터가 없으므로 mockData로 초기화");
+    // 1. 사용자 데이터 로드 및 초기화
+    const storedUserData = localStorage.getItem("UserStatus");
+    if (!storedUserData || JSON.parse(storedUserData).length === 0) {
+      console.log("localStorage에 사용자 데이터가 없으므로 mockData로 초기화");
       dispatch({ type: "INIT", data: mockData });
-      idRef.current =
-        mockData.length > 0 ? mockData[mockData.length - 1].id + 1 : 0;
+      const maxMockUserId = mockData.reduce(
+        (max, item) => Math.max(max, item.id),
+        0
+      );
+      userIdRef.current = maxMockUserId + 1;
       localStorage.setItem("UserStatus", JSON.stringify(mockData));
     } else {
-      const parsedData = JSON.parse(storedData);
-      console.log("localStorage에서 데이터를 로드합니다:", parsedData);
-      let maxId = 0;
-      parsedData.forEach((item) => {
-        if (item.id > maxId) {
-          maxId = item.id;
-        }
-      });
-      idRef.current = maxId + 1;
-      dispatch({
-        type: "INIT",
-        data: parsedData,
-      });
+      const parsedUserData = JSON.parse(storedUserData);
+      console.log(
+        "localStorage에서 사용자 데이터를 로드합니다:",
+        parsedUserData
+      );
+      const maxStoredUserId = parsedUserData.reduce(
+        (max, item) => Math.max(max, item.id),
+        0
+      );
+      userIdRef.current = maxStoredUserId + 1;
+      dispatch({ type: "INIT", data: parsedUserData });
     }
 
-    setIsLoading(false);
+    // 2. 커뮤니티 데이터 로드 및 초기화
+    const storedCommunityData = localStorage.getItem("CommunityData");
+    if (!storedCommunityData || JSON.parse(storedCommunityData).length === 0) {
+      console.log(
+        "localStorage에 커뮤니티 데이터가 없으므로 communityMockData로 초기화"
+      );
+      setCommunityData({ type: "INIT", data: communityMockData });
+      const maxMockCommunityId = communityMockData.reduce(
+        (max, item) => Math.max(max, item.id),
+        0
+      );
+      communityIdRef.current = maxMockCommunityId + 1;
+      localStorage.setItem("CommunityData", JSON.stringify(communityMockData));
+    } else {
+      const parsedCommunityData = JSON.parse(storedCommunityData);
+      console.log(
+        "localStorage에서 커뮤니티 데이터를 로드합니다:",
+        parsedCommunityData
+      );
+      const maxStoredCommunityId = parsedCommunityData.reduce(
+        (max, item) => Math.max(max, item.id),
+        0
+      );
+      communityIdRef.current = maxStoredCommunityId + 1;
+      setCommunityData({ type: "INIT", data: parsedCommunityData });
+    }
+
+    setIsLoading(false); // 모든 데이터 로드/초기화 완료 후 로딩 상태 해제
   }, []);
+
+  const onCreateCommunity = (title, userName, text) => {
+    setCommunityData({
+      type: "CREATE",
+      data: {
+        id: communityIdRef.current++,
+        title,
+        userName,
+        text,
+      },
+    });
+  };
 
   const onCreate = (phoneNum, password, birth) => {
     if (data.find((item) => item.phoneNum === phoneNum)) {
@@ -97,7 +175,7 @@ function App() {
       dispatch({
         type: "CREATE",
         data: {
-          id: idRef.current++,
+          id: userIdRef.current++,
           phoneNum,
           password,
           birth,
@@ -142,9 +220,9 @@ function App() {
   }
   return (
     <>
-      <DataStateContext.Provider value={{ data, isLogin }}>
+      <DataStateContext.Provider value={{ data, communityData, isLogin }}>
         <DataDispatchContext.Provider
-          value={{ onCreate, onUpdate, onDelete, onLogin }}
+          value={{ onCreate, onUpdate, onDelete, onLogin, onCreateCommunity }}
         >
           <Routes>
             <Route path="/" element={<Home isLogin={isLogin} />} />
