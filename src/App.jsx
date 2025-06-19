@@ -10,7 +10,7 @@ import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import Popup from "./components/Popup";
 import KioskStartDisplay from "./pages/KioskStartDisplay";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { createContext } from "react";
 import { useEffect, useReducer, useRef, useState } from "react";
 
@@ -40,6 +40,7 @@ function reducer(state, action) {
 export const DataStateContext = createContext();
 export const DataDispatchContext = createContext();
 function App() {
+  const nav = useNavigate();
   const mockData = [
     {
       id: 1, // 각 일기를 구분 할 수 있는 key 필요
@@ -55,7 +56,6 @@ function App() {
   const [data, dispatch] = useReducer(reducer, []);
   const [isLoading, setIsLoading] = useState(true);
   const idRef = useRef(0);
-
   useEffect(() => {
     const storedData = localStorage.getItem("UserStatus");
     if (!storedData) {
@@ -81,6 +81,10 @@ function App() {
     setIsLoading(true);
   }, []);
   const onCreate = (phoneNum, password, birth) => {
+    if (data.find((item) => item.phoneNum === phoneNum)) {
+      alert("이미 가입된 전화번호입니다.");
+      return;
+    }
     var mission = [false, false, false];
     var boardWrite = [false, false, false];
     dispatch({
@@ -91,9 +95,11 @@ function App() {
         password,
         birth,
         mission,
-        // boardWrite,
+        boardWrite,
       },
     });
+    alert("계정이 생성되었습니다.");
+    nav("/");
   };
 
   const onUpdate = (id, phoneNum, password, birth, mission, boardWrite) => {

@@ -20,6 +20,12 @@ const Home = () => {
   const onComunity = () => {
     nav("/Community");
   };
+  const onKiosk = () => {
+    nav("/Kiosk");
+  };
+  const onNaverBook = () => {
+    nav("/NaverBook");
+  };
   const onMap = () => {
     nav("/Map");
   };
@@ -49,11 +55,13 @@ const Home = () => {
           title={"키오스크"}
           explanation={"부가적인 설명입니다."}
           cardImage={1}
+          onClick={onKiosk}
         />
         <NavCard
           title={"병원예약"}
           explanation={"부가적인 설명입니다."}
           cardImage={2}
+          onClick={onNaverBook}
         />
         <NavCard
           title={"주변 복지 시설 보기"}
