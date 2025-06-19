@@ -3,7 +3,6 @@ import "./NaverBook_page01.css";
 
 const NaverBook_page01 = () => {
   const nav = useNavigate();
-
   const secondPage = () => {
     nav("page02");
   };
