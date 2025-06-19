@@ -39,17 +39,24 @@ const Home = () => {
         <Logo />
       </div>
       <div className="wrapper_menu">
+        <div className="ADMIN">
+          <span>{`${userState.isLogin === "ADMIN" ? "관리자 모드" : ""}`}</span>
+        </div>
         <div className="MyPage">
           <Button
             text={"마이페이지"}
-            type={`${userState.isLogin ? "MyPage" : "none"}`}
+            type={`${userState.isLogin === "LOGIN" ? "MyPage" : "none"}`}
             onClick={onMyPage}
           />
         </div>
         <div className="Login">
           <Button
             text={"로그인"}
-            type={`${userState.isLogin === "LOGIN" ? "none" : "Login"}`}
+            type={`${
+              userState.isLogin === "LOGIN" || userState.isLogin === "ADMIN"
+                ? "none"
+                : "Login"
+            }`}
             onClick={onLogin}
           />
         </div>
