@@ -80,6 +80,7 @@ function App() {
       mission: [true, true, true],
       boardWrite: [],
     },
+    { id: "ADMIN", password: "ADMIN1234" },
   ];
   const communityMockData = [
     {
@@ -170,7 +171,12 @@ function App() {
   };
 
   const onCreate = (phoneNum, password, birth) => {
-    if (data.find((item) => item.phoneNum === phoneNum)) {
+    if (
+      data.find(
+        (item) =>
+          item.phoneNum === phoneNum || item.phoneNum.toUpperCase() === "ADMIN"
+      )
+    ) {
       alert("이미 가입된 전화번호입니다.");
       return;
     }
@@ -216,6 +222,10 @@ function App() {
   };
   const onLogin = (id) => {
     setLoginedId(id);
+    if (id === "ADMIN") {
+      setIslogin("ADMIN");
+      return;
+    }
     setIslogin("LOGIN");
   };
   if (!isLoading) {

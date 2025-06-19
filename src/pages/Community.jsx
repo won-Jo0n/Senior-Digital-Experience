@@ -10,13 +10,11 @@ const Community = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const data = useContext(DataStateContext);
   const nav = useNavigate();
-  const stateContext = useContext(DataStateContext);
   const [searchingText, setSearchingText] = useState("");
   const [filteredCommunityData, setFilteredCommunityData] = useState([]);
-  console.log(filteredCommunityData);
 
   const onModal = () => {
-    if (stateContext.isLogin === "LOGIN") {
+    if (data.isLogin === "LOGIN") {
       setModalOpen(true);
     } else {
       alert("로그인 후 이용해주세요!");
