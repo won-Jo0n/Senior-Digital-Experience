@@ -49,6 +49,20 @@ const NaverBook_page03 = () => {
   // 렌더링할 날짜 배열 생성
   const weeks = groupDatesByWeek(startDay, endDay);
 
+  const handlePrevMonth = () => {
+    // 이전 달로 이동
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1)
+    );
+  };
+
+  const handleNextMonth = () => {
+    // 다음 달로 이동
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
+    );
+  };
+
   return (
     <div className="NaverBook_page03">
       <div className="secondBookButton" onClick={forthPage}>
@@ -66,7 +80,11 @@ const NaverBook_page03 = () => {
       <div>
         <h3>날짜와 시간을 선택해주세요</h3>
         <div className="calendar">
-          <div className="calendarHeader"></div>
+          <div className="calendarHeader">
+            <button onClick={handlePrevMonth}>◀</button>
+            {year}.{month + 1}
+            <button onClick={handleNextMonth}>▶</button>
+          </div>
           <div className="calendarWeek"></div>
           <div className="calendarDay">
             {weeks.map((week, weekIndex) => (
