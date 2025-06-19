@@ -1,5 +1,8 @@
 .Button {
+  border: 0;
+  background-color: transparent;
   cursor: pointer;
+  color: snow;
 }
 
 .Button_Comunity {
@@ -7,8 +10,34 @@
   font-size: 30px;
   color: #1f2e25;
   background-color: white;
+  width: 100%;
 }
 
 .Button_none {
   display: none;
+}
+
+.Button_cancle {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 120px;
+  padding: 7px 0;
+  background-color: white;
+  color: #1f2e25;
+  font-weight: 600;
+  border: 1px solid #1f2e25;
+  border-radius: 5px;
+}
+.Button_add-content {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 120px;
+  padding: 7px 0;
+  background-color: #1f2e25;
+  color: white;
+  font-weight: 600;
+  border: 1px solid #1f2e25;
+  border-radius: 5px;
 }

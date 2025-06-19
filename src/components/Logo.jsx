@@ -1,10 +1,16 @@
 import "./Logo.css";
 import logo from "../assets/logo-.png";
+import { useNavigate } from "react-router-dom";
 
-const Logo = ({ onCLick }) => {
+const Logo = () => {
+  const nav = useNavigate();
+
+  const onClick = () => {
+    nav("/");
+  };
   return (
     <div className="Logo">
-      <img onClick={onCLick} className="logo_img" src={logo} alt="로고" />
+      <img onClick={onClick} className="logo_img" src={logo} alt="로고" />
     </div>
   );
 };
