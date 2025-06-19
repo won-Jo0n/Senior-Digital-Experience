@@ -5,11 +5,6 @@ import { useNavigate } from "react-router-dom";
 const KioskStart = () => {
   const nav = useNavigate();
 
-  //kioskMenu 페이지로 이동
-  const onKioskMenu = () => {
-    nav("/Kiosk");
-  };
-
   return (
     <div className="wrapperStartDisplay">
       <div className="firstDiv">
@@ -19,7 +14,7 @@ const KioskStart = () => {
           alt="여름 시즌 빙수 신제품 출시  사진"
         />
       </div>
-      <div className="middleDiv" onClick={onKioskMenu()}>
+      <div className="middleDiv" onClick={() => nav("/Kiosk/:1")}>
         <div className="middleText">안녕하세요 고객님</div>
         <div className="middleMainText">
           <strong>
