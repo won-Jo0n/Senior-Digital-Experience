@@ -9,6 +9,7 @@ import Map from "./pages/Map";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import Popup from "./components/Popup";
+import KioskStart from "./pages/Kiosk_Start";
 import KioskStartDisplay from "./pages/KioskStartDisplay";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { createContext } from "react";
@@ -89,7 +90,6 @@ function App() {
       return;
     }
     var mission = [false, false, false];
-    var boardWrite = [false, false, false];
     dispatch({
       type: "CREATE",
       data: {
@@ -136,8 +136,8 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
-            <Route path="/Kiosk" element={<KioskStartDisplay />} />
-            <Route path="/NaverBook" element={<NaverBook_page03 />} />
+            <Route path="/Kiosk" element={<KioskStart />} />
+            <Route path="/NaverBook" element={<NaverBook_page01 />} />
             <Route
               path="/NaverBook/:page02"
               element={<NaverBook_page02 />}

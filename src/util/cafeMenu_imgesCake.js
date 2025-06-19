@@ -8,7 +8,6 @@ import cake_whippedCreamChiffon from "../assets/cake/cake_whippedCreamChiffon.jp
 import cake_whiteCherryCake from "../assets/cake/cake_whiteCherryCake.jpg";
 
 export function getCakeImage(CakeId) {
-  console.log("케이크 아이디:" + CakeId);
   switch (CakeId) {
     case 1:
       return cake_cheeseCake;
