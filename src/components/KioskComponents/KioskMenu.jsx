@@ -9,8 +9,7 @@ import { useState } from "react";
 
 const KioskMenu = () => {
   //kioskMenu 보여주는 컴퍼넌트
-
-  //state 값 바뀔때마다 div바뀜
+  //카테고리 선택시 div 안 메뉴들 변함
   const [pickMenu, setPickMenu] = useState("coffee");
 
   const changeMenu = () => {

@@ -1,6 +1,6 @@
 import "./KioskCoffee.css";
 import { getCoffeeImage } from "../../util/cafeMenu_imgesCoffee";
-
+//Coffee 메뉴들 출력
 const KioskCoffee = ({ coffeeId, coffeeName }) => {
   return (
     <div className="coffee_menu">
