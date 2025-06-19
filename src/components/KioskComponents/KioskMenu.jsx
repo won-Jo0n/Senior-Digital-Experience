@@ -59,7 +59,7 @@ const KioskMenu = () => {
 
   return (
     <>
-      <div className="AllDisplay">
+      <div className={onModal === true ? "OverMenu" : "AllDisplay"}>
         <div className="MenuBar">
           {/* 메뉴바 버튼 */}
           <button
