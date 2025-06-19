@@ -82,6 +82,7 @@ function App() {
   }, []);
   const onCreate = (phoneNum, password, birth) => {
     var mission = [false, false, false];
+    var boardWrite = [false, false, false];
     dispatch({
       type: "CREATE",
       data: {
