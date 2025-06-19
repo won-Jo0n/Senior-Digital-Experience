@@ -152,14 +152,14 @@ function App() {
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
             <Route path="/Kiosk" element={<KioskStart />} />
-            <Route path="/Kiosk/:1" element={<Kiosk />} />
+            <Route path="/Kiosk/1" element={<Kiosk />} />
             <Route path="/NaverBook" element={<NaverBook_page01 />} />
             <Route
-              path="/NaverBook/:page02"
+              path="/NaverBook/page02"
               element={<NaverBook_page02 />}
             ></Route>
             <Route
-              path="/NaverBook/:page03"
+              path="/NaverBook/page03"
               element={<NaverBook_page03 />}
             ></Route>
             <Route path="/Map" element={<Map />} />
