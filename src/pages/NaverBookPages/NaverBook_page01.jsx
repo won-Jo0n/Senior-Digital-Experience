@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./NaverBook_page01.css";
+import Header from "../../components/Header";
 
 const NaverBook_page01 = () => {
   const nav = useNavigate();
@@ -8,46 +9,51 @@ const NaverBook_page01 = () => {
   };
 
   return (
-    <div className="NaverBook_page01">
-      <div className="image-section">
-        <img src="/img1.png" alt="logo" className="logoImg" />
-        <div className="image2">
-          <img src="/img2.png" alt="sewon" />
-          <img src="/img2.png" alt="jinsung" />
-        </div>
-        <div className="image3">
-          <img src="/img3.png" alt="wonJoon" />
-          <img src="/img4.png" alt="jiwon" />
-        </div>
-      </div>
+    <div>
+      <Header />
+      <div className="bookWrapper">
+        <img src="/phone.png" alt="phone"></img>
 
-      <h2 className="clinic-title">
-        해봐YOU의원 <span>건강의학과</span>
-      </h2>
-      <p className="reviews">방문자 리뷰 49 · 블로그 리뷰 170</p>
+        <div className="NaverBook_page01">
+          <div className="image-section">
+            <img src="/img1.png" alt="logo" className="logoImg" />
+            <div className="image2">
+              <img src="/img2.png" alt="sewon" />
+              <img src="/img2.png" alt="jinsung" />
+            </div>
+            <div className="image3">
+              <img src="/img3.png" alt="wonJoon" />
+              <img src="/img4.png" alt="jiwon" />
+            </div>
+          </div>
 
-      <div className="div-group">
-        <img src="/naverCall.jpg"></img>
-      </div>
-      {/* <div className="div-group">
+          <h2 className="clinic-title">
+            해봐YOU의원 <span>건강의학과</span>
+          </h2>
+          <p className="reviews">방문자 리뷰 49 · 블로그 리뷰 170</p>
+
+          <div className="div-group">
+            <img src="/naverCall.jpg"></img>
+          </div>
+          {/* <div className="div-group">
         <div>전화</div>
         <div>저장</div>
         <div>길찾기</div>
         <div>공유</div>
       </div> */}
 
-      <div className="action-buttons">
-        <button className="green" onClick={secondPage} type="secondPage">
-          예약
-        </button>
-        <button className="gray">문의</button>
-      </div>
+          <div className="action-buttons">
+            <button className="green" onClick={secondPage} type="secondPage">
+              예약
+            </button>
+            <button className="gray">문의</button>
+          </div>
 
-      <div className="info-section">
-        <img src="/naverContent.png"></img>
-      </div>
+          <div className="info-section">
+            <img src="/naverContent.png"></img>
+          </div>
 
-      {/* <div className="info-section">
+          {/* <div className="info-section">
         <p>서울 중구 무교로 13 6층</p>
         <p>시청역 1,2호선 4번 출구에서 192m</p>
         <p>진료 중 · 14:00에 휴게시간</p>
@@ -56,6 +62,8 @@ const NaverBook_page01 = () => {
         <p className="naverlink">http://skymentalhealth.com/</p>
         <p>예약, 남/녀 화장실 구분, 대기공간</p>
       </div> */}
+        </div>
+      </div>
     </div>
   );
 };
