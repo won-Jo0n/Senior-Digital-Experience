@@ -1,9 +1,8 @@
 import "./KioskCake.css";
 import { getCakeImage } from "../../util/cafeMenu_imgesCake";
 
+//Cake 메뉴들 출력
 const KioskCake = ({ CakeId, CakeName }) => {
-  //kioskCake 메뉴 하나
-
   return (
     <div className="cake_menu">
       <div className="wrapper">

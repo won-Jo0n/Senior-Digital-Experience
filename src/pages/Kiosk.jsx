@@ -22,6 +22,7 @@ const Kiosk = () => {
           }
         />
       </div>
+
       <div className="KioskMenuDisplay">
         <KioskMenu />
       </div>

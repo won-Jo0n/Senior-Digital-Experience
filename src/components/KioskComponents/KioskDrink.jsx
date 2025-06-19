@@ -1,9 +1,8 @@
 import "./KioskDrink.css";
 import { getDrinkImage } from "../../util/cafeMenu_imgesDrink ";
 
+//Drink 메뉴들 출력
 const KioskDrink = ({ drinkId, drinkName }) => {
-  //kioskCake 메뉴 하나
-  // console.log("KioskDrink에서의 Drink아이디:" + drinkId);
   return (
     <div className="drink_menu">
       <div className="wrapper">

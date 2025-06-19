@@ -1,0 +1,25 @@
+.wrapper {
+  border: 1px solid black;
+  background-color: white;
+  width: 1000px;
+  height: 100vh;
+  margin-left: 35%;
+}
+
+.wrapper > .firstDiv {
+  border: 1px solid black;
+  width: 1000px;
+  height: 35vh;
+}
+
+.wrapper > .middleDiv {
+  border: 1px solid black;
+  width: 1000px;
+  height: 35vh;
+}
+
+.wrapper > .thirddDiv {
+  border: 1px solid black;
+  width: 1000px;
+  height: 30vh;
+}
