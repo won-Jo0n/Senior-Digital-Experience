@@ -9,7 +9,7 @@ import Map from "./pages/Map";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import Popup from "./components/Popup";
-
+import KioskStartDisplay from "./pages/KioskStartDisplay";
 import { Routes, Route } from "react-router-dom";
 import { createContext } from "react";
 import { useEffect, useReducer, useRef, useState } from "react";
@@ -90,7 +90,7 @@ function App() {
         password,
         birth,
         mission,
-        boardWrite,
+        // boardWrite,
       },
     });
   };
@@ -126,7 +126,7 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/NewAccount" element={<NewAccount />} />
             <Route path="/MyPage" element={<MyPage />} />
-            <Route path="/Kiosk" element={<Kiosk />} />
+            <Route path="/Kiosk" element={<KioskStartDisplay />} />
             <Route path="/NaverBook" element={<NaverBook />} />
             <Route path="/Map" element={<Map />} />
             <Route path="/Community" element={<Community />} />
