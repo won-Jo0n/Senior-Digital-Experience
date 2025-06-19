@@ -18,7 +18,7 @@ const Login = () => {
     );
     if (userFound) {
       alert("당신의 도전을 응원합니다!");
-      onLogin();
+      onLogin(userFound);
       navigate("/", { replace: true });
     } else {
       const phoneNumExists = userState.data.some(

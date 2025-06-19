@@ -44,6 +44,7 @@ export const DataDispatchContext = createContext();
 function App() {
   const nav = useNavigate();
   const [isLogin, setIslogin] = useState(false);
+  const [loginedId, setLoginedId] = useState(null);
   console.log(isLogin);
   const mockData = [
     {
@@ -131,7 +132,9 @@ function App() {
       id,
     });
   };
-  const onLogin = () => {
+  const onLogin = (id) => {
+    console.log(id);
+    setLoginedId(id);
     setIslogin(true);
   };
   if (!isLoading) {
@@ -142,7 +145,7 @@ function App() {
   }
   return (
     <>
-      <DataStateContext.Provider value={{ data, isLogin }}>
+      <DataStateContext.Provider value={{ data, isLogin, loginedId }}>
         <DataDispatchContext.Provider
           value={{ onCreate, onUpdate, onDelete, onLogin }}
         >
