@@ -13,7 +13,8 @@ const KioskMenu = () => {
   //카테고리 선택시 div 안 메뉴들 변함
   const [pickMenu, setPickMenu] = useState("coffee");
   const [onModal, setOnModal] = useState(false);
-
+  console.log("현재 onModal 값:", onModal);
+  console.log("현재 pickMenu 값:", pickMenu);
   const changeMenu = () => {
     if (pickMenu === "coffee") {
       return coffeeList.map((item) => (
@@ -113,7 +114,17 @@ const KioskMenu = () => {
             </div>
           </div>
         </div>
-        <div>{onModal === true ? <KioskModal /> : null}</div>
+        <div>
+          {onModal === true ? (
+            <KioskModal
+              onClick={() => {
+                setOnModal(false);
+              }}
+            />
+          ) : (
+            !onModal
+          )}
+        </div>
       </div>
     </>
   );
