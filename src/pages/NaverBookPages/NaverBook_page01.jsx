@@ -9,7 +9,7 @@ const NaverBook_page01 = () => {
   };
 
   return (
-    <div>
+    <div className="bigContainer">
       <Header />
       <div className="bookWrapper">
         <img src="/phone.png" alt="phone"></img>

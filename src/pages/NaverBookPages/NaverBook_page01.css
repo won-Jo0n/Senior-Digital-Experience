@@ -1,4 +1,4 @@
-body {
+.bigContainer {
   margin: 0;
   padding: 0;
   background-color: #FFFBF3; /* 배경색 변경 */
@@ -20,7 +20,7 @@ body {
 
 .bookWrapper{
   position: relative;
-width: 700px;
+  width: 700px;
   margin: 0 auto;
 }
 
