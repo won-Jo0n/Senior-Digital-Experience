@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import stampImg from "../assets/myPage/stampImg.png";
+import stampImg from "../../assets/myPage/stampImg.png";
 import "./Stamp.css";
 
 function Stamp() {
