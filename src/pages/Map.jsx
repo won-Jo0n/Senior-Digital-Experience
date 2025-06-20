@@ -3,6 +3,7 @@ import createMap from "../util/createMap";
 import { useEffect, useState } from "react";
 
 const Map = () => {
+  const [apiData, setApiData] = useState([]); // 로딩 상태
   const [loading, setLoading] = useState(true); // 로딩 상태
   const [error, setError] = useState(null); // 에러 상태
   useEffect(() => {
@@ -21,6 +22,7 @@ const Map = () => {
         if (!response.ok) throw new Error("API 호출 실패");
 
         const json = await response.json();
+        setApiData(json.OldPersonRecuperationFacility[1].row);
 
         // 데이터 구조 확인 후 setData
         console.log(json.OldPersonRecuperationFacility[1].row);
@@ -45,8 +47,7 @@ const Map = () => {
             center: locPosition, // 지도 중심 좌표
             level: 11, // 지도 확대 레벨
           };
-
-          createMap("map", options, markerPosition);
+          createMap("maps", options, markerPosition);
         });
       } catch (err) {
         console.log("안됨");
@@ -58,7 +59,36 @@ const Map = () => {
     fetchData();
   }, []);
 
-  return <div id="map"></div>;
+  return (
+    <div className="map-page">
+      <header className="map-header">맵</header>
+      <div className="map-container">
+        <aside className="map-sidebar">
+          <div className="search-bar">
+            <input type="text" placeholder="검색" />
+            <button className="search-btn">🔍</button>
+          </div>
+          {apiData.map((item, idx) => (
+            <div key={idx} className="location-card">
+              <h3>{item.BIZPLC_NM}</h3>
+              <p>
+                {item.REFINE_ROADNM_ADDR}
+                <br />
+                {item.REFINE_LOTNO_ADDR}
+                <br />
+                02-878-5524
+              </p>
+              <p className="open-status">{item.BSN_STATE_NM}</p>
+            </div>
+          ))}
+        </aside>
+        <section className="map-section">
+          <button className="back-btn">돌아가기</button>
+          <div id="maps"></div>
+        </section>
+      </div>
+    </div>
+  );
 };
 
 export default Map;
