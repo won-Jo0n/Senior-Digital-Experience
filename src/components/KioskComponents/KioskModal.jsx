@@ -2,7 +2,7 @@ import "./KioskModal.css";
 import { getCoffeeImage } from "../../util/cafeMenu_imgesCoffee";
 import { getCakeImage } from "../../util/cafeMenu_imgesCake";
 import { getDrinkImage } from "../../util/cafeMenu_imgesDrink ";
-const KioskModal = ({ selectedItem, pickMenu, setOnModal }) => {
+const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
   console.log(selectedItem);
   console.log(pickMenu);
 
@@ -34,7 +34,10 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal }) => {
     }
     return null;
   };
-
+  const handleConfirmAdd = () => {
+    onAddToOrder(selectedItem); // 주문 정보 객체 전달
+    setOnModal(false);
+  };
   return (
     <div className="modal">
       <div className="modalBody">
@@ -46,7 +49,7 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal }) => {
           <button>사이즈</button>
           <button>포장</button>
         </div>
-        <button onClick={setOnModal}>담기</button>
+        <button onClick={handleConfirmAdd}>담기</button>
       </div>
     </div>
   );

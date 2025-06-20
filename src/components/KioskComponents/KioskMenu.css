@@ -76,6 +76,12 @@
   height: 72%;
 }
 
+.orderITEM {
+  border: 1px solid black;
+  width: 100%;
+  height: 72%;
+}
+
 .orderBar .orderTotal {
   border: 1px solid black;
   height: 160px;
