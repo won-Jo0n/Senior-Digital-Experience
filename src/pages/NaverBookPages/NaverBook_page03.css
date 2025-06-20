@@ -52,13 +52,18 @@
   padding: 6px 12px;
   border-radius: 8px;
   background-color: white;
+   color: black;
   cursor: pointer;
 }
 
+
 .reserveBtn {
-  background-color: #494949 !important;
+  background-color: #666 !important;
   color: #fff !important;
+  font-weight: bold;
+  border: none;
 }
+
 
 .bookBtn {
   border: 1px solid #ccc;
