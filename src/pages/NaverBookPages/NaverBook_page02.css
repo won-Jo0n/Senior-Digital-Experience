@@ -1,7 +1,8 @@
 .bigContainer {
   margin: 0;
   padding: 0;
-  background-color: #FFFBF3; /* 배경색 변경 */
+  
+  background-color: #FFFBF3; 
 }
 
 .bookWrapper{
@@ -13,13 +14,14 @@
 .NaverBook_page02 {
  position: absolute;
   top: 140px; 
-  left: 50%;
+  left: 49%;
   transform: translateX(-50%);
   background-color: white; 
   font-family: sans-serif;
   padding: 16px;
   overflow-y: auto;
-  max-height: 680px;
+  max-height: 685px;
+  width: 380px;
 }
 
 .bookWrapper img{

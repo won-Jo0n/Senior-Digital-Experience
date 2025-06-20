@@ -25,7 +25,7 @@ const NaverBook_page02 = () => {
                 해봐you의원은 노령층의 디지털 뭐시기 향상을 위하여 예약 우선제로
                 운영됩니다.(*당일진료가능)
               </p>
-              <p>(별) 4.99 / 리뷰 777</p>
+              <p>⭐ 4.99 / 리뷰 777</p>
             </div>
           </div>
 
@@ -41,7 +41,7 @@ const NaverBook_page02 = () => {
                 감사합니다.
               </p>
               <button className="bookBtn">예약하기</button>
-              <p>(별 이미지) 4.99 / 리뷰 777</p>
+              <p>⭐ 4.99 / 리뷰 777</p>
             </div>
           </div>
 
