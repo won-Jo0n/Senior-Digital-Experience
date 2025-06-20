@@ -26,10 +26,10 @@ const KioskMenu = () => {
   //선택된 음료의 객체를 저장할 state
   const [selectedItem, setSelectedItem] = useState({});
 
-  //클릭한 음료 넣어두는 리스트
-  //orderItems에는 선택한 item -> [itemId,itemName, itemPrice]
+  //클릭한 음료 객체들 담아두는 리스트
+  //orderItems에는 선택한 item -> [{itemId,itemName, itemPrice}]
   const [orderItems, setOrderItems] = useState([]);
-
+  console.log(orderItems);
   // 선택된 메뉴 주문 정보 객체 전달-------
   const AddToOrder = (itemToAdd) => {
     setOrderItems((oldreItems) => {
