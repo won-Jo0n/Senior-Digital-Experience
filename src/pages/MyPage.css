@@ -1,3 +1,46 @@
-.stampContainer {
-  background-color: #fffbf3;
+.myPageContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap; /* 화면 작아지면 아래로 배치 */
+  gap: 20px;
+  padding: 20px;
+}
+
+.userInfo {
+  flex: 1.2; /* 원래는 flex: 2; 였음 → 오른쪽 영역이 더 넓게 보임 */
+  aspect-ratio: 3 / 4; /* 세로 길이를 조금 줄임 (기존 3/5 → 3/4) */
+  border: 1px solid #000;
+  min-width: 250px;
+}
+
+.prices {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 250px;
+}
+
+.stampContainer,
+.CouponContainer {
+  flex: 1;
+  aspect-ratio: 3 / 2;
+  border: 1px solid #000;
+}
+
+/* 화면이 작을 경우 (예: 모바일) */
+@media (max-width: 768px) {
+  .myPageContainer {
+    flex-direction: column;
+  }
+
+  .prices {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .stampContainer,
+  .CouponContainer {
+    aspect-ratio: 1 / 1;
+  }
 }
