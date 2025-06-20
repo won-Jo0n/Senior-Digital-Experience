@@ -36,3 +36,25 @@
   border-radius: 10px;
   padding: 10px;
 }
+
+.bookRequest{
+display: flex;
+margin-top: 20px;
+}
+
+.bookBack Button{
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #575757;
+  border-radius: 5px;
+  padding: 7px;
+  width: 70px;
+}
+
+.agreeAndbookRequest Button{
+  background-color:  #03c75a;
+  border-radius: 5px;
+  padding: 8px;
+  width: 280px;
+  margin-left: 10px;
+}
