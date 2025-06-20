@@ -14,8 +14,8 @@
 .PayModalBody {
   position: absolute;
   top: 50%;
-  width: 400px;
-  height: 600px;
+  width: 900px;
+  height: 1000px;
   padding: 40px;
   text-align: center;
   background-color: rgb(255, 255, 255);
@@ -24,14 +24,30 @@
   transform: translateY(-50%);
 }
 
+.PayModalBody .OLDERlIST {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 .PayModal .olderContent {
+  display: flex;
+  align-items: center;
   border: 1px solid black;
-  width: 400px;
-  height: 40px;
+}
+
+.olderContent .text-content {
+  margin-left: auto;
+}
+
+.olderContent img {
+  width: 200px;
+  margin-right: 15px;
 }
 
 .PayModal .totalPay {
   border: 1px solid black;
-  width: 400px;
-  height: 500px;
+  width: 900px;
+  height: 100px;
+  margin-top: auto;
 }

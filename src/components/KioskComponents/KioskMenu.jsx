@@ -21,7 +21,7 @@ const KioskMenu = () => {
   //카테고리 선택시 변하는 값을 저장할 state
   const [pickMenu, setPickMenu] = useState("coffee");
 
-  // 모달창을 띄우기 위한 state
+  //모달창을 띄우기 위한 state
   const [onModal, setOnModal] = useState(false);
 
   //결제 모달 띄우기 위한 state
@@ -33,7 +33,6 @@ const KioskMenu = () => {
   //클릭한 음료 객체들 담아두는 리스트
   //orderItems에는 선택한 item -> [{itemId,itemName, itemPrice}]
   const [orderItems, setOrderItems] = useState([]);
-  console.log(orderItems);
   // 선택된 메뉴 주문 정보 객체 전달-------
   const AddToOrder = (itemToAdd) => {
     setOrderItems((oldreItems) => {
@@ -98,6 +97,36 @@ const KioskMenu = () => {
     });
   };
   //AddToOrder함수 끝-----
+
+  //주문 내역 메뉴의의 수량과 금액 증가 함수
+  const orderNumPlus = (orderItemId, orderItemName) => {
+    setOrderItems((prevItems) => {
+      const itemIndex = prevItems.findIndex(
+        (item) => item.id === orderItemId && item.name === orderItemName
+      );
+
+      //아이템 존재 유무 확인
+      if (itemIndex > -1) {
+        //이전 배열 가져오기 (수량, 금액 추가한 새로운 객체 생성)
+        const changeItems = [...prevItems];
+        //현재 아이템의 객체 정보
+        const currentItem = changeItems[itemIndex];
+
+        const newQuantity = currentItem.quantity + 1;
+        const newTotalPrice = currentItem.totalPrice + currentItem.price; //AddToOrder 에 저장되어있는 메뉴 하나 가격
+
+        // 가격, 수량 추가한 새로운 객체 생성
+        changeItems[itemIndex] = {
+          ...currentItem,
+          quantity: newQuantity,
+          totalPrice: newTotalPrice,
+        };
+        //가격, 수량 변경된 배열반환->orderItems 상태 업데이트
+        return changeItems;
+      }
+      return prevItems;
+    });
+  };
 
   const ItemClick = (item) => {
     setSelectedItem(item); // 클릭된 아이템 정보 저장
@@ -176,6 +205,7 @@ const KioskMenu = () => {
             setOrderItems={setOrderItems}
             setOnModal={setOnModal}
             setOnPayModal={setOnPayModal}
+            orderNumPlus={orderNumPlus}
           />
         </div>
         <div>
@@ -191,13 +221,16 @@ const KioskMenu = () => {
         </div>
 
         <div>
-          {" "}
           {onPayModal && selectedItem && (
-            <KioskModalPay setOnPayModal={setOnPayModal} />
+            <KioskModalPay
+              setOnPayModal={setOnPayModal}
+              orderItems={orderItems}
+            />
           )}
         </div>
       </div>
     </>
   );
 };
+
 export default KioskMenu;

@@ -1,9 +1,13 @@
 import "./KioskOrderCal.css";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // 주문내역 총수량 및 총합계 계산
 // orderItems에는 [itemId,itemName, itemPrice]
-const KioskOrderCal = ({ orderItems, setOrderItems, setOnPayModal }) => {
+const KioskOrderCal = ({
+  orderItems,
+  setOrderItems,
+  setOnPayModal,
+  orderNumPlus, //해당 메뉴 수량 올리기
+}) => {
   const nav = useNavigate();
 
   //총 가격
@@ -13,14 +17,6 @@ const KioskOrderCal = ({ orderItems, setOrderItems, setOnPayModal }) => {
     totalPrice += orderItem.totalPrice;
     totalquantity += orderItem.quantity;
   }
-  console.log("totalPrice:", totalPrice);
-  console.log("totalquantity:", totalquantity);
-
-  // 수량 추가 버튼 클릭시 수량 증가(구현해야함)
-  const orderNumPlus = () => {
-    return;
-  };
-
   //키오스크 시작화면으로 이동
   const moveStartPage = () => {
     nav("/Kiosk");
@@ -50,8 +46,12 @@ const KioskOrderCal = ({ orderItems, setOrderItems, setOnPayModal }) => {
 
               {/* 수량 추가 버튼 */}
               <div className="orderNumPlus">
-                <button onClick={orderNumPlus}>+</button>
-                클릭시 수랑 증가
+                <button
+                  onClick={() => orderNumPlus(orderItem.id, orderItem.name)}
+                >
+                  +
+                </button>
+                {orderItem.quantity}
               </div>
               <div className="orderName">{orderItem.name} </div>
               <div className="orderPrice">{orderItem.price}원</div>
