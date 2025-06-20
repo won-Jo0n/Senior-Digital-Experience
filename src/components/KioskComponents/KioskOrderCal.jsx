@@ -2,6 +2,7 @@ import "./KioskOrderCal.css";
 // 주문내역 총수량 및 총합계 계산
 // orderItems에는 [itemId,itemName, itemPrice]
 const KioskOrderCal = ({ orderItems }) => {
+  console.log(orderItems);
   //총 가격
   let totalPrice = 0;
   let totalquantity = 0;
@@ -14,7 +15,6 @@ const KioskOrderCal = ({ orderItems }) => {
 
   // 수량 추가 버튼 클릭시 수량 증가
   const orderNumPlus = () => {
-    orderItems.quantity + 1;
     return;
   };
   return (
