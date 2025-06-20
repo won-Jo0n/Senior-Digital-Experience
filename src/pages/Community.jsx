@@ -4,6 +4,7 @@ import { Modal } from "../components/Modal";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
 import { DataStateContext } from "../App";
+import { DataDispatchContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 const Community = () => {
@@ -12,12 +13,14 @@ const Community = () => {
   const nav = useNavigate();
   const [searchingText, setSearchingText] = useState("");
   const [filteredCommunityData, setFilteredCommunityData] = useState([]);
+  const { onDeleteCommunityContent } = useContext(DataDispatchContext);
 
   const onModal = () => {
-    if (data.isLogin === "LOGIN") {
+    if (data.isLogin === "LOGIN" || data.isLogin === "ADMIN") {
       setModalOpen(true);
     } else {
       alert("로그인 후 이용해주세요!");
+      nav("/Login");
     }
   };
   useEffect(() => {
@@ -37,6 +40,14 @@ const Community = () => {
           item.text.toLowerCase().includes(searchingText.toLowerCase())
       );
       setFilteredCommunityData(filteredItems);
+    }
+  };
+  const handleDeleteContent = (id) => {
+    if (confirm("정말 삭제하시겠습니까?")) {
+      onDeleteCommunityContent(id);
+      alert("글을 삭제하였습니다.");
+    } else {
+      alert("취소 하셨습니다");
     }
   };
   return (
@@ -59,14 +70,25 @@ const Community = () => {
       <div className="content-wrapper">
         <ul>
           {filteredCommunityData.map((item) => (
-            <li
-              key={item.id}
-              className="community-content"
-              onClick={() => {
-                nav(`/Community_content/${item.id}`);
-              }}
-            >
-              {item.title} {item.userName} {item.text}
+            <li key={item.id} className="community-content">
+              <div
+                className="community-title"
+                onClick={() => {
+                  nav(`/Community_content/${item.id}`);
+                }}
+              >
+                {item.title}
+              </div>
+              {item.date}
+              {item.userName}
+              {data.isLogin === "ADMIN" ? (
+                <Button
+                  text={"글 삭제"}
+                  onClick={() => {
+                    handleDeleteContent(item.id);
+                  }}
+                />
+              ) : null}
             </li>
           ))}
         </ul>

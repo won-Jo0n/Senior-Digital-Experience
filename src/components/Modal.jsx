@@ -11,13 +11,14 @@ export const Modal = ({ setModal }) => {
   const [text, setText] = useState("");
 
   const handleCreateContent = () => {
-    // 함수 이름 변경 (createContent -> handleCreateContent)
     if (!title.trim() || !userName.trim() || !text.trim()) {
       // 입력값 유효성 검사
       alert("모든 입력란을 채워주세요!");
       return;
     }
-    onCreateCommunity(title, userName, text);
+    const createDate = new Date().toLocaleDateString();
+
+    onCreateCommunity(title, userName, createDate, text);
     setModal(false); // 모달 닫기
   };
 

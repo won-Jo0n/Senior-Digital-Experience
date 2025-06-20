@@ -8,7 +8,7 @@ import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import KioskStart from "./pages/Kiosk_Start";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { createContext, use } from "react";
+import { createContext } from "react";
 import { useEffect, useReducer, useRef, useState } from "react";
 import NaverBook_page01 from "./pages/NaverBookPages/NaverBook_page01";
 import NaverBook_page02 from "./pages/NaverBookPages/NaverBook_page02";
@@ -18,6 +18,7 @@ import NaverBook_page05 from "./pages/NaverBookPages/NaverBook_page05";
 import Kiosk from "./pages/Kiosk";
 import Community_content from "./pages/Community_content";
 
+// 사용자 관리 reducer
 function reducer(state, action) {
   let nextState;
   switch (action.type) {
@@ -41,6 +42,7 @@ function reducer(state, action) {
   return nextState;
 }
 
+// 게시글 관리 reducer
 function communityReducer(state, action) {
   let nextState;
   switch (action.type) {
@@ -51,11 +53,15 @@ function communityReducer(state, action) {
       break;
     case "UPDATE":
       nextState = state.map((item) =>
-        String(item.id) === String(action.data.id) ? action.data : item
+        String(item.id) === String(action.data.id)
+          ? { ...item, isAnswer: action.data.answer }
+          : item
       );
       break;
     case "DELETE":
-      nextState = state.filter((item) => String(item.id) !== String(action.id));
+      nextState = state.filter(
+        (item) => String(item.id) !== String(action.data.id)
+      );
       break;
     default:
       return state;
@@ -66,11 +72,13 @@ function communityReducer(state, action) {
 
 export const DataStateContext = createContext();
 export const DataDispatchContext = createContext();
+
 function App() {
   const nav = useNavigate();
   const [isLogin, setIslogin] = useState("");
   const [loginedId, setLoginedId] = useState(null);
-  console.log(isLogin);
+
+  // 사용자 mockData
   const mockData = [
     {
       id: 1, // 사용자 구분 key
@@ -82,20 +90,22 @@ function App() {
     },
     { id: "ADMIN", password: "ADMIN1234" },
   ];
+
+  // 게시글 mockData
   const communityMockData = [
     {
       id: 1, // 커뮤니티 게시글 구분 key
-      title: "안녕하세요, 집인데 집 가고싶어요.......",
-      userName: "땡떙땡",
-      text: "안녕하세요, faldfnhlasdfnlsndlfnsalkfnklsndflkansdlkfnslkandfklasdnfk",
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
       isAnswer: "",
     },
   ];
 
-  // 사용자 관리 reducer
+  // 사용자
   const [data, dispatch] = useReducer(reducer, []);
-
-  // 게시글 관리 reducer
+  // 커뮤니티
   const [communityData, setCommunityData] = useReducer(communityReducer, []);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -144,7 +154,7 @@ function App() {
     } else {
       const parsedCommunityData = JSON.parse(storedCommunityData);
       console.log(
-        "localStorage에서 커뮤니티 데이터를 로드합니다:",
+        "localStorage에서 커뮤니티 데이터 로드:",
         parsedCommunityData
       );
       const maxStoredCommunityId = parsedCommunityData.reduce(
@@ -158,18 +168,40 @@ function App() {
     setIsLoading(false); // 모든 데이터 로드/초기화 완료 후 로딩 상태 해제
   }, []);
 
-  const onCreateCommunity = (title, userName, text) => {
+  // 커뮤니티 관리기능
+  const onCreateCommunity = (title, userName, date, text) => {
     setCommunityData({
       type: "CREATE",
       data: {
         id: communityIdRef.current++,
         title,
         userName,
+        date,
         text,
       },
     });
   };
 
+  const onUpdateCommunity = (contentID, answer) => {
+    setCommunityData({
+      type: "UPDATE",
+      data: {
+        id: contentID,
+        answer,
+      },
+    });
+  };
+
+  const onDeleteCommunityContent = (contentID) => {
+    setCommunityData({
+      type: "DELETE",
+      data: {
+        id: contentID,
+      },
+    });
+  };
+
+  // 유저 관리기능
   const onCreate = (phoneNum, password, birth) => {
     if (
       data.find(
@@ -240,7 +272,15 @@ function App() {
         value={{ data, communityData, isLogin, loginedId }}
       >
         <DataDispatchContext.Provider
-          value={{ onCreate, onUpdate, onDelete, onLogin, onCreateCommunity }}
+          value={{
+            onCreate,
+            onUpdate,
+            onDelete,
+            onLogin,
+            onCreateCommunity,
+            onDeleteCommunityContent,
+            onUpdateCommunity,
+          }}
         >
           <Routes>
             <Route path="/" element={<Home />} />
