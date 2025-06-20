@@ -23,14 +23,24 @@ const NaverBook_page04 = () => {
             <p>일정</p>
           </div>
           <div className="addInfo">
-            <h2>추가 정보</h2>
-            <h4>진료목적</h4>
+            <h3>추가 정보</h3>
+            <p>진료목적</p>
             <div className="bookCheckBox">
-              <input type="checkbox"></input> 클리닉
-              <input type="checkbox"></input> 도수상담
-              <input type="checkbox"></input> 수액
-              <input type="checkbox"></input> 보건증 발급
-              <input type="checkbox"></input> 진성 간호사와 상담
+              <label>
+                <input type="checkbox" /> 클리닉
+              </label>
+              <label>
+                <input type="checkbox" /> 도수상담
+              </label>
+              <label>
+                <input type="checkbox" /> 수액
+              </label>
+              <label>
+                <input type="checkbox" /> 보건증 발급
+              </label>
+              <label>
+                <input type="checkbox" /> 진성 간호사와 상담
+              </label>
             </div>
           </div>
           <div className="userInfo">
