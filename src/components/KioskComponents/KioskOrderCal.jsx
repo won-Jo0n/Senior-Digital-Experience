@@ -1,8 +1,11 @@
 import "./KioskOrderCal.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // 주문내역 총수량 및 총합계 계산
 // orderItems에는 [itemId,itemName, itemPrice]
-const KioskOrderCal = ({ orderItems }) => {
-  console.log(orderItems);
+const KioskOrderCal = ({ orderItems, setOrderItems, setOnPayModal }) => {
+  const nav = useNavigate();
+
   //총 가격
   let totalPrice = 0;
   let totalquantity = 0;
@@ -13,9 +16,23 @@ const KioskOrderCal = ({ orderItems }) => {
   console.log("totalPrice:", totalPrice);
   console.log("totalquantity:", totalquantity);
 
-  // 수량 추가 버튼 클릭시 수량 증가
+  // 수량 추가 버튼 클릭시 수량 증가(구현해야함)
   const orderNumPlus = () => {
     return;
+  };
+
+  //키오스크 시작화면으로 이동
+  const moveStartPage = () => {
+    nav("/Kiosk");
+  };
+  // 주문 내역 지우기 버튼
+  const clearList = () => {
+    setOrderItems([]);
+  };
+
+  // 주문하기 클릭시 모달 창 띄우기
+  const openOlder = () => {
+    setOnPayModal(true);
   };
   return (
     <div className="orderBar">
@@ -55,11 +72,17 @@ const KioskOrderCal = ({ orderItems }) => {
         </div>
         <div className="olderOption">
           <div>
-            <button className="clearBtn">지우기</button>
-            <button className="olderBtn">주문하기</button>
+            <button className="clearBtn" onClick={clearList}>
+              지우기
+            </button>
+            <button className="olderBtn" onClick={openOlder}>
+              주문하기
+            </button>
           </div>
           <div className="resetOption">
-            <button className="resetBtn">처음으로</button>
+            <button className="resetBtn" onClick={moveStartPage}>
+              처음으로
+            </button>
           </div>
         </div>
       </div>

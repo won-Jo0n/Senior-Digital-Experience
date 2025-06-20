@@ -54,7 +54,7 @@ const NewAccount = () => {
             id="user-agree"
             type="checkBox"
           />
-          <label for="user-agree">개인정보 활용 동의(필수)</label>
+          <label htmlFor="user-agree">개인정보 활용 동의(필수)</label>
         </div>
         <div className="checkbox-group">
           <input
@@ -64,7 +64,7 @@ const NewAccount = () => {
             id="user-consent"
             type="checkBox"
           />
-          <label for="user-consent">정말 열심히 할건가여?(필수)</label>
+          <label htmlFor="user-consent">정말 열심히 할건가여?(필수)</label>
         </div>
         <Button text={"계정 생성"} onClick={newAccountOnClick}></Button>
       </div>

@@ -1,8 +1,13 @@
 .Button {
-  border: 0;
+  border: none;
+  border-radius: 8px;
   background-color: transparent;
   cursor: pointer;
   color: snow;
+  font-family: "Inter", sans-serif;
+  font-size: 1.1em;
+  font-weight: bolder;
+  margin: 0;
 }
 
 .Button_Comunity {
