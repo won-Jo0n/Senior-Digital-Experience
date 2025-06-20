@@ -101,6 +101,78 @@ function App() {
       text: "안녕하세요, text입니다.",
       isAnswer: "",
     },
+    {
+      id: 2, // 커뮤니티 게시글 구분 key
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
+      isAnswer: "",
+    },
+    {
+      id: 3, // 커뮤니티 게시글 구분 key
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
+      isAnswer: "",
+    },
+    {
+      id: 4, // 커뮤니티 게시글 구분 key
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
+      isAnswer: "",
+    },
+    {
+      id: 5, // 커뮤니티 게시글 구분 key
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
+      isAnswer: "",
+    },
+    {
+      id: 6, // 커뮤니티 게시글 구분 key
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
+      isAnswer: "",
+    },
+    {
+      id: 7, // 커뮤니티 게시글 구분 key
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
+      isAnswer: "",
+    },
+    {
+      id: 8, // 커뮤니티 게시글 구분 key
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
+      isAnswer: "",
+    },
+    {
+      id: 9, // 커뮤니티 게시글 구분 key
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
+      isAnswer: "",
+    },
+    {
+      id: 10, // 커뮤니티 게시글 구분 key
+      title: "title입니다.",
+      userName: "name",
+      date: "2025-06-19",
+      text: "안녕하세요, text입니다.",
+      isAnswer: "",
+    },
   ];
 
   // 사용자
@@ -202,13 +274,19 @@ function App() {
   };
 
   // 유저 관리기능
-  const onCreate = (phoneNum, password, birth) => {
-    if (
-      data.find(
-        (item) =>
-          item.phoneNum === phoneNum || item.phoneNum.toUpperCase() === "ADMIN"
-      )
-    ) {
+  const onCreate = (phoneNum, password, birth, isUserAgree, isUserConsent) => {
+    console.log("DATA: ", data);
+    if (!isUserAgree || !isUserConsent) {
+      alert("필수사항을 동의해주세요!");
+      return;
+    }
+
+    if (!Number(phoneNum)) {
+      alert("전화번호는 숫자만 입력해주세요!");
+      return;
+    }
+
+    if (data.find((item) => String(item.phoneNum) === String(phoneNum))) {
       alert("이미 가입된 전화번호입니다.");
       return;
     }

@@ -1,3 +1,156 @@
-.Community .community-content {
+.Community {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  color: #333;
+  font-family: "Inter", sans-serif;
+}
+
+.Community_logo {
+  margin-bottom: 30px;
+}
+
+/* 검색 */
+.search {
+  display: flex;
+  align-items: center;
+  width: 80%; /* 컨텐츠 너비에 맞춤 */
+  max-width: 800px; /* 최대 너비 설정 */
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+}
+
+.search input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  font-size: 16px;
+  background: transparent;
+}
+
+.search .Button {
+  /* Button 컴포넌트에 대한 스타일 (Button.jsx에서 export default Button; 가정) */
+  margin-left: 10px; /* 검색 버튼과 글작성 버튼 사이 간격 */
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px; /* 버튼 모서리 둥글게 */
+  font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+/* 검색 버튼 */
+.search .Button:nth-child(2) {
+  /* 두 번째 버튼 (검색) */
+  background-color: #5cb85c; /* 초록색 */
+  color: white;
+}
+.search .Button:nth-child(2):hover {
+  background-color: #4cae4c;
+  transform: translateY(-2px);
+}
+
+/* 글작성 버튼 */
+.search .Button:nth-child(3) {
+  /* 세 번째 버튼 (글작성) */
+  background-color: #007bff; /* 파란색 */
+  color: white;
+}
+.search .Button:nth-child(3):hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* 컨텐츠 래퍼 (게시글 리스트) */
+.content-wrapper {
+  width: 80%;
+  max-width: 800px;
+  background-color: #fff; /* 흰색 배경 */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 0; /* 내부 패딩 조절 */
+}
+
+.content-wrapper ul {
+  list-style: none; /* 목록 마커 제거 */
+  padding: 0;
+  margin: 0;
+}
+
+/* 각 게시글 항목 (li 태그) */
+.community-content {
+  display: flex;
+  justify-content: space-between; /* 제목, 날짜, 이름 등을 양쪽 끝으로 분산 */
+  align-items: center; /* 세로 중앙 정렬 */
+  padding: 15px 25px; /* 내부 패딩 */
+  border-bottom: 1px solid #eee; /* 하단 구분선 */
+  background-color: #e6ffe6; /* 연한 초록색 배경 (이미지 참고) */
+  margin-bottom: 8px; /* 각 게시글 항목 간의 간격 */
+  margin-left: 8px;
+  margin-right: 8px;
+  border-radius: 8px; /* 게시글 항목 모서리 둥글게 */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 약간의 그림자 추가 */
+}
+
+.content-header {
+  display: flex;
+}
+
+.community-content:last-child {
+  border-bottom: none; /* 마지막 항목은 구분선 제거 */
+  margin-bottom: 0; /* 마지막 항목 하단 간격 제거 */
+}
+
+.community-content:hover {
+  background-color: #d9f5d9; /* 호버 시 배경색 변경 */
+  transform: translateY(-2px); /* 약간 위로 뜨는 효과 */
+}
+
+/* 게시글 제목 */
+.community-title {
+  flex-grow: 1; /* 가능한 공간을 차지하여 제목이 길어도 잘림 방지 */
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50%;
+}
+
+.community-date {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0 15px;
+  white-space: nowrap;
+}
+
+/* 게시글 작성자 이름 */
+.community-userName {
+  font-size: 0.95em;
+  color: #555;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.community-content .Button {
+  margin-left: 20px;
+  background-color: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.85em;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.community-content .Button:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
 }

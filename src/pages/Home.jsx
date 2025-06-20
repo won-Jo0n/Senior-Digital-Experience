@@ -60,7 +60,7 @@ const Home = () => {
             onClick={onLogoutClick}
           />
         </div>
-        <div className="Login">
+        <div className="Login-btn">
           <Button
             text={"로그인"}
             type={`${
@@ -72,7 +72,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="NewAccount">
+        <div className="NewAccount-btn">
           <Button
             text={"회원가입"}
             type={`${
@@ -84,7 +84,7 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="Comunity">
+      <div className="Comunity-btn">
         <Button text={"커뮤니티"} type={"Comunity"} onClick={onComunity} />
       </div>
       <div className="wrapper_main">

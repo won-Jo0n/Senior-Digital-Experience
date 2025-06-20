@@ -57,6 +57,11 @@ const Community = () => {
       </div>
       <div className="search">
         <input
+          onKeyDown={(e) => {
+            if (e.code === "Enter") {
+              searching();
+            }
+          }}
           placeholder="검색어를 입력해주세요"
           onChange={(event) => {
             setSearchingText(event.target.value);
@@ -79,8 +84,8 @@ const Community = () => {
               >
                 {item.title}
               </div>
-              {item.date}
-              {item.userName}
+              <div className="community-date">{item.date}</div>
+              <div className="community-userName">{item.userName}</div>
               {data.isLogin === "ADMIN" ? (
                 <Button
                   text={"글 삭제"}

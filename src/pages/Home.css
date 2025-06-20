@@ -21,10 +21,10 @@
   padding: 20px 40px;
 }
 
-.Login {
+.Login-btn {
   margin-right: 6px;
 }
-.NewAccount {
+.NewAccount-btn {
   margin-left: 6px;
 }
 
@@ -32,9 +32,9 @@
   margin: 0 10px;
 }
 
-.Comunity {
+.Comunity-btn {
   background-color: white;
-  width: 80%;
+  width: 50%;
   text-align: center;
   padding: 20px 40px;
   border-radius: 10px;
@@ -42,7 +42,7 @@
 }
 
 .wrapper_main {
-  width: 80%;
+  width: 50%;
   background-color: white;
   padding: 20px 40px;
   border-radius: 10px;

@@ -1,3 +1,5 @@
+import "./Login.css";
+import Logo from "../components/Logo";
 import { useContext, useRef, useState } from "react";
 import Button from "../components/Button";
 import { DataStateContext } from "../App";
@@ -44,38 +46,42 @@ const Login = () => {
     navigate("/NewAccount", { replace: true });
   };
   return (
-    <div>
-      <input
-        ref={phoneNumValue}
-        type="text"
-        placeholder="휴대폰 번호"
-        value={phoneNum}
-        onKeyDown={(e) => {
-          if (e.code === "Enter") {
-            loginOnClick();
-          }
-        }}
-        onChange={(event) => {
-          setPhoneNum(event.target.value);
-        }}
-      />
-      <br />
-      <input
-        ref={passwordValue}
-        type="text"
-        placeholder="비밀번호"
-        value={password}
-        onKeyDown={(e) => {
-          if (e.code === "Enter") {
-            loginOnClick();
-          }
-        }}
-        onChange={(event) => {
-          setPassword(event.target.value);
-        }}
-      />
-      <Button text={"로그인"} onClick={loginOnClick}></Button>
-      <Button text={"회원가입"} onClick={newAccountOnClick}></Button>
+    <div className="Login">
+      <Logo />
+      <div className="login-wrapper">
+        <input
+          ref={phoneNumValue}
+          type="text"
+          placeholder="휴대폰 번호"
+          value={phoneNum}
+          onKeyDown={(e) => {
+            if (e.code === "Enter") {
+              loginOnClick();
+            }
+          }}
+          onChange={(event) => {
+            setPhoneNum(event.target.value);
+          }}
+        />
+        <input
+          ref={passwordValue}
+          type="text"
+          placeholder="비밀번호"
+          value={password}
+          onKeyDown={(e) => {
+            if (e.code === "Enter") {
+              loginOnClick();
+            }
+          }}
+          onChange={(event) => {
+            setPassword(event.target.value);
+          }}
+        />
+        <div className="button-group">
+          <Button text={"로그인"} onClick={loginOnClick}></Button>
+          <Button text={"회원가입"} onClick={newAccountOnClick}></Button>
+        </div>
+      </div>
     </div>
   );
 };
