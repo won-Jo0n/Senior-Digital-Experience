@@ -1,11 +1,14 @@
 .NavCard {
   color: black;
   background-color: #dae8d3;
-  margin: 20px;
+  margin: 5px;
+  padding: 15px;
   border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .NavCardImage {
-  border: 1px solid black;
   height: 150px;
+  max-width: 100%;
 }

@@ -154,3 +154,154 @@
   background-color: #c82333;
   transform: translateY(-1px);
 }
+
+@media (max-width: 768px) {
+  .Community {
+    padding: 15px; /* 전체 패딩 줄임 */
+  }
+
+  .search,
+  .content-wrapper {
+    width: 95%; /* 태블릿에서는 너비를 95%로 늘려 더 많은 공간 확보 */
+    padding: 15px; /* 패딩도 조금 줄임 */
+  }
+
+  .search input {
+    font-size: 15px; /* 입력 필드 폰트 크기 조절 */
+  }
+
+  .search .Button {
+    padding: 7px 12px; /* 버튼 패딩 조절 */
+    font-size: 13px; /* 버튼 폰트 크기 조절 */
+    margin-left: 8px; /* 버튼 간격 조절 */
+  }
+
+  .community-content {
+    padding: 12px 18px; /* 게시글 항목 패딩 조절 */
+    margin: 0 5px 5px 5px; /* 마진 조절 */
+    flex-wrap: wrap; /* 내용이 많아지면 다음 줄로 넘어가도록 설정 */
+    justify-content: flex-start; /* 아이템 시작 지점 정렬 */
+  }
+
+  .content-info {
+    flex-basis: 100%; /* 제목, 날짜, 이름 그룹이 한 줄 차지 */
+    margin-bottom: 5px; /* 아래로 살짝 간격 */
+  }
+
+  .community-title {
+    max-width: 100%; /* 태블릿에서는 제목이 한 줄 꽉 차지하도록 */
+    font-size: 1em;
+    white-space: normal; /* 필요에 따라 줄바꿈 허용 */
+  }
+
+  .community-date {
+    margin: 0 10px 0 0; /* 날짜 마진 조절 */
+  }
+
+  .community-userName {
+    margin-left: auto; /* 이름을 오른쪽 끝으로 밀어냄 */
+  }
+
+  .community-content .Button {
+    margin-left: 0; /* 게시글 내 버튼 마진 제거 */
+    margin-top: 10px; /* 위쪽으로 간격 추가 */
+    width: 100%; /* 버튼이 한 줄을 다 차지하도록 */
+    text-align: center;
+  }
+}
+
+/* --- 모바일 (Mobile) 크기부터 적용 (예: max-width: 480px) --- */
+@media (max-width: 480px) {
+  .Community {
+    padding: 10px; /* 전체 패딩 더 줄임 */
+  }
+
+  .Community_logo {
+    margin-bottom: 20px;
+  }
+
+  .search {
+    flex-direction: column; /* 검색창 요소들을 세로로 정렬 */
+    align-items: stretch; /* 늘려서 가득 채우기 */
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .search input {
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px; /* 입력 필드 아래 간격 */
+  }
+
+  /* 검색 및 글작성 버튼 컨테이너 */
+  .search .button-group {
+    display: flex;
+    justify-content: space-between; /* 버튼들을 양 끝으로 분산 */
+    width: 100%;
+  }
+
+  /* 이 부분은 HTML에 button-group이라는 div를 추가해야 합니다.
+     <div class="button-group">
+       <Button>검색</Button>
+       <Button>글작성</Button>
+     </div>
+     이렇게 감싸주세요.
+  */
+  .search .Button {
+    flex-grow: 1; /* 버튼들이 남은 공간을 균등하게 차지 */
+    margin: 0 5px; /* 버튼 간격 조절 */
+    font-size: 12px;
+    padding: 10px 0; /* 높이를 위해 패딩 위아래로 더 줌 */
+  }
+  .search .Button:first-child {
+    /* 검색 버튼 */
+    margin-left: 0;
+  }
+  .search .Button:last-child {
+    /* 글작성 버튼 */
+    margin-right: 0;
+  }
+
+  .content-wrapper {
+    width: 98%; /* 모바일에서는 거의 꽉 채우도록 98% */
+    padding: 15px 0;
+  }
+
+  .community-content {
+    flex-direction: column; /* 게시글 항목 내부 요소를 세로로 정렬 */
+    align-items: flex-start; /* 왼쪽으로 정렬 */
+    padding: 12px;
+    margin: 0 4px 4px 4px;
+  }
+
+  .content-info {
+    flex-direction: column; /* 제목, 날짜, 이름 세로로 정렬 */
+    align-items: flex-start;
+    width: 100%; /* 꽉 채움 */
+    margin-bottom: 8px; /* 아래 간격 */
+  }
+
+  .community-title {
+    font-size: 1em;
+    margin-bottom: 5px;
+    white-space: normal; /* 줄바꿈 허용 */
+    word-break: break-word; /* 긴 단어 강제 줄바꿈 */
+  }
+
+  .community-date {
+    font-size: 0.8em;
+    margin: 0 0 5px 0; /* 마진 조정 */
+  }
+
+  .community-userName {
+    font-size: 0.85em;
+    margin-left: 0; /* 왼쪽 정렬 */
+  }
+
+  .community-content .Button {
+    margin-top: 15px;
+    width: 100%;
+    font-size: 0.8em;
+    padding: 8px;
+  }
+}
