@@ -338,6 +338,11 @@ function App() {
     }
     setIslogin("LOGIN");
   };
+  const onLogout = () => {
+    setLoginedId(null);
+    setIslogin("none");
+  };
+
   if (!isLoading) {
     console.log("아직 다 안올라왔다잉");
   }
@@ -355,6 +360,7 @@ function App() {
             onUpdate,
             onDelete,
             onLogin,
+            onLogout,
             onCreateCommunity,
             onDeleteCommunityContent,
             onUpdateCommunity,

@@ -3,13 +3,8 @@ import { getCoffeeImage } from "../../util/cafeMenu_imgesCoffee";
 import { getCakeImage } from "../../util/cafeMenu_imgesCake";
 import { getDrinkImage } from "../../util/cafeMenu_imgesDrink ";
 const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
-  console.log(selectedItem);
-  console.log(pickMenu);
-
   // 커피, 음료, 케이크에 따라 리스트 값 불러오고 화면에 뿌림
   const menuDetail = () => {
-    console.log(selectedItem.coffeeId);
-
     if (pickMenu === "coffee") {
       return (
         <div>
@@ -36,7 +31,7 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
   };
   //담기버튼 클릭시 모달 닫힘
   const handleConfirmAdd = () => {
-    onAddToOrder(selectedItem); // 주문 정보 객체 전달
+    onAddToOrder(selectedItem); // 선택된 메뉴 주문 정보 객체 전달
     setOnModal(false);
   };
 

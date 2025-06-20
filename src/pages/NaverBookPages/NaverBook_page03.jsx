@@ -6,6 +6,8 @@ import Button from "../../components/Button";
 
 const NaverBook_page03 = () => {
   const nav = useNavigate();
+
+  // 시간, 날짜 관련 usestate
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -36,18 +38,21 @@ const NaverBook_page03 = () => {
 
   const weeks = groupDatesByWeek(startDay, endDay);
 
+  // 달을 이전 달로 넘기는 함수
   const handlePrevMonth = () => {
     setCurrentDate(
       new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1)
     );
   };
 
+  // 달을 다음 달로 넘기는 함수
   const handleNextMonth = () => {
     setCurrentDate(
       new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
     );
   };
 
+  // 날짜와 시간 선택해야 페이지 4로 넘어감
   const forthPage = () => {
     if (selectedDate && selectedTime) {
       nav("/NaverBook/page04", {
@@ -154,15 +159,18 @@ const NaverBook_page03 = () => {
               <div className="timeGroup">
                 {[
                   "12:00",
-                  "2:00",
-                  "2:30",
-                  "3:00",
-                  "3:30",
-                  "4:00",
-                  "4:30",
-                  "5:00",
-                  "5:30",
-                  "6:00",
+                  "12:30",
+                  "13:00",
+                  "13:30",
+                  "14:00",
+                  "14:30",
+                  "15:00",
+                  "15:30",
+                  "16:00",
+                  "16:30",
+                  "17:00",
+                  "17:30",
+                  "18:00",
                 ].map((time, index) => (
                   <button
                     key={index}

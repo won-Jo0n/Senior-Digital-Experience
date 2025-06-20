@@ -1,15 +1,28 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./NaverBook_page04.css";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 
 const NaverBook_page04 = () => {
+  const location = useLocation();
+  const { date, time } = location.state || {};
   const nav = useNavigate();
 
   const fifthPage = () => {
-    nav("/NaverBook/page05");
+    nav("/NaverBook/page05", {
+      state: {
+        date,
+        time,
+        slot,
+      },
+    });
   };
 
+  const getSlot = (time) => {
+    const hour = parseInt(time.split(":")[0]);
+    return hour < 12 ? "오전" : "오후";
+  };
+  const slot = time ? getSlot(time) : "";
   return (
     <div className="bigContainer">
       <Header />
@@ -20,17 +33,32 @@ const NaverBook_page04 = () => {
           <p>아래 내용이 맞는지 확인해주세요</p>
           <div className="BookCheck">
             <h2>해봐YOU의원_네이버예약</h2>
-            <p>일정</p>
+            <div className="bookTimeDate">
+              <p>일정</p>
+              <p>
+                {date} ∘ {slot} {time}
+              </p>
+            </div>
           </div>
           <div className="addInfo">
-            <h2>추가 정보</h2>
-            <h4>진료목적</h4>
+            <h3>추가 정보</h3>
+            <p>진료목적</p>
             <div className="bookCheckBox">
-              <input type="checkbox"></input> 클리닉
-              <input type="checkbox"></input> 도수상담
-              <input type="checkbox"></input> 수액
-              <input type="checkbox"></input> 보건증 발급
-              <input type="checkbox"></input> 진성 간호사와 상담
+              <label>
+                <input type="checkbox" /> 클리닉
+              </label>
+              <label>
+                <input type="checkbox" /> 도수상담
+              </label>
+              <label>
+                <input type="checkbox" /> 수액
+              </label>
+              <label>
+                <input type="checkbox" /> 보건증 발급
+              </label>
+              <label>
+                <input type="checkbox" /> 진성 간호사와 상담
+              </label>
             </div>
           </div>
           <div className="userInfo">
