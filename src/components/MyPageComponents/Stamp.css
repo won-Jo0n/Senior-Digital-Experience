@@ -3,7 +3,7 @@
   height: 240px;
   perspective: 1000px;
   display: inline-block;
-  border-radius: 500px;
+  border-radius: 100%;
 }
 
 .stamp {
@@ -17,7 +17,7 @@
 
   /* 기본 Glow 효과 */
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-  border-radius: 300px;
+  border-radius: 100%;
   animation: sparkle 2s infinite ease-in-out;
 }
 

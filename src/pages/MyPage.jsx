@@ -24,12 +24,12 @@ const MyPage = () => {
       </div>
       <div className="prices">
         <div className="stampContainer">
-          <Stamp></Stamp>
-          <Stamp></Stamp>
+          <Stamp isShow={userState.loginedId.mission[0]}></Stamp>
+          <Stamp isShow={userState.loginedId.mission[1]}></Stamp>
         </div>
         <div className="CouponContainer">
-          <Coupon></Coupon>
-          <Coupon></Coupon>
+          <Coupon isShow={userState.loginedId.mission[0]}></Coupon>
+          <Coupon isShow={userState.loginedId.mission[1]}></Coupon>
         </div>
       </div>
     </div>

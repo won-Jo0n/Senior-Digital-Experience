@@ -2,7 +2,8 @@ import { useRef } from "react";
 import stampImg from "../../assets/myPage/stampImg.png";
 import "./Stamp.css";
 
-function Stamp() {
+function Stamp(isShow) {
+  console.log(isShow);
   const stampRef = useRef(null);
 
   const handleMouseMove = (e) => {
@@ -38,7 +39,7 @@ function Stamp() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <img className="stamp" src={stampImg} alt="스탬프 이미지" />
+      <img className="stamp" src={isShow.isShow ? stampImg : ""} alt="" />
     </div>
   );
 }
