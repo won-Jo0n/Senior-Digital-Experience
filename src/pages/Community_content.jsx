@@ -1,8 +1,11 @@
+import "./Community_content.css";
 import { useParams } from "react-router-dom";
 import Button from "../components/Button";
 import { useContext, useRef, useState } from "react";
 import { DataStateContext } from "../App";
 import { DataDispatchContext } from "../App";
+import Logo from "../components/Logo";
+
 const Community_content = () => {
   const params = useParams();
   const data = useContext(DataStateContext);
@@ -30,28 +33,33 @@ const Community_content = () => {
 
   return (
     <div className="Community_content">
-      <div className="content-title">{content.title}</div>
-      <div className="content-userName">{content.userName}</div>
-      <div className="content-text">{content.text}</div>
-      <div className="content-answer">
-        {content.isAnswer ? (
-          <div>{content.isAnswer}</div>
+      <Logo />
+      <div className="content_wrapper">
+        <div className="content-info-wrapper">
+          <div className="content-title">{content.title}</div>
+          <div className="content-userName">{content.userName}</div>
+        </div>
+        <div className="content-text">{content.text}</div>
+        <div className="content-answer">
+          {content.isAnswer ? (
+            <div>{content.isAnswer}</div>
+          ) : (
+            "아직 답변되지 않은 게시글입니다."
+          )}
+        </div>
+        {data.isLogin === "ADMIN" ? (
+          <div className="admin-asnwer">
+            <textarea
+              value={adminAnswer}
+              onChange={handleAdminAnswer}
+              placeholder="답변을 입력해주세요"
+            />
+            <Button text={"답변 등록"} onClick={handleOnclickAnswer} />
+          </div>
         ) : (
-          "아직 답변되지 않은 게시글입니다."
+          ""
         )}
       </div>
-      {data.isLogin === "ADMIN" ? (
-        <div className="admin-asnwer">
-          <textarea
-            value={adminAnswer}
-            onChange={handleAdminAnswer}
-            placeholder="답변을 입력해주세요"
-          />
-          <Button text={"답변 등록"} onClick={handleOnclickAnswer} />
-        </div>
-      ) : (
-        ""
-      )}
     </div>
   );
 };
