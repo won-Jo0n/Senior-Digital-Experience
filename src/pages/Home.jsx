@@ -4,15 +4,19 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
 import NavCard from "../components/NavCard";
 import { useContext } from "react";
-import { DataStateContext } from "../App";
+import { DataDispatchContext, DataStateContext } from "../App";
 
 const Home = () => {
   const nav = useNavigate();
   const userState = useContext(DataStateContext);
-  console.log(userState.isLogin);
+  const { onLogout } = useContext(DataDispatchContext);
   // nav
   const onMyPage = () => {
     nav("/MyPage");
+  };
+  const onLogoutClick = () => {
+    onLogout();
+    alert("로그아웃되었습니다!");
   };
   const onLogin = () => {
     nav("/Login");
@@ -49,6 +53,13 @@ const Home = () => {
             onClick={onMyPage}
           />
         </div>
+        <div className="MyPage">
+          <Button
+            text={"로그아웃"}
+            type={`${userState.isLogin === "LOGIN" ? "MyPage" : "none"}`}
+            onClick={onLogoutClick}
+          />
+        </div>
         <div className="Login">
           <Button
             text={"로그인"}
@@ -64,7 +75,11 @@ const Home = () => {
         <div className="NewAccount">
           <Button
             text={"회원가입"}
-            type={`${userState.isLogin ? "none" : "NewAccount"}`}
+            type={`${
+              userState.isLogin === "LOGIN" || userState.isLogin === "ADMIN"
+                ? "none"
+                : "NewAccount"
+            }`}
             onClick={onNewAccount}
           />
         </div>
