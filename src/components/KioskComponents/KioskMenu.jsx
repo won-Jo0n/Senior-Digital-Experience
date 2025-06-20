@@ -3,6 +3,7 @@ import KioskCoffee from "./KioskCoffee.jsx";
 import KioskDrink from "../KioskComponents/KioskDrink.jsx";
 import KioskCake from "../KioskComponents/KioskCake.jsx";
 import KioskModal from "../KioskComponents/KioskModal.jsx";
+import KioskOrderCal from "../KioskComponents/KioskOrderCal.jsx";
 import { getCoffeeImage } from "../../util/cafeMenu_imgesCoffee";
 import { getDrinkImage } from "../../util/cafeMenu_imgesDrink ";
 import { getCakeImage } from "../../util/cafeMenu_imgesCake";
@@ -15,7 +16,6 @@ const KioskMenu = () => {
   //kioskMenu 역할
   //1. 카테고리 선택시 해당 메뉴 띄우기
   //2. 특정 메뉴 선택시 옵션 모달창 띄우기
-  //3. 담기 클릭시 주문 내역 창에 쌓임
 
   //카테고리 선택시 변하는 값을 저장할 state
   const [pickMenu, setPickMenu] = useState("coffee");
@@ -23,24 +23,30 @@ const KioskMenu = () => {
   // 모달창을 띄우기 위한 state
   const [onModal, setOnModal] = useState(false);
 
-  //선택된 상품의 객체를 저장할 state
+  //선택된 음료의 객체를 저장할 state
   const [selectedItem, setSelectedItem] = useState({});
 
   //클릭한 음료 넣어두는 리스트
+  //orderItems에는 선택한 item -> [itemId,itemName, itemPrice]
   const [orderItems, setOrderItems] = useState([]);
 
+  // 선택된 메뉴 주문 정보 객체 전달-------
   const AddToOrder = (itemToAdd) => {
-    setOrderItems((prevItems) => {
+    setOrderItems((oldreItems) => {
+      // 선택된 메뉴 아이디 가져오기
       const itemId =
         itemToAdd.coffeeId || itemToAdd.drinkId || itemToAdd.CakeId;
+      // 선택된 메뉴 이름 가져오기
       const itemName =
         itemToAdd.coffeeName || itemToAdd.drinkName || itemToAdd.CakeName;
+      // 선택된 메뉴 가격 가져오기
       const itemPrice =
         itemToAdd.coffeePrice ||
         itemToAdd.drinkPrice ||
         itemToAdd.cakeListPrice;
 
       let itemImage = "";
+      // 선택된 메뉴 이미지 가져오기
       if (pickMenu === "coffee") {
         itemImage = getCoffeeImage(itemId);
       } else if (pickMenu === "drink") {
@@ -49,28 +55,46 @@ const KioskMenu = () => {
         itemImage = getCakeImage(itemId);
       }
 
-      // 이미 주문 내역에 있는 동일한 아이템인지 확인, 인덱스 반환환
-      const sameItem = prevItems.findIndex(
+      // oldreItems는 클릭한 음료(주문 내역에 있는 음료)
+      // 이미 주문 내역에 있는 동일한 아이템인지 확인, 인덱스 반환
+      // 이미 있는 아이템(메뉴)이라면 인덱스가 0인 경우 하나 있는 거.
+      const sameItemIndex = oldreItems.findIndex(
         (orderItem) => orderItem.id === itemId && orderItem.name === itemName
       );
-      // 이미 있는 아이템이라면
-      if (sameItem > -1) {
-        return null;
-      } else {
+
+      //만약 주문리스트에 중복이 없다면 추가
+      if (sameItemIndex === -1) {
+        const newItem = {
+          id: itemId,
+          name: itemName,
+          price: itemPrice,
+          quantity: 1,
+          totalPrice: itemPrice, //totalPrice는 총 금액 itemPrice는 메뉴 하나의 금액
+          image: itemImage,
+          type: pickMenu,
+        };
+
         return [
-          ...prevItems, // 기존 아이템 유지
-          {
-            id: itemId,
-            name: itemName,
-            price: itemPrice,
-            quantity: 1,
-            image: itemImage, // 이미지 URL 추가
-            type: pickMenu, // 어떤 종류의 메뉴인지 저장
-          },
+          ...oldreItems, // 기존 아이템 유지
+          newItem,
         ];
+
+        // 중복이 있다면 수량과 가격만! 증가
+      } else {
+        // 기존의 배열 유지
+        const changeItems = [...oldreItems];
+        // 해당 인덱스에 있는 메뉴의 요소 변경(수량과 가격만)
+        changeItems[sameItemIndex] = {
+          ...changeItems[sameItemIndex],
+          quantity: changeItems[sameItemIndex].quantity + 1,
+          totalPrice: changeItems[sameItemIndex].totalPrice + itemPrice,
+        };
+        return changeItems;
       }
     });
   };
+  //AddToOrder함수 끝-----
+
   const ItemClick = (item) => {
     setSelectedItem(item); // 클릭된 아이템 정보 저장
     setOnModal(true); // 모달 열기
@@ -108,10 +132,6 @@ const KioskMenu = () => {
     }
     return null;
   };
-
-  //총수량 계산 함수 필요
-  //총금액 계산 함수 필요
-
   return (
     <>
       {/* 모달창 css 적용을 위한 조건문 */}
@@ -146,51 +166,15 @@ const KioskMenu = () => {
         <div className="coffee_menu">{changeMenu()}</div>
 
         {/* 주문 내역 채우기 및 계산 */}
-        <div className="orderBar">
-          <div className="orderList">
-            <b>주문 내역</b>
-          </div>
-          <div className="orderListBlank">
-            {/* 메뉴 선택 시 주문 창 이미지와 정보 띄우기*/}
-
-            {orderItems.map((orderItem) => {
-              return (
-                <div className="orderITEM" key={orderItem.name}>
-                  <img src={orderItem.image} alt={orderItem.name} />
-                  <div className="orderName">{orderItem.name} </div>
-                  <div className="orderPrice">{orderItem.price}원</div>
-                </div>
-              );
-            })}
-          </div>
-          <div>
-            <div className="orderTotal">
-              <div className="orderTotalNum">
-                총수량:
-                <span>0개</span>
-              </div>
-              <div className="orderTotalMoney">
-                총금액:
-                <span>0원</span>
-              </div>
-            </div>
-            <div className="olderOption">
-              <div>
-                <button className="clearBtn">지우기</button>
-                <button className="olderBtn">주문하기</button>
-              </div>
-              <div className="resetOption">
-                <button className="resetBtn">처음으로</button>
-              </div>
-            </div>
-          </div>
+        <div>
+          <KioskOrderCal orderItems={orderItems} />
         </div>
         <div>
           {onModal &&
             selectedItem && ( // selectedItem이 null이 아닐 때만 모달 렌더링
               <KioskModal
-                selectedItem={selectedItem}
-                pickMenu={pickMenu}
+                selectedItem={selectedItem} //선택된 메뉴 정보 객체
+                pickMenu={pickMenu} //선택된 메뉴의 카테고리 (커피, 음료, 디저트 중 하나)
                 setOnModal={setOnModal} // 모달 닫기 용도로 전달
                 onAddToOrder={AddToOrder} // 주문 추가 함수 전달
               />
