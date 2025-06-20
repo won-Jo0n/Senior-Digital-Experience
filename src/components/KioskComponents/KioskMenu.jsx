@@ -3,6 +3,7 @@ import KioskCoffee from "./KioskCoffee.jsx";
 import KioskDrink from "../KioskComponents/KioskDrink.jsx";
 import KioskCake from "../KioskComponents/KioskCake.jsx";
 import KioskModal from "../KioskComponents/KioskModal.jsx";
+import KioskModalPay from "../KioskComponents/KioskModal_pay.jsx";
 import KioskOrderCal from "../KioskComponents/KioskOrderCal.jsx";
 import { getCoffeeImage } from "../../util/cafeMenu_imgesCoffee";
 import { getDrinkImage } from "../../util/cafeMenu_imgesDrink ";
@@ -22,6 +23,9 @@ const KioskMenu = () => {
 
   // 모달창을 띄우기 위한 state
   const [onModal, setOnModal] = useState(false);
+
+  //결제 모달 띄우기 위한 state
+  const [onPayModal, setOnPayModal] = useState(false);
 
   //선택된 음료의 객체를 저장할 state
   const [selectedItem, setSelectedItem] = useState({});
@@ -167,7 +171,12 @@ const KioskMenu = () => {
 
         {/* 주문 내역 채우기 및 계산 */}
         <div>
-          <KioskOrderCal orderItems={orderItems} />
+          <KioskOrderCal
+            orderItems={orderItems}
+            setOrderItems={setOrderItems}
+            setOnModal={setOnModal}
+            setOnPayModal={setOnPayModal}
+          />
         </div>
         <div>
           {onModal &&
@@ -179,6 +188,13 @@ const KioskMenu = () => {
                 onAddToOrder={AddToOrder} // 주문 추가 함수 전달
               />
             )}
+        </div>
+
+        <div>
+          {" "}
+          {onPayModal && selectedItem && (
+            <KioskModalPay setOnPayModal={setOnPayModal} />
+          )}
         </div>
       </div>
     </>
