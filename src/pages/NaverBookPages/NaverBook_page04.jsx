@@ -46,8 +46,12 @@ const NaverBook_page04 = () => {
             ></input>
           </div>
           <div className="bookRequest">
-            <Button text={"이전"} />
-            <Button text={"동의하고 예약 신청하기"} onClick={fifthPage} />
+            <div className="bookBack">
+              <Button text={"이전"} />
+            </div>
+            <div className="agreeAndbookRequest">
+              <Button text={"동의하고 예약 신청하기"} onClick={fifthPage} />
+            </div>
           </div>
         </div>
       </div>

@@ -76,9 +76,15 @@ const NaverBook_page03 = () => {
           </div>
 
           <div className="action-buttons">
-            <Button className="menuBtn reserveBtn" text="예약하기" />
-            <Button className="menuBtn" text="상세정보" />
-            <Button className="menuBtn" text="리뷰" />
+            <div className="reserveBtn">
+              <Button text="예약하기" />
+            </div>
+            <div className="otherBtn">
+              <Button text="상세정보" />
+            </div>
+            <div className="otherBtn">
+              <Button text="리뷰" />
+            </div>
           </div>
 
           <div className="allCalendar">
