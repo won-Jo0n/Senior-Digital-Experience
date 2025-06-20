@@ -1,9 +1,14 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./NaverBook_page05.css";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 
 const NaverBook_page05 = () => {
+  const location = useLocation();
+  const { date, time, slot } = location.state || {};
+
+  console.log(date, time, slot);
+
   const nav = useNavigate();
 
   return (
@@ -27,7 +32,9 @@ const NaverBook_page05 = () => {
           </div>
           <div className="finalBook">
             <p className="bookName">해봐YOU의원</p>
-            <p className="bookDate">6.20(금) 오후 2:30</p>
+            <p className="bookDate">
+              {date} ∘ {slot} {time}
+            </p>
             <p className="smallbookContent">해봐YOU의원_네이버예약</p>
           </div>
         </div>

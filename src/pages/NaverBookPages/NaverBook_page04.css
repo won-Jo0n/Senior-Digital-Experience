@@ -1,7 +1,7 @@
 .bigContainer {
   margin: 0;
   padding: 0;
-  background-color: #FFFBF3; 
+  background-color: #ffffff; 
 }
 
 .bookWrapper{
@@ -10,14 +10,39 @@
   margin: 0 auto;
 }
 
+.addInfo {
+  margin-top: 20px;
+  background-color: #cccccc9c;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding: 10px 16px;
+  padding-bottom: 25px;
+}
+
+.addInfo h3{
+margin-left: 10px;
+}
+
+.addInfo p{
+  margin-left: 10px;
+ font-weight: bold;
+}
+
+.bookCheckBox {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px; /* 각 항목 간 간격 */
+}
+
 .NaverBook_page04 {
- position: absolute;
+  position: absolute;
   top: 140px; 
   left: 49%;
   transform: translateX(-50%);
   background-color: white; 
   font-family: sans-serif;
-  padding: 16px;
+  padding: 16px ;
   overflow-y: auto;
   height: 685px;
   width: 380px;
@@ -49,6 +74,7 @@ margin-top: 20px;
   border-radius: 5px;
   padding: 7px;
   width: 70px;
+    font-size: 15px;
 }
 
 .agreeAndbookRequest Button{
@@ -57,4 +83,5 @@ margin-top: 20px;
   padding: 8px;
   width: 280px;
   margin-left: 10px;
+  font-size: 15px;
 }

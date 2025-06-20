@@ -1,10 +1,10 @@
 .bigContainer {
   margin: 0;
   padding: 0;
-  background-color: #FFFBF3;
+  background-color: #ffffff; 
 }
 
-.bookWrapper {
+.bookWrapper{
   position: relative;
   width: 700px;
   margin: 0 auto;
@@ -18,16 +18,15 @@
 
 .NaverBook_page03 {
   position: absolute;
-  top: 140px;
-  left: 50%;
+  top: 140px; 
+  left: 49%;
   transform: translateX(-50%);
-  background-color: white;
-  padding: 20px;
-  width: 380px;
-  max-height: 685px;
+  background-color: white; 
+  font-family: sans-serif;
+  padding: 16px;
   overflow-y: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  max-height: 685px;
+  width: 380px;
 }
 
 .thirdBookDiv {
@@ -71,7 +70,6 @@
   text-align: center;
   
 }
-
 
 .bookBtn {
   border: 1px solid #ccc;
