@@ -1,7 +1,6 @@
 import { useContext, useRef } from "react";
-import Button from "../components/Button";
 import { DataStateContext } from "../App";
-import stampImg from "../assets/myPage/stampImg.png";
+import Stamp from "../components/Stamp";
 import "./Mypage.css";
 
 const MyPage = () => {
@@ -11,11 +10,6 @@ const MyPage = () => {
   const phoneNum = useRef(userState.loginedId.phoneNum);
   const password = useRef(userState.loginedId.password);
   const birth = useRef(userState.loginedId.birth);
-
-  var stamp = document.querySelector(".stamp");
-  stamp.addEventListener("mousemove", function () {
-    stamp.style = "transform : rotateY(20deg)";
-  });
 
   return (
     <div>
@@ -30,8 +24,8 @@ const MyPage = () => {
         <input type="date" defaultValue={birth.current} />
       </div>
       <div className="stampContainer">
-        <img className="stamp" src={stampImg} alt="" />
-        <img className="stamp" src={stampImg} alt="" />
+        <Stamp></Stamp>
+        <Stamp></Stamp>
       </div>
     </div>
   );

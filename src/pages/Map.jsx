@@ -15,7 +15,7 @@ const Map = () => {
 
     const fetchData = async () => {
       try {
-        const url = `https://openapi.gg.go.kr/OldPersonRecuperationFacility?KEY=83687bd36d8c4a8ba8017df7d37ec930&Type=json&pIndex=1&pSize=200`;
+        const url = `https://openapi.gg.go.kr/OldPersonRecuperationFacility?KEY=83687bd36d8c4a8ba8017df7d37ec930&Type=json&pIndex=1&pSize=100`;
         const response = await fetch(url);
 
         if (!response.ok) throw new Error("API 호출 실패");
@@ -43,7 +43,7 @@ const Map = () => {
           var locPosition = new kakao.maps.LatLng(lat, lon);
           var options = {
             center: locPosition, // 지도 중심 좌표
-            level: 10, // 지도 확대 레벨
+            level: 11, // 지도 확대 레벨
           };
 
           createMap("map", options, markerPosition);
