@@ -1,7 +1,8 @@
 import { useContext, useRef } from "react";
 import { DataStateContext } from "../App";
-import Stamp from "../components/Stamp";
+import Stamp from "../components/MyPageComponents/Stamp";
 import "./Mypage.css";
+import Coupon from "../components/MyPageComponents/Coupon";
 
 const MyPage = () => {
   const userState = useContext(DataStateContext);
@@ -26,6 +27,10 @@ const MyPage = () => {
       <div className="stampContainer">
         <Stamp></Stamp>
         <Stamp></Stamp>
+      </div>
+      <div className="CouponContainer">
+        <Coupon></Coupon>
+        <Coupon></Coupon>
       </div>
     </div>
   );
