@@ -34,10 +34,12 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
     }
     return null;
   };
+  //담기버튼 클릭시 모달 닫힘
   const handleConfirmAdd = () => {
     onAddToOrder(selectedItem); // 주문 정보 객체 전달
     setOnModal(false);
   };
+
   return (
     <div className="modal">
       <div className="modalBody">

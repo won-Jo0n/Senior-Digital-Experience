@@ -12,9 +12,15 @@ import { cakeList } from "../../util/cafeMenu-cakeList";
 import { useState } from "react";
 
 const KioskMenu = () => {
-  //kioskMenu 보여주는 컴퍼넌트
-  //카테고리 선택시 div 안 메뉴들 변함
+  //kioskMenu 역할
+  //1. 카테고리 선택시 해당 메뉴 띄우기
+  //2. 특정 메뉴 선택시 옵션 모달창 띄우기
+  //3. 담기 클릭시 주문 내역 창에 쌓임
+
+  //카테고리 선택시 변하는 값을 저장할 state
   const [pickMenu, setPickMenu] = useState("coffee");
+
+  // 모달창을 띄우기 위한 state
   const [onModal, setOnModal] = useState(false);
 
   //선택된 상품의 객체를 저장할 state
@@ -22,11 +28,6 @@ const KioskMenu = () => {
 
   //클릭한 음료 넣어두는 리스트
   const [orderItems, setOrderItems] = useState([]);
-
-  const CloseModal = () => {
-    setOnModal(false);
-    setSelectedItem({}); // 모달 닫을 때 선택된 아이템 정보 초기화
-  };
 
   const AddToOrder = (itemToAdd) => {
     setOrderItems((prevItems) => {
@@ -52,7 +53,7 @@ const KioskMenu = () => {
       const sameItem = prevItems.findIndex(
         (orderItem) => orderItem.id === itemId && orderItem.name === itemName
       );
-      //이미 있는 아이템이라면
+      // 이미 있는 아이템이라면
       if (sameItem > -1) {
         return null;
       } else {
@@ -69,16 +70,10 @@ const KioskMenu = () => {
         ];
       }
     });
-    //모달 닫기
-    CloseModal();
   };
   const ItemClick = (item) => {
     setSelectedItem(item); // 클릭된 아이템 정보 저장
     setOnModal(true); // 모달 열기
-  };
-  // 주문 내역 '지우기'
-  const ClearOrder = () => {
-    setOrderItems([]);
   };
 
   // 주문 하기 함수
@@ -114,14 +109,15 @@ const KioskMenu = () => {
     return null;
   };
 
-  //총수량 계산
-  //총금액 계산
+  //총수량 계산 함수 필요
+  //총금액 계산 함수 필요
 
   return (
     <>
+      {/* 모달창 css 적용을 위한 조건문 */}
       <div className={onModal === true ? "OverMenu" : "AllDisplay"}>
         <div className="MenuBar">
-          {/* 메뉴바 버튼 */}
+          {/* 메뉴바 버튼 클릭시 pickMenu 값 변경 */}
           <button
             className="button_coffee"
             onClick={() => {
@@ -148,18 +144,21 @@ const KioskMenu = () => {
           </button>
         </div>
         <div className="coffee_menu">{changeMenu()}</div>
+
+        {/* 주문 내역 채우기 및 계산 */}
         <div className="orderBar">
           <div className="orderList">
             <b>주문 내역</b>
           </div>
           <div className="orderListBlank">
+            {/* 메뉴 선택 시 주문 창 이미지와 정보 띄우기*/}
+
             {orderItems.map((orderItem) => {
               return (
                 <div className="orderITEM" key={orderItem.name}>
-                  {/* 이미지 */}
                   <img src={orderItem.image} alt={orderItem.name} />
-                  <div>{orderItem.name}</div>
-                  <div>{orderItem.price}원</div>
+                  <div className="orderName">{orderItem.name} </div>
+                  <div className="orderPrice">{orderItem.price}원</div>
                 </div>
               );
             })}
