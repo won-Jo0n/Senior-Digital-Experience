@@ -190,12 +190,8 @@ const NaverBook_page03 = () => {
             <div className="toolTipButton">
               <Button className="menuBtn" text="💬" />
             </div>
-            <div className="forthPageButton">
-              <Button
-                onClick={forthPage}
-                className="menuBtn"
-                text="다음 단계"
-              />
+            <div className="forthPageButton" onClick={forthPage}>
+              <Button className="menuBtn" text="다음 단계" />
             </div>
           </div>
         </div>
