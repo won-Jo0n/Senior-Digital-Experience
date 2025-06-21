@@ -95,88 +95,27 @@ function App() {
   ];
 
   // 게시글 mockData
-  const communityMockData = [
-    {
-      id: 1, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 2, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 3, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 4, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 5, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 6, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 7, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 8, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 9, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 10, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-  ];
+  const generateCommunityMockData = (count) => {
+    const data = [];
+    for (let i = 1; i <= count; i++) {
+      data.push({
+        id: i, // 커뮤니티 게시글 구분 key
+        title: `게시물 제목 ${i}`,
+        userName: `사용자${i}`,
+        date: `2025-06-${String(Math.floor(Math.random() * 30) + 1).padStart(
+          2,
+          "0"
+        )}`, // 랜덤 날짜
+        text: `안녕하세요, ${i}번째 게시물 내용입니다.`,
+        isAnswer: "", // 답변 상태
+      });
+    }
+    return data;
+  };
+
+  // 원하는 게시물 수 설정
+  const numberOfPosts = 100;
+  const communityMockData = generateCommunityMockData(numberOfPosts);
 
   // 사용자
   const [data, dispatch] = useReducer(reducer, []);
