@@ -1,85 +1,110 @@
 .bigContainer {
   margin: 0;
   padding: 0;
-  background-color: #FFFBF3; 
+  background-color: #fffbf3;
 }
 
-.bookWrapper{
+.NaverBook_page05 {
+  position: absolute;
+  top: 140px;
+  left: 49%;
+  transform: translateX(-50%);
+  background-color: white;
+  font-family: sans-serif;
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 685px;
+  width: 380px;
+  height: 900px;
+}
+
+.bookWrapper {
   position: relative;
   width: 700px;
   margin: 0 auto;
 }
 
-.NaverBook_page05 {
- position: absolute;
-  top: 140px; 
-  left: 49%;
-  transform: translateX(-50%);
-  background-color: white; 
-  font-family: sans-serif;
-  padding: 16px;
-  overflow-y: auto;
-  height: 685px;
-  width: 380px;
-}
-
-.bookWrapper img{
+.bookWrapper img {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-
-.bookImg img{
-  width: 80px;
-  justify-content: center; 
-  padding: 20px;
-  margin: 20px;
-}
-
-.finalBook {
-background-color: #f5f5f5;
-border-radius: 15px;
-padding: 5px 20px;
-text-align: center;
-padding-bottom: 20px;
-box-shadow: 2px 2px 5px #ccc;
-}
-
-.bookConform{
-  text-align: center;
+/* 상단 아이콘 */
+.bookImg {
+  display: flex;
   justify-content: center;
+  margin: 20px 0 10px;
 }
 
-.bookConform img{
-  width: 15px;
+.bookImg img {
+  width: 60px;
 }
-.bookConform .waitTime{
-  background-color:  #f5f5f5;
+
+/* 텍스트 블록 */
+.bookConfirm {
+  text-align: center;
   margin-bottom: 20px;
-  text-align: center;
-  border-radius: 10px;
-  padding: 5px;
-  width: 180px;
+}
+
+.bookConfirm h1 {
+  font-size: 30px;
+  font-weight: bolder;
+  margin-bottom: 12px;
+}
+
+.bookConfirm p {
+  font-size: 16px;
+  color: #333;
+  margin: 2px 0;
+}
+
+.bookConfirm strong {
+  color: #036;
+}
+
+/* 확정 시간 */
+.waitTime {
+  display: flex;
   justify-content: center;
-  font-size: small;
+  align-items: center;
+  gap: 10px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  margin: 14px auto;
+  padding: 6px 12px;
+  width: fit-content;
+  font-size: 13px;
+  color: #333;
 }
 
-
-.bookDate{
-  color: rgb(12, 89, 255);
-  font-weight: 500;
-  margin: 1px;
+.waitTime img {
+  width: 14px;
+  height: 14px;
 }
 
-.bookName{
+/* 예약 정보 박스 */
+.finalBook {
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: 2px 2px 5px #ccc;
+}
+
+.bookName {
   font-weight: bold;
-  
+  font-size: 18px;
+  margin-bottom: 4px;
 }
 
-.smallbookContent{
+.bookDate {
+  color: #0c59ff;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.smallbookContent {
   color: #575757;
-  font-size: small;
-
+  font-size: 15px;
 }
-

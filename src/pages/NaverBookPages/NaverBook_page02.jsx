@@ -13,54 +13,81 @@ const NaverBook_page02 = () => {
     <div className="bigContainer">
       <Header />
       <div className="bookWrapper">
-        <img src="/phone.png" alt="phone"></img>
+        <img src="/phone.png" alt="스마트폰 프레임" />
 
         <div className="NaverBook_page02">
-          <div className="NaverBook_Header">
-            <div className="NaverBook_background"></div>
-            <div className="NaverBook_content">
-              <img src="#"></img>
-              <h4>해봐YOU의원</h4>
-              <p>
-                해봐you의원은 노령층의 디지털 뭐시기 향상을 위하여 예약 우선제로
-                운영됩니다.(*당일진료가능)
-              </p>
-              <p>⭐ 4.99 / 리뷰 777</p>
+          {/* 상단 이미지 + 그라데이션 오버레이 */}
+          <div className="topImageBox">
+            <img src="/hospital.png" alt="병원 내부" />
+            <div className="gradientOverlay">
+              <h2>해봐YOU의원</h2>
+              <p>★ 4.73 / 리뷰 152</p>›
+              <div className="ratingBox">
+                <span>★ 4.73</span>
+                <span className="dividerDot">·</span>
+                <span>리뷰 152</span>
+              </div>
             </div>
           </div>
 
-          <div className="page02_wrapper">
-            <img src="#"></img>
+          {/* 주소 및 연락처 */}
+          <div className="contactBox">
+            <div className="contactIconRow">
+              <i className="fi fi-sr-marker"></i>
+              <p>서울 관악구 봉천로 227 보라매샤르망 5층 한국정보교육원</p>
+            </div>
+
+            <div className="contactIconRow">
+              <div className="iconItem">
+                <i className="fi fi-sr-map-marker"></i>
+                <span>지도</span>
+              </div>
+              <div className="iconItem">
+                <i className="fi fi-sr-comment-alt"></i>
+                <span>톡톡</span>
+              </div>
+              <div className="iconItem">
+                <i className="fi fi-sr-home"></i>
+                <span>홈페이지</span>
+              </div>
+              <div className="iconItem">
+                <i className="fi fi-sr-phone-call"></i>
+                <span>전화</span>
+              </div>
+            </div>
           </div>
-          <div className="naverBookDiv">
+
+          {/* 예약 영역 */}
+          <div className="reservationSection">
             <h3>예약</h3>
-            <div className="secondBookButton" onClick={thirdPage}>
-              <h3>진료 예약하기</h3>
-              <p className="smallWord">
-                해봐YOU의원 네이버 예약입니다. 간편하고 편리하게 문의해주세요.
+            <div className="reservationCard" onClick={thirdPage}>
+              <h4>더해봐YOU의원 _ 네이버예약</h4>
+              <p>
+                해봐YOU의원 네이버 예약입니다. 간편하게 예약하고 문의해주세요.
                 감사합니다.
               </p>
-              <button className="bookBtn">예약하기</button>
-              <p>⭐ 4.99 / 리뷰 777</p>
+
+              {/* 한 줄 레이아웃 */}
+              <div className="reviewAndBtnRow">
+                <span className="reviewSmall">★ 4.73 / 리뷰 152</span>
+                <button className="greenBtn">예약하기</button>
+              </div>
             </div>
           </div>
 
-          <div>
-            <h3>소개</h3>
-            <p>
-              안녕하세요 박세원 박진성 염지원 지원준입니다. <br />
-              뭐라뭐라뭐라뭐ㅏ룽러ㅜㄴ아ㅓㅜ란우러ㅜ라ㅜㄴ어ㅏㄹ <br />
-              우러ㅏㄴ우라ㅓㅜㄴ아ㅓ루ㅏ우라눙러ㅏㅜㄴ어루낭ㄹ <br />
-              ㅇㄴ뤈ㅇ뤄ㅏ누러ㅏㅜ너다ㅜ러ㅏㄷ누러ㅏㅜ너루다루너달 <br />
-              러ㅏ두너루나ㅜ러울너다ㅜ라누러단뤄나ㅜㄹ나더루나ㅓㄷㄹ <br />
-            </p>
-            <hr />
-            <h4>집 가고 싶다.</h4>
-            <p>
-              안녕하세요 박세원 박진성 염지원 지원준입니다. <br />
-              뭐라뭐라뭐라뭐ㅏ룽러ㅜㄴ아ㅓㅜ란우러ㅜ라ㅜㄴ어ㅏㄹ <br />
-              우러ㅏㄴ우라ㅓㅜㄴ아ㅓ루ㅏ우라눙러ㅏㅜㄴ어루낭ㄹ <br />
-            </p>
+          {/* 소개 영역 */}
+          <div className="sectionWrapper">
+            <h3 className="sectionTitle">소개</h3>
+            <div className="introSection">
+              <p>
+                행신동 치과 일대 최대 규모 상상플란트치과
+                <br />
+                - 구강악안면외과, 보철과, 교정과 전문의 협진
+                <br />
+                - 대학병원급 장비 및 감염방지 시스템 구축
+                <br />- 1:1 맞춤 진료와 전문 상담 제공
+              </p>
+            </div>
           </div>
         </div>
       </div>

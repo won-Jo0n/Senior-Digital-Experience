@@ -31,15 +31,19 @@ const NaverBook_page04 = () => {
 
         <div className="NaverBook_page04">
           <p>아래 내용이 맞는지 확인해주세요</p>
+
+          {/* 예약 정보 박스 */}
           <div className="BookCheck">
-            <h2>해봐YOU의원_네이버예약</h2>
+            <strong>소통부부한의원 고양 진료예약</strong>
             <div className="bookTimeDate">
-              <p>일정</p>
-              <p>
-                {date} ∘ {slot} {time}
-              </p>
+              <span>일정</span>
+              <span>
+                {date} ({slot}) · {time}
+              </span>
             </div>
           </div>
+
+          {/* ✅ 추가 정보 유지 */}
           <div className="addInfo">
             <h3>추가 정보</h3>
             <p>진료목적</p>
@@ -61,19 +65,34 @@ const NaverBook_page04 = () => {
               </label>
             </div>
           </div>
-          <div className="userInfo">
+          {/* 예약자 정보 */}
+          <div className="userInfoSection">
             <h4>예약자 정보</h4>
-            <p>염지원</p>
-            <p>010-2343-3244</p>
-            <hr />
-            <p>요청사항</p>
-            <input
-              type="text"
-              className="bookRequest"
-              placeholder="요청사항을 선택해주세요"
-            ></input>
+            <div className="userInfoTop">
+              <div>
+                <p className="username">염지원</p>
+                <p className="userphone">
+                  010-23**-32**{" "}
+                  <button className="checkBtn">연락처 확인</button>
+                </p>
+              </div>
+              <Button text={"변경"} type={"graySmall"} />
+            </div>
+
+            <p className="requestLabel">요청사항</p>
+            <select className="requestInput">
+              <option value="">요청사항을 선택해주세요.</option>
+              <option value="1">빠른 진료</option>
+              <option value="2">조용한 자리</option>
+            </select>
           </div>
-          <div className="bookRequest">
+          {/* 안내 문구 */}
+          <div className="addNotice">
+            실제 방문자가 다르다면 정보를 추가해 주세요.
+          </div>
+
+          {/* 버튼 영역 */}
+          <div className="bookButtonRow">
             <div className="bookBack">
               <Button text={"이전"} />
             </div>
