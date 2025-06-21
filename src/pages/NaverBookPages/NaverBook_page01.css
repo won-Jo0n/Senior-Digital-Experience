@@ -1,8 +1,7 @@
-
 .bigContainer {
   margin: 0;
   padding: 0;
-  background-color: #FFFBF3;
+  background-color: #fffbf3;
 }
 
 .NaverBook_page01 {
@@ -23,47 +22,25 @@
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
-
 }
 
 .main-photo img {
-  width: 220px;
-  height: 220px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  border-radius: 6px;
 }
 
 .sub-photo-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
-  width: 180px;
-}
-
-.info-line {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 6px;
-}
-
-.info-line i {
-  font-size: 14px;
-  color: #ccc;
-  flex-shrink: 0;
-}
-
-.info-line p {
-  margin: 0;
-  font-size: 13px;
-  color: #333;
+  width: 900px;
 }
 
 .sub-photo-grid img {
-  width: 100%;
-  height: 85px;
+  width: 100px;
+  height: 115px;
   object-fit: cover;
-  border-radius: 6px;
 }
 
 .sub4-wrapper {
@@ -76,9 +53,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   color: #fff;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -107,7 +84,7 @@
 }
 
 .img-card p {
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 4px;
   color: #555;
 }
@@ -117,6 +94,7 @@
   font-size: 20px;
   font-weight: bold;
   margin: 12px 0 6px;
+  font-size: 25px;
 }
 
 .clinic-title span {
@@ -126,7 +104,7 @@
 }
 
 .reviews {
-  font-size: 13px;
+  font-size: 15px;
   color: #666;
   margin-bottom: 16px;
 }
@@ -139,7 +117,6 @@
   border-top: 1px solid #eee;
   padding: 12px 0;
   margin-top: 30px;
-  
 }
 
 .icon-item {
@@ -147,7 +124,7 @@
   flex-direction: column;
   align-items: center;
   flex: 1;
-  font-size: 13px;
+  font-size: 17px;
   color: #444;
 }
 
@@ -156,7 +133,6 @@
   height: 24px;
   background-color: #ddd;
 }
-
 
 /* 버튼 (예약, 문의) */
 .action-buttons {
@@ -167,7 +143,7 @@
 }
 
 .action-buttons .green {
-width:250px;
+  width: 250px;
   background-color: #03c75a;
   color: white;
   font-weight: bold;
@@ -175,23 +151,25 @@ width:250px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 18px;
 }
 
 .action-buttons .gray {
-width:150px;
+  width: 150px;
   background-color: #eee;
   color: #333;
   padding: 10px 0;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 18px;
 }
 
 /* 탭 영역 (홈, 리뷰, 지도 등) */
 .tab-bar {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 17px;
   margin-bottom: 12px;
   border-bottom: 1px solid #ddd;
 }
@@ -208,9 +186,26 @@ width:150px;
 }
 
 /* 병원 정보 섹션 */
-.info-section p {
-  font-size: 13px;
-  margin: 6px 0;
+.info-section {
+  margin-top: 20px;
+}
+
+.info-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.info-line i {
+  font-size: 14px;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.info-line p {
+  margin: 0;
+  font-size: 18px;
   color: #333;
 }
 
@@ -222,18 +217,18 @@ width:150px;
 }
 
 .naverlink {
-  color: #0068c3;
+  color: #0068c3 !important;
   word-break: break-word;
 }
 
 /* 정보 더보기 버튼 */
 .more-info {
-  margin-top: 14px;
+  margin-top: 30px;
   background-color: #f1f1f1;
   border: none;
   padding: 10px 14px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 18px;
   color: #333;
   cursor: pointer;
   display: block;

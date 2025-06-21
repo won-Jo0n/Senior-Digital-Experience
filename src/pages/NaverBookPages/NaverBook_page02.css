@@ -1,22 +1,27 @@
 .bigContainer {
   margin: 0;
   padding: 0;
-  
-  background-color: #FFFBF3; 
+  background-color: #fffbf3;
 }
 
-.bookWrapper{
+.bookWrapper {
   position: relative;
   width: 700px;
   margin: 0 auto;
 }
 
+.bookWrapper img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .NaverBook_page02 {
- position: absolute;
-  top: 140px; 
+  position: absolute;
+  top: 140px;
   left: 49%;
   transform: translateX(-50%);
-  background-color: white; 
+  background-color: white;
   font-family: sans-serif;
   padding: 16px;
   overflow-y: auto;
@@ -24,88 +29,212 @@
   width: 380px;
 }
 
-.bookWrapper img{
+/* 상단 이미지 + 그라데이션 */
+.topImageBox {
+  position: relative;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.topImageBox img {
   width: 100%;
   height: 100%;
-  display: block;
+  object-fit: cover;
+  filter: brightness(0.8);
 }
 
-.NaverBook_Header {
-  position: relative;
-  border-radius: 0 0 16px 16px;
-  overflow: hidden;
-  height: 160px; 
-}
-
-.NaverBook_background {
+.gradientOverlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #5ab27f 0%, #1a7342 100%);
-  z-index: 0;
-}
-
-.NaverBook_content {
-  position: relative;
-  z-index: 1;
   padding: 20px;
   color: white;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 128, 96, 0.6),
+    rgba(0, 128, 96, 0.2)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-h4 {
+.gradientOverlay h2 {
   font-size: 20px;
-  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.page02_wrapper {
-  margin-top: 20px;
-  border-top: 1px solid #e0e0e0;
-  padding-top: 20px;
+.gradientOverlay p {
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 6px;
 }
 
-.naverBookDiv {
-  margin-bottom: 24px;
+.ratingBox {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.iconContactBox {
+  display: flex;
+}
+
+.dividerDot {
+  margin: 0 6px;
+}
+
+/* 주소 및 연락처 */
+.contactBox {
+  margin: 16px 0;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.contactIconRow {
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  align-items: center;
+  gap: 7px; /* 아이템 사이 간격 */
+  flex-wrap: nowrap; /* ✅ 줄바꿈 없이 한 줄 유지 */
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.iconItem {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* ✅ 아이콘과 텍스트 사이 들여쓰기 */
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  margin-left: 29px;
+  margin-bottom: 3cqb;
+}
+
+.iconItem i {
+  font-size: 14px;
+}
+
+.iconItem:hover {
+  color: #03c75a;
+}
+
+/* 예약 */
+.reservationSection h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.reservationCard {
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.reservationCard h4 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.reservationCard p {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* ✅ 리뷰와 버튼을 한 줄에 */
+.reviewAndBtnRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 리뷰 텍스트 */
+.reviewSmall {
+  font-size: 13px;
+  color: #333;
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+/* 예약하기 버튼 */
+.greenBtn {
+  padding: 8px 12px;
+  background-color: #03c75a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+  width: 70px;
+}
+
+.greenBtn:hover {
+  background-color: #02b14c;
+}
+
+/* 소개 */
+/* 제목만 따로 빼서 위에 배치 */
+.sectionWrapper {
+  margin-top: 24px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+/* 소개 내용 박스 */
+.introSection {
   padding: 16px;
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
-.secondBookButton {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #fff;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.secondBookButton:hover {
-  background-color: #f0f0f0;
-}
-
-.smallWord {
+.introSection p {
   font-size: 13px;
-  color: #555;
-  margin: 6px 0;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: #444;
 }
 
-.bookBtn {
-  padding: 8px 16px;
-  background-color: #03c75a;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  margin: 10px 0;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-}
+/* 반응형 */
+@media (max-width: 480px) {
+  .bookWrapper {
+    width: 100%;
+  }
 
-.bookBtn:hover {
-  background-color: #02b14c;
+  .NaverBook_page02 {
+    width: 94%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px;
+  }
+
+  .reservationCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reviewAndBtn {
+    align-items: flex-start;
+  }
+
+  .greenBtn {
+    width: 100%;
+    text-align: center;
+  }
 }

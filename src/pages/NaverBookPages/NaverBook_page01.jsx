@@ -19,13 +19,13 @@ const NaverBook_page01 = () => {
           {/* 사진 영역 */}
           <div className="photo-section">
             <div className="main-photo">
-              <img src="/naverContent" alt="메인" />
+              <img src="/logo_1.png" alt="메인" />
             </div>
             <div className="sub-photo-grid">
-              <img src="/sub1.png" alt="sub1" />
-              <img src="/sub2.png" alt="sub2" />
-              <img src="/sub3.png" alt="sub3" />
-              <img src="/sub4.png" alt="sub4" />
+              <img src="/logo_1.png" alt="sub1" />
+              <img src="/logo_1.png" alt="sub2" />
+              <img src="/logo_1.png" alt="sub3" />
+              <img src="/logo_1.png" alt="sub4" />
             </div>
           </div>
 
