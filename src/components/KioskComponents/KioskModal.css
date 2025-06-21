@@ -14,8 +14,8 @@
 .modalBody {
   position: absolute;
   top: 50%;
-  width: 400px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   padding: 40px;
   text-align: center;
   background-color: rgb(255, 255, 255);
@@ -26,12 +26,34 @@
 
 .modalBody .modalOption {
   border: 1px solid black;
-  width: 400px;
-  height: 40px;
+  width: 500px;
+  height: 50px;
+  text-align: center;
 }
 
 .modalBody .modalDetail {
   border: 1px solid black;
-  width: 400px;
-  height: 500px;
+  width: 500px;
+  height: 400px;
+  margin-top: 10px;
+}
+
+.modalDetail .onptionPick {
+  margin-top: 100px;
+}
+
+.onptionPick button {
+  border: none;
+  width: 70px;
+  height: 70px;
+  margin-left: 20px;
+}
+
+.MODALIMAGE {
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
