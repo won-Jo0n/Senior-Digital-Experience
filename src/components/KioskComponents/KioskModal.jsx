@@ -14,21 +14,36 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
       return (
         <div>
           이름:{selectedItem.coffeeName} 가격:{selectedItem.coffeePrice}
-          {<img src={getCoffeeImage(selectedItem.coffeeId)} />}
+          {
+            <img
+              className="MODALIMAGE"
+              src={getCoffeeImage(selectedItem.coffeeId)}
+            />
+          }
         </div>
       );
     } else if (pickMenu === "drink") {
       return (
         <div>
           이름:{selectedItem.drinkName} 가격:{selectedItem.drinkPrice}
-          {<img src={getDrinkImage(selectedItem.drinkId)} />}
+          {
+            <img
+              className="MODALIMAGE"
+              src={getDrinkImage(selectedItem.drinkId)}
+            />
+          }
         </div>
       );
     } else if (pickMenu === "cake") {
       return (
         <div>
           이름:{selectedItem.CakeName} 가격:{selectedItem.cakePrice}
-          {<img src={getCakeImage(selectedItem.CakeId)} />}
+          {
+            <img
+              className="MODALIMAGE"
+              src={getCakeImage(selectedItem.CakeId)}
+            />
+          }
         </div>
       );
     }
@@ -43,14 +58,23 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
     <div className="modal">
       <div className="modalBody">
         <div className="modalOption"> 옵션선택</div>
-        <div className="modalDetail">{menuDetail()}</div>
-        <div className="madalOptionDetail">
-          음료 옵션선택(온도, 사이즈, 포장)
-          <button>온도</button>
-          <button>사이즈</button>
-          <button>포장</button>
+        <div className="modalDetail">
+          {menuDetail()} 옵션을 선택해주세요
+          <div className="onptionPick">
+            <button>아이스</button>
+            <button>레귤러</button>
+            <button>포장</button>
+          </div>
         </div>
+
         <button onClick={handleConfirmAdd}>담기</button>
+        <button
+          onClick={() => {
+            setOnModal(false);
+          }}
+        >
+          이전
+        </button>
       </div>
     </div>
   );

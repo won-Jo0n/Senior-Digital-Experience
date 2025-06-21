@@ -1,8 +1,5 @@
 .orderBar {
-  width: 34%;
-  height: 100px;
   float: right;
-  padding-bottom: 100px;
 }
 
 .orderList div {

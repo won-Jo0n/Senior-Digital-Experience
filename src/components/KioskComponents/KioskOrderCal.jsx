@@ -7,9 +7,10 @@ const KioskOrderCal = ({
   setOrderItems,
   setOnPayModal,
   orderNumPlus, //해당 메뉴 수량 올리기
+  orderNumMinus, //해당 메뉴 수량 줄이기
 }) => {
   const nav = useNavigate();
-
+  console.log(orderNumMinus);
   //총 가격
   let totalPrice = 0;
   let totalquantity = 0;
@@ -28,7 +29,12 @@ const KioskOrderCal = ({
 
   // 주문하기 클릭시 모달 창 띄우기
   const openOlder = () => {
-    setOnPayModal(true);
+    if (orderItems.length === 0) {
+      alert("주문 내역이 존재하지 않습니다. 메뉴를 선택해주세요^^");
+      setOnPayModal(false);
+    } else {
+      setOnPayModal(true);
+    }
   };
   return (
     <div className="orderBar">
@@ -50,6 +56,11 @@ const KioskOrderCal = ({
                   onClick={() => orderNumPlus(orderItem.id, orderItem.name)}
                 >
                   +
+                </button>
+                <button
+                  onClick={() => orderNumMinus(orderItem.id, orderItem.name)}
+                >
+                  -
                 </button>
                 {orderItem.quantity}
               </div>

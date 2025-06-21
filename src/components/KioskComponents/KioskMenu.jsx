@@ -128,6 +128,43 @@ const KioskMenu = () => {
     });
   };
 
+  // 수량감소 함수
+  const orderNumMinus = (orderItemId, orderItemName) => {
+    // prevItems는 선택된 메뉴 배열들의 객체(요소)
+    setOrderItems((prevItems) => {
+      const index = prevItems.findIndex(
+        (item) => item.id === orderItemId && item.name === orderItemName
+      );
+
+      //리스트에 메뉴가 없으면 기존의 메뉴 반환
+      if (index === -1) {
+        return prevItems;
+      }
+
+      //아래 prevItems 직접 변경하면 안된다고 함 복사본을 만듦
+      const changeItems = [...prevItems];
+      //해당 메뉴가 존재한다면 그 메뉴 정보 가져오기
+      const currentItem = changeItems[index];
+
+      // 해당 메뉴의 수량 계산하기
+      const newQuantity = currentItem.quantity - 1;
+
+      // 수량 -1했는데 0이하라면 해당 메뉴 제외하고 새로운 배열 반환
+      if (newQuantity <= 0) {
+        //previtem는 prevItems의 객체
+        return prevItems.filter(
+          (previtem, prevItemsIndex) => prevItemsIndex !== index
+        );
+      }
+      changeItems[index] = {
+        ...currentItem, // 기존 메뉴의 이름, ID, 이미지 등은 그대로 유지
+        quantity: newQuantity, // 새 수량 적용
+        totalPrice: currentItem.totalPrice - currentItem.price, // 새 총 가격 적용
+      };
+      return changeItems;
+    });
+  };
+
   const ItemClick = (item) => {
     setSelectedItem(item); // 클릭된 아이템 정보 저장
     setOnModal(true); // 모달 열기
@@ -198,16 +235,6 @@ const KioskMenu = () => {
         </div>
         <div className="coffee_menu">{changeMenu()}</div>
 
-        {/* 주문 내역 채우기 및 계산 */}
-        <div>
-          <KioskOrderCal
-            orderItems={orderItems}
-            setOrderItems={setOrderItems}
-            setOnModal={setOnModal}
-            setOnPayModal={setOnPayModal}
-            orderNumPlus={orderNumPlus}
-          />
-        </div>
         <div>
           {onModal &&
             selectedItem && ( // selectedItem이 null이 아닐 때만 모달 렌더링
@@ -228,6 +255,17 @@ const KioskMenu = () => {
             />
           )}
         </div>
+      </div>
+      {/* 주문 내역 채우기 및 계산 */}
+      <div className="ORDERlIST">
+        <KioskOrderCal
+          orderItems={orderItems}
+          setOrderItems={setOrderItems}
+          setOnModal={setOnModal}
+          setOnPayModal={setOnPayModal}
+          orderNumPlus={orderNumPlus}
+          orderNumMinus={orderNumMinus}
+        />
       </div>
     </>
   );

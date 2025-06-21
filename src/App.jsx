@@ -7,6 +7,10 @@ import Map from "./pages/Map";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import KioskStart from "./pages/Kiosk_Start";
+import Kiosk from "./pages/Kiosk";
+import KioskPayMent from "./pages/KioskPayMent";
+import Kiosk_CardPayMent from "./pages/Kiosk_CardPayMent";
+import KioskFinal from "./pages/KioskFinal";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { createContext } from "react";
 import { useEffect, useReducer, useRef, useState } from "react";
@@ -15,7 +19,6 @@ import NaverBook_page02 from "./pages/NaverBookPages/NaverBook_page02";
 import NaverBook_page03 from "./pages/NaverBookPages/NaverBook_page03";
 import NaverBook_page04 from "./pages/NaverBookPages/NaverBook_page04";
 import NaverBook_page05 from "./pages/NaverBookPages/NaverBook_page05";
-import Kiosk from "./pages/Kiosk";
 import Community_content from "./pages/Community_content";
 
 // 사용자 관리 reducer
@@ -373,6 +376,9 @@ function App() {
             <Route path="/MyPage" element={<MyPage />} />
             <Route path="/Kiosk" element={<KioskStart />}></Route>
             <Route path="/Kiosk/:1" element={<Kiosk />}></Route>
+            <Route path="/KioskPay" element={<KioskPayMent />}></Route>
+            <Route path="/KioskCardPay" element={<Kiosk_CardPayMent />}></Route>
+            <Route path="/KioskFinal" element={<KioskFinal />}></Route>
             <Route
               path="/NaverBook/page01"
               element={<NaverBook_page01 />}

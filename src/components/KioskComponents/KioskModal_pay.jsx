@@ -1,8 +1,10 @@
 import "./KioskModal_pay.css";
+import { useNavigate } from "react-router-dom";
 
 const KioskModalPay = ({ setOnPayModal, orderItems }) => {
   //선택 버튼에 따라 모달 창이 바뀜
   console.log(orderItems);
+  const nav = useNavigate();
 
   let totalPrice = 0;
   let totalquantity = 0;
@@ -10,6 +12,15 @@ const KioskModalPay = ({ setOnPayModal, orderItems }) => {
     totalPrice += orderItem.totalPrice;
     totalquantity += orderItem.quantity;
   }
+
+  const onClosePayModal = () => {
+    setOnPayModal(false);
+  };
+
+  const movePayMentPage = () => {
+    setOnPayModal(false);
+    nav("/KioskPay");
+  };
 
   return (
     <div className="PayModal">
@@ -34,20 +45,10 @@ const KioskModalPay = ({ setOnPayModal, orderItems }) => {
         </div>
 
         <div>
-          <button
-            className="leftBtn"
-            onClick={() => {
-              setOnPayModal(false);
-            }}
-          >
+          <button className="leftBtn" onClick={onClosePayModal}>
             이전
           </button>
-          <button
-            className="rightBtn"
-            onClick={() => {
-              dispatch;
-            }}
-          >
+          <button className="rightBtn" onClick={movePayMentPage}>
             결제하기
           </button>
         </div>
