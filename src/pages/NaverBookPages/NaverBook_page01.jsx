@@ -1,16 +1,31 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./NaverBook_page01.css";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
+import MissionPopup from "../../components/MissionPopup"; // 팝업 컴포넌트 불러오기
 
 const NaverBook_page01 = () => {
   const nav = useNavigate();
+  const [showPopup, setShowPopup] = useState(true); // 팝업 초기 표시
+
   const secondPage = () => {
     nav("/NaverBook/page02");
   };
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div className="bigContainer">
+      {showPopup && (
+        <MissionPopup
+          message={"라떼에 오트밀크 변경,\n아이스아메리카노 한 잔이요~"}
+          onClose={handleClosePopup}
+        />
+      )}
+
       <Header />
       <div className="bookWrapper">
         <img src="/phone.png" alt="phone" className="phone-frame" />
@@ -74,7 +89,6 @@ const NaverBook_page01 = () => {
             <div className="tab">정보</div>
           </div>
 
-          {/* 병원 정보 아이콘 + 텍스트 한 줄씩 */}
           <div className="info-section">
             <div className="info-line">
               <i className="fi fi-sr-marker"></i>
