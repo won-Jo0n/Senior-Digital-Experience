@@ -3,7 +3,7 @@ import "./StampPopup.css";
 import { DataStateContext } from "../App";
 import getCompleteMissionImage from "../util/getCompleteMissionImage";
 
-const StampPopup = ({ onClose }) => {
+const StampPopup = ({ onClose, onNotAgainSee }) => {
   const { loginedId } = useContext(DataStateContext);
   let completeNum = 0;
 
@@ -51,6 +51,14 @@ const StampPopup = ({ onClose }) => {
             </div>
             <div className="stamp-close-button">
               <button onClick={onClose}>닫기</button>
+              <button
+                onClick={() => {
+                  onNotAgainSee();
+                  console.log(".");
+                }}
+              >
+                다시는 보지않기
+              </button>
             </div>
           </div>
         </div>
