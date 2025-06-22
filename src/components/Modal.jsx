@@ -35,7 +35,7 @@ export const Modal = ({ setModal }) => {
           </div>
           <div className="userName">
             <input
-              placeholder="이름을 작성해주세요"
+              placeholder="별명을 작성해주세요"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />

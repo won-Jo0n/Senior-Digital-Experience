@@ -85,7 +85,11 @@ const Home = () => {
         </div>
       </div>
       <div className="Comunity-btn">
-        <Button text={"커뮤니티"} type={"Comunity"} onClick={onComunity} />
+        <Button
+          text={"관리자와 소통하기"}
+          type={"Comunity"}
+          onClick={onComunity}
+        />
       </div>
       <div className="wrapper_main">
         <NavCard
