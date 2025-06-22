@@ -21,7 +21,7 @@ const NaverBook_page02 = () => {
             <img src="/hospital.png" alt="병원 내부" />
             <div className="gradientOverlay">
               <h2>해봐YOU의원</h2>
-              <p>★ 4.73 / 리뷰 152</p>›
+              <p>★ 4.73 / 리뷰 152</p>
               <div className="ratingBox">
                 <span>★ 4.73</span>
                 <span className="dividerDot">·</span>

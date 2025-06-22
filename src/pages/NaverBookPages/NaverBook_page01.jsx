@@ -21,7 +21,9 @@ const NaverBook_page01 = () => {
     <div className="bigContainer">
       {showPopup && (
         <MissionPopup
-          message={"라떼에 오트밀크 변경,\n아이스아메리카노 한 잔이요~"}
+          message={
+            "6월 29일, 14시 30분에\n 진성 간호사와 상담으로 병원 예약 부탁해~"
+          }
           onClose={handleClosePopup}
         />
       )}
