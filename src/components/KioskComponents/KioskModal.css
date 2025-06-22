@@ -12,26 +12,66 @@
 }
 
 .modalBody {
-  position: absolute;
-  top: 50%;
-  width: 400px;
-  height: 600px;
+  position: fixed;
+  width: 500px;
+  height: 500px;
   padding: 40px;
-  text-align: center;
+  margin-top: 600px;
+  margin-right: 300px;
+  margin-left: 350px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
   transform: translateY(-50%);
+  z-index: 1000;
 }
 
 .modalBody .modalOption {
-  border: 1px solid black;
-  width: 400px;
-  height: 40px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #ab1f2e;
+  align-items: center;
+  width: 500px;
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 7px;
 }
 
 .modalBody .modalDetail {
-  border: 1px solid black;
-  width: 400px;
-  height: 500px;
+  border: 2px solid lightgray;
+  width: 500px;
+  height: 400px;
+  margin-top: 10px;
+  border-radius: 7px;
+}
+
+.menuType {
+  padding-left: 10px;
+}
+
+.modalDetail .onptionPick {
+  margin-top: 100px;
+}
+
+.modalDetail .onptionPickText {
+  margin-left: 20px;
+}
+
+.onptionPick button {
+  border: none;
+  width: 70px;
+  height: 70px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.MODALIMAGE {
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 90px;
+  border-radius: 10px;
 }

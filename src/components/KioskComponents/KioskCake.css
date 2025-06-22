@@ -1,25 +1,25 @@
 .cake_menu > .wrapper {
-  width: 200px;
+  height: 190px;
 }
 .wrapper > .cake_img {
-  width: 280px;
-  height: 260px;
-  margin-left: 50px;
+  width: 150px;
+  margin-left: 40px;
+  margin: 10px; /* 모든 방향으로 10px 간격 */
+  max-width: 100%;
+  height: 140px;
 }
 
 .cake_menu {
-  width: 290px;
-  margin-left: 5px;
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  top: 150px;
+  left: 30px;
+  width: 10px;
+  display: contents;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr;
 }
 
 .cake_name {
-  width: 300px;
-  font-size: 30px;
+  width: 150px;
+  font-size: 20px;
   text-align: center;
-  padding: 10px;
-  margin-left: 40px;
+  margin-left: 5px;
 }

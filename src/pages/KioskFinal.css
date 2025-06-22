@@ -1,0 +1,20 @@
+.FinalKioskDisplay {
+  position: relative;
+  width: 1000px;
+  height: 1300px;
+  margin-left: 20%;
+  background-image: url("/public//koisk.png");
+  background-size: 1000px 1300px;
+  background-position: center; /* 이미지를 div 중앙에 배치 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
+}
+
+.finalKiosk {
+  position: absolute;
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 100px;
+  margin-left: 120px;
+  width: 730px;
+  height: 900px;
+}
