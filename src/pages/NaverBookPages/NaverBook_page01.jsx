@@ -1,4 +1,3 @@
-// NaverBook_page01.jsx
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./NaverBook_page01.css";
@@ -10,7 +9,9 @@ const NaverBook_page01 = () => {
   const nav = useNavigate();
   const [showPopup, setShowPopup] = useState(true);
 
+  // 1분 타이머 시작 (sessionStorage에 저장)
   const secondPage = () => {
+    sessionStorage.setItem("missionStart", new Date().toISOString());
     nav("/NaverBook/page02");
   };
 
@@ -34,6 +35,7 @@ const NaverBook_page01 = () => {
         <img src="/phone.png" alt="phone" className="phone-frame" />
 
         <div className="NaverBook_page01">
+          {/* 사진 영역 */}
           <div className="photo-section">
             <div className="main-photo">
               <img src="/logo_1.png" alt="메인" />
@@ -46,11 +48,13 @@ const NaverBook_page01 = () => {
             </div>
           </div>
 
+          {/* 병원명 */}
           <h2 className="clinic-title">
             해부YOU의원 <span>건강의학과</span>
           </h2>
           <p className="reviews">방문자 리뷰 49 · 블록 리뷰 170</p>
 
+          {/* 아이콘 그룹 + 예약 버튼 */}
           <div className="icon-group">
             <div className="icon-bar">
               <div className="icon-item">
@@ -74,6 +78,7 @@ const NaverBook_page01 = () => {
             </div>
           </div>
 
+          {/* 탭바 */}
           <div className="tab-bar">
             <div className="tab active">홈</div>
             <div className="tab">리뷰</div>
@@ -83,6 +88,7 @@ const NaverBook_page01 = () => {
             <div className="tab">정보</div>
           </div>
 
+          {/* 병원 정보 */}
           <div className="info-section">
             <div className="info-line">
               <i className="fi fi-sr-marker"></i>

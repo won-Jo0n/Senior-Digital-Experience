@@ -9,12 +9,9 @@ const NaverBook_page04 = () => {
   const nav = useNavigate();
 
   const fifthPage = () => {
+    sessionStorage.setItem("missionEnd", new Date().toISOString());
     nav("/NaverBook/page05", {
-      state: {
-        date,
-        time,
-        slot,
-      },
+      state: { date, time, slot },
     });
   };
 
