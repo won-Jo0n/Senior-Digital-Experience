@@ -2,11 +2,12 @@ import "./NavCard.css";
 import { getNavCardImage } from "../util/getNavCardImage";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { DataStateContext } from "../App";
+import { DataDispatchContext, DataStateContext } from "../App";
 
 const NavCard = ({ title, explanation, cardImage, onClick }) => {
   const [showButtons, setShowButtons] = useState(false); // 버튼 표시 여부를 관리하는 상태
   const nav = useNavigate();
+  const { setIsChallenged } = useContext(DataDispatchContext);
   const { isLogin } = useContext(DataStateContext);
 
   // 마우스 진입 시
@@ -28,9 +29,11 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
 
     if (cardImage === 1) {
       // 키오스크
+      setIsChallenged("Kiosk", false);
       nav("/Kiosk/Practice");
     } else if (cardImage === 2) {
       // 병원예약하기
+      setIsChallenged("naverBook", false);
       nav("/NaverBook/Practice");
     }
     // cardImage === 3일 때는 이 함수가 호출되지 않음

@@ -1,0 +1,45 @@
+.highlight {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 0;
+  width: fit-content; /* 자식 크기에 맞게 자동 설정 */
+  height: fit-content;
+}
+
+/* 회전 효과 배경 */
+.highlight::before {
+  content: "";
+  position: absolute;
+  top: -1%; /* 위쪽 위치를 더 안쪽으로 */
+  left: -1%; /* 왼쪽 위치도 더 안쪽으로 */
+  width: 100%; /* 크기를 103%로 줄임 */
+  height: 100%; /* 높이도 103% */
+  background: red;
+  animation: animate 4s linear infinite;
+  z-index: 0;
+}
+
+/* 안쪽 마스크 */
+.highlight::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #1f2e25;
+  z-index: 1;
+}
+
+/* 실제 콘텐츠는 위에 */
+.highlight > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

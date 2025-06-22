@@ -85,6 +85,22 @@ function App() {
   const nav = useNavigate();
   const [isLogin, setIslogin] = useState("");
   const [loginedId, setLoginedId] = useState(null);
+  const kioskIsChallenged = useRef(false);
+  const naverBookIsChallenged = useRef(false);
+
+  const getIsChallenged = (ChallengeType) => {
+    if (ChallengeType === "Kiosk") {
+      return kioskIsChallenged.current;
+    }
+    return naverBookIsChallenged.current;
+  };
+
+  const setIsChallenged = (ChallengeType, isChallenged) => {
+    if (ChallengeType === "Kiosk") {
+      kioskIsChallenged.current = isChallenged;
+    }
+    naverBookIsChallenged.current = isChallenged;
+  };
 
   // 사용자 mockData
   const mockData = [{ id: 0, phoneNum: "ADMIN", password: "ADMIN1234" }];
@@ -303,6 +319,8 @@ function App() {
             onCreateCommunity,
             onDeleteCommunityContent,
             onUpdateCommunity,
+            getIsChallenged,
+            setIsChallenged,
           }}
         >
           <Routes>

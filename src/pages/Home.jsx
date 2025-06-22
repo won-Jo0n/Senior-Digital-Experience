@@ -6,10 +6,11 @@ import NavCard from "../components/NavCard";
 import { useContext, useEffect, useState } from "react";
 import { DataDispatchContext, DataStateContext } from "../App";
 import StampPopup from "../components/StampPopup";
+import "../components/highlight.css";
 
 const Home = () => {
   const nav = useNavigate();
-  const { onLogout } = useContext(DataDispatchContext);
+  const { onLogout, setIsChallenged } = useContext(DataDispatchContext);
   const { isLogin, globalIsNotAgainSee } = useContext(DataStateContext);
 
   // StampPopup의 가시성을 관리하는 상태입니다.
@@ -58,9 +59,11 @@ const Home = () => {
     nav("/Community");
   };
   const onKiosk = () => {
+    setIsChallenged("Kiosk", true);
     nav("/Kiosk");
   };
   const onNaverBook = () => {
+    setIsChallenged("naverBook", true);
     nav("/NaverBook/page01");
   };
   const onMap = () => {
@@ -100,7 +103,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="NewAccount-btn">
+        <div className="NewAccount-btn highlight">
           <Button
             text={"회원가입"}
             type={`${
