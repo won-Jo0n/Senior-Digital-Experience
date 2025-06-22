@@ -38,7 +38,8 @@
 }
 
 .bookImg img {
-  width: 60px;
+  margin: 20px;
+  width: 120px;
 }
 
 /* 텍스트 블록 */
