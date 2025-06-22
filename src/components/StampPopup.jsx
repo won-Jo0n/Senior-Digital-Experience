@@ -1,7 +1,27 @@
-import React from "react";
+import { useContext } from "react";
 import "./StampPopup.css";
+import { DataStateContext } from "../App";
+import getCompleteMissionImage from "../util/getCompleteMissionImage";
 
 const StampPopup = ({ onClose }) => {
+  const { loginedId } = useContext(DataStateContext);
+  let completeNum = 0;
+
+  // 미션 모두 완료
+  if (loginedId.mission[0] && loginedId.mission[1]) {
+    completeNum = 3;
+  }
+
+  // 1번 미션 성공
+  if (loginedId.mission[0] && !loginedId.mission[1]) {
+    completeNum = 1;
+  }
+
+  // 2번 미션 성공
+  if (!loginedId.mission[0] && loginedId.mission[1]) {
+    completeNum = 2;
+  }
+
   return (
     <div className="stamp-popup-overlay">
       <div className="stamp-popup-box">
@@ -11,7 +31,7 @@ const StampPopup = ({ onClose }) => {
 
           <div className="stamp-flow">
             <div className="stamp-item">
-              <img src="/missionStamp.png" alt="멘트" />
+              <img src={getCompleteMissionImage(completeNum)} alt="멘트" />
             </div>
           </div>
 

@@ -3,13 +3,32 @@ import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
 import NavCard from "../components/NavCard";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataDispatchContext, DataStateContext } from "../App";
+import StampPopup from "../components/StampPopup";
 
 const Home = () => {
   const nav = useNavigate();
-  const userState = useContext(DataStateContext);
+  const { isLogin } = useContext(DataStateContext);
   const { onLogout } = useContext(DataDispatchContext);
+
+  // StampPopup의 가시성을 관리하는 상태입니다.
+  const [showStampPopup, setShowStampPopup] = useState(false);
+
+  // useEffect 훅을 사용하여 로그인 상태를 확인하고 팝업을 표시합니다.
+  useEffect(() => {
+    // 사용자가 로그인 상태이고, 'hasSeenStampPopup' 플래그가 localStorage에 없으면 팝업을 보여줍니다.
+    // 이 플래그는 팝업이 이미 한 번 표시되었는지 추적하여 재로그인 시 다시 나타나지 않도록 합니다.
+    if (isLogin === "LOGIN") {
+      setShowStampPopup(true);
+    }
+  }, [isLogin]); // userState.isLogin 값이 변경될 때마다 이 이펙트가 다시 실행됩니다.
+
+  // StampPopup을 닫는 함수
+  const handleCloseStampPopup = () => {
+    setShowStampPopup(false);
+  };
+
   // nav
   const onMyPage = () => {
     nav("/MyPage");
@@ -44,19 +63,19 @@ const Home = () => {
       </div>
       <div className="wrapper_menu">
         <div className="ADMIN">
-          <span>{`${userState.isLogin === "ADMIN" ? "관리자 모드" : ""}`}</span>
+          <span>{`${isLogin === "ADMIN" ? "관리자 모드" : ""}`}</span>
         </div>
         <div className="MyPage">
           <Button
             text={"마이페이지"}
-            type={`${userState.isLogin === "LOGIN" ? "MyPage" : "none"}`}
+            type={`${isLogin === "LOGIN" ? "MyPage" : "none"}`}
             onClick={onMyPage}
           />
         </div>
         <div className="MyPage">
           <Button
             text={"로그아웃"}
-            type={`${userState.isLogin === "LOGIN" ? "MyPage" : "none"}`}
+            type={`${isLogin === "LOGIN" ? "MyPage" : "none"}`}
             onClick={onLogoutClick}
           />
         </div>
@@ -64,9 +83,7 @@ const Home = () => {
           <Button
             text={"로그인"}
             type={`${
-              userState.isLogin === "LOGIN" || userState.isLogin === "ADMIN"
-                ? "none"
-                : "Login"
+              isLogin === "LOGIN" || isLogin === "ADMIN" ? "none" : "Login"
             }`}
             onClick={onLogin}
           />
@@ -76,9 +93,7 @@ const Home = () => {
           <Button
             text={"회원가입"}
             type={`${
-              userState.isLogin === "LOGIN" || userState.isLogin === "ADMIN"
-                ? "none"
-                : "NewAccount"
+              isLogin === "LOGIN" || isLogin === "ADMIN" ? "none" : "NewAccount"
             }`}
             onClick={onNewAccount}
           />
@@ -111,6 +126,8 @@ const Home = () => {
           onClick={onMap}
         />
       </div>
+      {/* showStampPopup 상태가 true일 때만 StampPopup 컴포넌트를 렌더링합니다. */}
+      {showStampPopup && <StampPopup onClose={handleCloseStampPopup} />}
     </div>
   );
 };

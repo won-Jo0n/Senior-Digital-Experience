@@ -20,6 +20,7 @@ import NaverBook_page03 from "./pages/NaverBookPages/NaverBook_page03";
 import NaverBook_page04 from "./pages/NaverBookPages/NaverBook_page04";
 import NaverBook_page05 from "./pages/NaverBookPages/NaverBook_page05";
 import Community_content from "./pages/Community_content";
+import StampPopup from "./components/StampPopup";
 
 // 사용자 관리 reducer
 function reducer(state, action) {
@@ -76,24 +77,17 @@ function communityReducer(state, action) {
 export const DataStateContext = createContext();
 export const DataDispatchContext = createContext();
 
+// 휴대폰 번호 정규식
+const phoneNumPattern =
+  /^01(?:0|1|[6-9])(?:-|\s)?(?:\d{3}|\d{4})(?:-|\s)?\d{4}$/;
+
 function App() {
   const nav = useNavigate();
   const [isLogin, setIslogin] = useState("");
   const [loginedId, setLoginedId] = useState(null);
-  const phoneNumPattern =
-    /^01(?:0|1|[6-9])(?:-|\s)?(?:\d{3}|\d{4})(?:-|\s)?\d{4}$/;
 
   // 사용자 mockData
-  const mockData = [
-    {
-      id: 1, // 사용자 구분 key
-      phoneNum: "01020081973",
-      password: "qwer1234",
-      birth: "2000-09-14",
-      mission: [true, true, true],
-    },
-    { id: "ADMIN", password: "ADMIN1234" },
-  ];
+  const mockData = [{ id: 0, phoneNum: "ADMIN", password: "ADMIN1234" }];
 
   // 게시글 mockData
   const generateCommunityMockData = (count) => {
@@ -124,7 +118,7 @@ function App() {
   const [communityData, setCommunityData] = useReducer(communityReducer, []);
 
   const [isLoading, setIsLoading] = useState(true);
-  const userIdRef = useRef(0);
+  const userIdRef = useRef(1);
   const communityIdRef = useRef(0);
 
   useEffect(() => {
@@ -239,7 +233,7 @@ function App() {
       return;
     }
     if (phoneNum && password && birth) {
-      var mission = [false, false, false];
+      var mission = [false, false];
       dispatch({
         type: "CREATE",
         data: {
@@ -347,6 +341,7 @@ function App() {
               path="/Community_content/:id"
               element={<Community_content />}
             />
+            <Route path="/popup" element={<StampPopup />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </DataDispatchContext.Provider>
