@@ -14,7 +14,7 @@ const KioskCoffee = ({ coffeeId, coffeeName, onClick }) => {
           src={getCoffeeImage(coffeeId)}
           onClick={onClick}
         />
-        <div className="coffee_name">{coffeeName}</div>
+        <div className="coffee_name"> {coffeeName}</div>
       </div>
     </div>
   );

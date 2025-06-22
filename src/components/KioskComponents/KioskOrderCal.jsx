@@ -10,7 +10,6 @@ const KioskOrderCal = ({
   orderNumMinus, //해당 메뉴 수량 줄이기
 }) => {
   const nav = useNavigate();
-  console.log(orderNumMinus);
   //총 가격
   let totalPrice = 0;
   let totalquantity = 0;
@@ -37,35 +36,31 @@ const KioskOrderCal = ({
     }
   };
   return (
-    <div className="orderBar">
-      <div className="orderList">
-        <div>
-          <b>주문 내역</b>
-        </div>
-      </div>
+    <div className="ALLorderList">
+      <b>주문 내역</b>
       <div className="orderListBlank">
         {/* 메뉴 선택 시 주문 창 이미지와 정보 띄우기*/}
         {orderItems.map((orderItem) => {
           return (
             <div className="orderITEM" key={orderItem.name}>
               <img src={orderItem.image} alt={orderItem.name} />
-
+              {orderItem.name}
+              {orderItem.price}
               {/* 수량 추가 버튼 */}
-              <div className="orderNumPlus">
-                <button
-                  onClick={() => orderNumPlus(orderItem.id, orderItem.name)}
-                >
-                  +
-                </button>
-                <button
-                  onClick={() => orderNumMinus(orderItem.id, orderItem.name)}
-                >
-                  -
-                </button>
-                {orderItem.quantity}
-              </div>
-              <div className="orderName">{orderItem.name} </div>
-              <div className="orderPrice">{orderItem.price}원</div>
+
+              <button
+                className="orderNumPlus"
+                onClick={() => orderNumPlus(orderItem.id, orderItem.name)}
+              >
+                +
+              </button>
+              <button
+                className="orderNumPlus"
+                onClick={() => orderNumMinus(orderItem.id, orderItem.name)}
+              >
+                -
+              </button>
+              {orderItem.quantity}
             </div>
           );
         })}
@@ -81,20 +76,17 @@ const KioskOrderCal = ({
             <span>{totalPrice}원</span>
           </div>
         </div>
-        <div className="olderOption">
-          <div>
-            <button className="clearBtn" onClick={clearList}>
-              지우기
-            </button>
-            <button className="olderBtn" onClick={openOlder}>
-              주문하기
-            </button>
-          </div>
-          <div className="resetOption">
-            <button className="resetBtn" onClick={moveStartPage}>
-              처음으로
-            </button>
-          </div>
+
+        <div className="btnStyle">
+          <button className="clearBtn" onClick={clearList}>
+            지우기
+          </button>
+          <button className="olderBtn" onClick={openOlder}>
+            주문하기
+          </button>
+          <button className="resetBtn" onClick={moveStartPage}>
+            처음으로
+          </button>
         </div>
       </div>
     </div>
