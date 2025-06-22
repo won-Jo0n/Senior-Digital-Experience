@@ -135,36 +135,24 @@
 }
 
 /* 버튼 (예약, 문의) */
-.action-buttons {
-  margin-top: 0px;
+.reservation_button {
   display: flex;
-  gap: 10px;
-  margin-bottom: 16px;
+  justify-content: center;
+  margin-top: 16px;
 }
 
-.action-buttons .green {
-  width: 250px;
+.reservation_button Button {
+  width: 100%;
   background-color: #03c75a;
   color: white;
   font-weight: bold;
-  padding: 10px 0;
+  padding: 12px 0;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
   font-size: 18px;
-}
-
-.action-buttons .gray {
-  width: 150px;
-  background-color: #eee;
-  color: #333;
-  padding: 10px 0;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
-  font-size: 18px;
+  margin-bottom: 30px;
 }
-
 /* 탭 영역 (홈, 리뷰, 지도 등) */
 .tab-bar {
   display: flex;

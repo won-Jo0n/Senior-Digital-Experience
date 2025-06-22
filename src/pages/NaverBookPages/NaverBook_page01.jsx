@@ -1,13 +1,14 @@
+// NaverBook_page01.jsx
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./NaverBook_page01.css";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
-import MissionPopup from "../../components/MissionPopup"; // 팝업 컴포넌트 불러오기
+import MissionPopup from "../../components/MissionPopup";
 
 const NaverBook_page01 = () => {
   const nav = useNavigate();
-  const [showPopup, setShowPopup] = useState(true); // 팝업 초기 표시
+  const [showPopup, setShowPopup] = useState(true);
 
   const secondPage = () => {
     nav("/NaverBook/page02");
@@ -33,7 +34,6 @@ const NaverBook_page01 = () => {
         <img src="/phone.png" alt="phone" className="phone-frame" />
 
         <div className="NaverBook_page01">
-          {/* 사진 영역 */}
           <div className="photo-section">
             <div className="main-photo">
               <img src="/logo_1.png" alt="메인" />
@@ -47,9 +47,9 @@ const NaverBook_page01 = () => {
           </div>
 
           <h2 className="clinic-title">
-            해봐YOU의원 <span>건강의학과</span>
+            해부YOU의원 <span>건강의학과</span>
           </h2>
-          <p className="reviews">방문자 리뷰 49 · 블로그 리뷰 170</p>
+          <p className="reviews">방문자 리뷰 49 · 블록 리뷰 170</p>
 
           <div className="icon-group">
             <div className="icon-bar">
@@ -69,17 +69,9 @@ const NaverBook_page01 = () => {
               </div>
             </div>
 
-            <div className="action-buttons">
-              <Button text={"예약"} />
-              <Button text={"문의"} />
+            <div className="reservation_button">
+              <Button text={"예약"} onClick={secondPage} />
             </div>
-          </div>
-
-          <div className="action-buttons">
-            <button className="green" onClick={secondPage}>
-              예약
-            </button>
-            <button className="gray">문의</button>
           </div>
 
           <div className="tab-bar">
@@ -96,34 +88,28 @@ const NaverBook_page01 = () => {
               <i className="fi fi-sr-marker"></i>
               <p>서울 관악구 봉천로 227 보라매샤르망 5층 한국정보교육원</p>
             </div>
-
             <div className="info-line">
               <i className="fi fi-sr-navigation"></i>
-              <p>신림선 당곡역 2번출구, 2호선 신림역 6번출구 (환승)</p>
+              <p>신림선 단곡역 2번출구, 2호선 신림역 6번출구 (환승)</p>
             </div>
-
             <div className="info-line">
               <i className="fi fi-sr-clock"></i>
               <p>24시간 운영</p>
             </div>
-
             <div className="info-line">
               <i className="fi fi-sr-phone-call"></i>
               <p>
                 0507-1318-9611 <span className="copy">복사</span>
               </p>
             </div>
-
             <div className="info-line">
               <i className="fi fi-sr-user-md"></i>
               <p>정신건강의학과 전문의 4명</p>
             </div>
-
             <div className="info-line">
               <i className="fi fi-sr-globe"></i>
               <p className="naverlink">http://www.keduit.com</p>
             </div>
-
             <div className="info-line">
               <i className="fi fi-sr-wheelchair"></i>
               <p>예약, 남/녀 화장실 구분, 대기공간</p>
