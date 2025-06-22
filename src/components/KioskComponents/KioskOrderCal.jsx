@@ -29,7 +29,7 @@ const KioskOrderCal = ({
   // 주문하기 클릭시 모달 창 띄우기
   const openOlder = () => {
     if (orderItems.length === 0) {
-      alert("주문 내역이 존재하지 않습니다. 메뉴를 선택해주세요^^");
+      alert("주문 내역이 존재하지 않습니다. 메뉴를 선택해주세요🙂");
       setOnPayModal(false);
     } else {
       setOnPayModal(true);

@@ -12,45 +12,122 @@
 }
 
 .PayModalBody {
-  position: absolute;
-  top: 50%;
-  width: 500px;
-  height: 500px;
+  /* position: absolute; */ /* 부모의 flex 중앙 정렬을 사용하면 제거 가능 */
+  /* top: 50%; */
+  width: 500px; /* 고정 너비는 그대로 유지, 필요시 max-width로 변경 */
+  /* height: 500px; */ /* 고정 높이보다는 max-height와 auto를 사용하는 것이 유연 */
+  max-height: 90vh; /* 뷰포트 높이의 90%를 넘지 않도록 제한 */
+  height: auto; /* 내용에 따라 높이 자동 조절 */
   padding: 40px;
-  text-align: center;
+  /* text-align: center; */ /* 내부 요소에 따라 필요 없으면 제거 */
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
-  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-  transform: translateY(-50%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 그림자 좀 더 부드럽게 */
+  /* transform: translateY(-50%); */ /* 부모의 flex 중앙 정렬을 사용하면 제거 가능 */
+  display: flex; /* 내부 요소들을 세로로 정렬하기 위함 */
+  flex-direction: column;
+  gap: 20px; /* 내부 섹션 간의 기본 간격 */
+}
+
+.kiosk-modal-header {
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+.kiosk-modal-header h2 {
+  font-size: 1.8em; /* 큰 글씨 */
+  border-bottom: 1px solid lightgray;
+  color: #333; /* 어두운 회색 */
+  margin-top: 1px;
 }
 
 .PayModalBody .OLDERlIST {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  max-height: 400px; /* 스크롤이 생길 높이 설정 (원하는 높이로 조절) */
-  overflow-y: auto; /* 세로 스크롤 활성화 */
+  gap: 10px;
+  height: auto;
+  flex-grow: 1;
+  max-height: 350px;
+  overflow-y: auto;
   overflow-x: hidden;
+  padding-right: 10px;
+  box-sizing: border-box;
 }
+
+.PayModalBody .OLDERlIST::-webkit-scrollbar {
+  width: 8px;
+}
+.PayModalBody .OLDERlIST::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+.PayModalBody .OLDERlIST::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
 .PayModal .olderContent {
   display: flex;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  margin-bottom: 10px;
 }
 
 .olderContent .text-content {
   margin-left: auto;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+}
+
+.item-name {
+  font-size: 25px;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.item-price {
+  font-size: 1.2em;
+  color: #555;
+  margin: 0;
+}
+
+.item-quantity {
+  font-size: 1em;
+  color: #777;
+  margin: 0;
 }
 
 .olderContent img {
-  width: 200px;
-  margin-right: 15px;
+  width: 120px; /* 이미지 고정 크기 */
+  height: 120px;
+  object-fit: cover; /* 이미지가 영역을 채우도록 */
+  border-radius: 8px; /* 약간 둥근 이미지 모서리 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 이미지 그림자 */
 }
 
 .PayModal .totalPay {
-  border: 1px solid black;
-  width: 484px;
-  height: 100px;
-  margin-top: auto;
+  display: flex;
+  justify-content: space-between; /* 텍스트와 값 양 끝 정렬 */
+  color: #333;
+  margin: 0;
+  font-weight: bold;
+  color: #ab1f2e; /* 총 금액 강조 (파란색) */
+  font-size: 1.1em;
+}
+
+.leftBtn,
+.rightBtn {
+  padding: 12px 25px; /* 넉넉한 버튼 패딩 */
+  border: none;
+  border-radius: 8px; /* 둥근 버튼 모서리 */
+  cursor: pointer; /* 마우스 오버 시 커서 변경 */
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.1s ease; /* 호버 애니메이션 */
+  flex: 1; /* 버튼들이 동일한 너비를 갖도록 */
 }

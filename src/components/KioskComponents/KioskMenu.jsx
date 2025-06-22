@@ -205,7 +205,7 @@ const KioskMenu = () => {
   return (
     <div className="KIoskDisplay">
       {/* 모달창 css 적용을 위한 조건문 */}
-      <div className={onModal === true ? "OverMenu" : "AllDisplay"}>
+      <div className={"AllDisplay"}>
         <div className="MenuBar">
           {/* 메뉴바 버튼 클릭시 pickMenu 값 변경 */}
           <button

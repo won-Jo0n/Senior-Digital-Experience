@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .modalBody {
@@ -30,9 +31,7 @@
   text-align: center;
   font-size: 22px;
   padding: 12px;
-  border-radius: 8px;
   font-weight: bold;
-  height: 200px;
 }
 
 .coffeeData,
@@ -41,17 +40,18 @@
   font-size: 20px;
   margin-top: 10px;
   height: 350px;
+  text-align: center;
 }
 
 .modalDetail {
   border: 2px solid lightgray;
-  border-radius: 8px;
   padding: 20px;
   width: 90%;
   height: 300px;
   display: flex;
   justify-content: flex-end;
   padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .menuType {
@@ -61,14 +61,28 @@
 
 .onptionPick {
   display: flex;
-  align-items: center;
   gap: 10px;
-  margin-top: 20px;
   flex-wrap: wrap;
+  margin-left: 60px;
 }
 
 .btnBox button {
-  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  height: 45px;
+  width: 230px;
+}
+
+.Putbtn {
+  background-color: #ab1f2e;
+  color: white;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.Backbtn {
+  background-color: lightgray;
+  margin-left: 15px;
 }
 
 .onptionPickText {
@@ -78,10 +92,10 @@
 }
 
 .onptionPick button {
-  border: none;
-  border-radius: 10px;
-  width: 200px;
-  height: 200px;
+  border: 3px solid #ab1f2e;
+  background-color: whitesmoke;
+  width: 100px;
+  height: 90px;
   margin-left: 20px;
   font-size: 20px;
 }
@@ -91,6 +105,5 @@
   height: 200px;
   float: left;
   margin-left: 20px;
-  margin-top: 40px;
-  border-radius: 10px;
+  border-radius: 50px;
 }
