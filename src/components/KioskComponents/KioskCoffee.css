@@ -2,18 +2,20 @@
   height: 220px;
   width: 200px;
   margin-left: 7px;
+  border: none;
+  margin-top: 40px;
 }
 .wrapper > .coffee_img {
   width: 200px;
   height: 200px;
-  margin-left: 40px;
+  margin-left: 10px;
   /* 모든 방향으로 10px 간격 */
   max-width: 100%;
+  border-radius: 100px;
 }
 
 .coffee_name {
-  width: 150px;
   font-size: 20px;
   text-align: center;
-  margin-left: 30px;
+  margin-left: 37px;
 }

@@ -37,7 +37,10 @@ const KioskOrderCal = ({
   };
   return (
     <div className="ALLorderList">
-      <b>주문 내역</b>
+      <div className="ORDERlIST">
+        <b>주문 내역</b>
+      </div>
+
       <div className="orderListBlank">
         {/* 메뉴 선택 시 주문 창 이미지와 정보 띄우기*/}
         {orderItems.map((orderItem) => {
@@ -47,7 +50,6 @@ const KioskOrderCal = ({
               {orderItem.name}
               {orderItem.price}
               {/* 수량 추가 버튼 */}
-
               <button
                 className="orderNumPlus"
                 onClick={() => orderNumPlus(orderItem.id, orderItem.name)}
@@ -60,12 +62,12 @@ const KioskOrderCal = ({
               >
                 -
               </button>
-              {orderItem.quantity}
+              {orderItem.quantity}개
             </div>
           );
         })}
       </div>
-      <div>
+      <div className="orderBlank">
         <div className="orderTotal">
           <div className="orderTotalNum">
             총수량:
@@ -79,13 +81,13 @@ const KioskOrderCal = ({
 
         <div className="btnStyle">
           <button className="clearBtn" onClick={clearList}>
-            지우기
+            <b>지우기</b>
           </button>
           <button className="olderBtn" onClick={openOlder}>
-            주문하기
+            <b>주문하기</b>
           </button>
           <button className="resetBtn" onClick={moveStartPage}>
-            처음으로
+            <b>처음으로</b>
           </button>
         </div>
       </div>
