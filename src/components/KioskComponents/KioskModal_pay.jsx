@@ -25,6 +25,9 @@ const KioskModalPay = ({ setOnPayModal, orderItems }) => {
   return (
     <div className="PayModal">
       <div className="PayModalBody">
+        <div className="kiosk-modal-header">
+          <h2>주문 확인</h2> {/* 명확한 헤더 추가 */}
+        </div>
         <div className="OLDERlIST">
           {orderItems.map((orderItem) => {
             return (
@@ -32,8 +35,13 @@ const KioskModalPay = ({ setOnPayModal, orderItems }) => {
                 <div className="olderContent" key={orderItem.name}>
                   <img src={orderItem.image} />
                   <div className="text-content">
-                    {orderItem.name}금액:{orderItem.price} 수량:
-                    {orderItem.quantity}
+                    <div className="item-name">
+                      {" "}
+                      {orderItem.name}
+                      <div className="item-price"> {orderItem.price}</div>
+                    </div>
+
+                    <div className="item-quantity">{orderItem.quantity}</div>
                   </div>
                 </div>
               </>
@@ -43,7 +51,6 @@ const KioskModalPay = ({ setOnPayModal, orderItems }) => {
         <div className="totalPay">
           총수량:{totalquantity}개 총금액: {totalPrice}원
         </div>
-
         <div>
           <button className="leftBtn" onClick={onClosePayModal}>
             이전

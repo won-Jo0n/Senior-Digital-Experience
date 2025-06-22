@@ -11,7 +11,6 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
     if (pickMenu === "coffee") {
       return (
         <div className="coffeeData">
-          {" "}
           {
             <img
               className="MODALIMAGE"
@@ -19,8 +18,8 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
             />
           }
           <br />
-          이름:{selectedItem.coffeeName} <br />
-          가격:{selectedItem.coffeePrice}
+          {selectedItem.coffeeName} <br />
+          <b>{selectedItem.coffeePrice}원</b>
         </div>
       );
     } else if (pickMenu === "drink") {
@@ -33,8 +32,10 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
             />
           }
           <br />
-          이름:{selectedItem.drinkName}
-          <br /> 가격:{selectedItem.drinkPrice}
+          <div className="OTIONdata">
+            {selectedItem.drinkName}
+            <br /> <b>{selectedItem.drinkPrice}원</b>
+          </div>
         </div>
       );
     } else if (pickMenu === "cake") {
@@ -47,8 +48,8 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
             />
           }
           <br />
-          이름:{selectedItem.CakeName} <br />
-          가격:{selectedItem.cakePrice}
+          {selectedItem.CakeName} <br />
+          <b>{selectedItem.cakePrice}원</b>
         </div>
       );
     }
@@ -73,13 +74,16 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
         </div>
 
         <div className="btnBox">
-          <button onClick={handleConfirmAdd}>담기</button>
           <button
             onClick={() => {
               setOnModal(false);
             }}
+            className="Backbtn"
           >
-            이전
+            <b>이전</b>
+          </button>
+          <button onClick={handleConfirmAdd} className="Putbtn">
+            <b>담기</b>
           </button>
         </div>
       </div>
