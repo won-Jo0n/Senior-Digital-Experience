@@ -80,6 +80,8 @@ function App() {
   const nav = useNavigate();
   const [isLogin, setIslogin] = useState("");
   const [loginedId, setLoginedId] = useState(null);
+  const phoneNumPattern =
+    /^01(?:0|1|[6-9])(?:-|\s)?(?:\d{3}|\d{4})(?:-|\s)?\d{4}$/;
 
   // 사용자 mockData
   const mockData = [
@@ -89,7 +91,6 @@ function App() {
       password: "qwer1234",
       birth: "2000-09-14",
       mission: [true, true, true],
-      boardWrite: [],
     },
     { id: "ADMIN", password: "ADMIN1234" },
   ];
@@ -228,13 +229,17 @@ function App() {
       return;
     }
 
+    if (!phoneNumPattern.test(phoneNum)) {
+      alert("전화번호를 다시 확인해주세요!");
+      return;
+    }
+
     if (data.find((item) => String(item.phoneNum) === String(phoneNum))) {
       alert("이미 가입된 전화번호입니다.");
       return;
     }
     if (phoneNum && password && birth) {
       var mission = [false, false, false];
-      var boardWrite = [false, false, false];
       dispatch({
         type: "CREATE",
         data: {
@@ -243,7 +248,6 @@ function App() {
           password,
           birth,
           mission,
-          boardWrite,
         },
       });
       alert("계정이 생성되었습니다.");
@@ -253,7 +257,7 @@ function App() {
     }
   };
 
-  const onUpdate = (id, phoneNum, password, birth, mission, boardWrite) => {
+  const onUpdate = (id, phoneNum, password, birth, mission) => {
     dispatch({
       type: "UPDATE",
       data: {
@@ -262,7 +266,6 @@ function App() {
         password,
         birth,
         mission,
-        boardWrite,
       },
     });
   };
@@ -282,7 +285,7 @@ function App() {
   };
   const onLogout = () => {
     setLoginedId(null);
-    setIslogin("none");
+    setIslogin("");
   };
 
   if (!isLoading) {

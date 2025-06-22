@@ -1,14 +1,104 @@
+/* NavCard.css */
+
 .NavCard {
   color: black;
   background-color: #dae8d3;
   margin: 5px;
-  padding: 15px;
+  padding: 15px; /* 기존 패딩 유지 */
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  height: 300px;
 }
 
 .NavCardImage {
   height: 150px;
   max-width: 100%;
+  transition: transform 0.3s ease-out;
+}
+
+.NavCard .title,
+.NavCard .explanation {
+  transition: opacity 0.3s ease-out;
+}
+
+/* 마우스 호버 시 나타나는 버튼 오버레이 영역 */
+.card-overlay-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* 배경을 어둡게 처리 */
+  color: white;
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  justify-content: center; /* 수직 가운데 정렬 */
+  align-items: center; /* 수평 가운데 정렬 */
+  gap: 20px; /* 버튼 사이 간격 */
+  z-index: 10;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+/* NavCard에 마우스 호버 시 오버레이 활성화 */
+.NavCard:hover .card-overlay-buttons {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* NavCard에 마우스 호버 시 기존 내용(이미지, 텍스트) 흐려지거나 숨기기 */
+.NavCard:hover .NavCardImage,
+.NavCard:hover .title,
+.NavCard:hover .explanation {
+  opacity: 0.2; /* 살짝 흐려지게 */
+}
+
+.card-overlay-buttons button {
+  width: 80%; /* 이미지처럼 버튼 너비 */
+  padding: 15px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px; /* 이미지처럼 둥근 모서리 */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* 연습모드 버튼 스타일 */
+.practice-mode-button {
+  background-color: #92e076; /* 이미지에서 보이는 연한 초록색 계열 */
+  color: #333; /* 텍스트 색상 */
+}
+
+.practice-mode-button:hover {
+  background-color: #7ad75e;
+}
+
+/* 실전모드 버튼 스타일 */
+.real-mode-button {
+  background-color: #f7d591; /* 이미지에서 보이는 주황색 계열 */
+  color: #333; /* 텍스트 색상 */
+}
+.real-mode-button:hover {
+  background-color: #f5c871;
+}
+
+/* 새롭게 추가된 단일 버튼 스타일 (기존 real-mode-button 색상 활용) */
+.single-action-button {
+  background-color: #f7d591; /* 실전모드와 동일한 색상 사용 */
+  color: #333;
+}
+
+.single-action-button:hover {
+  background-color: #f5c871;
 }
