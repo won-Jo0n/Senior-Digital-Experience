@@ -1,46 +1,110 @@
 .myPageContainer {
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap; /* 화면 작아지면 아래로 배치 */
-  gap: 20px;
-  padding: 20px;
-}
-
-.userInfo {
-  flex: 1.2; /* 원래는 flex: 2; 였음 → 오른쪽 영역이 더 넓게 보임 */
-  aspect-ratio: 3 / 4; /* 세로 길이를 조금 줄임 (기존 3/5 → 3/4) */
-  border: 1px solid #000;
-  min-width: 250px;
-}
-
-.prices {
-  flex: 1;
+  background-color: #1d2a21;
+  height: 100vh; /* min-height → height로 고정 */
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  min-width: 250px;
+  align-items: center;
+  padding: 40px 30px;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
-.stampContainer,
-.CouponContainer {
-  flex: 1;
-  aspect-ratio: 3 / 2;
-  border: 1px solid #000;
+.logo {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.logo-kor {
+  font-weight: bold;
+}
+.logo-en {
+  font-weight: lighter;
+  color: #b0c850;
+}
+.logo-star {
+  color: orange;
+  margin-left: 2px;
 }
 
-/* 화면이 작을 경우 (예: 모바일) */
-@media (max-width: 768px) {
-  .myPageContainer {
-    flex-direction: column;
-  }
+.subText {
+  font-size: 20px;
+  margin-bottom: 50px;
+  color: white;
+}
 
-  .prices {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.contentContainer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
 
-  .stampContainer,
-  .CouponContainer {
-    aspect-ratio: 1 / 1;
-  }
+/* 공통 카드 스타일 */
+.card {
+  background-color: #e2eedc;
+  border-radius: 12px;
+  padding: 25px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+/* 카드 제목 */
+.cardHeader {
+  background-color: #f8f9f1;
+  border-radius: 10px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 8px 15px;
+  margin-bottom: 20px;
+}
+
+/* 회원 정보 */
+.userInfo .infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.userInfo .infoRow input {
+  flex: 0 0 60%;
+  width: 9px;
+  padding: 6px 8px;
+  margin-left: 2px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.userInfo .editBtn {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #b0c850;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* 가운데 미션 */
+.missionCard {
+  background-color: #f8eed6;
+  width: 460px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.stampImg {
+  width: 80%;
+  height: 100%;
+  object-fit: contain; /* or cover depending on use */
+  display: block;
+}
+/* 보상 */
+.rewardCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
