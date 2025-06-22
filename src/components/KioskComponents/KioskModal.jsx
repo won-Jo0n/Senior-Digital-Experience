@@ -8,42 +8,47 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
 
   // 커피, 음료, 케이크에 따라 리스트 값 불러오고 화면에 뿌림
   const menuDetail = () => {
-    console.log(selectedItem.coffeeId);
-
     if (pickMenu === "coffee") {
       return (
-        <div>
-          이름:{selectedItem.coffeeName} 가격:{selectedItem.coffeePrice}
+        <div className="coffeeData">
+          {" "}
           {
             <img
               className="MODALIMAGE"
               src={getCoffeeImage(selectedItem.coffeeId)}
             />
           }
+          <br />
+          이름:{selectedItem.coffeeName} <br />
+          가격:{selectedItem.coffeePrice}
         </div>
       );
     } else if (pickMenu === "drink") {
       return (
-        <div>
-          이름:{selectedItem.drinkName} 가격:{selectedItem.drinkPrice}
+        <div className="drinkData">
           {
             <img
               className="MODALIMAGE"
               src={getDrinkImage(selectedItem.drinkId)}
             />
           }
+          <br />
+          이름:{selectedItem.drinkName}
+          <br /> 가격:{selectedItem.drinkPrice}
         </div>
       );
     } else if (pickMenu === "cake") {
       return (
-        <div>
-          이름:{selectedItem.CakeName} 가격:{selectedItem.cakePrice}
+        <div className="cakeData">
           {
             <img
               className="MODALIMAGE"
               src={getCakeImage(selectedItem.CakeId)}
             />
           }
+          <br />
+          이름:{selectedItem.CakeName} <br />
+          가격:{selectedItem.cakePrice}
         </div>
       );
     }
@@ -59,24 +64,24 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
       <div className="modalBody">
         <div className="modalOption"> 옵션선택</div>
         <div className="modalDetail">
-          <div className="menuType"> {menuDetail()} </div>
-
+          {menuDetail()}
           <div className="onptionPick">
-            <div className="onptionPickText">옵션을 선택해주세요</div>
             <button>아이스</button>
             <button>레귤러</button>
             <button>포장</button>
           </div>
         </div>
 
-        <button onClick={handleConfirmAdd}>담기</button>
-        <button
-          onClick={() => {
-            setOnModal(false);
-          }}
-        >
-          이전
-        </button>
+        <div className="btnBox">
+          <button onClick={handleConfirmAdd}>담기</button>
+          <button
+            onClick={() => {
+              setOnModal(false);
+            }}
+          >
+            이전
+          </button>
+        </div>
       </div>
     </div>
   );

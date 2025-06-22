@@ -203,73 +203,71 @@ const KioskMenu = () => {
     return null;
   };
   return (
-    <>
-      <div className="KIoskDisplay">
-        {/* 모달창 css 적용을 위한 조건문 */}
-        <div className={onModal === true ? "OverMenu" : "AllDisplay"}>
-          <div className="MenuBar">
-            {/* 메뉴바 버튼 클릭시 pickMenu 값 변경 */}
-            <button
-              className="button_coffee"
-              onClick={() => {
-                setPickMenu("coffee");
-              }}
-            >
-              커피
-            </button>
-            <button
-              className="button_drink"
-              onClick={() => {
-                setPickMenu("drink");
-              }}
-            >
-              음료
-            </button>
-            <button
-              className="button_cake"
-              onClick={() => {
-                setPickMenu("cake");
-              }}
-            >
-              케이크
-            </button>
-          </div>
-          <div className="coffee_menuDISPLAY">{changeMenu()}</div>
+    <div className="KIoskDisplay">
+      {/* 모달창 css 적용을 위한 조건문 */}
+      <div className={onModal === true ? "OverMenu" : "AllDisplay"}>
+        <div className="MenuBar">
+          {/* 메뉴바 버튼 클릭시 pickMenu 값 변경 */}
+          <button
+            className="button_coffee"
+            onClick={() => {
+              setPickMenu("coffee");
+            }}
+          >
+            커피
+          </button>
+          <button
+            className="button_drink"
+            onClick={() => {
+              setPickMenu("drink");
+            }}
+          >
+            음료
+          </button>
+          <button
+            className="button_cake"
+            onClick={() => {
+              setPickMenu("cake");
+            }}
+          >
+            케이크
+          </button>
+        </div>
+        <div className="coffee_menuDISPLAY">{changeMenu()}</div>
 
-          <div>
-            {onModal &&
-              selectedItem && ( // selectedItem이 null이 아닐 때만 모달 렌더링
-                <KioskModal
-                  selectedItem={selectedItem} //선택된 메뉴 정보 객체
-                  pickMenu={pickMenu} //선택된 메뉴의 카테고리 (커피, 음료, 디저트 중 하나)
-                  setOnModal={setOnModal} // 모달 닫기 용도로 전달
-                  onAddToOrder={AddToOrder} // 주문 추가 함수 전달
-                />
-              )}
-          </div>
-
-          <div>
-            {onPayModal && selectedItem && (
-              <KioskModalPay
-                setOnPayModal={setOnPayModal}
-                orderItems={orderItems}
+        <div>
+          {onModal &&
+            selectedItem && ( // selectedItem이 null이 아닐 때만 모달 렌더링
+              <KioskModal
+                selectedItem={selectedItem} //선택된 메뉴 정보 객체
+                pickMenu={pickMenu} //선택된 메뉴의 카테고리 (커피, 음료, 디저트 중 하나)
+                setOnModal={setOnModal} // 모달 닫기 용도로 전달
+                onAddToOrder={AddToOrder} // 주문 추가 함수 전달
               />
             )}
-          </div>
         </div>
-        {/* 주문 내역 채우기 및 계산 */}
-        <div className="ORDERlIST">
-          <KioskOrderCal
-            orderItems={orderItems}
-            setOrderItems={setOrderItems}
-            setOnModal={setOnModal}
-            setOnPayModal={setOnPayModal}
-            orderNumPlus={orderNumPlus}
-            orderNumMinus={orderNumMinus}
-          />
+
+        <div>
+          {onPayModal && selectedItem && (
+            <KioskModalPay
+              setOnPayModal={setOnPayModal}
+              orderItems={orderItems}
+            />
+          )}
         </div>
       </div>
-    </>
+      {/* 주문 내역 채우기 및 계산 */}
+      <div className="ORDERlIST">
+        <KioskOrderCal
+          orderItems={orderItems}
+          setOrderItems={setOrderItems}
+          setOnModal={setOnModal}
+          setOnPayModal={setOnPayModal}
+          orderNumPlus={orderNumPlus}
+          orderNumMinus={orderNumMinus}
+        />
+      </div>
+    </div>
   );
 };
 

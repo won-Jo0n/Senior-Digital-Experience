@@ -1,5 +1,6 @@
 .KIoskDisplay {
   position: relative;
+  border-radius: 10px;
   width: 1000px;
   height: 1300px;
   margin-left: 20%;
@@ -27,7 +28,6 @@
 .MenuBar {
   position: absolute;
   top: 28px;
-  margin-left: 2px;
   width: 724px;
 }
 
@@ -77,16 +77,15 @@
 
 .coffee_menuDISPLAY {
   background-color: white;
-
   width: 725px;
   position: absolute;
-  margin-left: 2px;
   top: 80px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
   overflow-y: auto; /* 세로 스크롤 활성화 */
   overflow-x: hidden;
+  max-height: 589px;
 }
 
 .coffee_menuDISPLAY::-webkit-scrollbar {
@@ -97,12 +96,9 @@
 
 .ORDERlIST {
   position: absolute;
-  width: 728px;
+  width: 790px;
   height: 400px;
   margin-top: 680px;
-  margin-left: 121px;
+  margin-left: 114px;
   margin-bottom: 50px;
-  background-color: white;
-  overflow-y: auto; /* 세로 스크롤 활성화 */
-  overflow-x: hidden;
 }
