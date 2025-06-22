@@ -3,39 +3,54 @@ import { getCoffeeImage } from "../../util/cafeMenu_imgesCoffee";
 import { getCakeImage } from "../../util/cafeMenu_imgesCake";
 import { getDrinkImage } from "../../util/cafeMenu_imgesDrink ";
 const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
+  console.log(selectedItem);
+  console.log(pickMenu);
+
   // 커피, 음료, 케이크에 따라 리스트 값 불러오고 화면에 뿌림
   const menuDetail = () => {
+    console.log(selectedItem.coffeeId);
+
     if (pickMenu === "coffee") {
       return (
         <div>
           이름:{selectedItem.coffeeName} 가격:{selectedItem.coffeePrice}
-          {<img src={getCoffeeImage(selectedItem.coffeeId)} />}
+          {
+            <img
+              className="MODALIMAGE"
+              src={getCoffeeImage(selectedItem.coffeeId)}
+            />
+          }
         </div>
       );
     } else if (pickMenu === "drink") {
       return (
         <div>
           이름:{selectedItem.drinkName} 가격:{selectedItem.drinkPrice}
-          {<img src={getDrinkImage(selectedItem.drinkId)} />}
+          {
+            <img
+              className="MODALIMAGE"
+              src={getDrinkImage(selectedItem.drinkId)}
+            />
+          }
         </div>
       );
     } else if (pickMenu === "cake") {
       return (
         <div>
           이름:{selectedItem.CakeName} 가격:{selectedItem.cakePrice}
-          {<img src={getCakeImage(selectedItem.CakeId)} />}
+          {
+            <img
+              className="MODALIMAGE"
+              src={getCakeImage(selectedItem.CakeId)}
+            />
+          }
         </div>
       );
     }
     return null;
   };
-  //담기버튼 클릭시 모달 닫힘
-  const MenuAdd = () => {
-    onAddToOrder(selectedItem); // 선택된 메뉴 주문 정보 객체 전달
-    setOnModal(false);
-  };
-  //닫기버튼 클릭시 모달 닫힘
-  const closeModal = () => {
+  const handleConfirmAdd = () => {
+    onAddToOrder(selectedItem); // 주문 정보 객체 전달
     setOnModal(false);
   };
 
@@ -43,15 +58,25 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
     <div className="modal">
       <div className="modalBody">
         <div className="modalOption"> 옵션선택</div>
-        <div className="modalDetail">{menuDetail()}</div>
-        <div className="madalOptionDetail">
-          음료 옵션선택(온도, 사이즈, 포장)
-          <button>온도</button>
-          <button>사이즈</button>
-          <button>포장</button>
+        <div className="modalDetail">
+          <div className="menuType"> {menuDetail()} </div>
+
+          <div className="onptionPick">
+            <div className="onptionPickText">옵션을 선택해주세요</div>
+            <button>아이스</button>
+            <button>레귤러</button>
+            <button>포장</button>
+          </div>
         </div>
-        <button onClick={MenuAdd}>담기</button>
-        <button onClick={closeModal}>닫기</button>
+
+        <button onClick={handleConfirmAdd}>담기</button>
+        <button
+          onClick={() => {
+            setOnModal(false);
+          }}
+        >
+          이전
+        </button>
       </div>
     </div>
   );

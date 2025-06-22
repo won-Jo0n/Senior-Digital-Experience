@@ -30,53 +30,54 @@
     opacity: 1;
   }
 }
-
 .wrapperStartDisplay {
-  background-color: white;
-  width: 900px;
-  height: 300px;
-  margin-left: 30%;
-}
-
-.wrapperStartDisplay .firstDiv {
-  width: 900px;
-  height: 60vh;
+  width: 1000px;
+  height: 1300px;
+  margin-left: 20%;
+  background-image: url("/public//koisk.png");
+  background-size: 1000px 1300px;
+  background-position: center; /* 이미지를 div 중앙에 배치 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
 }
 
 .wrapperStartDisplay .startImage {
-  width: 900px;
-  height: 60vh;
+  width: 728px;
+  height: 305px;
+  margin-top: 90px;
+  margin-left: 121px;
+  border-radius: 6px 6px 0px 0px;
 }
 
 .wrapperStartDisplay .middleDiv {
-  width: 900px;
-  height: 60vh;
+  width: 728px;
+  height: 300px;
   background-color: #3e3e3f;
+  margin-left: 121px;
 }
 
 .middleDiv .middleText {
-  padding-top: 20%;
+  padding-top: 7%;
   text-align: center;
-  font-size: 40px;
+  font-size: 22px;
   color: white;
 }
 
 .middleDiv .middleMainText {
-  padding-top: 1%;
+  padding-top: 20px;
   text-align: center;
-  font-size: 80px;
+  font-size: 27px;
   color: white;
 }
 
 .middleDiv .blinking {
-  width: 150px;
-  height: 200px;
+  width: 60px;
+  height: 80px;
   float: right;
   margin-right: 80px;
 }
-
-.wrapperStartDisplay .thirdDiv {
-  width: 1300px;
-  height: 60vh;
-  height: 60vh;
+.lastImage {
+  width: 728px;
+  height: 300px;
+  margin-left: 121px;
+  border-radius: 0px 0px 6px 6px;
 }

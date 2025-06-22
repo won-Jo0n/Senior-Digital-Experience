@@ -1,26 +1,19 @@
-.coffee_menu > .wrapper {
+.coffee_Menu > .wrapper {
+  height: 220px;
   width: 200px;
+  margin-left: 7px;
 }
 .wrapper > .coffee_img {
-  width: 280px;
-  height: 260px;
-  margin-left: 50px;
-}
-
-.coffee_menu {
-  width: 290px;
-  margin-left: 5px;
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-  display: inline-grid;
+  width: 200px;
+  height: 200px;
+  margin-left: 40px;
+  /* 모든 방향으로 10px 간격 */
+  max-width: 100%;
 }
 
 .coffee_name {
-  width: 300px;
-  font-size: 30px;
+  width: 150px;
+  font-size: 20px;
   text-align: center;
-  padding: 10px;
-  margin-left: 40px;
+  margin-left: 30px;
 }

@@ -1,24 +1,44 @@
+.KIoskDisplay {
+  position: relative;
+  width: 1000px;
+  height: 1300px;
+  margin-left: 20%;
+  background-image: url("/public//koisk.png");
+  background-size: cover;
+  background-position: center; /* 이미지를 div 중앙에 배치 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
+  overflow: hidden;
+}
+
 .OverMenu {
+  position: absolute;
   height: 1700px;
 }
 
 .AllDisplay {
-  height: 1700px;
+  position: absolute;
+  top: 10px;
+  width: 728px;
+  margin-left: 120px;
   background-color: white;
+  max-height: 400px; /* 스크롤이 생길 높이 설정 (원하는 높이로 조절) */
 }
 
 .MenuBar {
-  height: 6%;
+  position: absolute;
+  top: 28px;
+  margin-left: 2px;
+  width: 724px;
 }
 
 .button_coffee {
   width: 34%;
-  height: 100%;
   font-weight: bold;
   justify-content: flex-start;
-  font-size: 40px;
+  font-size: 35px;
   background-color: white;
   border: none;
+  border-radius: 10px 10px 0px 0px;
 }
 .button_coffee:hover {
   color: white;
@@ -26,11 +46,11 @@
 }
 
 .button_drink {
+  border-radius: 10px 10px 0px 0px;
   width: 33%;
-  height: 100%;
   font-weight: bold;
   justify-content: center;
-  font-size: 40px;
+  font-size: 35px;
   background-color: white;
   border: none;
 }
@@ -40,10 +60,12 @@
 }
 
 .button_cake {
+  border-radius: 10px 10px 0px 0px;
+  position: absolute;
   width: 33%;
   font-weight: bold;
-  justify-content: flex-end;
-  font-size: 40px;
+  justify-content: center;
+  font-size: 35px;
   background-color: white;
   border: none;
 }
@@ -51,4 +73,36 @@
 .button_cake:hover {
   color: white;
   background-color: #ab1f2e;
+}
+
+.coffee_menuDISPLAY {
+  background-color: white;
+
+  width: 725px;
+  position: absolute;
+  margin-left: 2px;
+  top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  overflow-y: auto; /* 세로 스크롤 활성화 */
+  overflow-x: hidden;
+}
+
+.coffee_menuDISPLAY::-webkit-scrollbar {
+  width: 7px;
+  background-color: gray;
+  border-radius: 10px;
+}
+
+.ORDERlIST {
+  position: absolute;
+  width: 728px;
+  height: 400px;
+  margin-top: 680px;
+  margin-left: 121px;
+  margin-bottom: 50px;
+  background-color: white;
+  overflow-y: auto; /* 세로 스크롤 활성화 */
+  overflow-x: hidden;
 }

@@ -7,6 +7,10 @@ import Map from "./pages/Map";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import KioskStart from "./pages/Kiosk_Start";
+import Kiosk from "./pages/Kiosk";
+import KioskPayMent from "./pages/KioskPayMent";
+import Kiosk_CardPayMent from "./pages/Kiosk_CardPayMent";
+import KioskFinal from "./pages/KioskFinal";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { createContext } from "react";
 import { useEffect, useReducer, useRef, useState } from "react";
@@ -15,7 +19,6 @@ import NaverBook_page02 from "./pages/NaverBookPages/NaverBook_page02";
 import NaverBook_page03 from "./pages/NaverBookPages/NaverBook_page03";
 import NaverBook_page04 from "./pages/NaverBookPages/NaverBook_page04";
 import NaverBook_page05 from "./pages/NaverBookPages/NaverBook_page05";
-import Kiosk from "./pages/Kiosk";
 import Community_content from "./pages/Community_content";
 
 // 사용자 관리 reducer
@@ -92,88 +95,27 @@ function App() {
   ];
 
   // 게시글 mockData
-  const communityMockData = [
-    {
-      id: 1, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 2, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 3, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 4, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 5, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 6, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 7, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 8, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 9, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-    {
-      id: 10, // 커뮤니티 게시글 구분 key
-      title: "title입니다.",
-      userName: "name",
-      date: "2025-06-19",
-      text: "안녕하세요, text입니다.",
-      isAnswer: "",
-    },
-  ];
+  const generateCommunityMockData = (count) => {
+    const data = [];
+    for (let i = 1; i <= count; i++) {
+      data.push({
+        id: i, // 커뮤니티 게시글 구분 key
+        title: `게시물 제목 ${i}`,
+        userName: `사용자${i}`,
+        date: `2025-06-${String(Math.floor(Math.random() * 30) + 1).padStart(
+          2,
+          "0"
+        )}`, // 랜덤 날짜
+        text: `안녕하세요, ${i}번째 게시물 내용입니다.`,
+        isAnswer: "", // 답변 상태
+      });
+    }
+    return data;
+  };
+
+  // 원하는 게시물 수 설정
+  const numberOfPosts = 100;
+  const communityMockData = generateCommunityMockData(numberOfPosts);
 
   // 사용자
   const [data, dispatch] = useReducer(reducer, []);
@@ -373,6 +315,9 @@ function App() {
             <Route path="/MyPage" element={<MyPage />} />
             <Route path="/Kiosk" element={<KioskStart />}></Route>
             <Route path="/Kiosk/:1" element={<Kiosk />}></Route>
+            <Route path="/KioskPay" element={<KioskPayMent />}></Route>
+            <Route path="/KioskCardPay" element={<Kiosk_CardPayMent />}></Route>
+            <Route path="/KioskFinal" element={<KioskFinal />}></Route>
             <Route
               path="/NaverBook/page01"
               element={<NaverBook_page01 />}

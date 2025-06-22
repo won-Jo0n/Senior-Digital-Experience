@@ -89,7 +89,7 @@
 }
 
 .content-answer::before {
-  content: "↳ 답글"; /* '↳ 답글' 텍스트 추가 */
+  content: "↳ 관리자의 한마디"; /* '↳ 답글' 텍스트 추가 */
   position: absolute;
   top: -10px; /* 위치 조절 */
   left: 20px;
