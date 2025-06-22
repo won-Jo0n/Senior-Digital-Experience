@@ -34,11 +34,11 @@ const NaverBook_page04 = () => {
 
           {/* 예약 정보 박스 */}
           <div className="BookCheck">
-            <strong>소통부부한의원 고양 진료예약</strong>
+            <strong>해봐YOU의원 진료 예약</strong>
             <div className="bookTimeDate">
               <span>일정</span>
               <span>
-                {date} ({slot}) · {time}
+                {date} ( {slot} ) · {time}
               </span>
             </div>
           </div>
@@ -82,8 +82,9 @@ const NaverBook_page04 = () => {
             <p className="requestLabel">요청사항</p>
             <select className="requestInput">
               <option value="">요청사항을 선택해주세요.</option>
-              <option value="1">빠른 진료</option>
-              <option value="2">조용한 자리</option>
+              <option value="1">빠른 진료를 원해요</option>
+              <option value="2">조용한 자리를 원해요</option>
+              <option value="2">허리가 아파요</option>
             </select>
           </div>
           {/* 안내 문구 */}
@@ -94,7 +95,7 @@ const NaverBook_page04 = () => {
           {/* 버튼 영역 */}
           <div className="bookButtonRow">
             <div className="bookBack">
-              <Button text={"이전"} />
+              <Button text={"이전"} onClick={() => nav("/NaverBook/page03")} />
             </div>
             <div className="agreeAndbookRequest" onClick={fifthPage}>
               <Button text={"동의하고 예약 신청하기"} />
