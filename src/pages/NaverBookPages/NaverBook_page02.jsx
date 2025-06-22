@@ -66,8 +66,6 @@ const NaverBook_page02 = () => {
                 해봐YOU의원 네이버 예약입니다. 간편하게 예약하고 문의해주세요.
                 감사합니다.
               </p>
-
-              {/* 한 줄 레이아웃 */}
               <div className="reviewAndBtnRow">
                 <span className="reviewSmall">★ 4.73 / 리뷰 152</span>
                 <button className="greenBtn">예약하기</button>

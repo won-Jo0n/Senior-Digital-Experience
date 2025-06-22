@@ -1,10 +1,10 @@
 .bigContainer {
   margin: 0;
   padding: 0;
-  background-color: #ffffff; 
+  background-color: #ffffff;
 }
 
-.bookWrapper{
+.bookWrapper {
   position: relative;
   width: 700px;
   margin: 0 auto;
@@ -18,10 +18,10 @@
 
 .NaverBook_page03 {
   position: absolute;
-  top: 140px; 
+  top: 140px;
   left: 49%;
   transform: translateX(-50%);
-  background-color: white; 
+  background-color: white;
   font-family: sans-serif;
   padding: 16px;
   overflow-y: auto;
@@ -35,23 +35,20 @@
   border-radius: 10px;
   background-color: #fff;
   margin-bottom: 20px;
+  font-size: 18px;
 }
 
-
-
-.action-buttons  {
+.action-buttons {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-
 }
-
 
 .reserveBtn {
   width: 80px;
   padding: 6px 12px;
-  background-color: #3f3f3f ;
-  color: #fff ;
+  background-color: #3f3f3f;
+  color: #fff;
   font-weight: bold;
   border: none;
   border-radius: 8px;
@@ -59,16 +56,14 @@
   text-align: center;
 }
 
-
-.otherBtn Button{
+.otherBtn Button {
   width: 100px;
   padding: 8px 12px;
   border-radius: 8px;
   background-color: #ececec;
-  color: rgb(54, 54, 54) ; 
+  color: rgb(54, 54, 54);
   cursor: pointer;
   text-align: center;
-  
 }
 
 .bookBtn {
@@ -81,8 +76,8 @@
 }
 
 .allCalendar h3 {
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 25px;
 }
 
 .calendar {
@@ -97,12 +92,13 @@
   align-items: center;
   font-weight: bold;
   margin-bottom: 8px;
+  font-size: 20px;
 }
 
 .calendarHeader button {
   border: none;
   background: none;
-  font-size: 18px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -116,6 +112,7 @@
   text-align: center;
   font-weight: bold;
   color: #777;
+  font-size: 18px;
 }
 
 .calendarDay .week {
@@ -130,7 +127,7 @@
   line-height: 32px;
   cursor: pointer;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 18px;
   color: #333;
 }
 
@@ -158,7 +155,7 @@
 
 .timeLabel {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 20px;
   margin-bottom: 8px;
 }
 
@@ -173,7 +170,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: white;
-  font-size: 14px;
+  font-size: 18px;
   cursor: pointer;
   text-align: center;
   min-width: 64px;
@@ -190,7 +187,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .forthPageButton {
@@ -204,7 +201,7 @@
 
 .toolTipButton {
   margin-right: 10px;
-  border: 1px solid #ccc ;
+  border: 1px solid #ccc;
   border-radius: 8px;
   padding: 6px;
   text-align: center;
