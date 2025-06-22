@@ -1,9 +1,0 @@
-.KioskDisplay {
-  width: 700px;
-  height: 900px;
-  margin-left: 30%;
-  background-image: url("/public//koisk.png");
-  background-size: 700px 990px;
-  background-position: center; /* 이미지를 div 중앙에 배치 */
-  background-repeat: no-repeat; /* 이미지 반복 방지 */
-}

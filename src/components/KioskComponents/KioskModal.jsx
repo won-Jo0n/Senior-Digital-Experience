@@ -59,8 +59,10 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
       <div className="modalBody">
         <div className="modalOption"> 옵션선택</div>
         <div className="modalDetail">
-          {menuDetail()} 옵션을 선택해주세요
+          <div className="menuType"> {menuDetail()} </div>
+
           <div className="onptionPick">
+            <div className="onptionPickText">옵션을 선택해주세요</div>
             <button>아이스</button>
             <button>레귤러</button>
             <button>포장</button>

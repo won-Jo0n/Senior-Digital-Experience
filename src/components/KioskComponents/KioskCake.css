@@ -10,6 +10,8 @@
 }
 
 .cake_menu {
+  top: 150px;
+  left: 30px;
   width: 10px;
   display: contents;
   grid-template-columns: 0.5fr 0.5fr 0.5fr;

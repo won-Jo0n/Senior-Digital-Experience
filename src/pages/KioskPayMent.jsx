@@ -12,19 +12,50 @@ const KioskPayMent = () => {
     nav("/KioskCardPay");
   };
   return (
-    <div className="LastOlderPage">
-      <div className="oldertext">결제방법을 선택해주세요</div>
-      <div>
-        <div>
-          <div>신용카드를 선택해주세요</div>
-          <button onClick={cardPayMent}>신용카드</button>
-          <button>모바일 쿠폰</button>
-          <button>투썸기프트카드</button>
-          <button>카카오페이</button>
-          <button>바코드할인</button>
+    <div className="KIOSKDISPLAY">
+      <div className="LastOlderPage">
+        <div className="oldertext">
+          <b>결제방법을 선택해주세요</b>
         </div>
-        <div>
-          <button onClick={backMenuPage}>취소</button>
+        <div className="pickCARD">
+          <b>신용카드를 선택해주세요</b>
+        </div>
+        <div className="olderMETHOD">
+          <div className="topBtn">
+            <button onClick={cardPayMent}>
+              <div>
+                <img src="/public//card.png" className="CardImg" />
+              </div>
+              신용카드
+            </button>
+
+            <button>
+              <div>
+                <img src="/public//coupon.png" className="CardImg" />
+              </div>
+              모바일 쿠폰
+            </button>
+          </div>
+          <div className="bottomBtn">
+            <button>
+              <div>
+                <img
+                  src="https://mcdn.twosome.co.kr/upload/MOGC0030/202309/MOGC0030_20230912152427_HhnEQPGs"
+                  className="CardImg"
+                />
+              </div>
+              투썸기프트카드
+            </button>
+            <button className="bottomBtn">
+              <img src="/public//kakaoPay.png" className="CardImg" />
+              카카오페이
+            </button>
+          </div>
+        </div>
+        <div class="BTNcontainer">
+          <button class="BackBTN" onClick={backMenuPage}>
+            이전
+          </button>
         </div>
       </div>
     </div>

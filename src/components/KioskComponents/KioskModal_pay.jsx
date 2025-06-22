@@ -39,9 +39,9 @@ const KioskModalPay = ({ setOnPayModal, orderItems }) => {
               </>
             );
           })}
-          <div className="totalPay">
-            총수량:{totalquantity}개 총금액: {totalPrice}원
-          </div>
+        </div>
+        <div className="totalPay">
+          총수량:{totalquantity}개 총금액: {totalPrice}원
         </div>
 
         <div>
