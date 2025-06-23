@@ -3,11 +3,12 @@ import "./MyPage.css";
 import Stamp from "../components/MyPageComponents/Stamp";
 import Coupon from "../components/MyPageComponents/Coupon";
 import { useContext, useRef } from "react";
-import { DataStateContext } from "../App";
+import { DataDispatchContext, DataStateContext } from "../App";
 import Logo from "../components/Logo";
 import getCompleteMissionImage from "../util/getCompleteMissionImage";
 
 const MyPage = () => {
+  const { onUpdate } = useContext(DataDispatchContext);
   const userState = useContext(DataStateContext);
   const phoneNum = useRef(userState.loginedId.phoneNum);
   const password = useRef(userState.loginedId.password);
@@ -24,17 +25,48 @@ const MyPage = () => {
           <div className="cardHeader">회원 정보</div>
           <div className="infoRow">
             <span>전화번호</span>
-            <input type="text" defaultValue={phoneNum.current} />
+            <input
+              type="text"
+              defaultValue={phoneNum.current}
+              onChange={(event) => {
+                phoneNum.current = event.target.value;
+              }}
+            />
           </div>
           <div className="infoRow">
             <span>비밀번호</span>
-            <input type="text" defaultValue={password.current} />
+            <input
+              type="text"
+              defaultValue={password.current}
+              onChange={(event) => {
+                password.current = event.target.value;
+              }}
+            />
           </div>
           <div className="infoRow">
             <span>생년월일</span>
-            <input type="date" defaultValue={birth.current} />
+            <input
+              type="date"
+              defaultValue={birth.current}
+              onChange={(event) => {
+                birth.current = event.target.value;
+              }}
+            />
           </div>
-          <button className="editBtn">수정하기</button>
+          <button
+            className="editBtn"
+            onClick={() => {
+              onUpdate(
+                userState.loginedId.id,
+                phoneNum.current,
+                password.current,
+                birth.current,
+                userState.loginedId.mission
+              );
+            }}
+          >
+            수정하기
+          </button>
         </div>
 
         {/* 가운데: 미션 */}
