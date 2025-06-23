@@ -58,12 +58,14 @@ const Home = () => {
   const onComunity = () => {
     nav("/Community");
   };
-  const onKiosk = () => {
-    setIsChallenged("Kiosk", true);
+  const onKiosk = (ischallenged) => {
+    console.log(ischallenged);
+    setIsChallenged("Kiosk", ischallenged);
     nav("/Kiosk");
   };
-  const onNaverBook = () => {
-    setIsChallenged("naverBook", true);
+  const onNaverBook = (ischallenged) => {
+    console.log(ischallenged);
+    setIsChallenged("naverBook", ischallenged);
     nav("/NaverBook/page01");
   };
   const onMap = () => {

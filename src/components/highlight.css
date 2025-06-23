@@ -27,6 +27,9 @@
   inset: 3px;
   background: #1f2e25;
   z-index: 1;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 6px;
 }
 
 /* 실제 콘텐츠는 위에 */

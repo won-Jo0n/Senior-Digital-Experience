@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./NaverBook_page01.css";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import MissionPopup from "../../components/MissionPopup";
+import "../../components/highlight.css";
+import { DataDispatchContext } from "../../App";
 
 const NaverBook_page01 = () => {
   const nav = useNavigate();
   const [showPopup, setShowPopup] = useState(true);
+  const { getIsChallenged } = useContext(DataDispatchContext);
 
   // 1분 타이머 시작 (sessionStorage에 저장)
   const secondPage = () => {
@@ -21,7 +24,7 @@ const NaverBook_page01 = () => {
 
   return (
     <div className="bigContainer">
-      {showPopup && (
+      {showPopup && getIsChallenged() && (
         <MissionPopup
           message={
             "6월 29일, 14시 30분에\n 진성 간호사와 상담으로 병원 예약 부탁해~"
@@ -73,9 +76,15 @@ const NaverBook_page01 = () => {
               </div>
             </div>
 
-            <div className="reservation_button">
-              <Button text={"예약"} onClick={secondPage} />
-            </div>
+            {getIsChallenged() ? (
+              <div className="reservation_button">
+                <Button text={"예약"} onClick={secondPage} />
+              </div>
+            ) : (
+              <div className="reservation_button highlight">
+                <Button text={"예약"} onClick={secondPage} />
+              </div>
+            )}
           </div>
 
           {/* 탭바 */}
