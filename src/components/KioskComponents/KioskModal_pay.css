@@ -72,33 +72,13 @@
   border-radius: 10px;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
   margin-bottom: 10px;
+  font-size: 25px;
+  padding-left: 30px;
 }
 
 .olderContent .text-content {
-  margin-left: auto;
-  font-size: 1.4em;
   font-weight: bold;
   color: #222;
-  margin: 0;
-}
-
-.item-name {
-  font-size: 25px;
-  font-weight: bold;
-  color: #222;
-  margin: 0;
-  word-wrap: break-word;
-}
-
-.item-price {
-  font-size: 1.2em;
-  color: #555;
-  margin: 0;
-}
-
-.item-quantity {
-  font-size: 1em;
-  color: #777;
   margin: 0;
 }
 
@@ -108,16 +88,23 @@
   object-fit: cover; /* 이미지가 영역을 채우도록 */
   border-radius: 8px; /* 약간 둥근 이미지 모서리 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 이미지 그림자 */
+  margin-right: 45px;
+  margin-top: 10px;
 }
 
 .PayModal .totalPay {
   display: flex;
-  justify-content: space-between; /* 텍스트와 값 양 끝 정렬 */
   color: #333;
   margin: 0;
   font-weight: bold;
-  color: #ab1f2e; /* 총 금액 강조 (파란색) */
-  font-size: 1.1em;
+  font-size: 20px;
+  width: 600px;
+  padding-left: 215px;
+  word-spacing: 10px;
+}
+.btnGroup {
+  display: flex;
+  gap: 10px;
 }
 
 .leftBtn,
@@ -128,6 +115,13 @@
   cursor: pointer; /* 마우스 오버 시 커서 변경 */
   font-size: 1.1em;
   font-weight: bold;
-  transition: background-color 0.2s ease, transform 0.1s ease; /* 호버 애니메이션 */
+  background-color: #ab1f2e;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
   flex: 1; /* 버튼들이 동일한 너비를 갖도록 */
+}
+
+.leftBtn,
+.rightBtn :hover {
+  cursor: pointer;
 }

@@ -1,8 +1,12 @@
 import "./Kiosk_Start.css";
 import touchFinger from "../assets/touchFinger.png";
 import { useNavigate } from "react-router-dom";
+import { DataDispatchContext } from "../App";
+import { useContext } from "react";
+import "../components/highlight.css";
 //키오스크 시작 화면
 const KioskStart = () => {
+  const { getIsChallenged } = useContext(DataDispatchContext);
   const nav = useNavigate();
 
   return (
@@ -15,17 +19,31 @@ const KioskStart = () => {
             alt="여름 시즌 빙수 신제품 출시  사진"
           />
         </div>
-        <div className="middleDiv" onClick={() => nav("/Kiosk/:1")}>
-          <div className="middleText">안녕하세요 고객님</div>
-          <div className="middleMainText">
-            <strong>
-              "주문을 하시려면
-              <br />
-              화면을 터치해주세요"
-            </strong>
+        {getIsChallenged() ? (
+          <div className="middleDiv" onClick={() => nav("/Kiosk/:1")}>
+            <div className="middleText">안녕하세요 고객님</div>
+            <div className="middleMainText">
+              <strong>
+                "주문을 하시려면
+                <br />
+                화면을 터치해주세요"
+              </strong>
+            </div>
+            <img className="blinking" src={touchFinger} />
           </div>
-          <img className="blinking" src={touchFinger} />
-        </div>
+        ) : (
+          <div className="middleDiv highlight" onClick={() => nav("/Kiosk/:1")}>
+            <div className="middleText">안녕하세요 고객님</div>
+            <div className="middleMainText">
+              <strong>
+                "주문을 하시려면
+                <br />
+                화면을 터치해주세요"
+              </strong>
+            </div>
+            <img className="blinking" src={touchFinger} />
+          </div>
+        )}
 
         <img
           className="lastImage"

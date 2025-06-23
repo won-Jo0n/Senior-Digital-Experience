@@ -8,27 +8,27 @@ import { DataDispatchContext, DataStateContext } from "../App";
 import StampPopup from "../components/StampPopup";
 import "../components/highlight.css";
 
+let isNotAgainSee = false;
+
 const Home = () => {
   const nav = useNavigate();
   const { onLogout, setIsChallenged } = useContext(DataDispatchContext);
-  const { isLogin, globalIsNotAgainSee } = useContext(DataStateContext);
+  const { isLogin, loginedId } = useContext(DataStateContext);
 
   // StampPopup의 가시성을 관리하는 상태입니다.
   const [showStampPopup, setShowStampPopup] = useState(false);
 
-  const [isNotAgainSee, setIsNotAgainSee] = useState(false);
+  // const [isNotAgainSee, setIsNotAgainSee] = useState(false);
 
   // useEffect 훅을 사용하여 로그인 상태를 확인하고 팝업을 표시합니다.
   useEffect(() => {
+    console.log("로그인 ID: ", loginedId);
     // 사용자가 로그인 상태이고, 'hasSeenStampPopup' 플래그가 localStorage에 없으면 팝업을 보여줍니다.
     // 이 플래그는 팝업이 이미 한 번 표시되었는지 추적하여 재로그인 시 다시 나타나지 않도록 합니다.
     if (isLogin === "LOGIN" && !isNotAgainSee) {
-      console.log(isNotAgainSee);
       setShowStampPopup(true);
-    } else {
-      setShowStampPopup(false);
     }
-  }, [isLogin, isNotAgainSee]);
+  }, []);
 
   // StampPopup을 닫는 함수
   const handleCloseStampPopup = () => {
@@ -36,7 +36,7 @@ const Home = () => {
   };
 
   const handleNotAgainSee = () => {
-    setIsNotAgainSee(true);
+    isNotAgainSee = true;
     setShowStampPopup(false);
   };
 
@@ -47,7 +47,7 @@ const Home = () => {
   const onLogoutClick = () => {
     onLogout();
     alert("로그아웃되었습니다!");
-    setIsNotAgainSee(false);
+    isNotAgainSee = false;
   };
   const onLogin = () => {
     nav("/Login");
@@ -58,12 +58,14 @@ const Home = () => {
   const onComunity = () => {
     nav("/Community");
   };
-  const onKiosk = () => {
-    setIsChallenged("Kiosk", true);
+  const onKiosk = (ischallenged) => {
+    console.log(ischallenged);
+    setIsChallenged("Kiosk", ischallenged);
     nav("/Kiosk");
   };
-  const onNaverBook = () => {
-    setIsChallenged("naverBook", true);
+  const onNaverBook = (ischallenged) => {
+    console.log(ischallenged);
+    setIsChallenged("naverBook", ischallenged);
     nav("/NaverBook/page01");
   };
   const onMap = () => {

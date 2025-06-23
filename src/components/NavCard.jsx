@@ -13,31 +13,29 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
   // 마우스 진입 시
   const handleMouseEnter = () => {
     setShowButtons(true); // 모든 카드에 대해 버튼 표시
-    console.log(`Mouse entered: ${title}`);
   };
 
   // 마우스 이탈 시
   const handleMouseLeave = () => {
     setShowButtons(false); // 모든 카드에 대해 버튼 숨김
-    console.log(`Mouse left: ${title}`);
   };
 
-  // "연습모드" 버튼 클릭 핸들러 (키오스크, 병원예약에만 해당)
-  const onPracticeMode = (e) => {
-    e.stopPropagation(); // 부모 div의 onClick 이벤트 전파 방지
-    console.log(`${title}의 연습모드 클릭!`);
+  // // "연습모드" 버튼 클릭 핸들러 (키오스크, 병원예약에만 해당)
+  // const onPracticeMode = (e) => {
+  //   e.stopPropagation(); // 부모 div의 onClick 이벤트 전파 방지
+  //   console.log(`${title}의 연습모드 클릭!`);
 
-    if (cardImage === 1) {
-      // 키오스크
-      setIsChallenged("Kiosk", false);
-      nav("/Kiosk/Practice");
-    } else if (cardImage === 2) {
-      // 병원예약하기
-      setIsChallenged("naverBook", false);
-      nav("/NaverBook/Practice");
-    }
-    // cardImage === 3일 때는 이 함수가 호출되지 않음
-  };
+  //   if (cardImage === 1) {
+  //     // 키오스크
+  //     setIsChallenged("Kiosk", false);
+  //     nav("/Kiosk/Practice");
+  //   } else if (cardImage === 2) {
+  //     // 병원예약하기
+  //     setIsChallenged("naverBook", false);
+  //     nav("/NaverBook/Practice");
+  //   }
+  //   // cardImage === 3일 때는 이 함수가 호출되지 않음
+  // };
 
   // "실전모드" 버튼 클릭 핸들러 (키오스크, 병원예약에만 해당)
   // 또는 3번 카드일 때 "복지시설 둘러보기" 버튼 클릭 핸들러
@@ -46,7 +44,12 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
     if (!isLogin) {
       alert("로그인 후 이용하시면 이벤트 참여가 가능하십니다!");
     }
-    onClick(); // NavCard에 전달된 onClick prop 실행 (onKiosk, onNaverBook, onMap)
+    console.log(e.target.innerText);
+    if (e.target.innerText === "연습모드") {
+      onClick(false);
+    } else {
+      onClick(true); // NavCard에 전달된 onClick prop 실행 (onKiosk, onNaverBook, onMap)
+    }
   };
 
   return (
@@ -82,7 +85,10 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
           ) : (
             // 1번 또는 2번 카드일 때
             <>
-              <button className="practice-mode-button" onClick={onPracticeMode}>
+              <button
+                className="practice-mode-button"
+                onClick={onMainActionClick}
+              >
                 연습모드
               </button>
               <button className="real-mode-button" onClick={onMainActionClick}>

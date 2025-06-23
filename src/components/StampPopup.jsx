@@ -24,10 +24,10 @@ const StampPopup = ({ onClose, onNotAgainSee }) => {
   return (
     <div className="stamp-popup-overlay">
       <div className="stamp-popup-box">
+        {/* 상단 흰색 콘텐츠 영역 */}
         <div className="popup-inner">
           <h2 className="stamp-title">디지털 미션 도장판</h2>
           <p className="stamp-subtitle">디지털 미션에 참여하시겠습니까?</p>
-
           <div className="stamp-flow">
             <div className="stamp-item">
               {/* 💬 말풍선 텍스트 */}
@@ -38,6 +38,7 @@ const StampPopup = ({ onClose, onNotAgainSee }) => {
               <img src={getCompleteMissionImage(completeNum)} alt="멘트" />
             </div>
           </div>
+        </div>
 
           {/* 주황 하단 영역 */}
           <div className="stamp-bottom">
