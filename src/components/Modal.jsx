@@ -2,9 +2,11 @@ import "./Modal.css";
 import Button from "./Button";
 import { useContext, useState } from "react";
 import { DataDispatchContext } from "../App";
+import { DataStateContext } from "../App";
 
 export const Modal = ({ setModal }) => {
   const { onCreateCommunity } = useContext(DataDispatchContext);
+  const { loginedId } = useContext(DataStateContext);
 
   const [title, setTitle] = useState("");
   const [userName, setUserName] = useState("");
@@ -28,15 +30,17 @@ export const Modal = ({ setModal }) => {
         <div className="modal-header">
           <div className="title">
             <input
-              placeholder="제목을 적어주세요"
+              placeholder="제목"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className="userName">
             <input
-              placeholder="별명을 작성해주세요"
-              value={userName}
+              id="userName"
+              placeholder="닉네임"
+              value={`${loginedId === "ADMIN" ? "관리자" : userName}`}
+              disabled={loginedId === "ADMIN"}
               onChange={(e) => setUserName(e.target.value)}
             />
           </div>
