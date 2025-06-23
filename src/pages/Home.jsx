@@ -77,7 +77,11 @@ const Home = () => {
       </div>
       <div className="wrapper_menu">
         <div className="ADMIN">
-          <span>{`${isLogin === "ADMIN" ? "관리자 모드" : ""}`}</span>
+          <Button
+            text={"관리자 로그아웃"}
+            type={`${isLogin === "ADMIN" ? "관리자 로그아웃" : "none"}`}
+            onClick={onLogoutClick}
+          />
         </div>
         <div className="MyPage">
           <Button
