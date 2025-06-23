@@ -27,7 +27,18 @@ const NaverBook_page01 = () => {
       {showPopup && getIsChallenged() && (
         <MissionPopup
           message={
-            "'6월 30일', '14시 30분'에\n 진료 목적은 '보건증 발급'으로, \n요청사항에는 '빠른 진료를 원해요'로, \n병원 예약 부탁해~ 제한 시간 '1분'css는 나중에 수정"
+            <span>
+              <span className="noticeHighlight">제한 시간 1분</span>
+              <br />
+              <span className="redHighlight">6월 30일</span>,{" "}
+              <span className="redHighlight">14시 30분</span>에<br />
+              진료 목적은 <span className="redHighlight">보건증 발급</span>으로,
+              <br />
+              요청사항에는{" "}
+              <span className="redHighlight">빠른 진료를 원해요</span>로,
+              <br />
+              병원 예약 부탁해~
+            </span>
           }
           onClose={handleClosePopup}
         />
@@ -53,7 +64,7 @@ const NaverBook_page01 = () => {
 
           {/* 병원명 */}
           <h2 className="clinic-title">
-            해부YOU의원 <span>건강의학과</span>
+            해봐YOU의원 <span>건강의학과</span>
           </h2>
           <p className="reviews">방문자 리뷰 49 · 블록 리뷰 170</p>
 

@@ -115,6 +115,10 @@
   font-size: 18px;
 }
 
+.calendarDay.highlight::after {
+  background-color: white;
+}
+
 .calendarDay .week {
   display: flex;
   justify-content: space-between;
@@ -135,6 +139,7 @@
 .day:hover {
   background-color: #e0f6ea;
 }
+
 
 .day.past:hover {
   background-color: #ffece4;
@@ -157,7 +162,9 @@
   flex-direction: column;
   gap: 24px;
 }
-
+.clockbutton.highlight::after {
+  background-color: white;
+}
 .timeBlock {
   display: flex;
   flex-direction: column;
@@ -173,6 +180,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  width: 350px;
+  padding: 5px;
+  margin: 2px;
 }
 
 .timeButton {
@@ -207,6 +217,10 @@
   padding: 8px;
   text-align: center;
   cursor: pointer;
+}
+
+.forthPageButton.highlight::after {
+  background-color:  #03c75a;
 }
 
 .toolTipButton {
