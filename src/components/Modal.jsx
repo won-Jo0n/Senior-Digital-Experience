@@ -1,6 +1,6 @@
 import "./Modal.css";
 import Button from "./Button";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataDispatchContext } from "../App";
 import { DataStateContext } from "../App";
 
@@ -12,6 +12,10 @@ export const Modal = ({ setModal }) => {
   const [userName, setUserName] = useState("");
   const [text, setText] = useState("");
 
+  useEffect(() => {
+    loginedId === "ADMIN" && setUserName("관리자");
+  }, []);
+
   const handleCreateContent = () => {
     if (!title.trim() || !userName.trim() || !text.trim()) {
       // 입력값 유효성 검사
@@ -20,7 +24,7 @@ export const Modal = ({ setModal }) => {
     }
     const createDate = new Date().toLocaleDateString();
 
-    onCreateCommunity(title, userName, createDate, text);
+    onCreateCommunity(title, loginedId, userName, createDate, text);
     setModal(false); // 모달 닫기
   };
 
@@ -39,7 +43,7 @@ export const Modal = ({ setModal }) => {
             <input
               id="userName"
               placeholder="닉네임"
-              value={`${loginedId === "ADMIN" ? "관리자" : userName}`}
+              value={userName}
               disabled={loginedId === "ADMIN"}
               onChange={(e) => setUserName(e.target.value)}
             />
