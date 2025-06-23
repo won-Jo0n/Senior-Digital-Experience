@@ -6,6 +6,7 @@ import { useContext, useRef } from "react";
 import { DataDispatchContext, DataStateContext } from "../App";
 import Logo from "../components/Logo";
 import getCompleteMissionImage from "../util/getCompleteMissionImage";
+import mypage_stamp from "../assets/myPage/mypage_stamp.png";
 
 const MyPage = () => {
   const { onUpdate } = useContext(DataDispatchContext);
@@ -73,17 +74,17 @@ const MyPage = () => {
         <div
           className="card missionCard"
           style={{
-            backgroundImage: `url(${getCompleteMissionImage(0)})`,
-            backgroundSize: "cover", // div에 맞게 꽉 채움
+            backgroundImage: `url(${mypage_stamp})`,
+            backgroundSize: "contain", // div에 맞게 꽉 채움
             backgroundPosition: "center", // 가운데 정렬
             backgroundRepeat: "no-repeat", // 반복 안 함
           }}
         >
           <div className="kioskStampDiv">
-            <Stamp isShow={userState.loginedId.mission[0]}></Stamp>
+            <Stamp isShow={true}></Stamp>
           </div>
           <div className="naverBookStampDiv">
-            <Stamp isShow={userState.loginedId.mission[1]}></Stamp>
+            <Stamp isShow={true}></Stamp>
           </div>
         </div>
 
