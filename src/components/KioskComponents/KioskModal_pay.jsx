@@ -33,15 +33,11 @@ const KioskModalPay = ({ setOnPayModal, orderItems }) => {
             return (
               <>
                 <div className="olderContent" key={orderItem.name}>
-                  <img src={orderItem.image} />
                   <div className="text-content">
-                    <div className="item-name">
-                      {" "}
-                      {orderItem.name}
-                      <div className="item-price"> {orderItem.price}</div>
-                    </div>
-
-                    <div className="item-quantity">{orderItem.quantity}</div>
+                    <img src={orderItem.image} />
+                  </div>
+                  <div className="item-content">
+                    {orderItem.name} {orderItem.price}원 {orderItem.quantity}개
                   </div>
                 </div>
               </>
@@ -49,9 +45,9 @@ const KioskModalPay = ({ setOnPayModal, orderItems }) => {
           })}
         </div>
         <div className="totalPay">
-          총수량:{totalquantity}개 총금액: {totalPrice}원
+          총수량: {totalquantity}개 총금액: {totalPrice}원
         </div>
-        <div>
+        <div className="btnGroup">
           <button className="leftBtn" onClick={onClosePayModal}>
             이전
           </button>
