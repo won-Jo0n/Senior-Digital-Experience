@@ -41,10 +41,12 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
   // 또는 3번 카드일 때 "복지시설 둘러보기" 버튼 클릭 핸들러
   const onMainActionClick = (e) => {
     e.stopPropagation(); // 부모 div의 onClick 이벤트 전파 방지
-    if (!isLogin && cardImage !== 3) {
-      alert("로그인 후 이용하시면 이벤트 참여가 가능하십니다!");
+
+    if (e.target.innerText === "실전모드") {
+      if (!isLogin && cardImage !== 3) {
+        alert("로그인 후 이용하시면 이벤트 참여가 가능하십니다!");
+      }
     }
-    console.log(e.target.innerText);
     if (e.target.innerText === "연습모드") {
       onClick(false);
     } else {

@@ -11,6 +11,8 @@ export default function createMap(
 
   // 모든 커스텀 오버레이를 관리할 배열
   let activeCustomOverlays = [];
+  // 현재 열려있는 오버레이를 추적할 변수
+  let currentOpenedOverlay = null;
 
   for (let i = 0; i < markerPosition.length; i++) {
     const markerInfo = markerPosition[i];
@@ -20,34 +22,44 @@ export default function createMap(
     });
     marker.setMap(map);
 
+    // 각 마커에 해당하는 커스텀 오버레이를 생성
     const customOverlay = new window.kakao.maps.CustomOverlay({
-      map: map, // 지도에 표시
-      position: markerInfo.Latlng, // 마커와 동일한 위치
-      content: markerInfo.content, // HTML 문자열
-      yAnchor: 1.4,
+      map: null, // 초기에 지도에 표시하지 않음
+      position: markerInfo.Latlng,
+      content: markerInfo.content,
+      yAnchor: 1.1,
       zIndex: 3,
     });
-    // 초기에 모든 커스텀 오버레이를 숨김
-    customOverlay.setMap(null);
 
-    // 배열에 현재 커스텀 오버레이를 추가하여 관리
-    activeCustomOverlays.push(customOverlay);
+    activeCustomOverlays.push(customOverlay); // 배열에 추가하여 관리
+
     // 마커 클릭 시 커스텀 오버레이 표시/숨김 처리
     window.kakao.maps.event.addListener(marker, "click", function () {
-      // ⚠️ 중요: 다른 열려있는 오버레이를 모두 닫기
-      activeCustomOverlays.forEach((overlay) => {
-        overlay.setMap(null); // 모든 오버레이를 숨김
-      });
+      // 이전에 열려있던 오버레이가 있다면 닫기
+      if (currentOpenedOverlay && currentOpenedOverlay !== customOverlay) {
+        currentOpenedOverlay.setMap(null);
+      }
 
-      // 클릭된 마커의 오버레이만 보이게 함
-      customOverlay.setMap(map);
-    });
-    // 맵을 클릭했을 때 모든 열려있는 오버레이를 닫는 이벤트 추가
-    // 이렇게 하면 마커 외의 지도 영역을 클릭해도 정보창이 닫힙니다.
-    window.kakao.maps.event.addListener(map, "click", function () {
-      customOverlay.setMap(null);
+      // 클릭된 오버레이가 현재 열려있는 오버레이와 같다면 닫기 (토글)
+      // 그렇지 않다면 클릭된 오버레이 열기
+      if (currentOpenedOverlay === customOverlay) {
+        customOverlay.setMap(null);
+        currentOpenedOverlay = null;
+      } else {
+        customOverlay.setMap(map);
+        currentOpenedOverlay = customOverlay;
+      }
     });
   }
+
+  // 맵을 클릭했을 때 모든 열려있는 오버레이를 닫는 이벤트 추가 (루프 밖으로 이동)
+  // 이 리스너는 한 번만 등록됩니다.
+  window.kakao.maps.event.addListener(map, "click", function (mouseEvent) {
+    if (currentOpenedOverlay) {
+      currentOpenedOverlay.setMap(null);
+      currentOpenedOverlay = null;
+    }
+  });
 
   return map; // 생성된 지도 객체를 반환하여 외부에서 활용 할 수 있도록 처리
 }
