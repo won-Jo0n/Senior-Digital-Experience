@@ -112,6 +112,7 @@ function App() {
       data.push({
         id: i, // 커뮤니티 게시글 구분 key
         title: `게시물 제목 ${i}`,
+        author: "ADMIN",
         userName: `사용자${i}`,
         date: `2025-06-${String(Math.floor(Math.random() * 30) + 1).padStart(
           2,
@@ -194,11 +195,12 @@ function App() {
   }, []);
 
   // 커뮤니티 관리기능
-  const onCreateCommunity = (title, userName, date, text) => {
+  const onCreateCommunity = (title, author, userName, date, text) => {
     setCommunityData({
       type: "CREATE",
       data: {
         id: communityIdRef.current++,
+        author,
         title,
         userName,
         date,
