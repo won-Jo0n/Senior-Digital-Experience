@@ -41,7 +41,7 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
   // 또는 3번 카드일 때 "복지시설 둘러보기" 버튼 클릭 핸들러
   const onMainActionClick = (e) => {
     e.stopPropagation(); // 부모 div의 onClick 이벤트 전파 방지
-    if (!isLogin) {
+    if (!isLogin && cardImage !== 3) {
       alert("로그인 후 이용하시면 이벤트 참여가 가능하십니다!");
     }
     console.log(e.target.innerText);
@@ -57,11 +57,6 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
       className="NavCard"
       onMouseEnter={handleMouseEnter} // 마우스 진입 이벤트 리스너 추가
       onMouseLeave={handleMouseLeave} // 마우스 이탈 이벤트 리스너 추가
-      onClick={() => {
-        if (!showButtons) {
-          onClick(); // 버튼이 안 보일 때만 원래 카드 클릭 동작
-        }
-      }}
     >
       {/* 일반적인 NavCard 내용 */}
       <img

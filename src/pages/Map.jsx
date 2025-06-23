@@ -1,6 +1,8 @@
 import "./Map.css";
 import createMap from "../util/createMap";
 import { useEffect, useState } from "react";
+import Header from "../components/Header";
+import Button from "../components/Button";
 
 const Map = () => {
   const [apiData, setApiData] = useState([]);
@@ -8,6 +10,7 @@ const Map = () => {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [userLocation, setUserLocation] = useState(null);
+  const [levelNumber, setLevelNumber] = useState(10);
 
   // 최초 데이터 fetch
   useEffect(() => {
@@ -52,34 +55,56 @@ const Map = () => {
     );
   });
 
-  // 📍 검색 결과에 따라 마커 다시 표시
+  //  검색 결과에 따라 마커 다시 표시
   useEffect(() => {
     if (!userLocation) return;
 
     const markerPosition = filteredData.map((item) => ({
-      content: `<div>${item.BIZPLC_NM}</br>${item.REFINE_ROADNM_ADDR}</div>`,
+      content: `<div class="map-info-content">
+      <div class="info-title"><span class="math-inline">${item.BIZPLC_NM}<p>${item.REFINE_LOTNO_ADDR}</p></div>`,
       Latlng: new window.kakao.maps.LatLng(
         item.REFINE_WGS84_LAT,
         item.REFINE_WGS84_LOGT
       ),
     }));
 
-    const locPosition = new kakao.maps.LatLng(
+    const locPosition = new window.kakao.maps.LatLng(
       userLocation.lat,
       userLocation.lon
     );
 
     const options = {
       center: locPosition,
-      level: 10,
+      level: levelNumber,
     };
 
     createMap("maps", options, markerPosition);
-  }, [filteredData, userLocation]); // 필터 결과나 위치가 바뀌면 지도 리렌더
+  }, [userLocation]); // 필터 결과나 위치가 바뀌면 지도 리렌더
+
+  const handdleFocusPosition = (item) => {
+    setUserLocation({
+      lat: item.REFINE_WGS84_LAT,
+      lon: item.REFINE_WGS84_LOGT,
+    });
+    setLevelNumber(3);
+  };
+  const handdleResetBtn = () => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setUserLocation({
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      });
+    });
+    setLevelNumber(10);
+  };
 
   return (
     <div className="map-page">
-      <header className="map-header">맵</header>
+      <header className="map-header">
+        <Header
+          rightChild={<Button text={"지도 초기화"} onClick={handdleResetBtn} />}
+        />
+      </header>
       <div className="map-container">
         <aside className="map-sidebar">
           <div className="search-bar">
@@ -93,7 +118,13 @@ const Map = () => {
           </div>
 
           {filteredData.map((item, idx) => (
-            <div key={idx} className="location-09card">
+            <div
+              key={idx}
+              onClick={() => {
+                handdleFocusPosition(item);
+              }}
+              className="location-09card"
+            >
               <h3>{item.BIZPLC_NM}</h3>
               <p>
                 {item.REFINE_ROADNM_ADDR}

@@ -1,11 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
+import Logo from "./Logo";
 
-const Header = ({ title, leftChild, rightChild }) => {
+const Header = ({ rightChild }) => {
+  const nav = useNavigate();
+
+  const handdlePrevBtn = () => {
+    nav(-1);
+  };
+
   return (
     <header className="Header">
-      <div className="header_left">{leftChild}</div>
-      <div className="header_center">{title}</div>
-      <div className="header_right">{rightChild}</div>
+      <button onClick={handdlePrevBtn}>이전 페이지</button>
+      <div className="Header-logo">로고</div>
+      <div className="Header-right-child">{rightChild}</div>
     </header>
   );
 };

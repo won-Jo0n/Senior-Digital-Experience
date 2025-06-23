@@ -94,3 +94,45 @@
   border: none;
   cursor: pointer;
 }
+
+.location-09card {
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+  background-color: snow;
+}
+
+.map-info-content {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 12px 15px;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  max-width: 220px;
+  white-space: normal;
+  word-break: keep-all;
+
+  overflow-wrap: break-word;
+
+  /* z-index: 10; */
+}
+
+/* 시설 이름 (첫 번째 줄) 스타일 */
+/* `createMap` 함수에서 BIZPLC_NM 다음에 바로 </br> 태그를 사용하고 있으므로,
+   이름이 첫 번째 `div` 안에 들어간다고 가정하고 `div:first-child`로 선택합니다. */
+.map-info-content div:first-child {
+  font-weight: bold; /* 이름을 굵게 표시하여 강조 */
+  font-size: 16px; /* 주소보다 약간 크게 */
+  margin-bottom: 4px; /* 이름과 주소 사이 간격 */
+  color: #2e4a3b; /* 지도 페이지의 배경색(#1e2a1f)과 어울리는 진한 녹색 계열 */
+}
+.map-info-content p {
+  /* 만약 주소 부분이 <p> 태그로 감싸져 있다면 이 스타일이 적용됩니다. */
+  font-size: 13px; /* 주소를 약간 작게 */
+  color: #666; /* 좀 더 연한 회색 */
+  margin: 0; /* 기본 마진 제거 */
+}
