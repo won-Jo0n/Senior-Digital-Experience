@@ -76,15 +76,15 @@ const NaverBook_page01 = () => {
               </div>
             </div>
 
-            {getIsChallenged() ? (
-              <div className="reservation_button">
-                <Button text={"예약"} onClick={secondPage} />
-              </div>
-            ) : (
-              <div className="reservation_button highlight">
-                <Button text={"예약"} onClick={secondPage} />
-              </div>
-            )}
+            <div
+              className={
+                getIsChallenged()
+                  ? "reservation_button"
+                  : "reservation_button highlight"
+              }
+            >
+              <Button text={"예약"} onClick={secondPage} />
+            </div>
           </div>
 
           {/* 탭바 */}
