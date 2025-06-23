@@ -25,41 +25,42 @@ const StampPopup = ({ onClose, onNotAgainSee }) => {
   return (
     <div className="stamp-popup-overlay">
       <div className="stamp-popup-box">
+        {/* 상단 흰색 콘텐츠 영역 */}
         <div className="popup-inner">
           <h2 className="stamp-title">디지털 미션 도장판</h2>
           <p className="stamp-subtitle">디지털 미션에 참여하시겠습니까?</p>
-
           <div className="stamp-flow">
             <div className="stamp-item">
               <img src={getCompleteMissionImage(completeNum)} alt="멘트" />
             </div>
           </div>
+        </div>
 
-          {/* 팝업 내부의 주황 하단 영역 */}
-          <div className="stamp-bottom">
-            <div className="stamp-desc-box">
-              <p>
-                디지털 기기가 어렵게만 느껴졌던 순간,
-                <br />
-                미션을 통해 새로운 도전을 시작해보세요!
-                <br />
-                단계별 미션을 수행하며 나만의 도장을 채워가고,
-                <br />
-                다양한 보상을 받아가세요!
-              </p>
-              <strong>당신도 디지털 레전드 해봐 you~</strong>
-            </div>
-            <div className="stamp-close-button">
-              <button onClick={onClose}>닫기</button>
-              <button
-                onClick={() => {
-                  onNotAgainSee();
-                  console.log(".");
-                }}
-              >
-                다시는 보지않기
-              </button>
-            </div>
+        {/* 하단 주황색 전체 너비 영역 */}
+        <div className="stamp-bottom">
+          {/* 이 안에 stamp-desc-box와 stamp-close-button을 넣고, 이 stamp-bottom에서 내부 콘텐츠의 좌우 패딩을 조절 */}
+          <div className="stamp-desc-box">
+            <p>
+              디지털 기기가 어렵게만 느껴졌던 순간,
+              <br />
+              미션을 통해 새로운 도전을 시작해보세요!
+              <br />
+              단계별 미션을 수행하며 나만의 도장을 채워가고,
+              <br />
+              다양한 보상을 받아가세요!
+            </p>
+            <strong>당신도 디지털 레전드 해봐 you~</strong>
+          </div>
+          <div className="stamp-close-button">
+            <button onClick={onClose}>닫기</button>
+            <button
+              onClick={() => {
+                onNotAgainSee();
+                console.log(".");
+              }}
+            >
+              로그아웃 전까지 보지않기
+            </button>
           </div>
         </div>
       </div>

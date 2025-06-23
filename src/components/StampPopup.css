@@ -1,3 +1,5 @@
+/* StampPopup.css */
+
 .stamp-popup-overlay {
   position: fixed;
   top: 0;
@@ -13,19 +15,19 @@
 
 .stamp-popup-box {
   background-color: #fbe9bf;
-  width: 100%; /* ✅ 전체 가로 너비 */
+  width: 90%; /* 모바일 우선: 기본 너비를 90%로 설정 */
   max-width: 500px;
   border-radius: 24px;
   font-family: "Pretendard", sans-serif;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  padding: 0;
+  padding: 0; /* ✅ stamp-popup-box 자체의 패딩은 제거 (자식 요소들이 패딩을 가짐) */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* 자식 요소들을 세로로 정렬 (popup-inner와 stamp-bottom) */
 }
 
 .popup-inner {
-  padding: 24px 20px 0;
+  padding: 24px 20px 0; /* 상단 콘텐츠 패딩: 좌우 20px 유지 */
   text-align: center;
 }
 
@@ -49,26 +51,32 @@
 }
 
 .stamp-item img {
-  width: 100%;
+  width: 100%; /* 이미지가 부모 너비에 맞게 조절 */
   max-width: 400px;
   height: auto;
 }
 
+/* ✅ stamp-bottom 클래스 (popup-inner의 형제가 됨) */
 .stamp-bottom {
   background-color: #ffa726;
-  width: 100vw; /* 화면 전체 넓이로 확장 */
-  margin-left: calc(-50vw + 250px); /*  가운데 정렬 보정: 500px/2 */
-  padding: 20px 0;
+  width: 100%; /* 부모 .stamp-popup-box의 전체 너비를 차지 */
+  padding: 20px; /* ✅ 내부 콘텐츠가 좌우 여백을 가지도록 패딩 추가 */
+  box-sizing: border-box; /* 패딩이 width에 포함되도록 */
   text-align: center;
+  display: flex;
+  flex-direction: column; /* 내부 요소(desc-box, button-group)를 세로 정렬 */
+  align-items: center; /* 내부 요소들을 가로 중앙 정렬 */
+  gap: 16px; /* 설명과 버튼 그룹 사이 간격 */
 }
 
 .stamp-desc-box {
   color: white;
   font-size: 15px;
   line-height: 1.7;
-  margin-bottom: 16px;
   text-align: center;
-  text-indent: -4px; /* 첫 줄만 왼쪽으로 미세 조정 */
+  /* text-indent: -4px; (원래 있던 속성, 필요하면 유지) */
+  margin-bottom: 0; /* gap으로 간격 조절하므로 제거 */
+  width: 100%; /* 부모 .stamp-bottom의 패딩 안에서 100% 너비 */
 }
 
 .stamp-desc-box strong {
@@ -79,7 +87,15 @@
   color: #fff;
 }
 
-.stamp-close-button Button {
+.stamp-close-button {
+  width: 100%; /* 부모 .stamp-bottom의 패딩 안에서 100% 너비 */
+  display: flex; /* 버튼들을 가로로 정렬 */
+  justify-content: center; /* 버튼들을 중앙 정렬 */
+  gap: 10px; /* 버튼들 사이의 간격 */
+}
+
+.stamp-close-button button {
+  /* Button 컴포넌트가 아닌 일반 button 태그를 직접 스타일링 */
   background-color: #fff;
   color: #5e4c3a;
   padding: 10px 24px;
@@ -87,4 +103,101 @@
   border: none;
   font-weight: bolder;
   cursor: pointer;
+  margin: 0; /* flexbox의 gap으로 관리되므로 마진 제거 */
+  min-width: 120px; /* 최소 너비 설정 */
+  flex-shrink: 0; /* 버튼이 줄어들지 않도록 */
+}
+
+/* --- 반응형 미디어 쿼리 --- */
+
+/* 태블릿 (예: 768px 이하) */
+@media (max-width: 768px) {
+  .stamp-popup-box {
+    width: 95%;
+    border-radius: 20px;
+  }
+
+  .popup-inner {
+    padding: 20px 15px 0;
+  }
+
+  .stamp-title {
+    font-size: 24px;
+  }
+
+  .stamp-subtitle {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .stamp-bottom {
+    padding: 15px; /* 패딩 조정 */
+    gap: 12px;
+  }
+
+  .stamp-desc-box {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .stamp-desc-box strong {
+    font-size: 16px;
+  }
+
+  .stamp-close-button button {
+    padding: 8px 20px;
+    font-size: 0.95em;
+    min-width: 100px;
+  }
+}
+
+/* 모바일 (예: 480px 이하) */
+@media (max-width: 480px) {
+  .stamp-popup-box {
+    width: 95%;
+    border-radius: 16px;
+  }
+
+  .popup-inner {
+    padding: 16px 10px 0;
+  }
+
+  .stamp-title {
+    font-size: 22px;
+  }
+
+  .stamp-subtitle {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .stamp-flow {
+    margin-bottom: 15px;
+  }
+
+  .stamp-bottom {
+    padding: 12px; /* 패딩 더 줄임 */
+    gap: 10px;
+  }
+
+  .stamp-desc-box {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .stamp-desc-box strong {
+    font-size: 15px;
+  }
+
+  .stamp-close-button {
+    flex-direction: column; /* 모바일에서 버튼 세로로 쌓이도록 */
+    gap: 8px; /* 세로 간격 조정 */
+  }
+
+  .stamp-close-button button {
+    width: 100%; /* 모바일에서 버튼 너비 100% */
+    padding: 7px 15px;
+    font-size: 0.9em;
+    min-width: unset; /* 최소 너비 제한 해제 */
+  }
 }

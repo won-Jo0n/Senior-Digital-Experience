@@ -228,7 +228,9 @@ function App() {
 
   // 유저 관리기능
   const onCreate = (phoneNum, password, birth, isUserAgree, isUserConsent) => {
-    console.log("DATA: ", data);
+    // 현재 날짜 밀리세컨드로 가져오기
+    const currentDate = Date.now();
+
     if (!isUserAgree || !isUserConsent) {
       alert("필수사항을 동의해주세요!");
       return;
@@ -241,6 +243,11 @@ function App() {
 
     if (!phoneNumPattern.test(phoneNum)) {
       alert("전화번호를 다시 확인해주세요!");
+      return;
+    }
+
+    if (new Date(birth).getTime() > currentDate) {
+      alert("생년월일을 다시한번 확인해주세요!");
       return;
     }
 
