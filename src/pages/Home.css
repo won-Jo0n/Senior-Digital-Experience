@@ -5,7 +5,7 @@
   min-height: 100vh;
   padding: 20px;
   color: white;
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .Home .Logo {
@@ -17,14 +17,13 @@
   justify-content: right;
   flex-direction: row;
   width: 50%;
-  padding: 20px 40px;
+  padding: 20px 0px;
 }
 
-.Login-btn {
-  margin-right: 6px;
-}
-.NewAccount-btn {
-  margin-left: 6px;
+.Login-btn,
+.NewAccount-btn Button {
+  padding: 18px;
+  font-size: 18px;
 }
 
 .wrapper_menu Button {
@@ -36,6 +35,7 @@
   width: 50%;
   text-align: center;
   padding: 20px 40px;
+
   border-radius: 10px;
   margin: 30px 0;
 }
@@ -82,7 +82,7 @@
 
   .Comunity-btn,
   .wrapper_main {
-    width: 95%; /* 모바일에서는 거의 꽉 채우도록 95% */
+    width: 90%; /* 모바일에서는 거의 꽉 채우도록 95% */
     padding: 15px; /* 패딩 더 줄임 */
     flex-direction: column; /* Comunity-btn이나 wrapper_main 내부 아이템을 세로로 정렬할 수 있습니다. */
     align-items: center; /* 중앙 정렬 */

@@ -1,5 +1,5 @@
 import "./Community_content.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import { useContext, useRef, useState } from "react";
 import { DataStateContext } from "../App";
@@ -12,6 +12,7 @@ const Community_content = () => {
   const communityData = data.communityData;
   const [adminAnswer, setAdminAnswer] = useState("");
   const { onUpdateCommunity } = useContext(DataDispatchContext);
+  const nav = useNavigate();
 
   const content = communityData.find(
     (item) => String(item.id) === String(params.id)
@@ -31,10 +32,19 @@ const Community_content = () => {
     setAdminAnswer("");
   };
 
+  const handdlePrevBtn = () => {
+    nav(-1);
+  };
+
   return (
     <div className="Community_content">
       <Logo />
       <div className="content_wrapper">
+        <Button
+          onClick={handdlePrevBtn}
+          text={"이전으로"}
+          type={"Community-content-prev-button"}
+        />
         <div className="content-info-wrapper">
           <div className="content-title">{content.title}</div>
           <div className="content-userName">{content.userName}</div>
