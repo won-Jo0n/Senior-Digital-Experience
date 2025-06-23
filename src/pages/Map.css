@@ -1,6 +1,6 @@
-*,
-*::before,
-*::after {
+.map-page *,
+.map-page *::before,
+.map-page *::after {
   box-sizing: border-box;
 }
 
