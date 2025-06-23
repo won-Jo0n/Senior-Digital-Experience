@@ -109,3 +109,29 @@
   color: #575757;
   font-size: 15px;
 }
+
+.elapsedTimeBox{
+  font-weight: bold;
+}
+
+.resultBox p{
+  font-size: 18px;
+  margin-bottom:10px;
+}
+
+.bookPurpose{
+    font-weight: 500;
+  margin: 4px 0;
+  font-size: 16px;
+}
+
+.bookRequest{
+  font-weight: 500;
+  margin: 4px 0;
+  font-size: 16px;
+}
+
+.retryAgain{
+  font-weight: bold;
+}
+

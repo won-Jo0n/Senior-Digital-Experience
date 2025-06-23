@@ -135,6 +135,14 @@
   background-color: #e0f6ea;
 }
 
+.day.past:hover {
+  background-color: #ffece4;
+}
+.day.past {
+  color: #aaa;
+  cursor: default;
+}
+
 .day.selected {
   background-color: #03c75a;
   color: white;

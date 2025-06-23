@@ -7,7 +7,6 @@ import Button from "../../components/Button";
 const NaverBook_page03 = () => {
   const nav = useNavigate();
 
-  // 시간, 날짜 관련 usestate
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -36,23 +35,26 @@ const NaverBook_page03 = () => {
     return weeks;
   };
 
+  const isPastDate = (date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return date < today;
+  };
+
   const weeks = groupDatesByWeek(startDay, endDay);
 
-  // 달을 이전 달로 넘기는 함수
   const handlePrevMonth = () => {
     setCurrentDate(
       new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1)
     );
   };
 
-  // 달을 다음 달로 넘기는 함수
   const handleNextMonth = () => {
     setCurrentDate(
       new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
     );
   };
 
-  // 날짜와 시간 선택해야 페이지 4로 넘어감
   const forthPage = () => {
     if (selectedDate && selectedTime) {
       nav("/NaverBook/page04", {
@@ -118,11 +120,19 @@ const NaverBook_page03 = () => {
                         date.getDate() === selectedDate.getDate() &&
                         date.getMonth() === selectedDate.getMonth() &&
                         date.getFullYear() === selectedDate.getFullYear();
+                      const isPast = isPastDate(date);
+
                       return (
                         <div
                           key={dayIndex}
-                          className={`day ${isSelected ? "selected" : ""}`}
-                          onClick={() => setSelectedDate(date)}
+                          className={`day ${isSelected ? "selected" : ""} ${
+                            isPast ? "past" : ""
+                          }`}
+                          onClick={() => {
+                            if (!isPast) {
+                              setSelectedDate(date);
+                            }
+                          }}
                         >
                           {date.getDate()}
                         </div>
