@@ -1,6 +1,4 @@
-html,
-body,
-#root {
+body{
   height: 100%;
   margin: 0;
   padding: 0;
@@ -23,7 +21,7 @@ body,
   background-color: #e8f0e5;
   border-radius: 20px;
   width: 700px;
-  height: 500px;
+  height: 450px;
   font-family: "Pretendard", sans-serif;
   display: flex;
   flex-direction: column;

@@ -28,8 +28,6 @@ const NaverBook_page01 = () => {
         <MissionPopup
           message={
             <span>
-              <span className="noticeHighlight">제한 시간 1분</span>
-              <br />
               <span className="redHighlight">6월 30일</span>,{" "}
               <span className="redHighlight">14시 30분</span>에<br />
               진료 목적은 <span className="redHighlight">보건증 발급</span>으로,
