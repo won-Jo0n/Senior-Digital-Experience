@@ -32,14 +32,14 @@
 }
 
 .stamp-title {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: bold;
   color: #5e4c3a;
   margin-bottom: 6px;
 }
 
 .stamp-subtitle {
-  font-size: 16px;
+  font-size: 18px;
   color: #5e4c3a;
   margin-bottom: 20px;
 }
@@ -55,13 +55,29 @@
   max-width: 400px;
   height: auto;
 }
+.stamp-item {
+  position: relative; /* 기준 요소 설정 */
+}
+
+.balloon-text {
+  position: absolute;
+  top: 130px;      /* 말풍선 위치에 맞게 조정 */
+  left: 22px;     /* 말풍선 위치에 맞게 조정 */
+  color: #5e4c3a;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
 
 /* ✅ stamp-bottom 클래스 (popup-inner의 형제가 됨) */
 .stamp-bottom {
   background-color: #ffa726;
-  width: 100%; /* 부모 .stamp-popup-box의 전체 너비를 차지 */
-  padding: 20px; /* ✅ 내부 콘텐츠가 좌우 여백을 가지도록 패딩 추가 */
-  box-sizing: border-box; /* 패딩이 width에 포함되도록 */
+  width: 100vw; /* 화면 전체 넓이로 확장 */
+  margin-left: calc(-51vw + 250px); /*  가운데 정렬 보정: 500px/2 */
+  padding: 20px 0;
   text-align: center;
   display: flex;
   flex-direction: column; /* 내부 요소(desc-box, button-group)를 세로 정렬 */
@@ -86,16 +102,12 @@
   font-size: 18px;
   color: #fff;
 }
-
-.stamp-close-button {
-  width: 100%; /* 부모 .stamp-bottom의 패딩 안에서 100% 너비 */
-  display: flex; /* 버튼들을 가로로 정렬 */
-  justify-content: center; /* 버튼들을 중앙 정렬 */
-  gap: 10px; /* 버튼들 사이의 간격 */
+.stamp-button-container {
+  
+  padding: 0 20px;
 }
-
-.stamp-close-button button {
-  /* Button 컴포넌트가 아닌 일반 button 태그를 직접 스타일링 */
+.stamp-close-button {
+   flex: 1;
   background-color: #fff;
   color: #5e4c3a;
   padding: 10px 24px;
@@ -103,9 +115,8 @@
   border: none;
   font-weight: bolder;
   cursor: pointer;
-  margin: 0; /* flexbox의 gap으로 관리되므로 마진 제거 */
-  min-width: 120px; /* 최소 너비 설정 */
-  flex-shrink: 0; /* 버튼이 줄어들지 않도록 */
+  margin: 10px 5px;
+  justify-content: space-between;
 }
 
 /* --- 반응형 미디어 쿼리 --- */

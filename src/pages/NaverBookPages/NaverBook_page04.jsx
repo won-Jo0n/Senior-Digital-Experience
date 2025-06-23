@@ -1,13 +1,17 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./NaverBook_page04.css";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
+import { DataStateContext } from "../../App";
 
 const NaverBook_page04 = () => {
   const location = useLocation();
   const { date, time } = location.state || {};
   const nav = useNavigate();
+
+  const userState = useContext(DataStateContext);
+  const loginedUser = userState?.loginedId || {};
 
   const [purposeTreatment, setPurposeTreatment] = useState([]);
   const [treatmentRequest, setTreatmentRequest] = useState("");
@@ -57,56 +61,28 @@ const NaverBook_page04 = () => {
             </div>
           </div>
 
-          {/* ✅ 추가 정보 유지 */}
+          {/* 추가 정보 - 진료 목적 */}
           <div className="addInfo">
             <h3>추가 정보</h3>
             <p>진료목적</p>
             <div className="bookCheckBox">
-              <label>
-                <input
-                  type="checkbox"
-                  value="클리닉"
-                  onChange={() => handleCheckboxChange("클리닉")}
-                  checked={purposeTreatment.includes("클리닉")}
-                />
-                클리닉
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="도수상담"
-                  onChange={() => handleCheckboxChange("도수상담")}
-                  checked={purposeTreatment.includes("도수상담")}
-                />
-                도수상담
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="수액"
-                  onChange={() => handleCheckboxChange("수액")}
-                  checked={purposeTreatment.includes("수액")}
-                />
-                수액
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="보건증 발급"
-                  onChange={() => handleCheckboxChange("보건증 발급")}
-                  checked={purposeTreatment.includes("보건증 발급")}
-                />
-                보건증 발급
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="진성 간호사와 상담"
-                  onChange={() => handleCheckboxChange("진성 간호사와 상담")}
-                  checked={purposeTreatment.includes("진성 간호사와 상담")}
-                />
-                진성 간호사와 상담
-              </label>
+              {[
+                "클리닉",
+                "도수상담",
+                "수액",
+                "보건증 발급",
+                "진성 간호사와 상담",
+              ].map((item) => (
+                <label key={item}>
+                  <input
+                    type="checkbox"
+                    value={item}
+                    onChange={() => handleCheckboxChange(item)}
+                    checked={purposeTreatment.includes(item)}
+                  />
+                  {item}
+                </label>
+              ))}
             </div>
           </div>
 
@@ -115,9 +91,11 @@ const NaverBook_page04 = () => {
             <h4>예약자 정보</h4>
             <div className="userInfoTop">
               <div>
-                <p className="username">염지원</p>
+                <p className="userbirth">
+                  생년월일 : {loginedUser.birth || "**-**-**"}
+                </p>
                 <p className="userphone">
-                  010-23**-32**{" "}
+                  전화번호 : {loginedUser.phoneNum || "010-****-****"}
                   <button className="checkBtn">연락처 확인</button>
                 </p>
               </div>

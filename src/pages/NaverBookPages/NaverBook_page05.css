@@ -135,3 +135,17 @@
   font-weight: bold;
 }
 
+.retryBtn Button{
+  background-color:  #03c75a;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  width: 150px;
+  font-size: 18px ;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  
+}
+

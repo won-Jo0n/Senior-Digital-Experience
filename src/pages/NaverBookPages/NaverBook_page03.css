@@ -129,6 +129,7 @@
   border-radius: 8px;
   font-size: 18px;
   color: #333;
+  padding: 10px;
 }
 
 .day:hover {
@@ -147,6 +148,7 @@
   background-color: #03c75a;
   color: white;
   font-weight: bold;
+  padding: 10px;
 }
 
 .clockbutton {
