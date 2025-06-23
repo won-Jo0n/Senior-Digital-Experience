@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import "./NaverBook_page03.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
+import "../../components/highlight.css";
+import { DataDispatchContext } from "../../App";
 
 const NaverBook_page03 = () => {
   const nav = useNavigate();
+  const { getIsChallenged } = useContext(DataDispatchContext);
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -59,7 +62,9 @@ const NaverBook_page03 = () => {
     if (selectedDate && selectedTime) {
       nav("/NaverBook/page04", {
         state: {
-          date: selectedDate.toISOString().slice(0, 10),
+          // sv-SE을 사용한 이유: 한국 시간 기준 문자열로 변환
+          // sv-SE는 스웨덴 포맷
+          date: selectedDate.toLocaleDateString("sv-SE"), // 여기 수정됨!
           time: selectedTime,
         },
       });
@@ -111,7 +116,13 @@ const NaverBook_page03 = () => {
                   )
                 )}
               </div>
-              <div className="calendarDay">
+              <div
+                className={`calendarDay ${
+                  !selectedDate && !selectedTime && !getIsChallenged()
+                    ? "highlight"
+                    : ""
+                }`}
+              >
                 {weeks.map((week, weekIndex) => (
                   <div className="week" key={weekIndex}>
                     {week.map((date, dayIndex) => {
@@ -129,9 +140,7 @@ const NaverBook_page03 = () => {
                             isPast ? "past" : ""
                           }`}
                           onClick={() => {
-                            if (!isPast) {
-                              setSelectedDate(date);
-                            }
+                            if (!isPast) setSelectedDate(date);
                           }}
                         >
                           {date.getDate()}
@@ -144,7 +153,13 @@ const NaverBook_page03 = () => {
             </div>
           </div>
 
-          <div className="clockbutton">
+          <div
+            className={`clockbutton ${
+              selectedDate && !selectedTime && !getIsChallenged()
+                ? "highlight"
+                : ""
+            }`}
+          >
             <div className="timeBlock">
               <p className="timeLabel">오전</p>
               <div className="timeGroup">
@@ -200,7 +215,14 @@ const NaverBook_page03 = () => {
             <div className="toolTipButton">
               <Button className="menuBtn" text="💬" />
             </div>
-            <div className="forthPageButton" onClick={forthPage}>
+            <div
+              className={`forthPageButton ${
+                selectedDate && selectedTime && !getIsChallenged()
+                  ? "highlight"
+                  : ""
+              }`}
+              onClick={forthPage}
+            >
               <Button className="menuBtn" text="다음 단계" />
             </div>
           </div>

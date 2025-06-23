@@ -3,12 +3,17 @@ import { useContext, useState } from "react";
 import "./NaverBook_page04.css";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import { DataStateContext } from "../../App";
+import { DataStateContext, DataDispatchContext } from "../../App";
+import "../../components/highlight.css";
 
 const NaverBook_page04 = () => {
   const location = useLocation();
   const { date, time } = location.state || {};
   const nav = useNavigate();
+  const { getIsChallenged } = useContext(DataDispatchContext);
+
+  const [medicaPurpose, setMedicaPurpose] = useState(false);
+  const [medicaRequest, setMedicaRequest] = useState(false);
 
   const userState = useContext(DataStateContext);
   const loginedUser = userState?.loginedId || {};
@@ -26,6 +31,7 @@ const NaverBook_page04 = () => {
     setPurposeTreatment((prev) =>
       prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
     );
+    setMedicaPurpose(true);
   };
 
   const fifthPage = () => {
@@ -62,27 +68,35 @@ const NaverBook_page04 = () => {
           </div>
 
           {/* 추가 정보 - 진료 목적 */}
-          <div className="addInfo">
+          <div
+            className={`addInfo ${
+              !medicaPurpose && !medicaRequest && !getIsChallenged()
+                ? "highlight"
+                : ""
+            }`}
+          >
             <h3>추가 정보</h3>
-            <p>진료목적</p>
-            <div className="bookCheckBox">
-              {[
-                "클리닉",
-                "도수상담",
-                "수액",
-                "보건증 발급",
-                "진성 간호사와 상담",
-              ].map((item) => (
-                <label key={item}>
-                  <input
-                    type="checkbox"
-                    value={item}
-                    onChange={() => handleCheckboxChange(item)}
-                    checked={purposeTreatment.includes(item)}
-                  />
-                  {item}
-                </label>
-              ))}
+            <div className="medicaTreatmentPurpose">
+              <p>진료목적</p>
+              <div className={"bookCheckBox"}>
+                {[
+                  "클리닉",
+                  "도수상담",
+                  "수액",
+                  "보건증 발급",
+                  "진성 간호사와 상담",
+                ].map((item) => (
+                  <label key={item}>
+                    <input
+                      type="checkbox"
+                      value={item}
+                      onChange={() => handleCheckboxChange(item)}
+                      checked={purposeTreatment.includes(item)}
+                    />
+                    {item}
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -101,18 +115,30 @@ const NaverBook_page04 = () => {
               </div>
               <Button text={"변경"} type={"graySmall"} />
             </div>
-
-            <p className="requestLabel">요청사항</p>
-            <select
-              className="requestInput"
-              value={treatmentRequest}
-              onChange={(e) => setTreatmentRequest(e.target.value)}
+            <div
+              className={`requestInfo ${
+                medicaPurpose && !medicaRequest && !getIsChallenged()
+                  ? "highlight"
+                  : ""
+              }`}
             >
-              <option value="">요청사항을 선택해주세요.</option>
-              <option value="빠른 진료를 원해요">빠른 진료를 원해요</option>
-              <option value="조용한 자리를 원해요">조용한 자리를 원해요</option>
-              <option value="허리가 아파요">허리가 아파요</option>
-            </select>
+              <p className="requestLabel">요청사항</p>
+              <select
+                className="requestInput"
+                value={treatmentRequest}
+                onChange={(e) => {
+                  setTreatmentRequest(e.target.value);
+                  if (e.target.value) setMedicaRequest(true);
+                }}
+              >
+                <option value="">요청사항을 선택해주세요.</option>
+                <option value="빠른 진료를 원해요">빠른 진료를 원해요</option>
+                <option value="조용한 자리를 원해요">
+                  조용한 자리를 원해요
+                </option>
+                <option value="허리가 아파요">허리가 아파요</option>
+              </select>
+            </div>
           </div>
 
           {/* 안내 문구 */}
@@ -125,7 +151,14 @@ const NaverBook_page04 = () => {
             <div className="bookBack">
               <Button text={"이전"} onClick={() => nav("/NaverBook/page03")} />
             </div>
-            <div className="agreeAndbookRequest" onClick={fifthPage}>
+            <div
+              className={`agreeAndbookRequest ${
+                medicaPurpose && medicaRequest && !getIsChallenged()
+                  ? "highlight"
+                  : ""
+              }`}
+              onClick={fifthPage}
+            >
               <Button text={"동의하고 예약 신청하기"} />
             </div>
           </div>

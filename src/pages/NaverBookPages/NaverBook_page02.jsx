@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import "./NaverBook_page02.css";
 import Header from "../../components/Header";
+import "../../components/highlight.css";
+import { DataDispatchContext } from "../../App";
+import { useContext } from "react";
 
 const NaverBook_page02 = () => {
   const nav = useNavigate();
+  const { getIsChallenged } = useContext(DataDispatchContext);
 
   const thirdPage = () => {
     nav("/NaverBook/page03");
@@ -21,11 +25,11 @@ const NaverBook_page02 = () => {
             <img src="/hospital.png" alt="병원 내부" />
             <div className="gradientOverlay">
               <h2>해봐YOU의원</h2>
-              <p>★ 4.73 / 리뷰 152</p>
+              <p>★ 4.99 / 리뷰 1520</p>
               <div className="ratingBox">
-                <span>★ 4.73</span>
+                <span>★ 4.99</span>
                 <span className="dividerDot">·</span>
-                <span>리뷰 152</span>
+                <span>리뷰 1520</span>
               </div>
             </div>
           </div>
@@ -60,14 +64,22 @@ const NaverBook_page02 = () => {
           {/* 예약 영역 */}
           <div className="reservationSection">
             <h3>예약</h3>
-            <div className="reservationCard" onClick={thirdPage}>
+
+            <div
+              className={
+                getIsChallenged()
+                  ? "reservationCard"
+                  : "reservationCard highlight"
+              }
+              onClick={thirdPage}
+            >
               <h4>더해봐YOU의원 _ 네이버예약</h4>
               <p>
                 해봐YOU의원 네이버 예약입니다. 간편하게 예약하고 문의해주세요.
                 감사합니다.
               </p>
               <div className="reviewAndBtnRow">
-                <span className="reviewSmall">★ 4.73 / 리뷰 152</span>
+                <span className="reviewSmall">★ 4.99 / 리뷰 1520</span>
                 <button className="greenBtn">예약하기</button>
               </div>
             </div>

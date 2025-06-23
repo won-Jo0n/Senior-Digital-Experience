@@ -142,7 +142,19 @@
   height: 50px;
   width: 365px;
 }
-
+.redHighlight {
+  color: #f88400;
+  padding: 7px;
+  font-weight: bold;
+  font-size: 25px;
+}
+.noticeHighlight{
+  background-color: #f88400;
+  border-radius: 5px;
+  padding: 3px 8px;;
+  display: inline-block; /* ✅ margin이 적용되도록 */
+  margin-bottom: 25px; 
+}
 .reservation_button Button {
   width: 98%;
   background-color: #03c75a;
