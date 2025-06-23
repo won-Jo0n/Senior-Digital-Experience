@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import couponImg from "../../assets/myPage/couponImg.png";
+import couponImg_none from "../../assets/myPage/couponImg_none.png";
 import "./Coupon.css";
 
 const Coupon = (isShow) => {
@@ -41,7 +42,9 @@ const Coupon = (isShow) => {
       <div className="couponOverlay" ref={overlayRef}></div>
       <div
         className="couponCard"
-        style={{ backgroundImage: `url(${isShow.isShow ? couponImg : ""})` }}
+        style={{
+          backgroundImage: `url(${isShow.isShow ? couponImg : couponImg_none})`,
+        }}
       />
     </div>
   );

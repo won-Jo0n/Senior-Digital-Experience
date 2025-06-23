@@ -28,7 +28,7 @@ const MyPage = () => {
           </div>
           <div className="infoRow">
             <span>비밀번호</span>
-            <input type="password" defaultValue={password.current} />
+            <input type="text" defaultValue={password.current} />
           </div>
           <div className="infoRow">
             <span>생년월일</span>
@@ -38,13 +38,34 @@ const MyPage = () => {
         </div>
 
         {/* 가운데: 미션 */}
-        <div className="card missionCard">
-          <img className="stampImg" src={getCompleteMissionImage(0)} alt="" />
+        <div
+          className="card missionCard"
+          style={{
+            backgroundImage: `url(${getCompleteMissionImage(0)})`,
+            backgroundSize: "cover", // div에 맞게 꽉 채움
+            backgroundPosition: "center", // 가운데 정렬
+            backgroundRepeat: "no-repeat", // 반복 안 함
+          }}
+        >
+          <div className="kioskStampDiv">
+            <Stamp isShow={userState.loginedId.mission[0]}></Stamp>
+          </div>
+          <div className="naverBookStampDiv">
+            <Stamp isShow={userState.loginedId.mission[1]}></Stamp>
+          </div>
         </div>
 
         {/* 우측: 보상 */}
         <div className="card rewardCard">
           <div className="cardHeader">보상</div>
+          <p>키오스크 보상</p>
+          <div className="kiosk_coupon">
+            <Coupon isShow={userState.loginedId.mission[0]}></Coupon>
+          </div>
+          <p>네이버 예약 보상</p>
+          <div className="kiosk_coupon">
+            <Coupon isShow={userState.loginedId.mission[1]}></Coupon>
+          </div>
         </div>
       </div>
     </div>
