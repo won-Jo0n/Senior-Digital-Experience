@@ -171,65 +171,72 @@
   font-weight: 500; /* 글자 두께 */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .Community {
     padding: 15px; /* 전체 패딩 줄임 */
   }
 
-  .search,
-  .content-wrapper {
-    width: 95%; /* 태블릿에서는 너비를 95%로 늘려 더 많은 공간 확보 */
-    padding: 15px; /* 패딩도 조금 줄임 */
+  .Community_logo {
+    margin-bottom: 25px;
+  }
+
+  .search {
+    width: 90%; /* 너비 증가 */
+    padding: 8px 15px;
+    margin-bottom: 25px;
   }
 
   .search input {
-    font-size: 15px; /* 입력 필드 폰트 크기 조절 */
+    font-size: 15px;
   }
 
   .search .Button {
-    padding: 7px 12px; /* 버튼 패딩 조절 */
-    font-size: 13px; /* 버튼 폰트 크기 조절 */
-    margin-left: 8px; /* 버튼 간격 조절 */
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
+  .content-wrapper {
+    width: 90%; /* 너비 증가 */
+    padding: 15px 0;
   }
 
   .community-content {
-    padding: 12px 18px; /* 게시글 항목 패딩 조절 */
-    margin: 0 5px 5px 5px; /* 마진 조절 */
-    flex-wrap: wrap; /* 내용이 많아지면 다음 줄로 넘어가도록 설정 */
-    justify-content: flex-start; /* 아이템 시작 지점 정렬 */
-  }
-
-  .content-info {
-    flex-basis: 100%; /* 제목, 날짜, 이름 그룹이 한 줄 차지 */
-    margin-bottom: 5px; /* 아래로 살짝 간격 */
+    padding: 12px 20px; /* 내부 패딩 줄임 */
+    margin: 0 8px 6px 8px;
   }
 
   .community-title {
-    max-width: 100%; /* 태블릿에서는 제목이 한 줄 꽉 차지하도록 */
-    font-size: 1em;
-    white-space: normal; /* 필요에 따라 줄바꿈 허용 */
+    font-size: 1.05em;
+    max-width: 40%; /* 제목 너비 조정 (날짜, 이름 공간 확보) */
   }
 
   .community-date {
-    margin: 0 10px 0 0; /* 날짜 마진 조절 */
+    font-size: 0.8em;
+    margin: 0 10px;
   }
 
   .community-userName {
-    margin-left: auto; /* 이름을 오른쪽 끝으로 밀어냄 */
+    font-size: 0.85em;
+    max-width: 100px;
   }
 
   .community-content .Button {
-    margin-left: 0; /* 게시글 내 버튼 마진 제거 */
-    margin-top: 10px; /* 위쪽으로 간격 추가 */
-    width: 100%; /* 버튼이 한 줄을 다 차지하도록 */
-    text-align: center;
+    margin-left: 15px;
+    padding: 4px 8px;
+    font-size: 0.75em;
+  }
+
+  .no-posts-message {
+    padding: 30px 15px;
+    font-size: 1.1rem;
+    margin-top: 25px;
   }
 }
 
-/* --- 모바일 (Mobile) 크기부터 적용 (예: max-width: 480px) --- */
-@media (max-width: 480px) {
+/* 모바일 (Mobile) 크기부터 적용 (예: 768px 이하) */
+@media (max-width: 768px) {
   .Community {
-    padding: 10px; /* 전체 패딩 더 줄임 */
+    padding: 10px;
   }
 
   .Community_logo {
@@ -237,87 +244,144 @@
   }
 
   .search {
-    flex-direction: column; /* 검색창 요소들을 세로로 정렬 */
-    align-items: stretch; /* 늘려서 가득 채우기 */
+    width: 90%; /* 너비 100% */
+    flex-direction: column; /* 검색창과 버튼을 세로로 정렬 */
+    align-items: stretch; /* 늘려서 너비 채우기 */
     padding: 10px;
-    border-radius: 15px;
+    margin-bottom: 20px;
+    border-radius: 15px; /* 모서리 좀 더 둥글게 */
   }
 
   .search input {
+    margin-bottom: 10px; /* 입력 필드와 버튼 사이 간격 */
     padding: 10px;
-    font-size: 14px;
-    margin-bottom: 10px; /* 입력 필드 아래 간격 */
+    font-size: 15px;
+    border-bottom: 1px solid #eee; /* 하단 구분선 */
+    border-radius: 5px;
   }
 
-  /* 검색 및 글작성 버튼 컨테이너 */
-  .search .button-group {
-    display: flex;
-    justify-content: space-between; /* 버튼들을 양 끝으로 분산 */
-    width: 100%;
-  }
-
-  /* 이 부분은 HTML에 button-group이라는 div를 추가해야 합니다.
-     <div class="button-group">
-       <Button>검색</Button>
-       <Button>글작성</Button>
-     </div>
-     이렇게 감싸주세요.
-  */
   .search .Button {
-    flex-grow: 1; /* 버튼들이 남은 공간을 균등하게 차지 */
-    margin: 0 5px; /* 버튼 간격 조절 */
-    font-size: 12px;
-    padding: 10px 0; /* 높이를 위해 패딩 위아래로 더 줌 */
+    margin-left: 0; /* 가로 마진 제거 */
+    margin-top: 5px; /* 버튼 간의 세로 간격 */
+    width: 100%; /* 버튼 너비 100% */
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 10px;
   }
-  .search .Button:first-child {
-    /* 검색 버튼 */
-    margin-left: 0;
-  }
-  .search .Button:last-child {
-    /* 글작성 버튼 */
-    margin-right: 0;
+  /* 글작성 버튼에만 추가 마진 적용하여 검색 버튼과 분리 */
+  .search .Button:nth-child(3) {
+    margin-top: 10px; /* 글작성 버튼 위쪽 여백 추가 */
   }
 
   .content-wrapper {
-    width: 98%; /* 모바일에서는 거의 꽉 채우도록 98% */
-    padding: 15px 0;
+    width: 90%; /* 너비 100% */
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* 그림자 조정 */
   }
 
   .community-content {
-    flex-direction: column; /* 게시글 항목 내부 요소를 세로로 정렬 */
-    align-items: flex-start; /* 왼쪽으로 정렬 */
-    padding: 12px;
-    margin: 0 4px 4px 4px;
+    flex-direction: column; /* 게시글 항목 세로 정렬 */
+    align-items: flex-start; /* 좌측 정렬 */
+    padding: 15px;
+    margin: 0 5px 8px 5px; /* 좌우 마진 줄임 */
   }
 
-  .content-info {
-    flex-direction: column; /* 제목, 날짜, 이름 세로로 정렬 */
-    align-items: flex-start;
-    width: 100%; /* 꽉 채움 */
-    margin-bottom: 8px; /* 아래 간격 */
+  .community-title {
+    width: 100%; /* 제목 너비 100% */
+    max-width: none; /* 최대 너비 제한 해제 */
+    font-size: 1.1em;
+    margin-bottom: 5px; /* 아래 간격 */
+    white-space: normal; /* 줄 바꿈 허용 */
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .community-date {
+    width: 100%; /* 날짜도 100% */
+    font-size: 0.75em;
+    margin: 0 0 5px 0; /* 간격 조정 */
+    text-align: right; /* 날짜는 우측 정렬 */
+  }
+
+  .community-userName {
+    width: 100%; /* 이름도 100% */
+    font-size: 0.8em;
+    text-align: left; /* 이름은 좌측 정렬 */
+    margin-bottom: 10px; /* 삭제 버튼과의 간격 */
+  }
+
+  .community-content .Button {
+    margin-left: 0;
+    margin-top: 10px; /* 위쪽 간격 */
+    width: 100%; /* 버튼 너비 100% */
+    padding: 7px 10px;
+    font-size: 0.8em;
+  }
+
+  .no-posts-message {
+    padding: 25px 10px;
+    font-size: 1rem;
+    margin-top: 20px;
+    max-width: 90%; /* 너비 조정 */
+  }
+}
+
+/* 더 작은 모바일 (예: 480px 이하) */
+@media (max-width: 480px) {
+  .Community {
+    padding: 8px;
+  }
+
+  .Community_logo {
+    margin-bottom: 15px;
+  }
+
+  .search {
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+  .search input {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .search .Button {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+  .search .Button:nth-child(3) {
+    margin-top: 8px; /* 글작성 버튼 여백 조정 */
+  }
+
+  .content-wrapper {
+    padding: 8px 0;
+  }
+
+  .community-content {
+    padding: 12px;
+    margin: 0 3px 6px 3px;
   }
 
   .community-title {
     font-size: 1em;
-    margin-bottom: 5px;
-    white-space: normal; /* 줄바꿈 허용 */
-    word-break: break-word; /* 긴 단어 강제 줄바꿈 */
   }
 
   .community-date {
-    font-size: 0.8em;
-    margin: 0 0 5px 0; /* 마진 조정 */
+    font-size: 0.7em;
   }
 
   .community-userName {
-    font-size: 0.85em;
-    margin-left: 0; /* 왼쪽 정렬 */
+    font-size: 0.75em;
   }
 
   .community-content .Button {
+    padding: 6px 8px;
+    font-size: 0.7em;
+  }
+
+  .no-posts-message {
+    padding: 20px 10px;
+    font-size: 0.9rem;
     margin-top: 15px;
-    width: 100%;
-    font-size: 0.8em;
-    padding: 8px;
   }
 }

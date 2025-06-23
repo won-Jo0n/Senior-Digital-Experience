@@ -109,7 +109,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="NewAccount-btn highlight">
+        <div className="NewAccount-btn">
           <Button
             text={"회원가입"}
             type={`${

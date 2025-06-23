@@ -146,3 +146,250 @@
   background-color: #0056b3;
   transform: translateY(-2px);
 }
+
+@media (max-width: 1024px) {
+  .Community_content {
+    padding: 20px 15px;/
+  }
+  .content_wrapper {
+    width: 95%; 
+    padding: 25px;
+    gap: 18px; 
+  }
+
+  
+  .content-info-wrapper {
+    flex-wrap: wrap; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 10px; 
+    padding-bottom: 10px;
+  }
+  .content-info-wrapper .content-title {
+    font-size: 1.6em; 
+    width: 100%; 
+    text-align: left; 
+  }
+  .content-info-wrapper .content-userName {
+    font-size: 0.95em; 
+    width: 100%; 
+    text-align: left; 
+  }
+
+
+  .content-text,
+  .content-answer {
+    padding: 20px; 
+    font-size: 0.95em; 
+    line-height: 1.5; 
+    min-height: unset; 
+  }
+  .content-answer::before {
+    font-size: 0.75em;
+    top: -8px;
+    left: 15px;
+    padding: 2px 8px;
+  }
+
+
+  .admin-asnwer {
+    padding: 20px;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .admin-asnwer textarea {
+    min-height: 100px;
+    font-size: 0.9em;
+    padding: 12px;
+  }
+  .admin-asnwer .Button {
+    padding: 9px 18px;
+    font-size: 0.9em;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .Community_content {
+    padding: 15px 10px; 
+  }
+  .content_wrapper {
+    width: 100%; 
+    padding: 20px 15px; 
+    gap: 15px; 
+    border-radius: 6px; 
+  }
+
+  .Community_content .Logo {
+    margin-bottom: 20px;
+  }
+
+  .content-info-wrapper {
+    gap: 8px; 
+    padding-bottom: 8px;
+  }
+  .content-info-wrapper .content-title {
+    font-size: 1.4em; 
+    line-height: 1.2;
+  }
+  .content-info-wrapper .content-userName {
+    font-size: 0.85em; 
+  }
+
+  
+  .content-text,
+  .content-answer {
+    padding: 15px; 
+    font-size: 0.9em;
+    line-height: 1.5;
+  }
+  .content-answer::before {
+    font-size: 0.7em;
+    top: -7px;
+    left: 10px;
+    padding: 2px 6px;
+  }
+
+  /* Admin reply section */
+  .admin-asnwer {
+    padding: 15px;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .admin-asnwer textarea {
+    min-height: 80px;
+    font-size: 0.85em;
+    padding: 10px;
+  }
+  .admin-asnwer .Button {
+    padding: 8px 15px;
+    font-size: 0.85em;
+  }
+}
+
+/* Mobile (e.g., 768px and below) */
+@media (max-width: 768px) {
+  .Community_content {
+    padding: 30px 10px; /* 기존 패딩 유지 또는 약간 늘림 */
+  }
+  .content_wrapper {
+    width: 90%;
+    padding: 25px 15px; /* 내부 패딩 약간 늘림 */
+    gap: 18px; /* 요소 간 간격 약간 늘림 */
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  }
+
+  .Community_content .Logo {
+    margin-bottom: 25px; /* 로고 아래 간격 약간 늘림 */
+  }
+
+  .content-info-wrapper {
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+  .content-info-wrapper .content-title {
+    font-size: 1.5em; /* 폰트 크기 약간 키움 */
+    line-height: 1.3; /* 줄 간격 약간 늘림 */
+  }
+  .content-info-wrapper .content-userName {
+    font-size: 0.9em;
+  }
+
+  .content-text {
+    padding: 20px; /* 패딩 유지 또는 약간 늘림 */
+    font-size: 0.95em;
+    line-height: 1.6; /* 줄 간격 유지 또는 약간 늘림 */
+    min-height: 150px; /* 최소 높이 다시 설정 또는 약간 늘림 */
+  }
+  .content-answer {
+    padding: 20px; /* 패딩 유지 또는 약간 늘림 */
+    font-size: 0.95em;
+    line-height: 1.6; /* 줄 간격 유지 또는 약간 늘림 */
+    min-height: 100px; /* 최소 높이 다시 설정 또는 약간 늘림 */
+  }
+  .content-answer::before {
+    font-size: 0.75em;
+    top: -8px;
+    left: 12px;
+    padding: 2px 6px;
+  }
+
+  .admin-asnwer {
+    padding: 20px; /* 패딩 유지 또는 약간 늘림 */
+    gap: 12px; /* 간격 약간 늘림 */
+    margin-top: 20px; /* 상단 마진 약간 늘림 */
+  }
+  .admin-asnwer textarea {
+    min-height: 100px; /* 최소 높이 다시 설정 또는 약간 늘림 */
+    font-size: 0.9em;
+    padding: 12px;
+  }
+  .admin-asnwer .Button {
+    padding: 9px 18px;
+    font-size: 0.9em;
+  }
+}
+
+/* 더 작은 모바일 */
+@media (max-width: 480px) {
+  .Community_content {
+    padding: 20px 8px; /* 기존 패딩 유지 또는 약간 늘림 */
+  }
+  .content_wrapper {
+    padding: 20px 15px; /* 내부 패딩 약간 늘림 */
+    width: 90%;
+    gap: 12px; /* 요소 간 간격 약간 늘림 */
+    border-radius: 4px;
+  }
+
+  .Community_content .Logo {
+    margin-bottom: 20px; /* 로고 아래 간격 약간 늘림 */
+  }
+
+  .content-info-wrapper {
+    gap: 6px;
+    padding-bottom: 6px;
+  }
+  .content-info-wrapper .content-title {
+    font-size: 1.3em; /* 폰트 크기 약간 키움 */
+    line-height: 1.3; /* 줄 간격 유지 */
+  }
+  .content-info-wrapper .content-userName {
+    font-size: 0.85em; /* 폰트 크기 약간 키움 */
+  }
+
+  .content-text {
+    padding: 15px; /* 패딩 유지 또는 약간 늘림 */
+    font-size: 0.88em;
+    line-height: 1.5; /* 줄 간격 유지 */
+    min-height: 120px; /* 최소 높이 다시 설정 또는 약간 늘림 */
+  }
+  .content-answer {
+    padding: 15px; /* 패딩 유지 또는 약간 늘림 */
+    font-size: 0.88em;
+    line-height: 1.5; /* 줄 간격 유지 */
+    min-height: 80px; /* 최소 높이 다시 설정 또는 약간 늘림 */
+  }
+  .content-answer::before {
+    font-size: 0.7em;
+    top: -7px;
+    left: 10px;
+    padding: 1px 5px;
+  }
+
+  .admin-asnwer {
+    padding: 15px; /* 패딩 유지 또는 약간 늘림 */
+    gap: 10px; /* 간격 약간 늘림 */
+    margin-top: 15px; /* 상단 마진 약간 늘림 */
+  }
+  .admin-asnwer textarea {
+    min-height: 80px; /* 최소 높이 다시 설정 또는 약간 늘림 */
+    font-size: 0.8em;
+    padding: 10px;
+  }
+  .admin-asnwer .Button {
+    padding: 7px 12px;
+    font-size: 0.8em;
+  }
+}

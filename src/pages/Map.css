@@ -24,7 +24,7 @@
 
 .map-sidebar {
   width: 30%;
-  height: 80%; /* 중앙 정렬 기준 */
+  height: 90%; /* 중앙 정렬 기준 */
   border-radius: 12px; /* 모서리를 좀 더 둥글게 */
   margin: 0 20px 0 0; /* 맵과의 간격 조정 (오른쪽에만 마진) */
   padding: 25px; /* 내부 패딩 증가 */

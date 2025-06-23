@@ -1,7 +1,11 @@
+/* Pagination.css */
+
 .pagination-nav {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 25px; /* Community.css와 동일하게 간격 조정 */
+  padding: 10px 0;
+  /* border-top: 1px solid #eee; /* 선택 사항: 상단 구분선 */
 }
 
 .pagination-list {
@@ -9,33 +13,106 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap; /* 작은 화면에서 페이지 번호가 줄바꿈되도록 */
+  justify-content: center; /* 줄바꿈 시 중앙 정렬 */
+  gap: 8px; /* 페이지 번호 사이 간격 (Community.css와 통일) */
 }
 
 .page-item {
-  margin: 0 5px;
+  /* margin: 0 5px; /* gap 속성으로 대체되므로 필요 없음 */
+  flex-shrink: 0; /* 아이템이 줄어들지 않도록 */
 }
 
 .page-link {
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
+  background-color: #e9ecef; /* 기본 페이지 버튼 배경색 (Community.css와 통일) */
+  color: #495057; /* 기본 페이지 버튼 글자색 (Community.css와 통일) */
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
   padding: 8px 12px;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-  font-size: 1rem;
+  font-size: 14px; /* 폰트 크기 (Community.css와 통일) */
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+  min-width: 38px; /* 버튼 최소 너비 설정 (짧은 번호에도 일관된 크기) */
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* 버튼 그림자 추가 */
 }
 
 .page-link:hover:not(:disabled) {
-  background-color: #e0e0e0;
+  background-color: #dee2e6;
+  border-color: #c9d2da;
 }
 
 .page-link:disabled {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 0.5; /* 비활성화 시 투명도 감소 */
+  background-color: #f8f9fa; /* 비활성화 시 배경색 약간 변경 */
+  color: #adb5bd;
+  border-color: #e9ecef;
+  box-shadow: none;
 }
 
 .page-item.active .page-link {
-  background-color: #007bff;
+  background-color: #6a994e; /* 활성 페이지 버튼 배경색 (Community.css와 통일) */
   color: white;
-  border-color: #007bff;
+  border-color: #6a994e;
+  font-weight: bold;
+}
+.page-item.active .page-link:hover {
+  background-color: #4a6c37;
+  border-color: #4a6c37;
+}
+
+/* ==================================== */
+/* 반응형 디자인 (Media Queries) */
+/* ==================================== */
+
+/* 태블릿 (Tablet) 크기부터 적용 (예: 1024px 이하) */
+@media (max-width: 1024px) {
+  .pagination-nav {
+    margin-top: 20px;
+    padding: 8px 0;
+  }
+  .pagination-list {
+    gap: 7px; /* 간격 조정 */
+  }
+  .page-link {
+    padding: 7px 11px;
+    font-size: 13px;
+    min-width: 36px;
+  }
+}
+
+/* 모바일 (Mobile) 크기부터 적용 (예: 768px 이하) */
+@media (max-width: 768px) {
+  .pagination-nav {
+    margin-top: 15px;
+    padding: 5px 0;
+  }
+  .pagination-list {
+    gap: 6px; /* 간격 조정 */
+  }
+  .page-link {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-width: 34px;
+    border-radius: 4px;
+  }
+}
+
+/* 더 작은 모바일 (예: 480px 이하) */
+@media (max-width: 480px) {
+  .pagination-nav {
+    margin-top: 10px;
+    padding: 3px 0;
+  }
+  .pagination-list {
+    gap: 4px; /* 간격 더 줄임 */
+  }
+  .page-link {
+    padding: 5px 8px;
+    font-size: 11px;
+    min-width: 30px;
+    border-radius: 3px;
+  }
 }
