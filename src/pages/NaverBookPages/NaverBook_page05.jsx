@@ -10,6 +10,9 @@ const NaverBook_page05 = () => {
     location.state || {};
 
   const nav = useNavigate();
+  const retryPage = () => {
+    nav("/NaverBook/page01");
+  };
 
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [isFailed, setIsFailed] = useState(false);
@@ -112,6 +115,9 @@ const NaverBook_page05 = () => {
                   1분이 지나서 실패했어요!
                 </p>
                 <p className="retryAgain">다시 도전해보세요!</p>
+                <div className="retryBtn">
+                  <Button text={"다시 도전하기"} onClick={retryPage} />
+                </div>
               </div>
             )}
 
