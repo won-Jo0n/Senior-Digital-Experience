@@ -13,13 +13,11 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
   // 마우스 진입 시
   const handleMouseEnter = () => {
     setShowButtons(true); // 모든 카드에 대해 버튼 표시
-    console.log(`Mouse entered: ${title}`);
   };
 
   // 마우스 이탈 시
   const handleMouseLeave = () => {
     setShowButtons(false); // 모든 카드에 대해 버튼 숨김
-    console.log(`Mouse left: ${title}`);
   };
 
   // // "연습모드" 버튼 클릭 핸들러 (키오스크, 병원예약에만 해당)

@@ -64,7 +64,7 @@ const NewAccount = () => {
             id="user-consent"
             type="checkBox"
           />
-          <label htmlFor="user-consent">정말 열심히 할건가여?(필수)</label>
+          <label htmlFor="user-consent">열심히 참여 해주실건가요?(필수)</label>
         </div>
         <Button text={"계정 생성"} onClick={newAccountOnClick}></Button>
       </div>
