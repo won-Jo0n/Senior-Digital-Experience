@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 import "./NaverBook_page04.css";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
@@ -8,23 +9,39 @@ const NaverBook_page04 = () => {
   const { date, time } = location.state || {};
   const nav = useNavigate();
 
-  const fifthPage = () => {
-    sessionStorage.setItem("missionEnd", new Date().toISOString());
-    nav("/NaverBook/page05", {
-      state: { date, time, slot },
-    });
-  };
+  const [purposeTreatment, setPurposeTreatment] = useState([]);
+  const [treatmentRequest, setTreatmentRequest] = useState("");
 
   const getSlot = (time) => {
     const hour = parseInt(time.split(":")[0]);
     return hour < 12 ? "오전" : "오후";
   };
   const slot = time ? getSlot(time) : "";
+
+  const handleCheckboxChange = (value) => {
+    setPurposeTreatment((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    );
+  };
+
+  const fifthPage = () => {
+    sessionStorage.setItem("missionEnd", new Date().toISOString());
+    nav("/NaverBook/page05", {
+      state: {
+        date,
+        time,
+        slot,
+        purposeTreatment,
+        treatmentRequest,
+      },
+    });
+  };
+
   return (
     <div className="bigContainer">
       <Header />
       <div className="bookWrapper">
-        <img src="/phone.png" alt="phone"></img>
+        <img src="/phone.png" alt="phone" />
 
         <div className="NaverBook_page04">
           <p>아래 내용이 맞는지 확인해주세요</p>
@@ -46,22 +63,53 @@ const NaverBook_page04 = () => {
             <p>진료목적</p>
             <div className="bookCheckBox">
               <label>
-                <input type="checkbox" /> 클리닉
+                <input
+                  type="checkbox"
+                  value="클리닉"
+                  onChange={() => handleCheckboxChange("클리닉")}
+                  checked={purposeTreatment.includes("클리닉")}
+                />
+                클리닉
               </label>
               <label>
-                <input type="checkbox" /> 도수상담
+                <input
+                  type="checkbox"
+                  value="도수상담"
+                  onChange={() => handleCheckboxChange("도수상담")}
+                  checked={purposeTreatment.includes("도수상담")}
+                />
+                도수상담
               </label>
               <label>
-                <input type="checkbox" /> 수액
+                <input
+                  type="checkbox"
+                  value="수액"
+                  onChange={() => handleCheckboxChange("수액")}
+                  checked={purposeTreatment.includes("수액")}
+                />
+                수액
               </label>
               <label>
-                <input type="checkbox" /> 보건증 발급
+                <input
+                  type="checkbox"
+                  value="보건증 발급"
+                  onChange={() => handleCheckboxChange("보건증 발급")}
+                  checked={purposeTreatment.includes("보건증 발급")}
+                />
+                보건증 발급
               </label>
               <label>
-                <input type="checkbox" /> 진성 간호사와 상담
+                <input
+                  type="checkbox"
+                  value="진성 간호사와 상담"
+                  onChange={() => handleCheckboxChange("진성 간호사와 상담")}
+                  checked={purposeTreatment.includes("진성 간호사와 상담")}
+                />
+                진성 간호사와 상담
               </label>
             </div>
           </div>
+
           {/* 예약자 정보 */}
           <div className="userInfoSection">
             <h4>예약자 정보</h4>
@@ -77,13 +125,18 @@ const NaverBook_page04 = () => {
             </div>
 
             <p className="requestLabel">요청사항</p>
-            <select className="requestInput">
+            <select
+              className="requestInput"
+              value={treatmentRequest}
+              onChange={(e) => setTreatmentRequest(e.target.value)}
+            >
               <option value="">요청사항을 선택해주세요.</option>
-              <option value="1">빠른 진료를 원해요</option>
-              <option value="2">조용한 자리를 원해요</option>
-              <option value="2">허리가 아파요</option>
+              <option value="빠른 진료를 원해요">빠른 진료를 원해요</option>
+              <option value="조용한 자리를 원해요">조용한 자리를 원해요</option>
+              <option value="허리가 아파요">허리가 아파요</option>
             </select>
           </div>
+
           {/* 안내 문구 */}
           <div className="addNotice">
             실제 방문자가 다르다면 정보를 추가해 주세요.
@@ -103,4 +156,5 @@ const NaverBook_page04 = () => {
     </div>
   );
 };
+
 export default NaverBook_page04;
