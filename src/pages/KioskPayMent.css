@@ -1,11 +1,12 @@
 .KIOSKDISPLAY {
   width: 1000px;
   height: 1300px;
-  margin-left: 25%;
+  margin-left: 469px;
   background-image: url("/public//koisk.png");
   background-size: 1000px 1300px;
   background-position: center; /* 이미지를 div 중앙에 배치 */
   background-repeat: no-repeat; /* 이미지 반복 방지 */
+  justify-content: center;
 }
 
 .LastOlderPage {
@@ -37,12 +38,13 @@
   display: flex;
   justify-content: center; /* 주축(기본: 수평)에서 가운데 정렬 */
   align-items: center;
-  width: 728px;
-  height: 130px;
-  margin-top: 129px;
+  width: 650px;
+  height: 120px;
+  margin-top: 131px;
+  margin-left: 30px;
   background-color: white;
-  border: 3px solid gray;
-  color: gray;
+  border-bottom: 3px solid lightgray;
+  color: black;
   font-size: 30px;
 }
 .oldertext .pickCARD {
@@ -59,6 +61,9 @@
   font-size: 50px;
 }
 
+.CARDBTN.highlight::after {
+  background-color: white;
+}
 .topBtn .bottomBtn {
   display: flex; /* 각 버튼 그룹을 Flex 컨테이너로 만듦 */
   flex-direction: column; /* 이 내부의 버튼들을 다시 수직(열) 방향으로 정렬 */
@@ -81,6 +86,9 @@
   border-radius: 10px;
 }
 
+.CARDBTN.highlight::after {
+  background-color: white;
+}
 .bottomBtn button {
   border: 3px solid gray;
   background-color: white;
@@ -110,14 +118,17 @@
 }
 
 .BackBTN {
-  width: 730px;
+  border: none;
+  width: 690px;
   height: 90px;
   align-self: center; /* 버튼 자신만 수평 가운데 정렬 */
   padding: 15px 25px;
-  background-color: white;
-  border-top: 3px solid gray;
-  color: gray;
+  background-color: rgb(165, 159, 159);
+  color: white;
   font-weight: 10px;
   cursor: pointer;
   margin-top: 310px;
+  margin-bottom: 60px;
+  font-size: 40px;
+  border-radius: 10px;
 }

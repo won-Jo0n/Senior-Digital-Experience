@@ -1,8 +1,12 @@
 import "./KioskPayMent.css";
+import "../components/highlight.css";
+import { useContext, useState } from "react";
+import { DataDispatchContext } from "../App";
 
 import { useNavigate } from "react-router-dom";
 const KioskPayMent = () => {
-  console.log("KioskPaymentPage 렌더링됨");
+  const { getIsChallenged } = useContext(DataDispatchContext); //미션인지 연습인지
+  const [fourHighlight, setFourHighlight] = useState(false);
   const nav = useNavigate();
 
   const backMenuPage = () => {
@@ -10,6 +14,7 @@ const KioskPayMent = () => {
   };
   const cardPayMent = () => {
     nav("/KioskCardPay");
+    setFourHighlight(true);
   };
   return (
     <div className="KIOSKDISPLAY">
@@ -22,11 +27,14 @@ const KioskPayMent = () => {
         </div>
         <div className="olderMETHOD">
           <div className="topBtn">
-            <button onClick={cardPayMent}>
+            <button
+              onClick={cardPayMent}
+              className={getIsChallenged() ? "" : "CARDBTN highlight"}
+            >
               <div>
-                <img src="/public//card.png" className="CardImg" />
+                <img src="/public/card.png" className="CardImg" />
               </div>
-              신용카드
+              <div>신용카드</div>
             </button>
 
             <button>
@@ -47,14 +55,16 @@ const KioskPayMent = () => {
               투썸기프트카드
             </button>
             <button className="bottomBtn">
-              <img src="/public//kakaoPay.png" className="CardImg" />
+              <div>
+                <img src="/public//kakaoPay.png" className="CardImg" />
+              </div>
               카카오페이
             </button>
           </div>
         </div>
         <div class="BTNcontainer">
           <button class="BackBTN" onClick={backMenuPage}>
-            이전
+            <b>이전</b>
           </button>
         </div>
       </div>

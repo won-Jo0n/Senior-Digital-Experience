@@ -3,7 +3,7 @@
   border-radius: 10px;
   width: 1000px;
   height: 1300px;
-  margin-left: 490px;
+  margin-left: 469px;
   margin-top: 60px;
   background-image: url("/public//koisk.png");
   background-size: cover;
@@ -79,9 +79,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
-  overflow-y: auto; /* 세로 스크롤 활성화 */
-  overflow-x: hidden;
   max-height: 589px;
+  height: 800px;
+}
+
+.coffee_menuDISPLAY.highlight::after {
+  background: white;
 }
 
 .coffee_menuDISPLAY::-webkit-scrollbar {

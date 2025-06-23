@@ -1,6 +1,6 @@
+import "./Kiosk_CardPayMent.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Kiosk_CardPayMent.css";
 const Kiosk_CardPayMent = () => {
   const nav = useNavigate();
   useEffect(() => {

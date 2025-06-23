@@ -1,11 +1,19 @@
 import "./KioskModal.css";
+import "../../components/highlight.css";
 import { getCoffeeImage } from "../../util/cafeMenu_imgesCoffee";
 import { getCakeImage } from "../../util/cafeMenu_imgesCake";
 import { getDrinkImage } from "../../util/cafeMenu_imgesDrink ";
-const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
-  console.log(selectedItem);
-  console.log(pickMenu);
-
+import { DataDispatchContext } from "../../App.jsx";
+import { useContext } from "react";
+const KioskModal = ({
+  selectedItem,
+  pickMenu,
+  setOnModal,
+  onAddToOrder,
+  setFirstHighlight,
+  setSecondHighlight,
+}) => {
+  const { getIsChallenged } = useContext(DataDispatchContext); //미션인지 연습인지
   // 커피, 음료, 케이크에 따라 리스트 값 불러오고 화면에 뿌림
   const menuDetail = () => {
     if (pickMenu === "coffee") {
@@ -49,7 +57,7 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
           }
           <br />
           {selectedItem.CakeName} <br />
-          <b>{selectedItem.cakePrice}원</b>
+          <b>{selectedItem.cakeListPrice}원</b>
         </div>
       );
     }
@@ -58,6 +66,8 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
   const handleConfirmAdd = () => {
     onAddToOrder(selectedItem); // 주문 정보 객체 전달
     setOnModal(false);
+    setFirstHighlight(false); //담기 클릭시 첫번째 하이라인트 제거
+    setSecondHighlight(true);
   };
 
   return (
@@ -77,6 +87,7 @@ const KioskModal = ({ selectedItem, pickMenu, setOnModal, onAddToOrder }) => {
           <button
             onClick={() => {
               setOnModal(false);
+              setFirstHighlight(true);
             }}
             className="Backbtn"
           >

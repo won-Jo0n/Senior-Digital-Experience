@@ -125,3 +125,7 @@
 .rightBtn :hover {
   cursor: pointer;
 }
+
+.rightBtn.highlight::after {
+  background-color: #ab1f2e;
+}
