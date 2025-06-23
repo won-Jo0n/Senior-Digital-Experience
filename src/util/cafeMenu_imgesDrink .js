@@ -4,8 +4,8 @@ import drink_lemonTea from "../assets/drink/drink_lemonTea.jpg";
 import drink_mintCholoate from "../assets/drink/drink_mintCholoate.jpg";
 import drink_peachBlackTea from "../assets/drink/drink_peachBlackTea.jpg";
 import drink_signMusketAde from "../assets/drink/drink_signMusketAde.jpg";
-import drink_strawberryMilk from "../assets/drink/drink_strawberryMilk.jpg";
-import drink_SweetpotatoLatte from "../assets/drink/drink_SweetpotatoLatte.jpg";
+// import drink_strawberryMilk from "../assets/drink/drink_strawberryMilk.jpg";
+// import drink_SweetpotatoLatte from "../assets/drink/drink_SweetpotatoLatte.jpg";
 
 export function getDrinkImage(drinkId) {
   switch (drinkId) {
@@ -21,10 +21,10 @@ export function getDrinkImage(drinkId) {
       return drink_peachBlackTea;
     case 6:
       return drink_signMusketAde;
-    case 7:
-      return drink_strawberryMilk;
-    case 8:
-      return drink_SweetpotatoLatte;
+    // case 7:
+    //   return drink_strawberryMilk;
+    // case 8:
+    //   return drink_SweetpotatoLatte;
     default:
       return null;
   }

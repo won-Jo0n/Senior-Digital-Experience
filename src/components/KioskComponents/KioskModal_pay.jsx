@@ -1,10 +1,16 @@
 import "./KioskModal_pay.css";
+import "../../components/highlight.css";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { DataDispatchContext } from "../../App.jsx";
 
-const KioskModalPay = ({ setOnPayModal, orderItems }) => {
+const KioskModalPay = ({ setOnPayModal, orderItems, threeHighlight }) => {
+  const { getIsChallenged, setOrderList } = useContext(DataDispatchContext); //미션인지 연습인지
   //선택 버튼에 따라 모달 창이 바뀜
-  console.log(orderItems);
+
   const nav = useNavigate();
+
+  setOrderList(orderItems);
 
   let totalPrice = 0;
   let totalquantity = 0;
@@ -51,8 +57,15 @@ const KioskModalPay = ({ setOnPayModal, orderItems }) => {
           <button className="leftBtn" onClick={onClosePayModal}>
             이전
           </button>
-          <button className="rightBtn" onClick={movePayMentPage}>
-            결제하기
+          <button
+            className={
+              getIsChallenged() || !threeHighlight
+                ? "rightBtn"
+                : "rightBtn highlight"
+            }
+            onClick={movePayMentPage}
+          >
+            <div>결제하기</div>
           </button>
         </div>
       </div>

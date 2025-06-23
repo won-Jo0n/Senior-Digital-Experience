@@ -6,7 +6,7 @@
 }
 
 .ORDERlIST {
-  font-size: 30px;
+  font-size: 25px;
   width: 727px;
   height: 340px;
   margin-left: 118px;
@@ -14,6 +14,7 @@
 .orderListBlank {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 10px;
   background-color: #fff;
 }
@@ -40,8 +41,12 @@
   border-radius: 8px;
   margin-bottom: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  width: 662px;
 }
 
+.orderITEM.highlight::after {
+  background-color: white;
+}
 .orderITEM img {
   width: 70px;
   height: 70px;
@@ -55,7 +60,7 @@
   background-color: lightgray;
   border: none;
   color: white;
-  width: 40px;
+  width: 190px;
   height: 40px;
   border-radius: 6px;
   font-size: 40px;
@@ -176,6 +181,9 @@
   background-color: #998c8a;
 }
 
+.olderBtn.highlight::after {
+  background-color: #ab1f2e;
+}
 .resetBtn:hover {
   background-color: #626c70;
 }

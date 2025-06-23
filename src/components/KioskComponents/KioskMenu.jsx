@@ -1,4 +1,5 @@
 import "./KioskMenu.css";
+import "../../components/highlight.css";
 import KioskCoffee from "./KioskCoffee.jsx";
 import KioskDrink from "../KioskComponents/KioskDrink.jsx";
 import KioskCake from "../KioskComponents/KioskCake.jsx";
@@ -11,9 +12,15 @@ import { getCakeImage } from "../../util/cafeMenu_imgesCake";
 import { coffeeList } from "../../util/cafeMenu-coffeeList";
 import { drinkList } from "../../util/cafeMenu-drinkList";
 import { cakeList } from "../../util/cafeMenu-cakeList";
-import { useState } from "react";
+import { DataDispatchContext } from "../../App.jsx";
+import { useState, useContext } from "react";
 
 const KioskMenu = () => {
+  const { getIsChallenged } = useContext(DataDispatchContext); //미션인지 연습인지(현재 false)
+  const [firstHighlight, setFirstHighlight] = useState(true);
+  const [secondHighlight, setSecondHighlight] = useState(false);
+  const [threeHighlight, setThreeHighlight] = useState(false);
+
   //kioskMenu 역할
   //1. 카테고리 선택시 해당 메뉴 띄우기
   //2. 특정 메뉴 선택시 옵션 모달창 띄우기
@@ -33,6 +40,7 @@ const KioskMenu = () => {
   //클릭한 음료 객체들 담아두는 리스트
   //orderItems에는 선택한 item -> [{itemId,itemName, itemPrice}]
   const [orderItems, setOrderItems] = useState([]);
+
   // 선택된 메뉴 주문 정보 객체 전달-------
   const AddToOrder = (itemToAdd) => {
     setOrderItems((oldreItems) => {
@@ -203,38 +211,47 @@ const KioskMenu = () => {
     return null;
   };
   return (
-    <div className="KIoskDisplay">
-      {/* 모달창 css 적용을 위한 조건문 */}
-      <div className={"AllDisplay"}>
-        <div className="MenuBar">
-          {/* 메뉴바 버튼 클릭시 pickMenu 값 변경 */}
-          <button
-            className="button_coffee"
-            onClick={() => {
-              setPickMenu("coffee");
-            }}
+    <>
+      <div className="KIoskDisplay">
+        {/* 모달창 css 적용을 위한 조건문 */}
+        <div className="AllDisplay">
+          <div className="MenuBar">
+            {/* 메뉴바 버튼 클릭시 pickMenu 값 변경 */}
+            <button
+              className="button_coffee"
+              onClick={() => {
+                setPickMenu("coffee");
+              }}
+            >
+              커피
+            </button>
+            <button
+              className="button_drink"
+              onClick={() => {
+                setPickMenu("drink");
+              }}
+            >
+              음료
+            </button>
+            <button
+              className="button_cake"
+              onClick={() => {
+                setPickMenu("cake");
+              }}
+            >
+              케이크
+            </button>
+          </div>
+          <div
+            className={
+              getIsChallenged() || !firstHighlight
+                ? "coffee_menuDISPLAY"
+                : "coffee_menuDISPLAY highlight"
+            }
           >
-            커피
-          </button>
-          <button
-            className="button_drink"
-            onClick={() => {
-              setPickMenu("drink");
-            }}
-          >
-            음료
-          </button>
-          <button
-            className="button_cake"
-            onClick={() => {
-              setPickMenu("cake");
-            }}
-          >
-            케이크
-          </button>
+            {changeMenu()}
+          </div>
         </div>
-        <div className="coffee_menuDISPLAY">{changeMenu()}</div>
-
         <div>
           {onModal &&
             selectedItem && ( // selectedItem이 null이 아닐 때만 모달 렌더링
@@ -243,6 +260,8 @@ const KioskMenu = () => {
                 pickMenu={pickMenu} //선택된 메뉴의 카테고리 (커피, 음료, 디저트 중 하나)
                 setOnModal={setOnModal} // 모달 닫기 용도로 전달
                 onAddToOrder={AddToOrder} // 주문 추가 함수 전달
+                setFirstHighlight={setFirstHighlight} //첫번째 하이라이트 조절
+                setSecondHighlight={setSecondHighlight} //두번째 하이라이트 조절
               />
             )}
         </div>
@@ -252,22 +271,28 @@ const KioskMenu = () => {
             <KioskModalPay
               setOnPayModal={setOnPayModal}
               orderItems={orderItems}
+              secondHighlight={secondHighlight}
+              threeHighlight={threeHighlight}
             />
           )}
         </div>
+
+        {/* 주문 내역 채우기 및 계산 */}
+        <div className="ORDERlIST">
+          <KioskOrderCal
+            orderItems={orderItems}
+            setOrderItems={setOrderItems}
+            setOnModal={setOnModal}
+            setOnPayModal={setOnPayModal}
+            orderNumPlus={orderNumPlus}
+            orderNumMinus={orderNumMinus}
+            setSecondHighlight={setSecondHighlight}
+            secondHighlight={secondHighlight}
+            setThreeHighlight={setThreeHighlight}
+          />
+        </div>
       </div>
-      {/* 주문 내역 채우기 및 계산 */}
-      <div className="ORDERlIST">
-        <KioskOrderCal
-          orderItems={orderItems}
-          setOrderItems={setOrderItems}
-          setOnModal={setOnModal}
-          setOnPayModal={setOnPayModal}
-          orderNumPlus={orderNumPlus}
-          orderNumMinus={orderNumMinus}
-        />
-      </div>
-    </div>
+    </>
   );
 };
 

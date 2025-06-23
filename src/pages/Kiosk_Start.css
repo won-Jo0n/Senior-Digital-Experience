@@ -33,7 +33,7 @@
 .wrapperStartDisplay {
   width: 1000px;
   height: 1300px;
-  margin-left: 26%;
+  margin-left: 469px;
   background-image: url("/public//koisk.png");
   background-size: 1000px 1300px;
   background-position: center; /* 이미지를 div 중앙에 배치 */
@@ -55,6 +55,9 @@
   margin-left: 121px;
 }
 
+.middleDiv.highlight::after {
+  background: #3e3e3f;
+}
 .middleDiv .middleText {
   padding-top: 7%;
   text-align: center;

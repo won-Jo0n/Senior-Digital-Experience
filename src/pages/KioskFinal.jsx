@@ -1,12 +1,19 @@
+import { useContext } from "react";
+import { DataDispatchContext } from "../App";
 import "./KioskFinal.css";
 import { useNavigate } from "react-router-dom";
 
 const KioskFinal = () => {
+  const { getOrderList } = useContext(DataDispatchContext); //미션인지 연습인지
   const nav = useNavigate();
 
   const backMenuPage = () => {
     nav("/");
   };
+
+  const orderList = getOrderList();
+
+  console.log(orderList);
 
   return (
     <div className="FinalKioskDisplay">

@@ -87,6 +87,15 @@ function App() {
   const [loginedId, setLoginedId] = useState(null);
   const kioskIsChallenged = useRef(false);
   const naverBookIsChallenged = useRef(false);
+  const orderList = useRef([]);
+
+  const getOrderList = () => {
+    return orderList.current;
+  };
+
+  const setOrderList = (tempOrderList) => {
+    orderList.current = tempOrderList;
+  };
 
   const getIsChallenged = (ChallengeType) => {
     if (ChallengeType === "Kiosk") {
@@ -328,6 +337,8 @@ function App() {
             onUpdateCommunity,
             getIsChallenged,
             setIsChallenged,
+            getOrderList,
+            setOrderList,
           }}
         >
           <Routes>
