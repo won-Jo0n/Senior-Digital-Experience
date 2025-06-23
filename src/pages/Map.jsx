@@ -1,8 +1,9 @@
+// Map.js
 import "./Map.css";
 import createMap from "../util/createMap";
-import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import Button from "../components/Button";
+import { useEffect, useState, useRef } from "react"; // useRef 추가
+
+import { useNavigate } from "react-router-dom";
 
 const Map = () => {
   const [apiData, setApiData] = useState([]);
@@ -11,6 +12,8 @@ const Map = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [userLocation, setUserLocation] = useState(null);
   const [levelNumber, setLevelNumber] = useState(10);
+  const mapRef = useRef(null); // 지도 인스턴스를 저장할 ref
+  const nav = useNavigate();
 
   // 최초 데이터 fetch
   useEffect(() => {
@@ -55,13 +58,25 @@ const Map = () => {
     );
   });
 
-  //  검색 결과에 따라 마커 다시 표시
+  // 검색 결과에 따라 마커 다시 표시 및 지도 생성/업데이트
   useEffect(() => {
     if (!userLocation) return;
 
     const markerPosition = filteredData.map((item) => ({
-      content: `<div class="map-info-content">
-      <div class="info-title"><span class="math-inline">${item.BIZPLC_NM}<p>${item.REFINE_LOTNO_ADDR}</p></div>`,
+      content: `
+        <div class="map-info-content">
+          <div class="info-title">${item.BIZPLC_NM}</div>
+          ${
+            item.REFINE_ROADNM_ADDR
+              ? `<p class="info-address">${item.REFINE_ROADNM_ADDR}</p>`
+              : ""
+          }
+          ${
+            item.REFINE_LOTNO_ADDR
+              ? `<p class="info-address">${item.REFINE_LOTNO_ADDR}</p>`
+              : ""
+          }
+        </div>`,
       Latlng: new window.kakao.maps.LatLng(
         item.REFINE_WGS84_LAT,
         item.REFINE_WGS84_LOGT
@@ -78,8 +93,25 @@ const Map = () => {
       level: levelNumber,
     };
 
-    createMap("maps", options, markerPosition);
-  }, [userLocation]); // 필터 결과나 위치가 바뀌면 지도 리렌더
+    // createMap 함수에서 반환된 지도 인스턴스를 ref에 저장합니다.
+    mapRef.current = createMap("maps", options, markerPosition);
+  }, [userLocation]);
+
+  // 화면 크기 변경 시 지도 relayout
+  useEffect(() => {
+    const handleResize = () => {
+      if (mapRef.current && window.kakao) {
+        mapRef.current.relayout(); // 지도를 다시 그립니다.
+        // 필요에 따라 중심점을 다시 설정할 수도 있습니다.
+        // mapRef.current.setCenter(mapRef.current.getCenter());
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // 의존성 배열을 비워 한 번만 등록되도록 합니다. mapRef.current는 변경되지 않습니다.
 
   const handdleFocusPosition = (item) => {
     setUserLocation({
@@ -95,18 +127,27 @@ const Map = () => {
         lon: position.coords.longitude,
       });
     });
+    setSearchTerm(""); // 검색어 초기화 추가
     setLevelNumber(10);
   };
 
   return (
     <div className="map-page">
-      <header className="map-header">
-        <Header
-          rightChild={<Button text={"지도 초기화"} onClick={handdleResetBtn} />}
-        />
-      </header>
       <div className="map-container">
         <aside className="map-sidebar">
+          <div className="Map-header-button-group">
+            <button
+              className="Map-navHome"
+              onClick={() => {
+                nav("/");
+              }}
+            >
+              홈으로 돌아가기
+            </button>
+            <button className="Map-reset-map" onClick={handdleResetBtn}>
+              지도 초기화
+            </button>
+          </div>
           <div className="search-bar">
             <input
               type="text"
@@ -139,7 +180,6 @@ const Map = () => {
           ))}
         </aside>
         <section className="map-section">
-          <button className="back-btn">돌아가기</button>
           <div id="maps"></div>
         </section>
       </div>

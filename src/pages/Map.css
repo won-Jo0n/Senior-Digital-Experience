@@ -1,44 +1,113 @@
-#maps {
-  width: 100%;
-  height: 100%;
-}
-.map-page {
-  background-color: #4c4c4c;
-  height: 100vh;
-  color: black;
-  font-family: sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.map-header {
-  font-size: 24px;
-  font-weight: bold;
-  padding: 20px;
-  color: black;
-  background-color: #4c4c4c;
+/* 전체 레이아웃 및 페이지 기본 스타일 */
+
+.map-page {
+  color: #333; /* 기본 텍스트 색상을 약간 어두운 회색으로 변경 */
+  font-family: "Noto Sans KR", sans-serif; /* 한국어 폰트 추가 (Google Fonts 등에서 로드 필요) */
 }
 
 .map-container {
   display: flex;
-  height: calc(100vh - 60px);
-  background-color: #1e2a1f;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* 컨테이너 자체에 패딩을 주어 내부 요소들이 가장자리에 붙지 않도록 */
 }
+
+/* 사이드바 스타일링 */
 
 .map-sidebar {
   width: 30%;
-  padding: 20px;
-  background-color: #f0f3e6;
+  height: 80%; /* 중앙 정렬 기준 */
+  border-radius: 12px; /* 모서리를 좀 더 둥글게 */
+  margin: 0 20px 0 0; /* 맵과의 간격 조정 (오른쪽에만 마진) */
+  padding: 25px; /* 내부 패딩 증가 */
+  background-color: #ffffff; /* 사이드바 배경을 흰색으로 하여 깔끔하게 */
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow-y: auto;
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤바 생성 */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* 더 깊고 부드러운 그림자 */
+  flex-shrink: 0; /* 사이드바 너비가 줄어들지 않도록 고정 */
+}
+
+/* 스크롤바 스타일링 (웹킷 브라우저) */
+.map-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.map-sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.map-sidebar::-webkit-scrollbar-thumb {
+  background: #ccd4bf; /* 테마 색상과 어울리는 스크롤바 색상 */
+  border-radius: 10px;
+}
+
+.map-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #a9b996;
+}
+
+/* ==================================== */
+/* 사이드바 내부 요소 스타일링 */
+/* ==================================== */
+
+.Map-header-button-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px; /* 패딩을 사방으로 줌 */
+  margin-bottom: 25px; /* 검색창과의 간격 증가 */
+  background-color: #e6f0e0; /* 연한 녹색 계열 배경 */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.Map-navHome,
+.Map-reset-map {
+  background-color: #6a994e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px; /* 패딩 증가 */
+  font-size: 15px; /* 폰트 크기 살짝 키움 */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease; /* 호버 시 약간의 움직임 추가 */
+  flex-basis: calc(50% - 8px); /* 간격 고려하여 조정 */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 버튼 자체에 그림자 */
+}
+
+.Map-navHome:hover,
+.Map-reset-map:hover {
+  background-color: #4a6c37;
+  transform: translateY(-2px); /* 호버 시 살짝 위로 */
+}
+
+.Map-navHome:active,
+.Map-reset-map:active {
+  transform: translateY(0); /* 클릭 시 원위치 */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar {
   display: flex;
   border-radius: 10px;
-  background-color: #d9e9ce;
-  padding: 10px;
+  background-color: #e6f0e0; /* 버튼 그룹과 유사한 배경색으로 통일 */
+  padding: 10px 15px; /* 좌우 패딩 증가 */
   align-items: center;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08); /* 내부 그림자로 입력 필드 느낌 */
 }
 
 .search-bar input {
@@ -46,93 +115,285 @@
   border: none;
   background: transparent;
   font-size: 16px;
+  outline: none;
+  color: #555; /* 입력 텍스트 색상 */
+}
+
+.search-bar input::placeholder {
+  color: #999; /* 플레이스홀더 색상 */
 }
 
 .search-btn {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 22px; /* 아이콘 크기 살짝 키움 */
   cursor: pointer;
-}
-
-.location-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.location-card h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.open-status {
-  color: green;
-  font-weight: bold;
-}
-
-.map-section {
-  width: 70%;
-  position: relative;
-}
-
-.map {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.back-btn {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  padding: 10px 20px;
-  background-color: #f0f3e6;
-  border-radius: 10px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
+  color: #4a6c37;
+  padding: 0 5px; /* 아이콘 주변 패딩 */
 }
 
 .location-09card {
   cursor: pointer;
-  text-align: center;
-  border-radius: 8px;
-  background-color: snow;
+  text-align: left; /* 좌측 정렬 유지 */
+  border-radius: 10px; /* 더 둥근 모서리 */
+  background-color: #ffffff; /* 카드 배경 흰색 */
+  padding: 18px; /* 내부 패딩 증가 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* 그림자 강화 */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* 호버 효과 추가 */
+  border: 1px solid #eee; /* 아주 얇은 테두리 추가 */
 }
 
+.location-09card:hover {
+  transform: translateY(-5px); /* 호버 시 더 크게 이동 */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* 호버 시 그림자 더 강하게 */
+}
+
+.location-09card h3 {
+  font-size: 18px; /* 제목 폰트 크기 키움 */
+  margin-bottom: 8px; /* 제목과 내용 사이 간격 증가 */
+  color: #2e4a3b;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.location-09card p {
+  font-size: 14px; /* 내용 폰트 크기 살짝 키움 */
+  color: #666;
+  margin: 0;
+  line-height: 1.5; /* 줄 간격 조절 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.location-09card .open-status {
+  color: #28a745; /* 더 명확한 녹색 */
+  font-weight: bold;
+  margin-top: 12px; /* 위쪽 마진 증가 */
+  text-align: right;
+  font-size: 14px;
+}
+
+/* ==================================== */
+/* 지도 섹션 스타일링 */
+/* ==================================== */
+.map-section {
+  width: 70%;
+  height: 90%; /* 중앙 정렬 기준 */
+  position: relative;
+  padding: 0; /* 이미 map-container에 패딩이 있으므로 여기서 제거 */
+  background-color: #ffffff; /* 맵 섹션 배경도 흰색으로 통일 */
+  border-radius: 12px; /* 사이드바와 동일한 모서리 둥글기 */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* 사이드바와 동일한 그림자 */
+  overflow: hidden; /* 지도가 모서리 밖으로 넘어가지 않도록 */
+}
+
+#maps {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px; /* 지도 자체의 둥근 모서리 (map-section 내에서) */
+  /* margin: 0 auto; - map-section이 꽉 차므로 필요 없음 */
+}
+
+/* ==================================== */
+/* 지도 정보창 오버레이 스타일링 */
+/* ==================================== */
 .map-info-content {
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  padding: 12px 15px;
+  border: 1px solid #ddd; /* 테두리 색상 좀 더 밝게 */
+  border-radius: 10px; /* 더 둥근 모서리 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* 그림자 강조 */
+  padding: 15px 18px; /* 패딩 증가 */
   color: #333;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6; /* 줄 간격 넓힘 */
   text-align: left;
-  max-width: 220px;
+  max-width: 240px; /* 정보창 너비 살짝 늘림 */
   white-space: normal;
   word-break: keep-all;
-
   overflow-wrap: break-word;
-
-  /* z-index: 10; */
+  box-sizing: border-box;
 }
 
-/* 시설 이름 (첫 번째 줄) 스타일 */
-/* `createMap` 함수에서 BIZPLC_NM 다음에 바로 </br> 태그를 사용하고 있으므로,
-   이름이 첫 번째 `div` 안에 들어간다고 가정하고 `div:first-child`로 선택합니다. */
-.map-info-content div:first-child {
-  font-weight: bold; /* 이름을 굵게 표시하여 강조 */
-  font-size: 16px; /* 주소보다 약간 크게 */
-  margin-bottom: 4px; /* 이름과 주소 사이 간격 */
-  color: #2e4a3b; /* 지도 페이지의 배경색(#1e2a1f)과 어울리는 진한 녹색 계열 */
+.map-info-content .info-title {
+  font-weight: bold;
+  font-size: 17px; /* 제목 폰트 크기 키움 */
+  margin-bottom: 6px; /* 간격 조절 */
+  color: #2e4a3b;
+  word-break: keep-all;
 }
-.map-info-content p {
-  /* 만약 주소 부분이 <p> 태그로 감싸져 있다면 이 스타일이 적용됩니다. */
-  font-size: 13px; /* 주소를 약간 작게 */
-  color: #666; /* 좀 더 연한 회색 */
-  margin: 0; /* 기본 마진 제거 */
+
+.map-info-content .info-address {
+  font-size: 13px;
+  color: #555; /* 주소 색상 약간 어둡게 */
+  margin: 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 기존 불필요한 중복 스타일 제거 */
+/* .map-info-content div:first-child { ... }
+.map-info-content p { ... } */
+
+/* ==================================== */
+/* 반응형 디자인: 미디어 쿼리 */
+/* ==================================== */
+
+/* 태블릿 및 작은 데스크톱 (예: 1024px 이하) */
+@media (max-width: 1024px) {
+  .map-container {
+    padding: 15px; /* 패딩 조정 */
+  }
+  .map-sidebar {
+    width: 38%; /* 사이드바 너비 살짝 늘림 */
+    margin-right: 15px; /* 간격 조정 */
+    padding: 20px;
+    gap: 15px;
+  }
+  .map-section {
+    width: 62%; /* 지도 섹션 너비 살짝 줄임 */
+  }
+  .Map-navHome,
+  .Map-reset-map {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+  .search-bar input {
+    font-size: 15px;
+  }
+  .search-btn {
+    font-size: 20px;
+  }
+  .location-09card h3 {
+    font-size: 16px;
+  }
+  .location-09card p {
+    font-size: 13px;
+  }
+  .location-09card .open-status {
+    font-size: 13px;
+  }
+  .map-info-content {
+    max-width: 220px;
+    font-size: 13px;
+    padding: 12px 15px;
+  }
+  .map-info-content .info-title {
+    font-size: 16px;
+  }
+  .map-info-content .info-address {
+    font-size: 12px;
+  }
+}
+
+/* 모바일 (예: 768px 이하) */
+@media (max-width: 768px) {
+  .map-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    padding: 15px; /* 모바일에서도 패딩 유지 */
+  }
+
+  .map-sidebar {
+    width: 100%;
+    height: 55vh; /* 모바일에서 사이드바 높이 조정 */
+    margin: 0 0 15px 0; /* 지도와의 아래쪽 마진 */
+    padding: 20px;
+    gap: 15px;
+    order: 2;
+  }
+
+  .map-section {
+    width: 100%;
+    height: 40vh; /* 모바일에서 지도 높이 조정 */
+    order: 1;
+    margin-bottom: 15px; /* 사이드바와의 아래쪽 마진 (없어도 됨, 사이드바가 위로 옮겨져서) */
+  }
+
+  /* 버튼 그룹 스타일 조정 */
+  .Map-header-button-group {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .Map-navHome,
+  .Map-reset-map {
+    flex-basis: 100%;
+    max-width: 280px; /* 버튼 너비 제한 (너무 길어지지 않도록) */
+    margin: 0 auto;
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  /* 검색 바도 필요시 너비나 패딩 조절 */
+  .search-bar {
+    padding: 10px;
+  }
+  .search-bar input {
+    font-size: 15px;
+  }
+
+  /* 카드 스타일 조정 */
+  .location-09card {
+    padding: 15px;
+  }
+  .location-09card h3 {
+    font-size: 15px;
+  }
+  .location-09card p {
+    font-size: 12px;
+  }
+  .map-info-content {
+    max-width: 190px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  .map-info-content .info-title {
+    font-size: 14px;
+  }
+  .map-info-content .info-address {
+    font-size: 11px;
+  }
+}
+
+/* 더 작은 모바일 (예: 480px 이하) */
+@media (max-width: 480px) {
+  .map-container {
+    padding: 10px;
+  }
+  .map-sidebar {
+    padding: 15px;
+    gap: 10px;
+    height: 60vh;
+  }
+  .map-section {
+    height: 35vh; /* 지도 높이 좀 더 줄임 */
+  }
+  .Map-header-button-group {
+    padding: 10px;
+  }
+  .Map-navHome,
+  .Map-reset-map {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+  .search-bar input {
+    font-size: 13px;
+  }
+  .search-btn {
+    font-size: 18px;
+  }
+  .location-09card {
+    padding: 12px;
+  }
+  .location-09card h3 {
+    font-size: 14px;
+  }
+  .location-09card p {
+    font-size: 11px;
+  }
+  .location-09card .open-status {
+    font-size: 11px;
+  }
 }
