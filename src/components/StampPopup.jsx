@@ -7,19 +7,18 @@ const StampPopup = ({ onClose, onNotAgainSee }) => {
   const { loginedId } = useContext(DataStateContext);
   let completeNum = 0;
 
-  // 미션 모두 완료
-  if (loginedId.mission[0] && loginedId.mission[1]) {
-    completeNum = 3;
-  }
+  // 미션 성공 여부
+  if (loginedId.mission[0] && loginedId.mission[1]) completeNum = 3;
+  else if (loginedId.mission[0]) completeNum = 1;
+  else if (loginedId.mission[1]) completeNum = 2;
 
-  // 1번 미션 성공
-  if (loginedId.mission[0] && !loginedId.mission[1]) {
-    completeNum = 1;
-  }
-
-  // 2번 미션 성공
-  if (!loginedId.mission[0] && loginedId.mission[1]) {
-    completeNum = 2;
+  // 나이 계산
+  const birth = new Date(loginedId.birth);
+  const today = new Date();
+  let age = today.getFullYear() - birth.getFullYear();
+  const monthDiff = today.getMonth() - birth.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    age--; // 생일 아직 안 지난 경우
   }
 
   return (
@@ -31,11 +30,16 @@ const StampPopup = ({ onClose, onNotAgainSee }) => {
 
           <div className="stamp-flow">
             <div className="stamp-item">
+              {/* 💬 말풍선 텍스트 */}
+              <div className="balloon-text">
+                내 나이 {age}세, <br />
+                청춘 시작이다!
+              </div>
               <img src={getCompleteMissionImage(completeNum)} alt="멘트" />
             </div>
           </div>
 
-          {/* 팝업 내부의 주황 하단 영역 */}
+          {/* 주황 하단 영역 */}
           <div className="stamp-bottom">
             <div className="stamp-desc-box">
               <p>
@@ -49,9 +53,12 @@ const StampPopup = ({ onClose, onNotAgainSee }) => {
               </p>
               <strong>당신도 디지털 레전드 해봐 you~</strong>
             </div>
-            <div className="stamp-close-button">
-              <button onClick={onClose}>닫기</button>
+            <div className="stamp-button-container">
+              <button className="stamp-close-button" onClick={onClose}>
+                닫기
+              </button>
               <button
+                className="stamp-close-button"
                 onClick={() => {
                   onNotAgainSee();
                   console.log(".");

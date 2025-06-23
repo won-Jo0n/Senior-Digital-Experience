@@ -30,14 +30,14 @@
 }
 
 .stamp-title {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: bold;
   color: #5e4c3a;
   margin-bottom: 6px;
 }
 
 .stamp-subtitle {
-  font-size: 16px;
+  font-size: 18px;
   color: #5e4c3a;
   margin-bottom: 20px;
 }
@@ -53,11 +53,27 @@
   max-width: 400px;
   height: auto;
 }
+.stamp-item {
+  position: relative; /* 기준 요소 설정 */
+}
+
+.balloon-text {
+  position: absolute;
+  top: 130px;      /* 말풍선 위치에 맞게 조정 */
+  left: 22px;     /* 말풍선 위치에 맞게 조정 */
+  color: #5e4c3a;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
 
 .stamp-bottom {
   background-color: #ffa726;
   width: 100vw; /* 화면 전체 넓이로 확장 */
-  margin-left: calc(-50vw + 250px); /*  가운데 정렬 보정: 500px/2 */
+  margin-left: calc(-51vw + 250px); /*  가운데 정렬 보정: 500px/2 */
   padding: 20px 0;
   text-align: center;
 }
@@ -78,8 +94,12 @@
   font-size: 18px;
   color: #fff;
 }
-
-.stamp-close-button Button {
+.stamp-button-container {
+  
+  padding: 0 20px;
+}
+.stamp-close-button {
+   flex: 1;
   background-color: #fff;
   color: #5e4c3a;
   padding: 10px 24px;
@@ -87,4 +107,6 @@
   border: none;
   font-weight: bolder;
   cursor: pointer;
+  margin: 10px 5px;
+  justify-content: space-between;
 }
