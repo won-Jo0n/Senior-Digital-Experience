@@ -2,7 +2,7 @@
   position: relative;
   width: 1000px;
   height: 1300px;
-  margin-left: 20%;
+  margin-left: 25%;
   background-image: url("/public//koisk.png");
   background-size: 1000px 1300px;
   background-position: center; /* 이미지를 div 중앙에 배치 */

@@ -3,7 +3,8 @@
   border-radius: 10px;
   width: 1000px;
   height: 1300px;
-  margin-left: 20%;
+  margin-left: 490px;
+  margin-top: 60px;
   background-image: url("/public//koisk.png");
   background-size: cover;
   background-position: center; /* 이미지를 div 중앙에 배치 */

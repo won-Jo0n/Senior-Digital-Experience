@@ -11,13 +11,18 @@ const KioskFinal = () => {
   return (
     <div className="FinalKioskDisplay">
       <div className="finalKiosk">
-        <div className="finalText">키오스크 연습 완료!</div>
-        <div></div>
+        <img src={"/icon_friends.png"} alt="아이콘" />
+        <div className="finalText">
+          <b>키오스크 미션 성공 🎉</b>
+        </div>
         <div>
           <div>
-            <div>이미지</div>
-            <div>고생하셨습니다</div>
-            <button onClick={backMenuPage}>홈으로</button>
+            <div className="finishText">
+              <b>주문이 접수 되었습니다</b>
+            </div>
+            <button className="MOVEHOME" onClick={backMenuPage}>
+              홈으로
+            </button>
           </div>
         </div>
       </div>
