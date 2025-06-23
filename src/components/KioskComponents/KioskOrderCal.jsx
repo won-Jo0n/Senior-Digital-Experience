@@ -99,6 +99,9 @@ const KioskOrderCal = ({
             <button className="clearBtn" onClick={clearList}>
               <b>지우기</b>
             </button>
+            <button className="resetBtn" onClick={moveStartPage}>
+              <b>처음으로</b>
+            </button>
             <button
               className={
                 getIsChallenged() || !secondHighlight
@@ -108,9 +111,6 @@ const KioskOrderCal = ({
               onClick={openOlder}
             >
               <b>주문하기</b>
-            </button>
-            <button className="resetBtn" onClick={moveStartPage}>
-              <b>처음으로</b>
             </button>
           </div>
         </div>
