@@ -138,9 +138,9 @@
 .reservation_button {
   display: flex;
   justify-content: center;
-  margin-top: 16px;
   height: 50px;
   width: 365px;
+  margin-bottom: 15px;
 }
 .redHighlight {
   color: #f88400;
@@ -160,13 +160,11 @@
   background-color: #03c75a;
   color: white;
   font-weight: bold;
-  padding: 12px 0;
   border: none;
   border-radius: 6px;
   font-size: 18px;
-  margin-top: 3px;
-  margin-bottom: 3px;
   cursor: pointer;
+  margin: 3px;
 }
 /* 탭 영역 (홈, 리뷰, 지도 등) */
 .tab-bar {
