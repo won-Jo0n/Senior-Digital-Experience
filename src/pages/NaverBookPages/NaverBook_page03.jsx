@@ -3,7 +3,7 @@ import "./NaverBook_page03.css";
 import { useState, useContext } from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
-import "../../components/highlight.css";
+import Highlight from "../../components/highlight";
 import { DataDispatchContext } from "../../App";
 
 const NaverBook_page03 = () => {
@@ -62,9 +62,7 @@ const NaverBook_page03 = () => {
     if (selectedDate && selectedTime) {
       nav("/NaverBook/page04", {
         state: {
-          // sv-SE을 사용한 이유: 한국 시간 기준 문자열로 변환
-          // sv-SE는 스웨덴 포맷
-          date: selectedDate.toLocaleDateString("sv-SE"), // 여기 수정됨!
+          date: selectedDate.toLocaleDateString("sv-SE"),
           time: selectedTime,
         },
       });
@@ -116,55 +114,162 @@ const NaverBook_page03 = () => {
                   )
                 )}
               </div>
-              <div
-                className={`calendarDay ${
-                  !selectedDate && !selectedTime && !getIsChallenged()
-                    ? "highlight"
-                    : ""
-                }`}
-              >
-                {weeks.map((week, weekIndex) => (
-                  <div className="week" key={weekIndex}>
-                    {week.map((date, dayIndex) => {
-                      const isSelected =
-                        selectedDate &&
-                        date.getDate() === selectedDate.getDate() &&
-                        date.getMonth() === selectedDate.getMonth() &&
-                        date.getFullYear() === selectedDate.getFullYear();
-                      const isPast = isPastDate(date);
+              {/* 하이라이트 날짜*/}
+              {!selectedDate && !selectedTime && !getIsChallenged() ? (
+                <Highlight tooltip="날짜를 선택해주세요">
+                  <div className="calendarDay">
+                    {weeks.map((week, weekIndex) => (
+                      <div className="week" key={weekIndex}>
+                        {week.map((date, dayIndex) => {
+                          const isSelected =
+                            selectedDate &&
+                            date.getDate() === selectedDate.getDate() &&
+                            date.getMonth() === selectedDate.getMonth() &&
+                            date.getFullYear() === selectedDate.getFullYear();
+                          const isPast = isPastDate(date);
 
-                      return (
-                        <div
-                          key={dayIndex}
-                          className={`day ${isSelected ? "selected" : ""} ${
-                            isPast ? "past" : ""
-                          }`}
-                          onClick={() => {
-                            if (!isPast) setSelectedDate(date);
-                          }}
-                        >
-                          {date.getDate()}
-                        </div>
-                      );
-                    })}
+                          return (
+                            <div
+                              key={dayIndex}
+                              className={`day ${isSelected ? "selected" : ""} ${
+                                isPast ? "past" : ""
+                              }`}
+                              onClick={() => {
+                                if (!isPast) setSelectedDate(date);
+                              }}
+                            >
+                              {date.getDate()}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </Highlight>
+              ) : (
+                <div className="calendarDay">
+                  {weeks.map((week, weekIndex) => (
+                    <div className="week" key={weekIndex}>
+                      {week.map((date, dayIndex) => {
+                        const isSelected =
+                          selectedDate &&
+                          date.getDate() === selectedDate.getDate() &&
+                          date.getMonth() === selectedDate.getMonth() &&
+                          date.getFullYear() === selectedDate.getFullYear();
+                        const isPast = isPastDate(date);
+
+                        return (
+                          <div
+                            key={dayIndex}
+                            className={`day ${isSelected ? "selected" : ""} ${
+                              isPast ? "past" : ""
+                            }`}
+                            onClick={() => {
+                              if (!isPast) setSelectedDate(date);
+                            }}
+                          >
+                            {date.getDate()}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
-
-          <div
-            className={`clockbutton ${
-              selectedDate && !selectedTime && !getIsChallenged()
-                ? "highlight"
-                : ""
-            }`}
-          >
-            <div className="timeBlock">
-              <p className="timeLabel">오전</p>
-              <div className="timeGroup">
-                {["9:00", "9:30", "10:00", "10:30", "11:00", "11:30"].map(
-                  (time, index) => (
+          {/* 하이라이트 시간*/}
+          {selectedDate && !selectedTime && !getIsChallenged() ? (
+            <Highlight tooltip="시간을 선택해주세요">
+              <div className="clockbutton">
+                <div className="timeBlock">
+                  <p className="timeLabel">오전</p>
+                  <div className="timeGroup">
+                    {["9:00", "9:30", "10:00", "10:30", "11:00", "11:30"].map(
+                      (time, index) => (
+                        <button
+                          key={index}
+                          className={`timeButton ${
+                            selectedTime === time ? "selected" : ""
+                          }`}
+                          onClick={() => setSelectedTime(time)}
+                        >
+                          {time}
+                        </button>
+                      )
+                    )}
+                  </div>
+                </div>
+                <div className="timeBlock">
+                  <p className="timeLabel">오후</p>
+                  <div className="timeGroup">
+                    {[
+                      "12:00",
+                      "12:30",
+                      "13:00",
+                      "13:30",
+                      "14:00",
+                      "14:30",
+                      "15:00",
+                      "15:30",
+                      "16:00",
+                      "16:30",
+                      "17:00",
+                      "17:30",
+                      "18:00",
+                    ].map((time, index) => (
+                      <button
+                        key={index}
+                        className={`timeButton ${
+                          selectedTime === time ? "selected" : ""
+                        }`}
+                        onClick={() => setSelectedTime(time)}
+                      >
+                        {time}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Highlight>
+          ) : (
+            <div className="clockbutton">
+              <div className="timeBlock">
+                <p className="timeLabel">오전</p>
+                <div className="timeGroup">
+                  {["9:00", "9:30", "10:00", "10:30", "11:00", "11:30"].map(
+                    (time, index) => (
+                      <button
+                        key={index}
+                        className={`timeButton ${
+                          selectedTime === time ? "selected" : ""
+                        }`}
+                        onClick={() => setSelectedTime(time)}
+                      >
+                        {time}
+                      </button>
+                    )
+                  )}
+                </div>
+              </div>
+              <div className="timeBlock">
+                <p className="timeLabel">오후</p>
+                <div className="timeGroup">
+                  {[
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30",
+                    "17:00",
+                    "17:30",
+                    "18:00",
+                  ].map((time, index) => (
                     <button
                       key={index}
                       className={`timeButton ${
@@ -174,57 +279,29 @@ const NaverBook_page03 = () => {
                     >
                       {time}
                     </button>
-                  )
-                )}
+                  ))}
+                </div>
               </div>
             </div>
-
-            <div className="timeBlock">
-              <p className="timeLabel">오후</p>
-              <div className="timeGroup">
-                {[
-                  "12:00",
-                  "12:30",
-                  "13:00",
-                  "13:30",
-                  "14:00",
-                  "14:30",
-                  "15:00",
-                  "15:30",
-                  "16:00",
-                  "16:30",
-                  "17:00",
-                  "17:30",
-                  "18:00",
-                ].map((time, index) => (
-                  <button
-                    key={index}
-                    className={`timeButton ${
-                      selectedTime === time ? "selected" : ""
-                    }`}
-                    onClick={() => setSelectedTime(time)}
-                  >
-                    {time}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          )}
 
           <div className="nextButton">
             <div className="toolTipButton">
-              <Button className="menuBtn" text="💬" />
+              <Button text="💬" />
             </div>
-            <div
-              className={`forthPageButton ${
-                selectedDate && selectedTime && !getIsChallenged()
-                  ? "highlight"
-                  : ""
-              }`}
-              onClick={forthPage}
-            >
-              <Button className="menuBtn" text="다음 단계" />
-            </div>
+
+            {/* 하이라이트 버튼*/}
+            {selectedDate && selectedTime && !getIsChallenged() ? (
+              <Highlight tooltip="다음 단계로 이동해주세요">
+                <div className="forthPageButton" onClick={forthPage}>
+                  <Button text="다음 단계" />
+                </div>
+              </Highlight>
+            ) : (
+              <div className="forthPageButton" onClick={forthPage}>
+                <Button text="다음 단계" />
+              </div>
+            )}
           </div>
         </div>
       </div>

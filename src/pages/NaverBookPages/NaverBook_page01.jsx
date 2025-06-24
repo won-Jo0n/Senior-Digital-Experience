@@ -91,7 +91,7 @@ const NaverBook_page01 = () => {
                 <Button text={"예약"} onClick={secondPage} />
               </div>
             ) : (
-              <Highlight tooltip="예약하기 버튼을 눌러주세요">
+              <Highlight tooltip="예약하기 버튼을 눌러주세요" color="red">
                 <div className="reservation_button">
                   <Button text={"예약"} onClick={secondPage} />
                 </div>

@@ -1,12 +1,13 @@
 // components/Highlight.jsx
 import "./highlight.css";
-import "./tooltip.css";
 
-const Highlight = ({ children, tooltip }) => {
+const Highlight = ({ children, tooltip, color }) => {
   return (
-    <div className="highlight-container">
+    <div className="highlight-outer">
       {tooltip && <div className="tooltip">{tooltip}</div>}
-      <div className="highlight">{children}</div>
+      <div className="highlight" style={{ color }}>
+        {children}
+      </div>
     </div>
   );
 };
