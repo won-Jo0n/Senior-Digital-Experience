@@ -66,11 +66,19 @@
   color: rgb(39, 39, 39);
   font-weight: bold;
   font-size: 20px;
+  border: 2px solid #03c75a ;
   padding: 18px 25px;
   border-radius: 40px;
-  border: 2px solid #03c75a;
   white-space: nowrap;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.tooltip-green{
+  border: 2px solid #03c75a ;
+}
+
+/* 세원이가 원하는 색으로 넣어 */
+.tooltip-sewonUptoyou{
+  border: 2px solid red;
 }
 
 /* 툴팁 꼬리 */
