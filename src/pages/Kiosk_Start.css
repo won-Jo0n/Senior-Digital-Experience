@@ -64,7 +64,6 @@
   /* width: fit-content; */
   /* height: 90vh; */ /* 뷰포트 기준이 아닌 고정 픽셀로 변경하는 것을 권장 */
   /* text-align: center; margin: 0 auto; padding-top: 0; 등의 속성은 absolute 포지셔닝 시 필요 없습니다. */
-
   /* z-index를 낮게 설정하여 imageDisplay 아래에 깔리도록 */
   z-index: 0;
 }

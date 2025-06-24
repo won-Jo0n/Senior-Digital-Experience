@@ -1,15 +1,13 @@
 .KIOSKDISPLAY {
-  width: 1000px;
-  height: 1300px;
-  margin-left: 469px;
-  background-image: url("/public//koisk.png");
-  background-size: 1000px 1300px;
-  background-position: center; /* 이미지를 div 중앙에 배치 */
-  background-repeat: no-repeat; /* 이미지 반복 방지 */
-  justify-content: center;
+  background-color: #fffbf3;
+  display: flex;
+  justify-content: center; /* KioskWRAP을 가로 중앙으로 */
+  align-items: center; /* KioskWRAP을 세로 중앙으로 */
+  height: 100vh; /* 뷰포트 전체 높이를 차지 */
+  width: 100vw; /* 뷰포트 전체 너비를 차지 */
+  overflow: hidden;
 }
-
-.LastOlderPage {
+.KioskPayWRAP {
   position: absolute;
   border-radius: 10px;
   background-color: white;
@@ -18,30 +16,53 @@
   width: 730px;
   height: 900px;
 }
+.KIOSKDP2 {
+  position: absolute; /* ★★★ KioskWRAP 기준 절대 위치 ★★★ */
+  top: 50%; /* ★★★ KioskWRAP의 세로 중앙에 오도록 ★★★ */
+  left: 50%; /* ★★★ KioskWRAP의 가로 중앙에 오도록 ★★★ */
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.KIOSKDP2 img {
+  position: relative;
+  width: 1000px;
+  height: 990px;
+  object-fit: contain;
+  border: 1px solid #000;
+  margin-top: 25px;
+  z-index: -1;
+}
+
+.LastOlderPage {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  background-color: white;
+  width: 536px;
+  height: 100%;
+}
 
 .LastOlderPage .oldertext {
   display: flex;
-  position: absolute;
   justify-content: center; /* 주축(기본: 수평)에서 가운데 정렬 */
   align-items: center;
   color: white;
   background-color: #ab1f2e;
   border-radius: 10px 10px 0px 0px;
-  width: 733px;
-  height: 130px;
+  width: 510px;
+  height: 70px;
   text-align: center;
   font-size: 35px;
 }
 
 .pickCARD {
-  position: absolute;
   display: flex;
   justify-content: center; /* 주축(기본: 수평)에서 가운데 정렬 */
   align-items: center;
-  width: 650px;
+  margin: 0 auto;
+  width: 350px;
   height: 120px;
-  margin-top: 131px;
-  margin-left: 30px;
   background-color: white;
   border-bottom: 3px solid lightgray;
   color: black;
@@ -55,12 +76,15 @@
 }
 
 .olderMETHOD {
-  width: 733px;
+  width: 500px;
   height: 130px;
-  margin-top: 350px;
+  margin-top: 50px;
   font-size: 50px;
 }
 
+.olderMETHOD button {
+  width: 30px;
+}
 .CARDBTN.highlight::after {
   background-color: white;
 }
@@ -74,6 +98,10 @@
   border-radius: 10px;
 }
 
+.topBtn {
+  display: flex;
+}
+
 .topBtn button {
   border: 3px solid gray;
   background-color: white;
@@ -84,10 +112,16 @@
   margin-bottom: 30px;
   font-size: 30px;
   border-radius: 10px;
+  z-index: 1000;
+  cursor: pointer;
 }
 
 .CARDBTN.highlight::after {
   background-color: white;
+}
+
+.bottomBtn {
+  display: flex;
 }
 .bottomBtn button {
   border: 3px solid gray;
@@ -103,11 +137,7 @@
 
 .BTNcontainer {
   border: 3px solid gray;
-  background-color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 400px;
   border: none;
   padding: 10px;
   border-radius: 0px 0px 10px 10px;
@@ -118,17 +148,16 @@
 }
 
 .BackBTN {
+  margin: 0 auto;
   border: none;
-  width: 690px;
+  width: 90%;
   height: 90px;
-  align-self: center; /* 버튼 자신만 수평 가운데 정렬 */
   padding: 15px 25px;
   background-color: rgb(165, 159, 159);
   color: white;
   font-weight: 10px;
   cursor: pointer;
-  margin-top: 310px;
-  margin-bottom: 60px;
   font-size: 40px;
   border-radius: 10px;
+  z-index: 10;
 }
