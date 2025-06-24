@@ -6,6 +6,7 @@ import touchFinger from "../assets/touchFinger.png";
 import { useNavigate } from "react-router-dom";
 import { DataDispatchContext } from "../App";
 import { useContext, useState } from "react";
+import Highlight from "../components/highlight";
 
 //키오스크 시작 화면
 const KioskStart = () => {
@@ -40,23 +41,33 @@ const KioskStart = () => {
                 alt="여름 시즌 빙수 신제품 출시  사진"
               />
             </div>
-
-            <div
-              className={
-                getIsChallenged() ? "middleDiv" : "middleDiv highlight"
-              }
-              onClick={() => nav("/Kiosk/:1")}
-            >
-              <div className="middleText">안녕하세요 고객님</div>
-              <div className="middleMainText">
-                <strong>
-                  "주문을 하시려면
-                  <br />
-                  화면을 터치해주세요"
-                </strong>
+            {getIsChallenged() ? (
+              <div className="middleDiv" onClick={() => nav("/Kiosk/:1")}>
+                <div className="middleText">안녕하세요 고객님</div>
+                <div className="middleMainText">
+                  <strong>
+                    "주문을 하시려면
+                    <br />
+                    화면을 터치해주세요"
+                  </strong>
+                </div>
+                <img className="blinking" src={touchFinger} />
               </div>
-              <img className="blinking" src={touchFinger} />
-            </div>
+            ) : (
+              <Highlight tooltip="화면을 눌러주세요" color="green">
+                <div className="middleDiv" onClick={() => nav("/Kiosk/:1")}>
+                  <div className="middleText">안녕하세요 고객님</div>
+                  <div className="middleMainText">
+                    <strong>
+                      "주문을 하시려면
+                      <br />
+                      화면을 터치해주세요"
+                    </strong>
+                  </div>
+                  <img className="blinking" src={touchFinger} />
+                </div>
+              </Highlight>
+            )}
 
             <img
               className="lastImage"
