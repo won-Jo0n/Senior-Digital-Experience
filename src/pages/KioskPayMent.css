@@ -41,7 +41,7 @@
   color: white;
   background-color: #ab1f2e;
   border-radius: 10px 10px 0px 0px;
-  width: 510px;
+  width: 500px;
   height: 70px;
   text-align: center;
   font-size: 35px;
@@ -67,7 +67,7 @@
 }
 
 .KioskPayMent .olderMETHOD {
-  width: 500px;
+  width: 465px;
   height: 130px;
   margin-top: 50px;
   font-size: 50px;

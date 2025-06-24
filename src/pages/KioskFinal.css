@@ -10,6 +10,17 @@
   overflow: hidden;
 }
 
+.KioskFInalAllPage {
+  display: flex;
+  position: absolute;
+  border-radius: 10px;
+  background-color: white;
+  width: 75%;
+  top: 72px;
+  left: 65px;
+  height: 70%;
+}
+
 .KioskFinal .KIOSKDP4 {
   display: flex;
   justify-content: center;
@@ -24,7 +35,6 @@
   z-index: 1;
 }
 
-
 .KioskFinal .MissionIcon {
   width: 100%;
   position: absolute;
@@ -34,14 +44,29 @@
 }
 .KioskFinal .MissionIcon-img {
   position: relative;
-  top: 30px;
-  height: 150px;
+  top: 50px;
+  height: 100px;
 }
 
 .KioskFinal .finalText {
   position: absolute;
   width: 100%;
+  top: 200px;
 }
+
+.KioskFinal .orderListArea {
+  width: 60%;
+  height: 30%;
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 100px;
+  left: 80px;
+  z-index: 2;
+}
+
 .KioskFinal .KioskScreenContent {
   position: absolute;
   background-color: white;
@@ -85,36 +110,19 @@
   justify-content: center;
 }
 
-.KioskFinal .orderListArea {
-  width: 100%; /* 부모 KioskScreenContent 너비를 꽉 채우도록 */
-  flex-grow: 1; /* 남은 공간을 차지하도록 */
-  overflow-y: auto; /* 주문 내역이 많아지면 스크롤 가능하도록 */
-  padding: 10px 0; /* 상하 패딩 */
-}
-
-.KioskFinal .finishText {
-  width: 100%;
-}
-
-.KioskFinal .finishTextMenu {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* 각 주문 항목 간격 */
-}
-
 .KioskFinal .FinishWarp {
   display: flex;
   align-items: center;
   gap: 15px; /* 이미지와 텍스트 간격 */
   padding: 10px;
   border-bottom: 1px solid #eee; /* 각 항목 구분선 */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .KioskFinal .FinishWarp .text-img img {
-  /* 각 주문 항목 이미지 */
-  width: 200px; /* 이미지 크기 조절 */
-  height: 400px; /* 이미지 크기 조절 */
+  width: 100px; /* 이미지 크기 조절 */
+  height: 100px; /* 이미지 크기 조절 */
   object-fit: contain;
   border-radius: 5px;
 }
@@ -141,7 +149,8 @@
   justify-content: center;
   align-items: center;
   width: 60%;
-  bottom: 160px;
+  bottom: 30px;
+  left: 100px;
   border: none;
   border-radius: 8px;
 }
@@ -155,10 +164,9 @@
   width: 100%;
   border-radius: 8px;
   transition: background-color 0.2s ease;
-  z-index: 2;
+  z-index: 3;
 }
 
 .KioskFinal .MOVEHOME:hover {
   background-color: #8c1926;
-
 }
