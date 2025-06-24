@@ -22,7 +22,7 @@
   left: -1%; /* 왼쪽 위치도 더 안쪽으로 */
   width: 100%; /* 크기를 103%로 줄임 */
   height: 100%; /* 높이도 103% */
-  background: red;
+  background: #079949;
   animation: animate 4s linear infinite;
   z-index: 1;
 }
@@ -57,7 +57,7 @@
 /* 툴팁 (하이라이트 위에 살짝 붙은 느낌) */
 .tooltip {
   position: absolute;
-  top: -80px; /*  하이라이트와 약간 띄운 위치 */
+  top: -85px; /*  하이라이트와 약간 띄운 위치 */
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
@@ -65,8 +65,8 @@
   background-color: white;
   color: rgb(39, 39, 39);
   font-weight: bold;
-  font-size: 18px;
-  padding: 15px 25px;
+  font-size: 20px;
+  padding: 18px 25px;
   border-radius: 40px;
   border: 2px solid #03c75a;
   white-space: nowrap;
