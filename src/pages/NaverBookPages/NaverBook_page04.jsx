@@ -194,7 +194,7 @@ const NaverBook_page04 = () => {
             </div>
 
             {medicaPurpose && medicaRequest && !getIsChallenged() ? (
-              <Highlight tooltip="예약 신청을 눌러주세요">
+              <Highlight tooltip="예약 신청을 눌러주세요" color="green">
                 <div className="agreeAndbookRequest" onClick={fifthPage}>
                   <Button text={"동의하고 예약 신청하기"} />
                 </div>
