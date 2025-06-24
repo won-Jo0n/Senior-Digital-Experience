@@ -34,9 +34,12 @@
   font-weight: bold;
   color: #5e4c3a;
   margin-bottom: 6px;
+  font-family: 'Paperlogy-8ExtraBold'
+
 }
 
 .stamp-subtitle {
+  font-family: 'Paperlogy-8ExtraBold';
   font-size: 18px;
   color: #5e4c3a;
   margin-bottom: 20px;
@@ -107,6 +110,8 @@
   cursor: pointer;
   margin: 10px 5px;
   justify-content: space-between;
+  font-size: 18px;
+  font-family: 'Paperlogy-8ExtraBold';
 }
 /* --- 반응형 미디어 쿼리 --- */
 
