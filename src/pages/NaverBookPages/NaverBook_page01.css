@@ -236,3 +236,104 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+
+@media screen and (max-width: 480px) {
+  
+  .phone-frame {
+    display: none !important;
+  }
+
+  /* 전체 Wrapper */
+  .bookWrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* 메인 콘텐츠 박스 */
+  .NaverBook_page01 {
+    width: 100% !important;
+    max-width: 100% !important;
+    top: 0px;
+    left: 0 !important;
+    transform: none !important;
+    padding: 12px;
+    max-height: none;
+  }
+
+  /* 예약 버튼 */
+ .reservation_button {
+  width: 330px !important;
+}
+
+ .reservation_button Button {
+  width: 100% !important;
+  font-size: 17px;
+}
+
+  /* 메인 이미지 작게 */
+  .main-photo img {
+    width: 140px !important;
+    height: 180px !important;
+}
+
+
+  .sub-photo-grid {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .sub-photo-grid img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* 텍스트 크기 줄이기 */
+  .clinic-title {
+    font-size: 20px;
+  }
+
+  .reviews {
+    font-size: 14px;
+  }
+
+  .icon-item {
+    font-size: 14px;
+  }
+
+  /* 탭바 스크롤 허용 */
+  .tab-bar {
+    font-size: 15px;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 4px;
+  }
+
+  .tab {
+    flex: 1;
+    white-space: nowrap;
+  }
+
+  /* 병원 정보 */
+  .info-line p {
+    font-size: 15px;
+  }
+
+  /* 더보기 버튼 */
+  .more-info {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  /* 미션 팝업 내 강조 텍스트 */
+  .noticeHighlight {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .redHighlight {
+    font-size: 20px;
+    padding: 4px;
+  }
+}
