@@ -128,24 +128,24 @@
 }
 
 /* 예약 */
+.reservationCard {
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 7px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  margin: 3px;
+}
+
 .reservationSection h3 {
   font-size: 25px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.reservationCard {
-  background-color: #f9f9f9;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-}
-
 .reservationCard.highlight::after {
   background-color: #f9f9f9;
 }
-
 
 .reservationCard h4 {
   font-size: 20px;
@@ -159,7 +159,7 @@
   margin-bottom: 10px;
 }
 
-/* ✅ 리뷰와 버튼을 한 줄에 */
+/* 리뷰와 버튼을 한 줄에 */
 .reviewAndBtnRow {
   display: flex;
   justify-content: space-between;

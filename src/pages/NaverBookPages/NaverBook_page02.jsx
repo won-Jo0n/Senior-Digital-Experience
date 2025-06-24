@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./NaverBook_page02.css";
 import Header from "../../components/Header";
-import "../../components/highlight.css";
+import Highlight from "../../components/highlight";
 import { DataDispatchContext } from "../../App";
 import { useContext } from "react";
 
@@ -65,24 +65,33 @@ const NaverBook_page02 = () => {
           <div className="reservationSection">
             <h3>예약</h3>
 
-            <div
-              className={
-                getIsChallenged()
-                  ? "reservationCard"
-                  : "reservationCard highlight"
-              }
-              onClick={thirdPage}
-            >
-              <h4>더해봐YOU의원 _ 네이버예약</h4>
-              <p>
-                해봐YOU의원 네이버 예약입니다. 간편하게 예약하고 문의해주세요.
-                감사합니다.
-              </p>
-              <div className="reviewAndBtnRow">
-                <span className="reviewSmall">★ 4.99 / 리뷰 1520</span>
-                <button className="greenBtn">예약하기</button>
+            {getIsChallenged() ? (
+              <div className="reservationCard" onClick={thirdPage}>
+                <h4>더해봐YOU의원 _ 네이버예약</h4>
+                <p>
+                  해봐YOU의원 네이버 예약입니다. 간편하게 예약하고 문의해주세요.
+                  감사합니다.
+                </p>
+                <div className="reviewAndBtnRow">
+                  <span className="reviewSmall">★ 4.99 / 리뷰 1520</span>
+                  <button className="greenBtn">예약하기</button>
+                </div>
               </div>
-            </div>
+            ) : (
+              <Highlight tooltip="병원을 선택해 예약을 시작해보세요!">
+                <div className="reservationCard" onClick={thirdPage}>
+                  <h4>더해봐YOU의원 _ 네이버예약</h4>
+                  <p>
+                    해봐YOU의원 네이버 예약입니다. 간편하게 예약하고
+                    문의해주세요. 감사합니다.
+                  </p>
+                  <div className="reviewAndBtnRow">
+                    <span className="reviewSmall">★ 4.99 / 리뷰 1520</span>
+                    <button className="greenBtn">예약하기</button>
+                  </div>
+                </div>
+              </Highlight>
+            )}
           </div>
 
           {/* 소개 영역 */}
