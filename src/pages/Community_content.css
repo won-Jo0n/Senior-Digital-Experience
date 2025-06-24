@@ -167,12 +167,12 @@
   }
   .content-info-wrapper .content-title {
     font-size: 1.6em; 
-    width: 100%; 
+    width: 95%; 
     text-align: left; 
   }
   .content-info-wrapper .content-userName {
     font-size: 0.95em; 
-    width: 100%; 
+    width: 95%; 
     text-align: left; 
   }
 
@@ -229,10 +229,12 @@
     padding-bottom: 8px;
   }
   .content-info-wrapper .content-title {
+     padding: 15px; 
     font-size: 1.4em; 
     line-height: 1.2;
   }
   .content-info-wrapper .content-userName {
+     padding: 15px; 
     font-size: 0.85em; 
   }
 
@@ -289,10 +291,12 @@
     padding-bottom: 10px;
   }
   .content-info-wrapper .content-title {
+    width: 90%;
     font-size: 1.5em; /* 폰트 크기 약간 키움 */
     line-height: 1.3; /* 줄 간격 약간 늘림 */
   }
   .content-info-wrapper .content-userName {
+    width: 90%;
     font-size: 0.9em;
   }
 
@@ -342,6 +346,8 @@
     gap: 12px; /* 요소 간 간격 약간 늘림 */
     border-radius: 4px;
   }
+
+ 
 
   .Community_content .Logo {
     margin-bottom: 20px; /* 로고 아래 간격 약간 늘림 */

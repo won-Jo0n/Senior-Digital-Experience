@@ -56,7 +56,7 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
 
   return (
     <div
-      className="NavCard"
+      className={`${cardImage === 3 ? "NavCard image_3" : "NavCard"}`}
       onMouseEnter={handleMouseEnter} // 마우스 진입 이벤트 리스너 추가
       onMouseLeave={handleMouseLeave} // 마우스 이탈 이벤트 리스너 추가
     >
