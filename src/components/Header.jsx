@@ -1,27 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
-import Logo from "./Logo";
 
-const Header = () => {
+const Header = ({ leftIcon = "left1", rightIcon = "right1" }) => {
   const nav = useNavigate();
 
-  const handdlePrevBtn = () => {
+  const handlePrevBtn = () => {
     nav(-1);
   };
 
-  const handdleNavHome = () => {
+  const handleNavHome = () => {
     nav("/");
   };
 
   return (
     <header className="Header">
-      <button onClick={handdlePrevBtn}>
-        <img src="/icon_left.png"></img>
+      <button onClick={handlePrevBtn}>
+        <img src={`/${leftIcon}.png`} />
         <br />
         이전
       </button>
-      <button onClick={handdleNavHome}>
-        <img src="/icon_right.png"></img>
+      <button onClick={handleNavHome}>
+        <img src={`/${rightIcon}.png`} />
         <br />홈
       </button>
     </header>
