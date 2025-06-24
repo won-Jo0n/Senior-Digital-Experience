@@ -85,6 +85,17 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.userInfo .deleteBtn {
+  margin-top: 20px;
+  width: 100%;
+  background-color: crimson;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 /* 가운데 미션 */
 .missionCard {
@@ -109,6 +120,13 @@
   align-items: center;
 }
 .rewardCard p {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
+}
+.missionCard .balloon-text {
+  position: absolute;
+  top: 180px;
+  left: 160px;
   font-family: "Noto Sans KR", sans-serif;
   font-weight: bold;
 }
@@ -139,4 +157,61 @@
   position: absolute;
   top: 315px;
   left: 165px;
+}
+/* 반응형 레이아웃: 화면이 960px 이하일 때 수직 정렬 */
+@media screen and (max-width: 960px) {
+  .contentContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%; /* 카드 너비를 부모의 90%로 */
+    max-width: 400px;
+  }
+
+  .missionCard {
+    min-width: unset; /* 고정 폭 제거 */
+    width: 90%;
+    max-width: 600px;
+    background-size: contain;
+  }
+
+  .rewardCard .balloon-text {
+    position: static;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .kiosk_coupon {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* 더 작은 화면 대응: 600px 이하 */
+@media screen and (max-width: 600px) {
+  .userInfo .infoRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .userInfo .infoRow input {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .subText {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .cardHeader {
+    font-size: 16px;
+  }
+
+  .editBtn {
+    font-size: 14px;
+    padding: 8px;
+  }
 }

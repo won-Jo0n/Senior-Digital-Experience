@@ -298,6 +298,15 @@ function App() {
     });
   };
   const onDelete = (id) => {
+    let idCommunity = [];
+    communityData.map((item) => {
+      if (item.author.id === id) {
+        idCommunity = [...idCommunity, item.id];
+      }
+    });
+    idCommunity.map((id) => {
+      onDeleteCommunityContent(id);
+    });
     dispatch({
       type: "DELETE",
       id,
@@ -317,7 +326,7 @@ function App() {
   };
 
   if (!isLoading) {
-    console.log("아직 다 안올라왔다잉");
+    console.log("not loaded");
   }
   if (isLoading) {
     return <div>데이터를 로드하는 중입니다...</div>;

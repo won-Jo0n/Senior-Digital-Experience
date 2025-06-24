@@ -7,13 +7,27 @@ import { DataDispatchContext, DataStateContext } from "../App";
 import Logo from "../components/Logo";
 import getCompleteMissionImage from "../util/getCompleteMissionImage";
 import mypage_stamp from "../assets/myPage/mypage_stamp.png";
+import { useNavigate } from "react-router-dom";
 
 const MyPage = () => {
-  const { onUpdate } = useContext(DataDispatchContext);
+  const { onUpdate, onDelete, onLogout } = useContext(DataDispatchContext);
+  const nav = useNavigate();
   const userState = useContext(DataStateContext);
   const phoneNum = useRef(userState.loginedId.phoneNum);
   const password = useRef(userState.loginedId.password);
   const birth = useRef(userState.loginedId.birth);
+
+  console.log(userState.loginedId);
+  const birthDate = new Date(userState.loginedId.birth);
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age--; // 생일 아직 안 지난 경우
+  }
 
   return (
     <div className="myPageContainer">
@@ -68,6 +82,20 @@ const MyPage = () => {
           >
             수정하기
           </button>
+          <button
+            className="deleteBtn"
+            onClick={() => {
+              let result = confirm("정말로 탈퇴하시겠습니까?");
+              if (result) {
+                console.log(userState.loginedId.id);
+                onDelete(userState.loginedId.id);
+                alert("탈퇴되었습니다!");
+                nav("/");
+              }
+            }}
+          >
+            탈퇴하기
+          </button>
         </div>
 
         {/* 가운데: 미션 */}
@@ -80,6 +108,10 @@ const MyPage = () => {
             backgroundRepeat: "no-repeat", // 반복 안 함
           }}
         >
+          <div className="balloon-text">
+            내 나이 {age}세, <br />
+            청춘 시작이다!
+          </div>
           <div className="kioskStampDiv">
             <Stamp isShow={true}></Stamp>
           </div>
