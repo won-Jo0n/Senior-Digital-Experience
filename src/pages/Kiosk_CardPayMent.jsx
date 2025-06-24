@@ -1,4 +1,5 @@
 import "./Kiosk_CardPayMent.css";
+import Header from "../components/Header";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const Kiosk_CardPayMent = () => {
@@ -15,29 +16,33 @@ const Kiosk_CardPayMent = () => {
   }, [nav]); // navigate 함수가 변할 때때
 
   return (
-    <div className="KioskDisplay">
-      <div className="cardPayMent">
-        <div className="cardTitle">
-          <div className="cardTitleText">
-            <b>신용카드 결제</b>
+    <>
+      {" "}
+      <Header />
+      <div className="KioskDisplay">
+        <div className="cardPayMent">
+          <div className="cardTitle">
+            <div className="cardTitleText">
+              <b>신용카드 결제</b>
+            </div>
+          </div>
+
+          <div className="totalMoney">(총금액)이 결제 됩니다</div>
+          <div className="totalContents">
+            <b>키오스크 연습이므로 실제로 결제되지 않습니다</b>
+          </div>
+          <div className="moveDISplay">
+            화면은 자동으로 넘어갑니다. 잠시만 기다려주세요
+          </div>
+          <div>
+            <img
+              className="CARDPAYMENT"
+              src="https://cdn-icons-png.flaticon.com/512/869/869139.png"
+            />
           </div>
         </div>
-
-        <div className="totalMoney">(총금액)이 결제 됩니다</div>
-        <div className="totalContents">
-          <b>키오스크 연습이므로 실제로 결제되지 않습니다</b>
-        </div>
-        <div className="moveDISplay">
-          화면은 자동으로 넘어갑니다. 잠시만 기다려주세요
-        </div>
-        <div>
-          <img
-            className="CARDPAYMENT"
-            src="https://cdn-icons-png.flaticon.com/512/869/869139.png"
-          />
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 
