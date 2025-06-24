@@ -22,10 +22,19 @@
   left: -1%; /* 왼쪽 위치도 더 안쪽으로 */
   width: 100%; /* 크기를 103%로 줄임 */
   height: 100%; /* 높이도 103% */
-  background: #079949;
+
   animation: animate 4s linear infinite;
   z-index: 1;
 }
+.highlight-green::before{
+  background: #079949;
+}
+
+/*  세원이가 하고 싶은 빙글빙글색  */
+.highlight-sewonUptoyou::before{
+  background: #ff061b;
+}
+
 
 /* 안쪽 마스크 */
 .highlight::after {
@@ -90,8 +99,17 @@
   transform: translateX(-50%);
   border-width: 6px;
   border-style: solid;
-  border-color: #03c75a transparent transparent transparent;
+ 
 }
+.tooltip-green::after{
+ border-color: #03c75a transparent transparent transparent;
+}
+
+/* 세원이가 원하는 색으로 넣어 */
+.tooltip-sewonUptoyou::after{
+  border: 2px solid red;
+}
+
 
 /* bounce 애니메이션 */
 @keyframes bounce {
