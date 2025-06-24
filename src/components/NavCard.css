@@ -17,6 +17,9 @@
   width: 300px;
   height: 300px;
 }
+.image_3 {
+  background-color: #f5c871;
+}
 
 .NavCardImage {
   height: 150px;
@@ -27,6 +30,10 @@
 .NavCard .title,
 .NavCard .explanation {
   transition: opacity 0.3s ease-out;
+}
+
+.NavCard .explanation {
+  color: rgb(70, 82, 71);
 }
 
 /* 마우스 호버 시 나타나는 버튼 오버레이 영역 */
@@ -76,29 +83,29 @@
 
 /* 연습모드 버튼 스타일 */
 .practice-mode-button {
-  background-color: #92e076; /* 이미지에서 보이는 연한 초록색 계열 */
+  background-color: #92b85e; /* 이미지에서 보이는 연한 초록색 계열 */
   color: #333; /* 텍스트 색상 */
 }
 
 .practice-mode-button:hover {
-  background-color: #7ad75e;
+  background-color: #7ca54e;
 }
 
 /* 실전모드 버튼 스타일 */
 .real-mode-button {
-  background-color: #f7d591; /* 이미지에서 보이는 주황색 계열 */
+  background-color: #f7a75b; /* 이미지에서 보이는 주황색 계열 */
   color: #333; /* 텍스트 색상 */
 }
 .real-mode-button:hover {
-  background-color: #f5c871;
+  background-color: #e69145;
 }
 
 /* 새롭게 추가된 단일 버튼 스타일 (기존 real-mode-button 색상 활용) */
 .single-action-button {
-  background-color: #f7d591; /* 실전모드와 동일한 색상 사용 */
+  background-color: #f7a75b; /* 실전모드와 동일한 색상 사용 */
   color: #333;
 }
 
 .single-action-button:hover {
-  background-color: #f5c871;
+  background-color: #e69145;
 }
