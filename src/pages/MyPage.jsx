@@ -89,6 +89,7 @@ const MyPage = () => {
               if (result) {
                 console.log(userState.loginedId.id);
                 onDelete(userState.loginedId.id);
+                onLogout();
                 alert("탈퇴되었습니다!");
                 nav("/");
               }
