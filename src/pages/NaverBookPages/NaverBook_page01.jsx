@@ -4,7 +4,7 @@ import "./NaverBook_page01.css";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import MissionPopup from "../../components/MissionPopup";
-import "../../components/highlight.css";
+import Highlight from "../../components/highlight"; // 수정된 컴포넌트 import
 import { DataDispatchContext } from "../../App";
 
 const NaverBook_page01 = () => {
@@ -12,7 +12,6 @@ const NaverBook_page01 = () => {
   const [showPopup, setShowPopup] = useState(true);
   const { getIsChallenged } = useContext(DataDispatchContext);
 
-  // 1분 타이머 시작 (sessionStorage에 저장)
   const secondPage = () => {
     sessionStorage.setItem("missionStart", new Date().toISOString());
     nav("/NaverBook/page02");
@@ -28,6 +27,8 @@ const NaverBook_page01 = () => {
         <MissionPopup
           message={
             <span>
+              <span className="noticeHighlight">제한 시간 1분</span>
+              <br />
               <span className="redHighlight">6월 30일</span>,{" "}
               <span className="redHighlight">14시 30분</span>에<br />
               진료 목적은 <span className="redHighlight">보건증 발급</span>으로,
@@ -85,15 +86,17 @@ const NaverBook_page01 = () => {
               </div>
             </div>
 
-            <div
-              className={
-                getIsChallenged()
-                  ? "reservation_button"
-                  : "reservation_button highlight"
-              }
-            >
-              <Button text={"예약"} onClick={secondPage} />
-            </div>
+            {getIsChallenged() ? (
+              <div className="reservation_button">
+                <Button text={"예약"} onClick={secondPage} />
+              </div>
+            ) : (
+              <Highlight tooltip="예약하기 버튼을 눌러주세요">
+                <div className="reservation_button">
+                  <Button text={"예약"} onClick={secondPage} />
+                </div>
+              </Highlight>
+            )}
           </div>
 
           {/* 탭바 */}
