@@ -48,8 +48,7 @@ const KioskOrderCal = ({
   return (
     <>
       <div className="ALLorderList">
-        <div className={"ORDERlIST"}></div>
-        <div className={"orderListBlank"}>
+        <div className="orderListBlank">
           {/* 메뉴 선택 시 주문 창 이미지와 정보 띄우기*/}
           {orderItems.map((orderItem) => {
             return (
@@ -62,23 +61,25 @@ const KioskOrderCal = ({
                 key={orderItem.name}
               >
                 <img src={orderItem.image} alt={orderItem.name} />
-                <div>
+                <div className="lastOrderContent">
                   {orderItem.name}
                   {orderItem.price}원{/* 수량 추가 버튼 */}
                 </div>
-                <button
-                  className="orderNumPlus"
-                  onClick={() => orderNumPlus(orderItem.id, orderItem.name)}
-                >
-                  +
-                </button>
-                <button
-                  className="orderNumPlus"
-                  onClick={() => orderNumMinus(orderItem.id, orderItem.name)}
-                >
-                  -
-                </button>
-                <div> {orderItem.quantity}개</div>
+                <div className="BTNDIV">
+                  <button
+                    className="orderNumPlus"
+                    onClick={() => orderNumPlus(orderItem.id, orderItem.name)}
+                  >
+                    +
+                  </button>
+                  <button
+                    className="orderNumPlus"
+                    onClick={() => orderNumMinus(orderItem.id, orderItem.name)}
+                  >
+                    -
+                  </button>
+                  <div> {orderItem.quantity}개</div>
+                </div>
               </div>
             );
           })}

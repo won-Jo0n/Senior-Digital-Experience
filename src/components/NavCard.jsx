@@ -66,8 +66,7 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
         src={getNavCardImage(cardImage)}
         alt={title}
       />
-      <h4 className="title">{title}</h4>
-      <div className="explanation">{explanation}</div>
+      <h1 className="title">{title}</h1>
 
       {/* 마우스 호버 시 나타나는 오버레이 버튼 영역 */}
       {showButtons && (

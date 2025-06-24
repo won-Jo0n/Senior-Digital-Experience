@@ -1,30 +1,44 @@
 .KIoskDisplay {
-  position: relative;
-  border-radius: 10px;
-  width: 1000px;
-  height: 1300px;
-  margin-left: 469px;
-  margin-top: 60px;
-  background-image: url("/public//koisk.png");
-  background-size: cover;
-  background-position: center; /* 이미지를 div 중앙에 배치 */
-  background-repeat: no-repeat; /* 이미지 반복 방지 */
-  overflow: hidden;
+  background-color: #fffbf3;
+  display: flex;
+  justify-content: center; /* KioskWRAP을 가로 중앙으로 */
+  align-items: center; /* KioskWRAP을 세로 중앙으로 */
+  height: 100vh; /* 뷰포트 전체 높이를 차지 */
+  width: 100vw; /* 뷰포트 전체 너비를 차지 */
+  overflow: hidden; /* 혹시 모를 스크롤 방지 */
 }
 
 .AllDisplay {
-  position: absolute;
-  top: 10px;
-  width: 728px;
-  margin-left: 120px;
-  background-color: white;
-  max-height: 400px; /* 스크롤이 생길 높이 설정 (원하는 높이로 조절) */
+  position: relative;
 }
 
+.KIOSKDP1 {
+  position: absolute; /* ★★★ KioskWRAP 기준 절대 위치 ★★★ */
+  top: 50%; /* ★★★ KioskWRAP의 세로 중앙에 오도록 ★★★ */
+  left: 50%; /* ★★★ KioskWRAP의 가로 중앙에 오도록 ★★★ */
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.KIOSKDP1 img {
+  position: relative;
+  /* ★★★ koisk.png 이미지의 실제 픽셀 크기를 여기에 지정합니다. ★★★ */
+  /* 예를 들어, koisk.png의 원본 크기가 1000px x 1300px이라면: */
+  width: 1000px; /* 실제 이미지 파일의 너비 */
+  height: 990px; /* 실제 이미지 파일의 높이 */
+  /* 이미지의 비율을 유지하면서 주어진 width/height에 맞추기 (선택 사항) */
+  object-fit: contain; /* 이미지가 잘리지 않고 프레임 안에 다 들어가게 */
+  border: 1px solid #000; /* 개발 시에만 사용하고, 최종 배포 시에는 제거 */
+  margin-top: 25px;
+  z-index: 0;
+}
 .MenuBar {
-  position: absolute;
-  top: 28px;
-  width: 724px;
+  position: relative;
+  width: 520px;
+  height: 200px;
+  z-index: 2;
+  margin-right: 20px;
+  margin-bottom: 650px;
 }
 
 .button_coffee {
@@ -73,14 +87,14 @@
 
 .coffee_menuDISPLAY {
   background-color: white;
-  width: 725px;
+  width: 519px;
   position: absolute;
-  top: 80px;
+  top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
   max-height: 589px;
-  height: 800px;
+  height: 380px;
+  z-index: 2;
 }
 
 .coffee_menuDISPLAY.highlight::after {
@@ -99,10 +113,9 @@
 }
 
 .ORDERlIST {
+  font-size: 20px;
   position: absolute;
-  width: 790px;
-  height: 400px;
-  margin-top: 680px;
-  margin-left: 114px;
+  margin-right: 40px;
   margin-bottom: 50px;
+  border-radius: 0px 0px 10px 10px;
 }
