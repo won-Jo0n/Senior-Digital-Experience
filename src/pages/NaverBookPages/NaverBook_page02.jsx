@@ -78,7 +78,10 @@ const NaverBook_page02 = () => {
                 </div>
               </div>
             ) : (
-              <Highlight tooltip="병원을 선택해 예약을 시작해보세요!">
+              <Highlight
+                tooltip="병원을 선택해 예약을 시작해보세요!"
+                color="green"
+              >
                 <div className="reservationCard" onClick={thirdPage}>
                   <h4>더해봐YOU의원 _ 네이버예약</h4>
                   <p>

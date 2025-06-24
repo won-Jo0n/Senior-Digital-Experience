@@ -116,7 +116,7 @@ const NaverBook_page03 = () => {
               </div>
               {/* 하이라이트 날짜*/}
               {!selectedDate && !selectedTime && !getIsChallenged() ? (
-                <Highlight tooltip="날짜를 선택해주세요">
+                <Highlight tooltip="날짜를 선택해주세요" color="green">
                   <div className="calendarDay">
                     {weeks.map((week, weekIndex) => (
                       <div className="week" key={weekIndex}>
@@ -180,7 +180,7 @@ const NaverBook_page03 = () => {
           </div>
           {/* 하이라이트 시간*/}
           {selectedDate && !selectedTime && !getIsChallenged() ? (
-            <Highlight tooltip="시간을 선택해주세요">
+            <Highlight tooltip="시간을 선택해주세요" color="green">
               <div className="clockbutton">
                 <div className="timeBlock">
                   <p className="timeLabel">오전</p>
@@ -292,7 +292,7 @@ const NaverBook_page03 = () => {
 
             {/* 하이라이트 버튼*/}
             {selectedDate && selectedTime && !getIsChallenged() ? (
-              <Highlight tooltip="다음 단계로 이동해주세요">
+              <Highlight tooltip="다음 단계로 이동해주세요" color="green">
                 <div className="forthPageButton" onClick={forthPage}>
                   <Button text="다음 단계" />
                 </div>

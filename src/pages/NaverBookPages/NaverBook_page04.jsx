@@ -68,7 +68,7 @@ const NaverBook_page04 = () => {
 
           {/* 진료 목적 하이라이트 */}
           {!medicaPurpose && !medicaRequest && !getIsChallenged() ? (
-            <Highlight tooltip="진료 목적을 선택해주세요">
+            <Highlight tooltip="진료 목적을 선택해주세요" color="green">
               <div className="addInfo">
                 <h3>추가 정보</h3>
                 <div className="medicaTreatmentPurpose">
@@ -140,7 +140,7 @@ const NaverBook_page04 = () => {
             </div>
 
             {medicaPurpose && !medicaRequest && !getIsChallenged() ? (
-              <Highlight tooltip="요청사항을 선택해주세요">
+              <Highlight tooltip="요청사항을 선택해주세요" color="green">
                 <div className="requestInfo">
                   <p className="requestLabel">요청사항</p>
                   <select
