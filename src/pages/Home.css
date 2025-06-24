@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100vh;
   padding: 20px;
-  color: white;
+  color: #fffbf3;
   font-family: "Inter", sans-serif;
 }
 
@@ -20,7 +20,7 @@
   padding: 20px 0px;
 }
 
-.Login-btn,
+.Login-btn Button,
 .NewAccount-btn Button {
   padding: 18px;
   font-size: 18px;
@@ -31,18 +31,21 @@
 }
 
 .Comunity-btn {
-  background-color: white;
+  background-color: #fffbf3;
   width: 50%;
   text-align: center;
   padding: 20px 40px;
-
   border-radius: 10px;
   margin: 30px 0;
+  transition: background-color 0.2s ease;
+}
+.Community-btn:hover {
+  background-color: black;
 }
 
 .wrapper_main {
   width: 50%;
-  background-color: white;
+  background-color: #fffbf3;
   padding: 20px 40px;
   border-radius: 10px;
   margin: 30px 0;
