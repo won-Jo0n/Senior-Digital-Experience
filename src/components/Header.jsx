@@ -15,8 +15,15 @@ const Header = () => {
 
   return (
     <header className="Header">
-      <button onClick={handdlePrevBtn}>이전으로</button>
-      <button onClick={handdleNavHome}>홈으로</button>
+      <button onClick={handdlePrevBtn}>
+        <img src="/icon_left.png"></img>
+        <br />
+        이전
+      </button>
+      <button onClick={handdleNavHome}>
+        <img src="/icon_right.png"></img>
+        <br />홈
+      </button>
     </header>
   );
 };
