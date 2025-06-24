@@ -1,15 +1,11 @@
 .coffee_Menu > .wrapper {
-  height: 220px;
-  width: 200px;
   margin-left: 7px;
   border: none;
   margin-top: 40px;
 }
 .wrapper > .coffee_img {
-  width: 200px;
-  height: 200px;
-  margin-left: 10px;
-  /* 모든 방향으로 10px 간격 */
+  width: 100px;
+  height: 100px;
   max-width: 100%;
   border-radius: 100px;
 }
@@ -17,5 +13,4 @@
 .coffee_name {
   font-size: 20px;
   text-align: center;
-  margin-left: 37px;
 }

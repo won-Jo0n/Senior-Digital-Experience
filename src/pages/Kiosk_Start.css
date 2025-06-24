@@ -30,29 +30,90 @@
     opacity: 1;
   }
 }
+
 .wrapperStartDisplay {
-  width: 1000px;
-  height: 1300px;
-  margin-left: 469px;
-  background-image: url("/public//koisk.png");
-  background-size: 1000px 1300px;
-  background-position: center; /* 이미지를 div 중앙에 배치 */
-  background-repeat: no-repeat; /* 이미지 반복 방지 */
+  background-color: #fffbf3;
+  display: flex;
+  justify-content: center; /* KioskWRAP을 가로 중앙으로 */
+  align-items: center; /* KioskWRAP을 세로 중앙으로 */
+  height: 100vh; /* 뷰포트 전체 높이를 차지 */
+  width: 100vw; /* 뷰포트 전체 너비를 차지 */
+  overflow: hidden; /* 혹시 모를 스크롤 방지 */
 }
 
+.KioskWRAP {
+  position: relative; /* ★★★ 중요: 자식 요소(KIOSKDP, imageDisplay)의 absolute 포지셔닝 기준 ★★★ */
+  /* KioskWRAP 자체의 크기는 KIOSKDP img의 고정 크기에 맞춰질 것입니다. */
+  /* 별도의 width/height를 지정하지 않아도 자식 이미지에 맞춰집니다. */
+  /* 만약 KioskWRAP 자체의 배경이나 테두리가 필요하다면 명시적으로 크기 지정 */
+  /* 예를 들어, KioskWRAP도 중앙에 배치할 고정된 컨테이너 역할을 한다면: */
+  /* width: 1000px;
+       height: 1300px; */
+}
+
+.KIOSKDP {
+  position: absolute; /* ★★★ KioskWRAP 기준 절대 위치 ★★★ */
+  top: 50%; /* ★★★ KioskWRAP의 세로 중앙에 오도록 ★★★ */
+  left: 50%; /* ★★★ KioskWRAP의 가로 중앙에 오도록 ★★★ */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* ★★★ 요소 자신의 크기만큼 되돌려 정확한 중앙 정렬 ★★★ */
+
+  /* 여기서는 KIOSKDP img에 직접 width/height를 줄 것이므로 fit-content는 필요 없어집니다. */
+  /* width: fit-content; */
+  /* height: 90vh; */ /* 뷰포트 기준이 아닌 고정 픽셀로 변경하는 것을 권장 */
+  /* text-align: center; margin: 0 auto; padding-top: 0; 등의 속성은 absolute 포지셔닝 시 필요 없습니다. */
+
+  /* z-index를 낮게 설정하여 imageDisplay 아래에 깔리도록 */
+  z-index: 0;
+}
+
+.KIOSKDP img {
+  position: relative;
+  /* ★★★ koisk.png 이미지의 실제 픽셀 크기를 여기에 지정합니다. ★★★ */
+  /* 예를 들어, koisk.png의 원본 크기가 1000px x 1300px이라면: */
+  width: 1000px; /* 실제 이미지 파일의 너비 */
+  height: 990px; /* 실제 이미지 파일의 높이 */
+  /* 이미지의 비율을 유지하면서 주어진 width/height에 맞추기 (선택 사항) */
+  object-fit: contain; /* 이미지가 잘리지 않고 프레임 안에 다 들어가게 */
+  border: 1px solid #000; /* 개발 시에만 사용하고, 최종 배포 시에는 제거 */
+  margin-top: 25px;
+}
+
+.imageDisplay {
+  position: absolute; /* ★★★ KioskWRAP 기준 절대 위치 ★★★ */
+  top: 50%; /* ★★★ KioskWRAP의 세로 중앙에 오도록 ★★★ */
+  left: 50%; /* ★★★ KioskWRAP의 가로 중앙에 오도록 ★★★ */
+  transform: translate(-50%, -50%);
+  width: 510px;
+  height: 770px;
+  overflow: hidden;
+  padding-right: 20px;
+  z-index: 1;
+  padding-bottom: 80px;
+}
+
+.imageDisplay > div,
+.imageDisplay > img {
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
 .wrapperStartDisplay .startImage {
-  width: 728px;
-  height: 305px;
-  margin-top: 90px;
-  margin-left: 121px;
+  width: 100%;
+  height: 230px;
   border-radius: 6px 6px 0px 0px;
 }
 
 .wrapperStartDisplay .middleDiv {
-  width: 728px;
-  height: 300px;
+  width: 100%; /* 부모 .imageDisplay의 너비에 꽉 채우도록 */
+  height: 230px;
   background-color: #3e3e3f;
-  margin-left: 121px;
+  border-radius: 0; /* 라운드 코너를 전체적으로 맞추기 위해 0으로 설정하거나, .imageDisplay에 한 번에 적용 */
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+  z-index: 10; /* ✅ 기존 0에서 높여줍니다 */
+  position: relative;
 }
 
 .middleDiv.highlight::after {
@@ -64,7 +125,6 @@
   font-size: 22px;
   color: white;
 }
-
 .middleDiv .middleMainText {
   padding-top: 20px;
   text-align: center;
@@ -75,12 +135,14 @@
 .middleDiv .blinking {
   width: 60px;
   height: 80px;
-  float: right;
+  display: block;
+  margin-left: auto;
   margin-right: 80px;
+  padding-bottom: 200px; /* 터치 이미지가 너무 아래로 붙지 않도록 */
 }
 .lastImage {
-  width: 728px;
-  height: 300px;
-  margin-left: 121px;
+  width: 100%; /* 부모 .imageDisplay의 너비에 꽉 채우도록 */
+  height: 240px;
+  /* margin-left: 121px; */ /* ★★★ 제거. 부모 .imageDisplay가 이미 중앙에 있으므로. ★★★ */
   border-radius: 0px 0px 6px 6px;
 }

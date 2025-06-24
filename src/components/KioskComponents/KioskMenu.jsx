@@ -1,5 +1,6 @@
 import "./KioskMenu.css";
 import "../../components/highlight.css";
+import Header from "../../components/Header";
 import KioskCoffee from "./KioskCoffee.jsx";
 import KioskDrink from "../KioskComponents/KioskDrink.jsx";
 import KioskCake from "../KioskComponents/KioskCake.jsx";
@@ -212,6 +213,8 @@ const KioskMenu = () => {
   };
   return (
     <>
+      <Header />
+
       <div className="KIoskDisplay">
         {/* 모달창 css 적용을 위한 조건문 */}
         <div className="AllDisplay">
@@ -251,7 +254,11 @@ const KioskMenu = () => {
           >
             {changeMenu()}
           </div>
+          <div className="KIOSKDP1">
+            <img src="/koisk.png" />
+          </div>
         </div>
+
         <div>
           {onModal &&
             selectedItem && ( // selectedItem이 null이 아닐 때만 모달 렌더링

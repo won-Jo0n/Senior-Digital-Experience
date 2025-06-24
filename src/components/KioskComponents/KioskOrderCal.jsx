@@ -48,8 +48,7 @@ const KioskOrderCal = ({
   return (
     <>
       <div className="ALLorderList">
-        <div className={"ORDERlIST"}></div>
-        <div className={"orderListBlank"}>
+        <div className="orderListBlank">
           {/* 메뉴 선택 시 주문 창 이미지와 정보 띄우기*/}
           {orderItems.map((orderItem) => {
             return (
