@@ -249,7 +249,7 @@ const KioskMenu = () => {
             className={
               getIsChallenged() || !firstHighlight
                 ? "coffee_menuDISPLAY"
-                : "coffee_menuDISPLAY highlight"
+                : "coffee_menuDISPLAY highlightMenu"
             }
           >
             {changeMenu()}

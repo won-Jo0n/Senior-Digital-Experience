@@ -1,3 +1,55 @@
+
+
+.highlightMenu {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 0;
+  width: fit-content; /* 자식 크기에 맞게 자동 설정 */
+  height: fit-content;
+}
+
+/* 회전 효과 배경 */
+.highlightMenu::before {
+  content: "";
+  position: absolute;
+  top: 20%; /* 위쪽 위치를 더 안쪽으로 */
+  left: -50%; /* 왼쪽 위치도 더 안쪽으로 */
+  width: 200%; /* 크기를 103%로 줄임 */
+  height: 50%; /* 높이도 103% */
+  background: red;
+  animation: animate 4s linear infinite;
+  z-index: 0;
+}
+
+/* 안쪽 마스크 */
+.highlightMenu::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: white;
+  z-index: 1;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 6px;
+}
+
+/* 실제 콘텐츠는 위에 */
+.highlightMenu > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 .KIoskDisplay {
   background-color: #fffbf3;
   display: flex;
@@ -94,7 +146,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   max-height: 589px;
   height: 380px;
-  z-index: 2;
+  z-index: 3;
+  margin-bottom: 4px;
 }
 
 .coffee_menuDISPLAY.highlight::after {
@@ -119,3 +172,4 @@
   margin-bottom: 50px;
   border-radius: 0px 0px 10px 10px;
 }
+
