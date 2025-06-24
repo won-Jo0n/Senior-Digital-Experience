@@ -114,10 +114,10 @@ const MyPage = () => {
             청춘 시작이다!
           </div>
           <div className="kioskStampDiv">
-            <Stamp isShow={true}></Stamp>
+            <Stamp isShow={userState.loginedId.mission[0]}></Stamp>
           </div>
           <div className="naverBookStampDiv">
-            <Stamp isShow={true}></Stamp>
+            <Stamp isShow={userState.loginedId.mission[1]}></Stamp>
           </div>
         </div>
 
