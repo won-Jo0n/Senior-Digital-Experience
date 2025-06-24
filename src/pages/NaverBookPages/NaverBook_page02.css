@@ -256,8 +256,8 @@
 
   
   .tooltip {
-    font-size: 14px;
-    padding: 6px 10px;
+    font-size: 20px;
+    padding: 20px 15px;
   }
 
   .tooltip::after {
