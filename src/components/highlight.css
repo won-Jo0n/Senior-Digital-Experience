@@ -10,7 +10,8 @@
   overflow: hidden;
   width: fit-content; /* 자식 크기에 맞게 자동 설정 */
   height: fit-content;
-   margin: 0; 
+  border-radius: 10px;
+  margin: 0;
   padding: 0;
 }
 
@@ -18,23 +19,22 @@
 .highlight::before {
   content: "";
   position: absolute;
-  top: -1%; /* 위쪽 위치를 더 안쪽으로 */
-  left: -1%; /* 왼쪽 위치도 더 안쪽으로 */
-  width: 100%; /* 크기를 103%로 줄임 */
-  height: 100%; /* 높이도 103% */
+  top: 20%; /* 위쪽 위치를 더 안쪽으로 */
+  left: -50%; /* 왼쪽 위치도 더 안쪽으로 */
+  width: 200%; /* 크기를 103%로 줄임 */
+  height: 50%; /* 높이도 103% */
 
   animation: animate 4s linear infinite;
   z-index: 1;
 }
-.highlight-green::before{
+.highlight-green::before {
   background: #079949;
 }
 
 /*  세원이가 하고 싶은 빙글빙글색  */
-.highlight-sewonUptoyou::before{
+.highlight-sewonUptoyou::before {
   background: #ff061b;
 }
-
 
 /* 안쪽 마스크 */
 .highlight::after {
@@ -77,18 +77,18 @@
   color: rgb(39, 39, 39);
   font-weight: bold;
   font-size: 20px;
-  border: 2px solid #03c75a ;
+  border: 2px solid #03c75a;
   padding: 18px 25px;
   border-radius: 40px;
   white-space: nowrap;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
-.tooltip-green{
-  border: 2px solid #03c75a ;
+.tooltip-green {
+  border: 2px solid #03c75a;
 }
 
 /* 세원이가 원하는 색으로 넣어 */
-.tooltip-sewonUptoyou{
+.tooltip-sewonUptoyou {
   border: 2px solid red;
 }
 
@@ -99,21 +99,21 @@
   bottom: -6px;
   border-width: 6px;
   color: #03c75a;
- font-size: 15px;
+  font-size: 15px;
 }
-.tooltip-green::after{
- border-color: #03c75a transparent transparent transparent;
+.tooltip-green::after {
+  border-color: #03c75a transparent transparent transparent;
 }
 
 /* 세원이가 원하는 색으로 넣어 */
-.tooltip-sewonUptoyou::after{
+.tooltip-sewonUptoyou::after {
   border: 2px solid red;
 }
 
-
 /* bounce 애니메이션 */
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
   50% {
