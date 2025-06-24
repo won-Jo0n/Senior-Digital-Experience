@@ -24,6 +24,7 @@
   z-index: 1;
 }
 
+
 .KioskFinal .MissionIcon {
   width: 100%;
   position: absolute;
@@ -159,4 +160,5 @@
 
 .KioskFinal .MOVEHOME:hover {
   background-color: #8c1926;
+
 }

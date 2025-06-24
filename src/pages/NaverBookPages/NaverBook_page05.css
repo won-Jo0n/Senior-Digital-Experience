@@ -149,3 +149,21 @@
   
 }
 
+/* 반응형 */
+@media (max-width: 480px) {
+  .bookWrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+ /* 메인 콘텐츠 박스 */
+  .NaverBook_page05 {
+    width: 100% !important;
+    max-width: 100% !important;
+    top: 0px;
+    left: 0 !important;
+    transform: none !important;
+    padding: 12px;
+    max-height: none;
+  }
+}

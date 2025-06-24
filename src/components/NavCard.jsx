@@ -56,7 +56,7 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
 
   return (
     <div
-      className="NavCard"
+      className={`${cardImage === 3 ? "NavCard image_3" : "NavCard"}`}
       onMouseEnter={handleMouseEnter} // 마우스 진입 이벤트 리스너 추가
       onMouseLeave={handleMouseLeave} // 마우스 이탈 이벤트 리스너 추가
     >
@@ -66,8 +66,7 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
         src={getNavCardImage(cardImage)}
         alt={title}
       />
-      <h4 className="title">{title}</h4>
-      <div className="explanation">{explanation}</div>
+      <h1 className="title">{title}</h1>
 
       {/* 마우스 호버 시 나타나는 오버레이 버튼 영역 */}
       {showButtons && (

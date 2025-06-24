@@ -1,4 +1,4 @@
-.KIOSKDISPLAY {
+.KioskPayMent {
   background-color: #fffbf3;
   display: flex;
   justify-content: center; /* KioskWRAP을 가로 중앙으로 */
@@ -7,43 +7,34 @@
   width: 100vw; /* 뷰포트 전체 너비를 차지 */
   overflow: hidden;
 }
-.KioskPayWRAP {
-  position: absolute;
-  border-radius: 10px;
-  background-color: white;
-  margin-top: 100px;
-  margin-left: 120px;
-  width: 730px;
-  height: 900px;
-}
-.KIOSKDP2 {
-  position: absolute; /* ★★★ KioskWRAP 기준 절대 위치 ★★★ */
-  top: 50%; /* ★★★ KioskWRAP의 세로 중앙에 오도록 ★★★ */
-  left: 50%; /* ★★★ KioskWRAP의 가로 중앙에 오도록 ★★★ */
-  transform: translate(-50%, -50%);
-  z-index: 0;
-}
 
-.KIOSKDP2 img {
-  position: relative;
-  width: 1000px;
-  height: 990px;
-  object-fit: contain;
-  border: 1px solid #000;
-  margin-top: 25px;
-  z-index: -1;
-}
-
-.LastOlderPage {
+.KioskPayMent .KIOSKDP2 {
   display: flex;
-  flex-direction: column;
-  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.KioskPayMent .KIOSKDP2 .KIOSKDP2-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin-top: 25px;
+  z-index: 1;
+}
+
+.KioskPayMent .LastOlderPage {
+  position: absolute;
+  top: 80px;
+  left: 70px;
   background-color: white;
-  width: 536px;
   height: 100%;
 }
 
-.LastOlderPage .oldertext {
+.KioskPayMent .LastOlderPage .oldertext {
   display: flex;
   justify-content: center; /* 주축(기본: 수평)에서 가운데 정렬 */
   align-items: center;
@@ -56,7 +47,7 @@
   font-size: 35px;
 }
 
-.pickCARD {
+.KioskPayMent .pickCARD {
   display: flex;
   justify-content: center; /* 주축(기본: 수평)에서 가운데 정렬 */
   align-items: center;
@@ -68,27 +59,27 @@
   color: black;
   font-size: 30px;
 }
-.oldertext .pickCARD {
+.KioskPayMent .oldertext .pickCARD {
   width: 733px;
   height: 130px;
   margin-top: 131px;
   font-size: 50px;
 }
 
-.olderMETHOD {
+.KioskPayMent .olderMETHOD {
   width: 500px;
   height: 130px;
   margin-top: 50px;
   font-size: 50px;
 }
 
-.olderMETHOD button {
+.KioskPayMent .olderMETHOD button {
   width: 30px;
 }
-.CARDBTN.highlight::after {
+.KioskPayMent .CARDBTN.highlight::after {
   background-color: white;
 }
-.topBtn .bottomBtn {
+.KioskPayMent .topBtn .bottomBtn {
   display: flex; /* 각 버튼 그룹을 Flex 컨테이너로 만듦 */
   flex-direction: column; /* 이 내부의 버튼들을 다시 수직(열) 방향으로 정렬 */
   gap: 10px; /* 각 그룹 내 버튼 사이의 간격 */
@@ -98,11 +89,23 @@
   border-radius: 10px;
 }
 
-.topBtn {
+.KioskPayMent .topBtn {
   display: flex;
 }
+.KioskPayMent .topBtn button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.KioskPayMent .bottomBtn button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-.topBtn button {
+.KioskPayMent .topBtn button {
   border: 3px solid gray;
   background-color: white;
   width: 330px;
@@ -110,20 +113,20 @@
   padding: 10px 20px;
   margin-left: 23px;
   margin-bottom: 30px;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 10px;
-  z-index: 1000;
+  z-index: 1;
   cursor: pointer;
 }
 
-.CARDBTN.highlight::after {
+.KioskPayMent .CARDBTN.highlight::after {
   background-color: white;
 }
 
-.bottomBtn {
+.KioskPayMent .bottomBtn {
   display: flex;
 }
-.bottomBtn button {
+.KioskPayMent .bottomBtn button {
   border: 3px solid gray;
   background-color: white;
   width: 330px;
@@ -131,11 +134,11 @@
   padding: 10px 20px;
   margin-left: 23px;
   margin-bottom: 30px;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 10px;
 }
 
-.BTNcontainer {
+.KioskPayMent .BTNcontainer {
   border: 3px solid gray;
   display: flex;
   border: none;
@@ -143,11 +146,11 @@
   border-radius: 0px 0px 10px 10px;
 }
 
-.CardImg {
+.KioskPayMent .CardImg {
   width: 100px;
 }
 
-.BackBTN {
+.KioskPayMent .BackBTN {
   margin: 0 auto;
   border: none;
   width: 90%;
@@ -159,5 +162,4 @@
   cursor: pointer;
   font-size: 40px;
   border-radius: 10px;
-  z-index: 10;
 }

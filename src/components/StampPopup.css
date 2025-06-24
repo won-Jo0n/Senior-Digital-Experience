@@ -34,9 +34,12 @@
   font-weight: bold;
   color: #5e4c3a;
   margin-bottom: 6px;
+  font-family: 'Paperlogy-8ExtraBold'
+
 }
 
 .stamp-subtitle {
+  font-family: 'Paperlogy-8ExtraBold';
   font-size: 18px;
   color: #5e4c3a;
   margin-bottom: 20px;
@@ -59,8 +62,8 @@
 
 .balloon-text {
   position: absolute;
-  top: 130px; /* 말풍선 위치에 맞게 조정 */
-  left: 22px; /* 말풍선 위치에 맞게 조정 */
+  top: 100px; /* 말풍선 위치에 맞게 조정 */
+  left: 18px; /* 말풍선 위치에 맞게 조정 */
   color: #5e4c3a;
   padding: 6px 12px;
   border-radius: 16px;
@@ -107,6 +110,8 @@
   cursor: pointer;
   margin: 10px 5px;
   justify-content: space-between;
+  font-size: 18px;
+  font-family: 'Paperlogy-8ExtraBold';
 }
 /* --- 반응형 미디어 쿼리 --- */
 

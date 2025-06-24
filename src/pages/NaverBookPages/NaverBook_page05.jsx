@@ -3,12 +3,14 @@ import { useEffect, useState, useContext } from "react";
 import "./NaverBook_page05.css";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
-import { DataDispatchContext } from "../../App";
+import { DataDispatchContext, DataStateContext } from "../../App";
 import "../../components/highlight.css";
 
 const NaverBook_page05 = () => {
   const location = useLocation();
-  const { getIsChallenged, setIsChallenged } = useContext(DataDispatchContext);
+  const { getIsChallenged, setIsChallenged, onUpdate } =
+    useContext(DataDispatchContext);
+  const userState = useContext(DataStateContext);
   const { date, time, slot, purposeTreatment, treatmentRequest } =
     location.state || {};
 
@@ -20,7 +22,6 @@ const NaverBook_page05 = () => {
   };
 
   const [isConfirmed, setIsConfirmed] = useState(false);
-  const [isFailed, setIsFailed] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
@@ -41,13 +42,29 @@ const NaverBook_page05 = () => {
       if (isAllMatch) {
         setIsConfirmed(true);
       } else {
-        setIsFailed(true);
+        setIsConfirmed(false);
       }
       setShowResult(true);
     }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (isConfirmed && getIsChallenged() && userState.loginedId) {
+      console.log("fgdfg");
+      let tempMission = userState.loginedId.mission;
+      tempMission[1] = true;
+      onUpdate(
+        userState.loginedId.id,
+        userState.loginedId.phoneNum,
+        userState.loginedId.password,
+        userState.loginedId.birth,
+        tempMission
+      );
+    }
+  }, [isConfirmed]);
+  console.log(showResult);
 
   return (
     <div className="bigContainer">
@@ -92,7 +109,7 @@ const NaverBook_page05 = () => {
               </div>
             )}
 
-            {showResult && isFailed && getIsChallenged() && (
+            {showResult && !isConfirmed && getIsChallenged() && (
               <div className="resultBox fail">
                 <h2>미션 실패 </h2>
                 <p className="missionReason">
@@ -107,7 +124,7 @@ const NaverBook_page05 = () => {
               </div>
             )}
 
-            {showResult && isFailed && !getIsChallenged() && (
+            {showResult && !getIsChallenged() && (
               <div className="resultBox fail">
                 <h2>연습모드 종료 </h2>
                 <p className="missionReason">

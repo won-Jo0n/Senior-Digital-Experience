@@ -114,9 +114,10 @@
   color: #777;
   font-size: 18px;
 }
-
-.calendarDay.highlight::after {
+.calendarDay{
   background-color: white;
+  margin: 3px;
+  border-radius: 6px;
 }
 
 .calendarDay .week {
@@ -157,10 +158,12 @@
 }
 
 .clockbutton {
-  margin-top: 20px;
+  margin: 3px;
   display: flex;
+  border-radius: 5px;
   flex-direction: column;
   gap: 24px;
+  background-color: white;
 }
 .clockbutton.highlight::after {
   background-color: white;
@@ -208,25 +211,57 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 30px;
+  
 }
 
 .forthPageButton {
-  flex: 1;
+  min-width: 240px;
+  box-sizing: border-box;
   background-color: #03c75a;
   border-radius: 8px;
   padding: 8px;
   text-align: center;
   cursor: pointer;
+  margin: 2px;
 }
 
-.forthPageButton.highlight::after {
-  background-color:  #03c75a;
-}
 
 .toolTipButton {
+  width: 150px;
   margin-right: 10px;
+  margin-left: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 6px;
   text-align: center;
+}
+
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .bookWrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+ /* 메인 콘텐츠 박스 */
+  .NaverBook_page03 {
+    width: 100% !important;
+    max-width: 100% !important;
+    top: 0px;
+    left: 0 !important;
+    transform: none !important;
+    padding: 12px;
+    max-height: none;
+  }
+ .tooltip {
+    font-size: 20px;
+    padding: 20px 15px;
+  }
+
+  .tooltip::after {
+    color: #02b14c;
+    border-width: 5px;
+    margin-left: -5px;
+  }
 }
