@@ -1,22 +1,36 @@
 .KioskDisplay {
   position: relative;
+  background-color: #fffbf3;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.KIOSKDP3 {
+  margin: 80px;
+  position: absolute; /* ★★★ KioskWRAP 기준 절대 위치 ★★★ */
+  top: 50%; /* ★★★ KioskWRAP의 세로 중앙에 오도록 ★★★ */
+  left: 50%; /* ★★★ KioskWRAP의 가로 중앙에 오도록 ★★★ */
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.KIOSKDP3 img {
+  position: relative;
   width: 1000px;
-  height: 1300px;
-  margin-left: 469px;
-  background-image: url("/public//koisk.png");
-  background-size: 1000px 1300px;
-  background-position: center; /* 이미지를 div 중앙에 배치 */
-  background-repeat: no-repeat; /* 이미지 반복 방지 */
+  height: 990px;
+  object-fit: contain;
+  border: 1px solid #000;
 }
 
 .cardPayMent {
   position: absolute;
   border-radius: 10px;
   background-color: white;
-  margin-top: 100px;
-  margin-left: 120px;
-  width: 730px;
-  height: 900px;
+  width: 510px;
 }
 
 .cardTitle {
@@ -45,10 +59,10 @@
 
 .totalContents {
   display: flex;
-  justify-content: center;
+
   height: 100px;
-  width: 727px;
-  font-size: 30px;
+
+  font-size: 23px;
   color: #ab1f2e;
 }
 
@@ -62,8 +76,6 @@
 }
 
 .CARDPAYMENT {
-  margin-bottom: 30px;
-  margin-left: 210px;
-  width: 380px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
 }
