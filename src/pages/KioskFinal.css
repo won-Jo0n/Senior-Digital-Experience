@@ -1,136 +1,164 @@
-.FinalKioskDisplay {
+.KioskFinal {
   position: relative;
-  width: 1000px;
-  height: 1300px;
-  margin-left: 469px;
-  background-image: url("/public//koisk.png");
-  background-size: 1000px 1300px;
-  background-position: center; /* 이미지를 div 중앙에 배치 */
-  background-repeat: no-repeat; /* 이미지 반복 방지 */
-}
-
-.finalKiosk {
-  position: absolute;
-  border-radius: 20px;
-  background-color: white;
-  width: 730px;
-  height: 900px;
-  top: 539px;
-  left: 487px;
-  transform: translate(-50%, -50%); /* 정확히 중앙에 배치 */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 입체감 있는 그림자 */
-  padding: 40px; /* 내부 콘텐츠와의 여백 추가 */
-  box-sizing: border-box; /* padding이 width, height에 포함되도록 */
-}
-
-.finalKiosk img {
-  width: 180px;
-  height: 180px;
-  margin-top: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-.finalText {
-  text-align: center;
-  font-size: 38px;
-  font-weight: bold;
-  color: #333;
-  margin-top: 40px;
-  padding-top: 20px;
-  line-height: 1.4;
-}
-.finishTextMenu {
+  background-color: #fffbf3;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  height: auto;
-  flex-grow: 1;
-  max-height: 320px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  text-align: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.KioskFinal .KIOSKDP4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+}
+.KioskFinal .KIOSKDP4-img {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+
+.KioskFinal .MissionIcon {
+  width: 100%;
+  position: absolute;
+  top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.KioskFinal .MissionIcon-img {
+  position: relative;
+  top: 30px;
+  height: 150px;
+}
+
+.KioskFinal .finalText {
+  position: absolute;
+  width: 100%;
+}
+.KioskFinal .KioskScreenContent {
+  position: absolute;
+  background-color: white;
+  top: 120px;
+  left: 88px;
+  width: 624px;
+  height: 720px;
+  z-index: 2;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
   box-sizing: border-box;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-top: 30px;
-  /* 스크롤바 커스터마이징 (웹킷 브라우저) */
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #ddd #f1f1f1; /* Firefox */
-}
-/* 웹킷 브라우저 (Chrome, Safari) 스크롤바 */
-.finishTextMenu::-webkit-scrollbar {
-  width: 8px; /* 스크롤바 너비 */
+  overflow-y: auto;
 }
 
-.finishTextMenu::-webkit-scrollbar-track {
-  background: #f1f1f1; /* 스크롤바 트랙 배경색 */
-  border-radius: 10px;
+.KioskFinal .missionResultArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* 아이콘과 텍스트 간격 */
+  margin-bottom: 20px; /* 다음 섹션과의 간격 */
+  text-align: center;
 }
 
-.finishTextMenu::-webkit-scrollbar-thumb {
-  background-color: #c9c9c9; /* 스크롤바 색상 */
-  border-radius: 10px;
-  border: 2px solid #f1f1f1; /* 트랙과의 간격 */
+.KioskFinal .missionResultArea img {
+  /* icon_friends.png */
+  width: 150px; /* 아이콘 크기 조절 */
+  height: 150px; /* 아이콘 크기 조절 */
 }
 
-.FinishWarp {
-  border: 1px solid #e0e0e0; /* 옅은 테두리 */
-  border-radius: 10px; /* 둥근 모서리 */
-  padding: 15px 20px; /* 내부 여백 */
-  background-color: #fff; /* 흰색 배경 */
-  display: flex; /* 내부 요소 정렬을 위해 */
-  justify-content: space-between; /* 양 끝 정렬 (항목명-가격) */
-  align-items: center; /* 세로 중앙 정렬 */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
-  transition: transform 0.2s ease-in-out; /* hover 효과를 위한 전환 */
-}
-.FinishWarp:hover {
-  transform: translateY(-3px); /* hover 시 살짝 위로 */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-.text-img {
-  width: auto; /* 고정 너비보다 유동적인 너비가 좋을 수 있습니다. */
-  font-size: 24px;
-  color: #444;
-  font-weight: 500;
-}
-
-.FINISH {
-  text-align: right;
-  font-size: 25px;
-  font-weight: 600;
+.KioskFinal .finalText {
+  width: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
   color: #555;
-  margin-top: 30px;
-  padding-right: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.MOVEHOME {
-  width: 650px; /* 너비 살짝 늘림 */
-  height: 85px; /* 높이 살짝 늘림 */
-  margin-left: auto; /* 중앙 정렬 */
-  margin-right: auto; /* 중앙 정렬 */
-  margin-top: 50px; /* 상단 여백 조절 */
+.KioskFinal .orderListArea {
+  width: 100%; /* 부모 KioskScreenContent 너비를 꽉 채우도록 */
+  flex-grow: 1; /* 남은 공간을 차지하도록 */
+  overflow-y: auto; /* 주문 내역이 많아지면 스크롤 가능하도록 */
+  padding: 10px 0; /* 상하 패딩 */
+}
+
+.KioskFinal .finishText {
+  width: 100%;
+}
+
+.KioskFinal .finishTextMenu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 각 주문 항목 간격 */
+}
+
+.KioskFinal .FinishWarp {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* 이미지와 텍스트 간격 */
+  padding: 10px;
+  border-bottom: 1px solid #eee; /* 각 항목 구분선 */
+}
+
+.KioskFinal .FinishWarp .text-img img {
+  /* 각 주문 항목 이미지 */
+  width: 200px; /* 이미지 크기 조절 */
+  height: 400px; /* 이미지 크기 조절 */
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.KioskFinal .FINISH {
+  /* 각 주문 항목 텍스트 */
+  flex-grow: 1; /* 남은 공간을 차지하도록 */
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.KioskFinal .homeButtonArea {
+  width: 100%; /* 부모 KioskScreenContent 너비를 꽉 채우도록 */
+  margin-top: 20px; /* 주문 내역과의 간격 */
+  display: flex;
+  justify-content: center; /* 버튼 중앙 정렬 */
+}
+
+.KioskFinal .MoveHome-btn {
+  position: absolute;
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  bottom: 160px;
   border: none;
-  font-size: 32px; /* 글씨 크기 키움 */
-  font-weight: bold; /* 굵게 */
-  border-radius: 12px; /* 좀 더 둥근 모서리 */
+  border-radius: 8px;
+}
+.KioskFinal .MoveHome-btn button {
+  background-color: #ab1f2e;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  border: none;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 그림자 강화 */
-  background-color: #999;
-  color: white; /* 흰색 텍스트 */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* 호버 효과 부드럽게 */
-  display: block; /* margin: auto 적용을 위해 블록 요소로 */
-  font-family: "Noto Sans KR", sans-serif;
+  width: 100%;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  z-index: 2;
 }
-.MOVEHOME:hover {
-  background-color: #ab1f2e; /* 호버 시 색상 변경 */
-  transform: translateY(-2px); /* 살짝 떠오르는 효과 */
-}
-.MOVEHOME:active {
-  background-color: #ab1f2e; /* 클릭 시 색상 변경 */
-  transform: translateY(0); /* 다시 원래 위치로 */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+.KioskFinal .MOVEHOME:hover {
+  background-color: #8c1926;
+
 }
