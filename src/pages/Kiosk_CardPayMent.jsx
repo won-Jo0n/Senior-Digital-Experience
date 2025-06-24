@@ -1,8 +1,17 @@
 import "./Kiosk_CardPayMent.css";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { DataDispatchContext } from "../App";
+
 const Kiosk_CardPayMent = () => {
   const nav = useNavigate();
+  const { getOrderList } = useContext(DataDispatchContext);
+  const orderList = getOrderList();
+
+  let totalPrice = 0;
+
+  orderList.map((item) => (totalPrice += item.totalPrice));
+
   useEffect(() => {
     //이동될때만 실행행
     const timer = setTimeout(() => {
@@ -22,8 +31,7 @@ const Kiosk_CardPayMent = () => {
             <b>신용카드 결제</b>
           </div>
         </div>
-
-        <div className="totalMoney">(총금액)이 결제 됩니다</div>
+        <div className="totalMoney">{totalPrice}원이 결제 됩니다</div>
         <div className="totalContents">
           <b>키오스크 연습이므로 실제로 결제되지 않습니다</b>
         </div>
