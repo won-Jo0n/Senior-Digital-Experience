@@ -18,9 +18,9 @@ const KioskPayMent = () => {
     setFourHighlight(true);
   };
   return (
-    <>
-      <div className="KIOSKDISPLAY">
-        <Header />
+    <div className="KioskPayMent">
+      <div className="KIOSKDP2">
+        <img className="KIOSKDP2-img" src="/koisk.png" />
         <div className="KioskPayWRAP">
           <div className="LastOlderPage">
             <div className="oldertext">
@@ -71,13 +71,10 @@ const KioskPayMent = () => {
                 <b>이전</b>
               </button>
             </div> */}
-            <div className="KIOSKDP2">
-              <img src="/koisk.png" />
-            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

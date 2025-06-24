@@ -25,23 +25,20 @@ const Kiosk_CardPayMent = () => {
   // }, [nav]); // navigate 함수가 변할 때때
 
   return (
-    <div className="KioskDisplay">
-      <Header />
+    <div className="Kiosk_CardPayMent">
       <div className="KIOSKDP3">
-        <img src="/koisk.png" />
-
+        <img className="KioskDP3-img" src="/koisk.png" />
         <div className="cardPayMent">
           <div className="cardTitle">
-            <div className="cardTitleText">
-              <b>신용카드 결제</b>
-            </div>
+            <b>신용카드 결제</b>
           </div>
           <div className="totalMoney">{totalPrice}원이 결제 됩니다</div>
           <div className="totalContents">
             <b>키오스크 연습이므로 실제로 결제되지 않습니다</b>
           </div>
           <div className="moveDISplay">
-            화면은 자동으로 넘어갑니다. 잠시만 기다려주세요
+            화면은 자동으로 넘어갑니다.
+            <br /> 잠시만 기다려주세요
           </div>
           <div>
             <img
