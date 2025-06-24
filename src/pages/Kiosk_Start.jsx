@@ -25,7 +25,7 @@ const KioskStart = () => {
       {showPopup && getIsChallenged() && (
         <MissionPopup
           message={
-            "커피 메뉴에서 달고나 라떼 한 잔, 케이크 메뉴에서 치즈 케이크 한 개 주문해줘~"
+            "커피 메뉴에서 달고나 라떼, 케이크 메뉴에서 치즈 케이크 주문해줘 ~"
           }
           onClose={handleClosePopup}
         />
