@@ -13,7 +13,7 @@
 
 .stamp-popup-box {
   background-color: #fbe9bf;
-  width: 100%; /* 전체 가로 너비 */
+  width: 200%; /* 전체 가로 너비 */
   max-width: 500px;
   border-radius: 24px;
   font-family: "Pretendard", sans-serif;
@@ -30,7 +30,7 @@
 }
 
 .stamp-title {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   color: #5e4c3a;
   margin-bottom: 6px;
@@ -40,7 +40,7 @@
 
 .stamp-subtitle {
   font-family: 'Paperlogy-8ExtraBold';
-  font-size: 18px;
+  font-size: 20px;
   color: #5e4c3a;
   margin-bottom: 20px;
 }
@@ -82,7 +82,7 @@
 
 .stamp-desc-box {
   color: white;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.7;
   margin-bottom: 16px;
   text-align: center;
@@ -110,7 +110,7 @@
   cursor: pointer;
   margin: 10px 5px;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Paperlogy-8ExtraBold';
 }
 /* --- 반응형 미디어 쿼리 --- */

@@ -72,31 +72,37 @@
   background-color: #d8e8d1;
   flex-grow: 1;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 1.1em;
-  width: 100%;
+  padding: 15px;
+  font-size: 20px;
+  width: 94%;
+     font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 .Overlay .modal-header .userName input {
   background-color: #d8e8d1;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 1em;
+  padding: 15px;
+  font-size: 20px;
   width: 150px;
   margin-left: 10px;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 .Overlay .text textarea {
   background-color: #d8e8d1;
-  width: 100%;
-  height: 300px;
-  min-height: 150px;
+  width: 96%;
+  height: 400px;
+  min-height: 300px;
   max-height: 300px;
   border: none;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 1em;
+  padding: 10px 10px;
+  font-size: 20px;
   resize: none;
   margin-bottom: 20px;
+    font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 .Overlay .Button {
@@ -104,6 +110,6 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 19px;
   margin-top: 10px;
 }

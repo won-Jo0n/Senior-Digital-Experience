@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center; /* 가로축 중앙 정렬 (로고, 컨테이너 등) */
   justify-content: center; /* 세로축 중앙 정렬 */
-  min-height: 100vh; /* 뷰포트 높이 전체를 차지 */
+  min-height: 80vh; /* 뷰포트 높이 전체를 차지 */
   font-family: "Inter", sans-serif; /* 폰트 설정 */
   color: #333; /* 기본 텍스트 색상 (주로 컨테이너 내부 텍스트에 적용) */
 }
@@ -27,13 +27,15 @@
 .Login input[type="text"],
 .Login input[type="password"] {
   width: 100%;
-  padding: 15px 20px;
+  padding: 18px 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 1.1em;
+  font-size: 1.3em;
   outline: none;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* 약간의 안쪽 그림자 */
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 300;
 }
 
 .Login input[type="text"]:focus,
@@ -51,22 +53,24 @@
 .Login .button-group {
   display: flex;
   width: 100%; /* 부모와 같은 너비 */
-  gap: 10px; /* 버튼들 사이의 간격 */
+  gap: 20px; /* 버튼들 사이의 간격 */
   margin-top: 10px; /* 입력 필드와 버튼 그룹 사이의 간격 */
 }
 
 /* 버튼 스타일 (로그인, 회원가입) */
 .Login .button-group .Button {
-  width: 100%; /* 버튼 너비 전체 */
-  padding: 15px 20px;
+  flex: 1;
+  padding: 18px 25px;
   border: none;
   border-radius: 8px; /* 둥근 모서리 */
-  font-size: 1.1em;
+  font-size: 1.3em;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
-  margin: 0; /* 기존 마진 초기화 */
+  margin: 0px ; /* 기존 마진 초기화 */
+    font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 /* "로그인" 버튼 */

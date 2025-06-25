@@ -1,0 +1,75 @@
+.notfound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fffbf3;
+  font-family: 'Pretendard-Regular', sans-serif;
+  color: #333;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+/* 상단 큰 숫자 */
+.error-title {
+  font-size: 100px;
+  font-weight: 900;
+  color: #03c75a;
+  margin: 0;
+  font-family: 'Paperlogy-8ExtraBold';
+}
+
+/* 상단 부제목 */
+.error-subtitle {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+/* 이미지 + 버튼 */
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.image-wrapper img {
+  width: 450px;
+  height: auto;
+  display: block;
+}
+
+/* 버튼을 이미지 위에 덮기 */
+.limheroBtn {
+  position: absolute;
+  top: 65%;
+  left: 72%; /* 원하는 위치로 */
+  transform: translate(-50%, -50%);
+  background-color: #03c75a;
+  color: white;
+  border: none;
+  padding: 23px 28px; /* ✅ 패딩 줄임 */
+  min-width: 200px;   /* ✅ 버튼 최소 너비 확보 */
+  border-radius: 10px;
+  font-size: 24px;     /* ✅ 글자 크기 줄임 */
+  font-family: 'Paperlogy-8ExtraBold';
+  cursor: pointer;
+  text-align: center;
+  line-height: 35px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  white-space: nowrap; /* ✅ 줄바꿈 방지 (선택사항) */
+}
+
+
+
+.limheroBtn:hover {
+  background-color: #02b24f;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* 하단 설명 */
+.caption {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #555;
+}
