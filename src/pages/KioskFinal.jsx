@@ -37,48 +37,39 @@ const KioskFinal = () => {
       <div className="KioskFinal">
         <div className="KIOSKDP4">
           <img className="KIOSKDP4-img" src="/koisk.png" />
-          <div className="MissionIcon">
-            <img
-              className="MissionIcon-img"
-              src={"/icon_friends.png"}
-              alt="아이콘"
-            />
-          </div>
-          <div className="finalText">
-            {/* {getIsChallenged(true) &&
-              (isHave ? (
-                <b>키오스크 미션 성공 🎉</b>
-              ) : (
-                <b>키오스크 미션 실패 😣</b>
-              ))} */}
-            <b>키오스크 룰루</b>
-          </div>
-          <div className="finalKiosk">
-            <div className="finishText">
-              <div className="finishTextMenu">
-                {orderList.map((orderItem) => {
-                  return (
-                    <>
-                      <div>asdasdasd</div>
-                      <div className="FinishWarp" key={orderItem.name}>
-                        <div className="text-img">
-                          <img src={orderItem.image} />
-                        </div>
-                        <div className="FINISH">
-                          {orderItem.name} {orderItem.price}원
-                          {orderItem.quantity}개
-                        </div>
-                      </div>
-                    </>
-                  );
-                })}
-              </div>
+          <div className="KioskFInalAllPage">
+            <div className="MissionIcon">
+              <img
+                className="MissionIcon-img"
+                src={"/icon_friends.png"}
+                alt="아이콘"
+              />
             </div>
-          </div>
-          <div className="MoveHome-btn">
-            <button className="MOVEHOME" onClick={backMenuPage}>
-              홈으로
-            </button>
+            <div className="finalText">
+              {getIsChallenged(true) &&
+                (isHave ? (
+                  <b>키오스크 미션 성공 🎉</b>
+                ) : (
+                  <b>키오스크 미션 실패 😣</b>
+                ))}
+            </div>
+            <div className="orderListArea">
+              {orderList.map((orderItem) => (
+                <div className="FinishWarp" key={orderItem.name}>
+                  <div className="text-img">
+                    <img src={orderItem.image} />
+                  </div>
+                  <div className="FINISH">
+                    {orderItem.name} {orderItem.price}원 {orderItem.quantity}개
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="MoveHome-btn">
+              <button className="MOVEHOME" onClick={backMenuPage}>
+                홈으로
+              </button>
+            </div>
           </div>
         </div>
       </div>
