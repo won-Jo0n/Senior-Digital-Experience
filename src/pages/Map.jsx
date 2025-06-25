@@ -34,7 +34,7 @@ const Map = () => {
           });
         });
       } catch (err) {
-        console.log("안됨");
+        console.log(err);
         setError(err.message);
       } finally {
         setLoading(false);

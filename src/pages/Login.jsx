@@ -16,7 +16,6 @@ const Login = () => {
   const navigate = useNavigate();
   const loginOnClick = () => {
     if (phoneNum === "ADMIN" && password === "ADMIN1234") {
-      console.log(phoneNum);
       onLogin(phoneNum);
       alert("관리자 계정으로 로그인 하셨습니다.");
       navigate("/");
