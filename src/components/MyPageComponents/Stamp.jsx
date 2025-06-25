@@ -3,7 +3,6 @@ import stampImg from "../../assets/myPage/stampImg.png";
 import "./Stamp.css";
 
 function Stamp(isShow) {
-  console.log(isShow);
   const stampRef = useRef(null);
 
   const handleMouseMove = (e) => {

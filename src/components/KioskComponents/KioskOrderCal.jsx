@@ -3,8 +3,6 @@ import "../highlight.css";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { DataDispatchContext } from "../../App.jsx";
-// 주문내역 총수량 및 총합계 계산
-// orderItems에는 [itemId,itemName, itemPrice]
 
 const KioskOrderCal = ({
   orderItems,

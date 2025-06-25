@@ -22,7 +22,6 @@ const Home = () => {
 
   // useEffect 훅을 사용하여 로그인 상태를 확인하고 팝업을 표시합니다.
   useEffect(() => {
-    console.log("로그인 ID: ", loginedId);
     // 사용자가 로그인 상태이고, 'hasSeenStampPopup' 플래그가 localStorage에 없으면 팝업을 보여줍니다.
     // 이 플래그는 팝업이 이미 한 번 표시되었는지 추적하여 재로그인 시 다시 나타나지 않도록 합니다.
     if (isLogin === "LOGIN" && !isNotAgainSee) {
@@ -59,12 +58,10 @@ const Home = () => {
     nav("/Community");
   };
   const onKiosk = (ischallenged) => {
-    console.log(ischallenged);
     setIsChallenged("Kiosk", ischallenged);
     nav("/Kiosk");
   };
   const onNaverBook = (ischallenged) => {
-    console.log(ischallenged);
     setIsChallenged("naverBook", ischallenged);
     nav("/NaverBook/page01");
   };
@@ -121,7 +118,7 @@ const Home = () => {
       </div>
       <div className="Comunity-btn">
         <Button
-          text={"관리자와 소통하기"}
+          text={"관리자에게 한마디"}
           type={"Comunity"}
           onClick={onComunity}
         />

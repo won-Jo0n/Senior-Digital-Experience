@@ -20,25 +20,6 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
     setShowButtons(false); // 모든 카드에 대해 버튼 숨김
   };
 
-  // // "연습모드" 버튼 클릭 핸들러 (키오스크, 병원예약에만 해당)
-  // const onPracticeMode = (e) => {
-  //   e.stopPropagation(); // 부모 div의 onClick 이벤트 전파 방지
-  //   console.log(`${title}의 연습모드 클릭!`);
-
-  //   if (cardImage === 1) {
-  //     // 키오스크
-  //     setIsChallenged("Kiosk", false);
-  //     nav("/Kiosk/Practice");
-  //   } else if (cardImage === 2) {
-  //     // 병원예약하기
-  //     setIsChallenged("naverBook", false);
-  //     nav("/NaverBook/Practice");
-  //   }
-  //   // cardImage === 3일 때는 이 함수가 호출되지 않음
-  // };
-
-  // "실전모드" 버튼 클릭 핸들러 (키오스크, 병원예약에만 해당)
-  // 또는 3번 카드일 때 "복지시설 둘러보기" 버튼 클릭 핸들러
   const onMainActionClick = (e) => {
     e.stopPropagation(); // 부모 div의 onClick 이벤트 전파 방지
 
@@ -57,8 +38,8 @@ const NavCard = ({ title, explanation, cardImage, onClick }) => {
   return (
     <div
       className={`${cardImage === 3 ? "NavCard image_3" : "NavCard"}`}
-      onMouseEnter={handleMouseEnter} // 마우스 진입 이벤트 리스너 추가
-      onMouseLeave={handleMouseLeave} // 마우스 이탈 이벤트 리스너 추가
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* 일반적인 NavCard 내용 */}
       <img

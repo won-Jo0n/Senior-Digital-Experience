@@ -17,7 +17,6 @@ const MyPage = () => {
   const password = useRef(userState.loginedId.password);
   const birth = useRef(userState.loginedId.birth);
 
-  console.log(userState.loginedId);
   const birthDate = new Date(userState.loginedId.birth);
   const today = new Date();
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -87,7 +86,6 @@ const MyPage = () => {
             onClick={() => {
               let result = confirm("정말로 탈퇴하시겠습니까?");
               if (result) {
-                console.log(userState.loginedId.id);
                 onDelete(userState.loginedId.id);
                 onLogout();
                 alert("탈퇴되었습니다!");

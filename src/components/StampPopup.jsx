@@ -61,7 +61,6 @@ const StampPopup = ({ onClose, onNotAgainSee }) => {
                 className="stamp-close-button"
                 onClick={() => {
                   onNotAgainSee();
-                  console.log(".");
                 }}
               >
                 다시는 보지않기

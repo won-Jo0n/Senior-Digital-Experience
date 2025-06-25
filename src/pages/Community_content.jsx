@@ -51,8 +51,8 @@ const Community_content = () => {
         </div>
         <div className="content-text">{content.text}</div>
         <div className="content-answer">
-          {content.isAnswer ? (
-            <div>{content.isAnswer}</div>
+          {content.answer ? (
+            <div>{content.answer}</div>
           ) : (
             "아직 답변되지 않은 게시글입니다."
           )}

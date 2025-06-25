@@ -24,12 +24,7 @@ const KioskFinal = () => {
       hasCheseCake = true;
     }
   });
-  // const orderItemNames = orderList.map((item) => item.name);
-  // const orderItemQuantity = orderList.map((item) => item.quantity);
 
-  // console.log(orderItemQuantity);
-  // const hasDalgona = orderItemNames.includes("달고나 라떼");
-  // const hasCheseCake = orderItemNames.includes("치즈 케이크");
   const isHave = hasDalgona && hasCheseCake;
 
   return (
