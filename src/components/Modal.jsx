@@ -26,6 +26,7 @@ export const Modal = ({ setModal }) => {
 
     onCreateCommunity(title, loginedId, userName, createDate, text);
     setModal(false); // 모달 닫기
+    alert("글 작성을 완료했습니다!");
   };
 
   return (

@@ -155,7 +155,7 @@ const Map = () => {
               onChange={searchOnChange}
               value={searchTerm}
             />
-            <button className="search-btn">🔍</button>
+            <button className="search-btn"></button>
           </div>
 
           {filteredData.map((item, idx) => (
