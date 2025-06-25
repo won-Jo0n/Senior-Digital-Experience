@@ -13,16 +13,16 @@ const Kiosk_CardPayMent = () => {
 
   orderList.map((item) => (totalPrice += item.totalPrice));
 
-  // useEffect(() => {
-  //   //이동될때만 실행행
-  //   const timer = setTimeout(() => {
-  //     // 3초 후에 홈 페이지나 다른 원하는 경로로 이동
-  //     nav("/KioskFinal"); // 예: 홈 페이지로 이동
-  //   }, 3000);
+  useEffect(() => {
+    //이동될때만 실행행
+    const timer = setTimeout(() => {
+      // 3초 후에 홈 페이지나 다른 원하는 경로로 이동
+      nav("/KioskFinal"); // 예: 홈 페이지로 이동
+    }, 3000);
 
-  //   // 컴포넌트가 언마운트될 때 타이머를 클리어하여 메모리 누수 방지
-  //   return () => clearTimeout(timer);
-  // }, [nav]); // navigate 함수가 변할 때때
+    // 컴포넌트가 언마운트될 때 타이머를 클리어하여 메모리 누수 방지
+    return () => clearTimeout(timer);
+  }, [nav]); // navigate 함수가 변할 때때
 
   return (
     <div className="Kiosk_CardPayMent">

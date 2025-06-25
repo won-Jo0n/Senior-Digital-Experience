@@ -1,14 +1,13 @@
 import "./KioskFinal.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataDispatchContext } from "../App";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
 
 const KioskFinal = () => {
   const { getOrderList } = useContext(DataDispatchContext);
   const { getIsChallenged } = useContext(DataDispatchContext); //미션인지 연습인지(현재 false)
   const nav = useNavigate();
-
+  const [showResult, setShowResult] = useState(true);
   const backMenuPage = () => {
     nav("/");
   };
@@ -24,7 +23,6 @@ const KioskFinal = () => {
       hasCheseCake = true;
     }
   });
-
   const isHave = hasDalgona && hasCheseCake;
 
   return (
@@ -35,18 +33,32 @@ const KioskFinal = () => {
           <div className="KioskFInalAllPage">
             <div className="MissionIcon">
               <img
-                className="MissionIcon-img"
-                src={"/icon_friends.png"}
-                alt="아이콘"
+                src={
+                  getIsChallenged()
+                    ? isHave
+                      ? "/icon_friends.png"
+                      : "/icon_sad.png"
+                    : "/icon_friends.png"
+                }
               />
             </div>
             <div className="finalText">
-              {getIsChallenged(true) &&
+              {getIsChallenged() ? (
+                isHave ? (
+                  <b>키오스크 미션 성공 🎉</b>
+                ) : (
+                  <b>키오스크 미션 실패 😣</b>
+                )
+              ) : (
+                <b>연습모드 종료 고생하셨습니다😘</b>
+              )}
+
+              {/* {getIsChallenged(true) &&
                 (isHave ? (
                   <b>키오스크 미션 성공 🎉</b>
                 ) : (
                   <b>키오스크 미션 실패 😣</b>
-                ))}
+                ))} */}
             </div>
             <div className="orderListArea">
               {orderList.map((orderItem) => (

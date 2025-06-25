@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 .Home {
   display: flex;
   flex-direction: column;
@@ -23,11 +36,23 @@
 .Login-btn Button,
 .NewAccount-btn Button {
   padding: 18px;
-  font-size: 18px;
+  font-size: 20px;
+   font-family: 'Pretendard-Regular';
+   font-weight: bold;
 }
 
 .wrapper_menu Button {
   margin: 0 10px;
+}
+
+.Button {
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    color: #fffbf3;
+    font-size: 1.1em;
+    font-family: 'Paperlogy-8ExtraBold';
 }
 
 .Comunity-btn {
@@ -38,9 +63,10 @@
   border-radius: 10px;
   margin: 30px 0;
   transition: background-color 0.2s ease;
+  font-family: 'Paperlogy-8ExtraBold';
 }
 .Community-btn:hover {
-  background-color: black;
+  background-color: rgb(167, 167, 167);
 }
 
 .wrapper_main {
