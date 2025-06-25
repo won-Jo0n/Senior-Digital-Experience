@@ -6,6 +6,8 @@
   height: 270px;
   margin-left: 19px;
   margin-top: 320px;
+  position: relative;
+  z-index: 100;
 }
 .orderListBlank {
   flex: 1;
@@ -14,8 +16,9 @@
   overflow-x: hidden;
   padding: 10px;
   background-color: #fff;
-  z-index: 3;
-  width: 495px;
+  z-index: 100;
+  width: 495px
+  position: relative;
 }
 
 .orderListBlank::-webkit-scrollbar {

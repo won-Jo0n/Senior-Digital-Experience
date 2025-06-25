@@ -58,7 +58,7 @@ function communityReducer(state, action) {
     case "UPDATE":
       nextState = state.map((item) =>
         String(item.id) === String(action.data.id)
-          ? { ...item, isAnswer: action.data.answer }
+          ? { ...item, answer: action.data.answer }
           : item
       );
       break;
@@ -128,14 +128,14 @@ function App() {
           "0"
         )}`, // 랜덤 날짜
         text: `안녕하세요, ${i}번째 게시물 내용입니다.`,
-        isAnswer: "", // 답변 상태
+        answer: "", // 답변 상태
       });
     }
     return data;
   };
 
   // 원하는 게시물 수 설정
-  const numberOfPosts = 100;
+  const numberOfPosts = 0;
   const communityMockData = generateCommunityMockData(numberOfPosts);
 
   // 사용자
@@ -151,7 +151,6 @@ function App() {
     // 1. 사용자 데이터 로드 및 초기화
     const storedUserData = localStorage.getItem("UserStatus");
     if (!storedUserData || JSON.parse(storedUserData).length === 0) {
-      console.log("localStorage에 사용자 데이터가 없으므로 mockData로 초기화");
       dispatch({ type: "INIT", data: mockData });
       const maxMockUserId = mockData.reduce(
         (max, item) => Math.max(max, item.id),
@@ -161,10 +160,6 @@ function App() {
       localStorage.setItem("UserStatus", JSON.stringify(mockData));
     } else {
       const parsedUserData = JSON.parse(storedUserData);
-      console.log(
-        "localStorage에서 사용자 데이터를 로드합니다:",
-        parsedUserData
-      );
       const maxStoredUserId = parsedUserData.reduce(
         (max, item) => Math.max(max, item.id),
         0
@@ -176,9 +171,6 @@ function App() {
     // 2. 커뮤니티 데이터 로드 및 초기화
     const storedCommunityData = localStorage.getItem("CommunityData");
     if (!storedCommunityData || JSON.parse(storedCommunityData).length === 0) {
-      console.log(
-        "localStorage에 커뮤니티 데이터가 없으므로 communityMockData로 초기화"
-      );
       setCommunityData({ type: "INIT", data: communityMockData });
       const maxMockCommunityId = communityMockData.reduce(
         (max, item) => Math.max(max, item.id),
@@ -188,10 +180,6 @@ function App() {
       localStorage.setItem("CommunityData", JSON.stringify(communityMockData));
     } else {
       const parsedCommunityData = JSON.parse(storedCommunityData);
-      console.log(
-        "localStorage에서 커뮤니티 데이터 로드:",
-        parsedCommunityData
-      );
       const maxStoredCommunityId = parsedCommunityData.reduce(
         (max, item) => Math.max(max, item.id),
         0
@@ -214,6 +202,7 @@ function App() {
         userName,
         date,
         text,
+        answer: "",
       },
     });
   };
@@ -325,9 +314,6 @@ function App() {
     setIslogin("");
   };
 
-  if (!isLoading) {
-    console.log("not loaded");
-  }
   if (isLoading) {
     return <div>데이터를 로드하는 중입니다...</div>;
   }

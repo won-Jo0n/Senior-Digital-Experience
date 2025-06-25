@@ -5,7 +5,6 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
   const pageNumbers = [];
   const totalPages = Math.ceil(totalPosts / postsPerPage);
 
-  // 페이지 번호를 배열에 추가 (예: 1, 2, 3, ...)
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }

@@ -16,7 +16,7 @@ const Community = () => {
   const { onDeleteCommunityContent } = useContext(DataDispatchContext);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(5);
   // displayedPosts는 현재 페이지에 보여줄 게시물
   const [displayedPosts, setDisplayedPosts] = useState([]);
   // filteredAndSortedData는 현재 검색 및 정렬된 전체 게시물 (페이징의 기준)
@@ -68,10 +68,9 @@ const Community = () => {
       // item.userName.toLowerCase().includes(searchingText.toLowerCase()) ||
       // item.text.toLowerCase().includes(searchingText.toLowerCase())
     );
-    setFilteredAndSortedData(result); // 검색 및 정렬된 결과를 페이징의 기준으로 설정
+    setFilteredAndSortedData(result);
   };
 
-  // 검색어 입력 필드에서 엔터 키를 눌렀을 때 검색 실행
   const handleSearchKeyDown = (e) => {
     if (e.key === "Enter") {
       searching();
@@ -82,12 +81,6 @@ const Community = () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
       onDeleteCommunityContent(id);
       alert("글을 삭제하였습니다.");
-      // 삭제 후 useEffect가 data.communityData 변경을 감지하여 자동으로 업데이트
-      // 그리고 필요시 페이지 조절 (예: 삭제로 인해 현재 페이지가 비게 되는 경우)
-      // 이 부분은 useEffect가 자동으로 처리하도록 두어도 되지만,
-      // 더 명확한 제어가 필요하다면 다음 페이지 조정 로직을 여기에 추가할 수 있습니다.
-      // 예를 들어, 현재 페이지에 게시물이 없으면 이전 페이지로 이동
-      // (그러나 useEffect가 새로운 data.communityData를 기반으로 다시 계산하므로 보통 필요 없음)
     } else {
       alert("취소 하셨습니다");
     }
@@ -115,21 +108,34 @@ const Community = () => {
         <ul>
           {displayedPosts.length > 0 ? (
             displayedPosts.map((item) => (
-              <li key={item.id} className="community-content">
+              <li
+                onClick={() => {
+                  nav(`/Community_content/${item.id}`);
+                }}
+                key={item.id}
+                className="community-content"
+              >
                 <div
-                  className="community-title"
-                  onClick={() => {
-                    nav(`/Community_content/${item.id}`);
-                  }}
+                  className={`${
+                    item.author === "ADMIN"
+                      ? "community-title-admin"
+                      : "community-title"
+                  }`}
                 >
                   {item.title}
                 </div>
+                {item.answer ? (
+                  <div className="content-isAnswer">답변완료</div>
+                ) : (
+                  <div className="content-noAnswer">답변 안됨</div>
+                )}
                 <div className="community-date">{item.date}</div>
                 <div className="community-userName">{item.userName}</div>
                 {data.isLogin === "ADMIN" ? (
                   <Button
                     text={"글 삭제"}
-                    onClick={() => {
+                    onClick={(event) => {
+                      event.stopPropagation();
                       handleDeleteContent(item.id);
                     }}
                   />

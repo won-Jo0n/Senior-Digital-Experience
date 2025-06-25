@@ -1,3 +1,83 @@
+.highlighPay {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 0;
+  width: fit-content; /* 자식 크기에 맞게 자동 설정 */
+  height: fit-content;
+}
+
+/* 회전 효과 배경 */
+.highlighPay::before {
+  content: "";
+  position: absolute;
+  top: 20%; /* 위쪽 위치를 더 안쪽으로 */
+  left: -50%; /* 왼쪽 위치도 더 안쪽으로 */
+  width: 200%; /* 크기를 103%로 줄임 */
+  height: 50%; /* 높이도 103% */
+  background: #ab1f2e;
+  animation: animate 4s linear infinite;
+  z-index: 0;
+}
+
+/* 안쪽 마스크 */
+.highlighPay::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: white;
+  z-index: 1;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 6px;
+}
+
+/* 실제 콘텐츠는 위에 */
+.highlighPay > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.tooltipPay {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 170px; /*  하이라이트와 약간 띄운 위치 */
+  left: 130px;
+  transform: translateX(-50%);
+  z-index: 999;
+  animation: bounce 1.5s ease-in-out infinite;
+  background-color: white;
+  color: rgb(39, 39, 39);
+  font-weight: bold;
+  font-size: 20px;
+  border: 2px solid #ab1f2e;
+  padding: 18px 25px;
+  border-radius: 40px;
+  white-space: nowrap;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.tooltipPay.down {
+  top: 300px;
+}
+
+.tooltipPay::after {
+  content: "▼";
+  position: absolute;
+  bottom: -6px;
+  border-width: 6px;
+  color: #ab1f2e;
+  font-size: 15px;
+}
+
 .KioskPayMent {
   background-color: #fffbf3;
   display: flex;

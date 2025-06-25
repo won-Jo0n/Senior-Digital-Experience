@@ -59,7 +59,7 @@ const KioskStart = () => {
                 <img className="blinking" src={touchFinger} />
               </div>
             ) : (
-              <Highlight tooltip="화면을 눌러주세요" color="green">
+              <Highlight tooltip="화면을 눌러주세요" color="sewonUptoyou">
                 <div className="middleDiv" onClick={() => nav("/Kiosk/:1")}>
                   <div className="middleText">안녕하세요 고객님</div>
                   <div className="middleMainText">

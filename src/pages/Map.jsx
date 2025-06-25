@@ -34,7 +34,7 @@ const Map = () => {
           });
         });
       } catch (err) {
-        console.log("안됨");
+        console.log(err);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -155,7 +155,7 @@ const Map = () => {
               onChange={searchOnChange}
               value={searchTerm}
             />
-            <button className="search-btn">🔍</button>
+            <button className="search-btn"></button>
           </div>
 
           {filteredData.map((item, idx) => (

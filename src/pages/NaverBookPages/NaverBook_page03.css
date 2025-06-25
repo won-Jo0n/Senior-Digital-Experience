@@ -7,7 +7,7 @@
   overflow-x: hidden; /* 넘침 방지 */
 }
 .NaverBook_page03 {
- position: relative;
+  position: relative;
   background-color: white;
   font-family: sans-serif;
   padding: 16px;
@@ -16,8 +16,8 @@
   right: 9px;
   max-width: 430px;
   margin: 0 auto;
-  top: -790px;
-  height: 635px;
+  top: -908px;
+  height: 735px;
 }
   
  .bookWrapper {

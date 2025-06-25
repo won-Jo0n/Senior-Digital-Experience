@@ -31,9 +31,14 @@ const KioskPayMent = () => {
             </div>
             <div className="olderMETHOD">
               <div className="topBtn">
+                {getIsChallenged() ? (
+                  ""
+                ) : (
+                  <div className={`tooltipPay`}>메뉴를 선택해 주세요</div>
+                )}
                 <button
                   onClick={cardPayMent}
-                  className={getIsChallenged() ? "" : "CARDBTN highlight"}
+                  className={getIsChallenged() ? "" : "CARDBTN highlighPay"}
                 >
                   <div>
                     <img src="/public/card.png" className="CardImg" />

@@ -4,7 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { DataDispatchContext } from "../../App.jsx";
 
-const KioskModalPay = ({ setOnPayModal, orderItems, threeHighlight }) => {
+const KioskModalPay = ({
+  setOnPayModal,
+  orderItems,
+  setSecondHighlight,
+  threeHighlight,
+  setThreeHighlight,
+}) => {
   const { getIsChallenged, setOrderList } = useContext(DataDispatchContext); //미션인지 연습인지
   //선택 버튼에 따라 모달 창이 바뀜
 
@@ -21,6 +27,8 @@ const KioskModalPay = ({ setOnPayModal, orderItems, threeHighlight }) => {
 
   const onClosePayModal = () => {
     setOnPayModal(false);
+    setSecondHighlight(true);
+    setThreeHighlight(false);
   };
 
   const movePayMentPage = () => {
@@ -61,7 +69,7 @@ const KioskModalPay = ({ setOnPayModal, orderItems, threeHighlight }) => {
             className={
               getIsChallenged() || !threeHighlight
                 ? "rightBtn"
-                : "rightBtn highlight"
+                : "rightBtn highlightMenu-red"
             }
             onClick={movePayMentPage}
           >
