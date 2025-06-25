@@ -19,6 +19,7 @@ const KioskPayMent = () => {
   };
   return (
     <div className="KioskPayMent">
+      <Header leftIcon="left2" rightIcon="right2" />
       <div className="KIOSKDP2">
         <img className="KIOSKDP2-img" src="/koisk.png" />
         <div className="KioskPayWRAP">
