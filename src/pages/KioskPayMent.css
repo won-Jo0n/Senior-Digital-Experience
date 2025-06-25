@@ -19,30 +19,36 @@
 
 .KioskPayMent .KIOSKDP2 .KIOSKDP2-img {
   position: relative;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  /* ★★★ koisk.png 이미지의 실제 픽셀 크기를 여기에 지정합니다. ★★★ */
+  /* 예를 들어, koisk.png의 원본 크기가 1000px x 1300px이라면: */
+  width: 1000px; /* 실제 이미지 파일의 너비 */
+  height: 990px; /* 실제 이미지 파일의 높이 */
+  /* 이미지의 비율을 유지하면서 주어진 width/height에 맞추기 (선택 사항) */
+  object-fit: contain; /* 이미지가 잘리지 않고 프레임 안에 다 들어가게 */
+  border: 1px solid #000; /* 개발 시에만 사용하고, 최종 배포 시에는 제거 */
   margin-top: 25px;
-  z-index: 1;
+  z-index: 0;
 }
 
 .KioskPayMent .LastOlderPage {
   position: absolute;
-  top: 80px;
-  left: 70px;
+  top: 39px;
+  left: 233px;
   background-color: white;
-  height: 100%;
+  height: 698px;
+  width: 512px;
+  border-radius: 10px;
 }
 
 .KioskPayMent .LastOlderPage .oldertext {
   display: flex;
-  justify-content: center; /* 주축(기본: 수평)에서 가운데 정렬 */
+  justify-content: center;
   align-items: center;
   color: white;
   background-color: #ab1f2e;
   border-radius: 10px 10px 0px 0px;
-  width: 500px;
-  height: 70px;
+  width: 512px;
+  height: 75px;
   text-align: center;
   font-size: 35px;
 }
@@ -70,6 +76,7 @@
   width: 465px;
   height: 130px;
   margin-top: 50px;
+  margin-left: 12px;
   font-size: 50px;
 }
 
