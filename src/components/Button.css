@@ -1,10 +1,10 @@
+
 .Button {
   border: none;
   border-radius: 8px;
   background-color: transparent;
   cursor: pointer;
   color: #fffbf3;
-  font-family: "Inter", sans-serif;
   font-size: 1.1em;
   font-weight: bolder;
   margin: 0;

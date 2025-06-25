@@ -129,19 +129,19 @@ const Home = () => {
       <div className="wrapper_main">
         <NavCard
           title={"키오스크"}
-          explanation={"부가적인 설명입니다."}
+          explanation={"무인정보단말기 이용 방법을 안내해드립니다."}
           cardImage={1}
           onClick={onKiosk}
         />
         <NavCard
           title={"병원예약"}
-          explanation={"부가적인 설명입니다."}
+          explanation={"온라인을 통한 병원 예약 절차를 안내해드립니다."}
           cardImage={2}
           onClick={onNaverBook}
         />
         <NavCard
           title={"주변 복지 시설 보기"}
-          explanation={"부가적인 설명입니다."}
+          explanation={"주변 복지시설 정보 확인 방법을 안내해드립니다."}
           cardImage={3}
           onClick={onMap}
         />
