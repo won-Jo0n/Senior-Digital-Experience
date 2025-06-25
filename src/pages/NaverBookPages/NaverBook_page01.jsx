@@ -52,10 +52,10 @@ const NaverBook_page01 = () => {
               <img src="/logo_1.png" alt="메인" />
             </div>
             <div className="sub-photo-grid">
-              <img src="/logo_1.png" alt="sub1" />
-              <img src="/logo_1.png" alt="sub2" />
-              <img src="/logo_1.png" alt="sub3" />
-              <img src="/logo_1.png" alt="sub4" />
+              <img src="/icon_img01.jpg" alt="sub1" />
+              <img src="/icon_img02.jpg" alt="sub2" />
+              <img src="/icon_img03.jpg" alt="sub3" />
+              <img src="/icon_img04.jpg" alt="sub4" />
             </div>
           </div>
 
