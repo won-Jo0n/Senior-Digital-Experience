@@ -89,7 +89,7 @@
 
 /* 세원이가 원하는 색으로 넣어 */
 .tooltip-sewonUptoyou {
-  border: 2px solid red;
+  border: 2px solid #ab1f2e;
 }
 
 /* 툴팁 꼬리 */
@@ -107,7 +107,12 @@
 
 /* 세원이가 원하는 색으로 넣어 */
 .tooltip-sewonUptoyou::after {
-  border: 2px solid red;
+  content: "▼";
+  position: absolute;
+  bottom: -6px;
+  border-width: 6px;
+  color: #ab1f2e;
+  font-size: 15px;
 }
 
 /* bounce 애니메이션 */

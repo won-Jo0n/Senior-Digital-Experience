@@ -10,9 +10,11 @@ const KioskOrderCal = ({
   setOnPayModal,
   orderNumPlus, //해당 메뉴 수량 올리기
   orderNumMinus, //해당 메뉴 수량 줄이기
+  setFirstHighlight,
   setSecondHighlight,
   secondHighlight,
   setThreeHighlight,
+  threeHighlight,
 }) => {
   const { getIsChallenged } = useContext(DataDispatchContext); //미션인지 연습인지
   const nav = useNavigate();
@@ -43,6 +45,11 @@ const KioskOrderCal = ({
       setThreeHighlight(true);
     }
   };
+  console.log(orderItems);
+  if (orderItems.length == 0) {
+    setFirstHighlight(true);
+    setSecondHighlight(false);
+  }
   return (
     <>
       <div className="ALLorderList">
@@ -54,7 +61,7 @@ const KioskOrderCal = ({
                 className={
                   getIsChallenged() || !secondHighlight
                     ? "orderITEM"
-                    : "orderITEM highlight"
+                    : "orderITEM highlightMenu"
                 }
                 key={orderItem.name}
               >
@@ -105,7 +112,7 @@ const KioskOrderCal = ({
               className={
                 getIsChallenged() || !secondHighlight
                   ? "olderBtn"
-                  : "olderBtn highlight"
+                  : "olderBtn highlightMenu-red"
               }
               onClick={openOlder}
             >

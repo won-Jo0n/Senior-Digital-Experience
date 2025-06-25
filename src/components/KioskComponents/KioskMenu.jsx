@@ -245,6 +245,11 @@ const KioskMenu = () => {
               케이크
             </button>
           </div>
+          {getIsChallenged() || !firstHighlight ? (
+            ""
+          ) : (
+            <div className={`tooltipMenu`}>메뉴를 선택해 주세요</div>
+          )}
           <div
             className={
               getIsChallenged() || !firstHighlight
@@ -253,6 +258,13 @@ const KioskMenu = () => {
             }
           >
             {changeMenu()}
+            {getIsChallenged() || !secondHighlight ? (
+              ""
+            ) : (
+              <div className={`tooltipMenu down`}>
+                수량을 확인하고, 주문하기 버튼을 눌러주세요
+              </div>
+            )}
           </div>
           <div className="KIOSKDP1">
             <img src="/koisk.png" />
@@ -278,8 +290,9 @@ const KioskMenu = () => {
             <KioskModalPay
               setOnPayModal={setOnPayModal}
               orderItems={orderItems}
-              secondHighlight={secondHighlight}
+              setSecondHighlight={setSecondHighlight}
               threeHighlight={threeHighlight}
+              setThreeHighlight={setThreeHighlight}
             />
           )}
         </div>
@@ -293,9 +306,11 @@ const KioskMenu = () => {
             setOnPayModal={setOnPayModal}
             orderNumPlus={orderNumPlus}
             orderNumMinus={orderNumMinus}
+            setFirstHighlight={setFirstHighlight}
             setSecondHighlight={setSecondHighlight}
             secondHighlight={secondHighlight}
             setThreeHighlight={setThreeHighlight}
+            threeHighlight={threeHighlight}
           />
         </div>
       </div>
