@@ -4,7 +4,7 @@
   color: black;
   background-color: #dae8d3;
   margin: 5px;
-  padding: 15px; /* 기존 패딩 유지 */
+  padding: 25px; /* 기존 패딩 유지 */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -17,23 +17,46 @@
   width: 300px;
   height: 300px;
 }
+
 .image_3 {
-  background-color: #f5c871;
+  background-color: #ffdfa0;
 }
 
 .NavCardImage {
-  height: 150px;
+  height: 200px;
   max-width: 100%;
   transition: transform 0.3s ease-out;
+  margin-top: 30px;
 }
-
+.NavCard .title{
+  color: #1a2a21;
+   font-family: 'Paperlogy-8ExtraBold';
+}
 .NavCard .title,
 .NavCard .explanation {
   transition: opacity 0.3s ease-out;
+   text-align: center;
+  
 }
-
+.NavCard .title{
+  font-size: 25px;
+  margin-top: 0px;
+}
 .NavCard .explanation {
   color: rgb(70, 82, 71);
+  font-family: 'Pretendard-Regular', sans-serif; /* 폰트 적용 */
+  font-weight: 400;
+  margin-top: 0px;
+  padding: 10px 14px; /* 안쪽 여백 */
+  margin-top: 0px;
+  text-align: center; /* 텍스트 왼쪽 정렬 */
+  width: 90%; /* 카드 내부에서 90% 너비 */
+  min-height: 60px; /* 일정 높이 확보 (직사각형 형태 유지를 위해) */
+  word-break: keep-all; /* 단어가 중간에서 끊기지 않도록 */
+  line-height: 1.5;
+  transition: opacity 0.3s ease-out;
+  font-size: 18px;
+  margin-bottom: 50px;
 }
 
 /* 마우스 호버 시 나타나는 버튼 오버레이 영역 */
