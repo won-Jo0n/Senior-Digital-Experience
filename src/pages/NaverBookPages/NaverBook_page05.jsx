@@ -75,9 +75,7 @@ const NaverBook_page05 = () => {
           <div className="bookImg">
             <img
               src={
-                showResult
-                  ? isConfirmed
-                    ? "/icon_friends.png"
+                showResult ? isConfirmed ? "/icon_friends.png"
                     : getIsChallenged()
                     ? "/icon_sad.png"
                     : "/icon_friends.png"
