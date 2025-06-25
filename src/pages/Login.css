@@ -22,7 +22,8 @@
   gap: 20px; /* 입력 필드와 버튼들 사이의 간격 */
   align-items: center; /* 내부 요소들을 가로 중앙 정렬 */
 }
-
+.Login .login-wrapper > * {
+}
 /* 입력 필드 (전화번호, 비밀번호) */
 .Login input[type="text"],
 .Login input[type="password"] {
@@ -34,7 +35,7 @@
   outline: none;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* 약간의 안쪽 그림자 */
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-family: "Paperlogy-8ExtraBold"; /* 또는 'Noto Sans KR', sans-serif */
   font-weight: 300;
 }
 
@@ -68,8 +69,8 @@
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
-  margin: 0px ; /* 기존 마진 초기화 */
-    font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  margin: 0px; /* 기존 마진 초기화 */
+  font-family: "Paperlogy-8ExtraBold"; /* 또는 'Noto Sans KR', sans-serif */
   font-weight: 600;
 }
 
