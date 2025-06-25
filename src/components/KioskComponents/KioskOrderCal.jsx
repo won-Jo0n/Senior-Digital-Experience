@@ -68,6 +68,7 @@ const KioskOrderCal = ({
                 <img src={orderItem.image} alt={orderItem.name} />
                 <div className="lastOrderContent">
                   {orderItem.name}
+                  <br />
                   {orderItem.price}원{/* 수량 추가 버튼 */}
                 </div>
                 <div className="BTNDIV">

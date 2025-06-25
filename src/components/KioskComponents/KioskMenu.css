@@ -172,13 +172,14 @@
 }
 
 .button_coffee {
-  width: 34%;
+  border-radius: 10px 10px 0px 0px;
+  width: 33%;
   font-weight: bold;
-  justify-content: flex-start;
-  font-size: 35px;
+  justify-content: center;
+  font-size: 30px;
   background-color: white;
   border: none;
-  border-radius: 10px 10px 0px 0px;
+  height: 60px;
 }
 .button_coffee:hover {
   color: white;
@@ -190,9 +191,10 @@
   width: 33%;
   font-weight: bold;
   justify-content: center;
-  font-size: 35px;
+  font-size: 30px;
   background-color: white;
   border: none;
+  height: 60px;
 }
 .button_drink:hover {
   color: white;
@@ -201,13 +203,13 @@
 
 .button_cake {
   border-radius: 10px 10px 0px 0px;
-  position: absolute;
   width: 33%;
   font-weight: bold;
   justify-content: center;
-  font-size: 35px;
+  font-size: 30px;
   background-color: white;
   border: none;
+  height: 60px;
 }
 
 .button_cake:hover {
@@ -217,7 +219,7 @@
 
 .coffee_menuDISPLAY {
   background-color: white;
-  width: 519px;
+  width: 515px;
   position: absolute;
   top: 50px;
   display: grid;

@@ -32,9 +32,14 @@ const Kiosk_CardPayMent = () => {
           <div className="cardTitle">
             <b>신용카드 결제</b>
           </div>
-          <div className="totalMoney">{totalPrice}원이 결제 됩니다</div>
+          <div className="totalMoney">
+            <p style={{ color: "#ab1f2e" }}>
+              <b>{totalPrice}원</b>
+            </p>
+            이 결제 됩니다.
+          </div>
           <div className="totalContents">
-            <b>키오스크 연습이므로 실제로 결제되지 않습니다</b>
+            <b>(키오스크 연습이므로 실제로 결제되지 않습니다)</b>
           </div>
           <div className="moveDISplay">
             화면은 자동으로 넘어갑니다.

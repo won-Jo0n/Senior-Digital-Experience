@@ -106,14 +106,14 @@
 }
 
 .wrapperStartDisplay .middleDiv {
-  width: 500px; /* 부모 .imageDisplay의 너비에 꽉 채우도록 */
-  height: 230px;
+  width: 517px;
+  height: 237px;
   background-color: #3e3e3f;
   border-radius: 0; /* 라운드 코너를 전체적으로 맞추기 위해 0으로 설정하거나, .imageDisplay에 한 번에 적용 */
   box-sizing: border-box; /* 패딩 포함 크기 계산 */
   z-index: 10; /* ✅ 기존 0에서 높여줍니다 */
   position: relative;
-  margin: 4px;
+  margin: -7px;
 }
 
 .middleDiv.highlight::after {
