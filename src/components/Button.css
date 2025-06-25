@@ -1,13 +1,15 @@
 
 .Button {
-  border: none;
+   border: none;
   border-radius: 8px;
   background-color: transparent;
   cursor: pointer;
   color: #fffbf3;
-  font-size: 1.1em;
-  font-weight: bolder;
+  font-size: 1.4em;
+  font-weight: 200;
   margin: 0;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 .Button_Comunity {
@@ -17,6 +19,7 @@
   background-color: #fffbf3;
   width: 100%;
   height: 100%;
+  font-family: 'Paperlogy-8ExtraBold';
 }
 
 .Button_Community-content-prev-button {
