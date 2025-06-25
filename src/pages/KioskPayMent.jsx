@@ -34,7 +34,7 @@ const KioskPayMent = () => {
                 {getIsChallenged() ? (
                   ""
                 ) : (
-                  <div className={`tooltipMenu`}>메뉴를 선택해 주세요</div>
+                  <div className={`tooltipPay`}>메뉴를 선택해 주세요</div>
                 )}
                 <button
                   onClick={cardPayMent}
