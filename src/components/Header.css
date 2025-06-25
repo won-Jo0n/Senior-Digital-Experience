@@ -1,13 +1,15 @@
 .Header {
+  position: absolute;
   display: flex;
   justify-content: space-between;
   background-color: transparent;
-  margin: 0px;
+  margin: 10px;
   margin-top: 0px;
   align-items: center;
-  padding: 7px 20px;
-  border-bottom: 1px solid rgb(226, 226, 226);
-  background-color: #1f2e25;
+  padding: 7px 4px;
+  width: 100%;
+  top: 40vh;
+  z-index: 0;
 }
 
 .Header button {
@@ -15,15 +17,20 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  margin: 10px;
-  padding: 13px 20px;
+  margin: 30px;
+  padding: 30px 40px;
   font-size: 1.5rem;
-  background-color: #FFFBF3 ;
-  border-radius: 20px;
+  background-color: #FFFBF3;
+  color:  #1f2e25;
   font-weight: lighter;
-  color: #1f2e25;
+  width: 200px;
+ 
 }
 
+.Header img{
+  width: 70px;
+  color: #1f2e25;
+}
 .Header-logo {
   margin: 0 auto;
 }

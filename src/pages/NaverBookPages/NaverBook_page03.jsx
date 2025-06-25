@@ -73,7 +73,7 @@ const NaverBook_page03 = () => {
 
   return (
     <div className="bigContainer">
-      <Header />
+      <Header leftIcon="left1" rightIcon="right1" />
       <div className="bookWrapper">
         <img src="/phone.png" alt="phone" />
         <div className="NaverBook_page03">

@@ -41,7 +41,7 @@ const NaverBook_page01 = () => {
         />
       )}
 
-      <Header />
+      <Header leftIcon="left1" rightIcon="right1" />
       <div className="bookWrapper">
         <img src="/phone.png" alt="phone" className="phone-frame" />
 

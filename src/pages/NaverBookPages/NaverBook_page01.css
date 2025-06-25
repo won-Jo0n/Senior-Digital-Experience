@@ -2,19 +2,29 @@
   margin: 0;
   padding: 0;
   background-color: #fffbf3;
+  width: 100vw; /* 화면 전체 너비를 채움 */
+  height: 100vh;
+  overflow-x: hidden; /* 넘침 방지 */
 }
-
 .NaverBook_page01 {
-  position: absolute;
-  top: 140px;
-  left: 49%;
-  transform: translateX(-50%);
+  position: relative;
   background-color: white;
   font-family: sans-serif;
   padding: 16px;
   overflow-y: auto;
-  max-height: 685px;
-  width: 380px;
+  width: 378px;
+  right: 9px;
+  max-width: 430px;
+  margin: 0 auto;
+  top: -790px;
+  height: 635px;
+}
+  
+ .bookWrapper {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 8px;
+  height: 100vh;
 }
 
 /* 메인 + 서브 사진 레이아웃 */
@@ -49,7 +59,7 @@
 
 .sub4-wrapper .overlay {
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 100%;
