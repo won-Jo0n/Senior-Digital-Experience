@@ -18,7 +18,7 @@
   width: 75%;
   top: 72px;
   left: 65px;
-  height: 70%;
+  height: 75%;
 }
 
 .KioskFinal .KIOSKDP4 {
@@ -42,9 +42,9 @@
   display: flex;
   justify-content: center;
 }
-.KioskFinal .MissionIcon-img {
+.KioskFinal img {
   position: relative;
-  top: 50px;
+  /* top: 50px; */
   height: 100px;
 }
 
@@ -55,15 +55,15 @@
 }
 
 .KioskFinal .orderListArea {
-  width: 60%;
-  height: 30%;
-  max-height: 500px;
+  width: 80%;
+  height: 35%;
+  max-height: 450px;
   overflow-y: auto;
   background-color: white;
   border-radius: 10px;
   position: absolute;
-  bottom: 100px;
-  left: 80px;
+  bottom: 160px;
+  left: 60px;
   z-index: 2;
 }
 
@@ -116,8 +116,6 @@
   gap: 15px; /* 이미지와 텍스트 간격 */
   padding: 10px;
   border-bottom: 1px solid #eee; /* 각 항목 구분선 */
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .KioskFinal .FinishWarp .text-img img {
@@ -149,7 +147,7 @@
   justify-content: center;
   align-items: center;
   width: 60%;
-  bottom: 30px;
+  bottom: 80px;
   left: 100px;
   border: none;
   border-radius: 8px;
