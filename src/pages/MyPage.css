@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 30px;
-  font-family: "Noto Sans KR", sans-serif;
 }
 
 .logo {
@@ -25,25 +24,30 @@
 }
 
 .subText {
-  font-size: 20px;
+  font-size: 30px;
   margin-bottom: 50px;
   color: white;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 .contentContainer {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
 }
 
 /* 공통 카드 스타일 */
 .card {
   background-color: #e2eedc;
   border-radius: 12px;
-  padding: 25px;
+  padding: 30px;
   width: 300px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   color: #333;
+  font-size: 19px;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 /* 카드 제목 */
@@ -52,8 +56,10 @@
   border-radius: 10px;
   font-weight: bold;
   display: inline-block;
-  padding: 8px 15px;
+  padding: 10px 18px;
   margin-bottom: 20px;
+  font-size: 23px;
+  font-family: 'Paperlogy-8ExtraBold';
 }
 
 /* 회원 정보 */
@@ -62,16 +68,20 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+
 }
+
 
 .userInfo .infoRow input {
   flex: 0 0 60%;
   width: 9px;
-  padding: 6px 8px;
+  padding: 10px 15px;
   margin-left: 2px;
-  font-size: 14px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 18px;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 300;
 }
 
 .userInfo .editBtn {
@@ -80,21 +90,25 @@
   background-color: #b0c850;
   color: #fff;
   border: none;
-  padding: 10px;
-  font-size: 15px;
+  padding: 15px;
   border-radius: 8px;
   cursor: pointer;
+   font-size: 19px;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 .userInfo .deleteBtn {
   margin-top: 20px;
   width: 100%;
-  background-color: crimson;
+  background-color: rgb(255, 150, 13);
   color: #fff;
   border: none;
-  padding: 10px;
-  font-size: 15px;
+  padding: 15px;
   border-radius: 8px;
   cursor: pointer;
+   font-size: 19px;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 /* 가운데 미션 */
@@ -120,15 +134,18 @@
   align-items: center;
 }
 .rewardCard p {
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 .missionCard .balloon-text {
   position: absolute;
   top: 180px;
   left: 160px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: bold;
+ font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
 }
 
 .kiosk_coupon {

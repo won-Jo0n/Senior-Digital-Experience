@@ -29,7 +29,9 @@
   border: none;
   outline: none;
   padding: 8px 10px;
-  font-size: 18px;
+  font-size: 20px;
+   font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
   background: transparent;
 }
 
@@ -39,7 +41,6 @@
   padding: 8px 15px;
   border: none;
   border-radius: 20px; /* 버튼 모서리 둥글게 */
-  font-size: 18px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
@@ -47,6 +48,10 @@
 
 /* 검색 버튼 */
 .Community .search .Button:nth-child(2) {
+  font-size: 18px;
+  padding: 10px 20px;
+     font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 300;
   background-color: #92b85e;
   color: #fffbf3;
 }
@@ -57,6 +62,10 @@
 
 /* 글작성 버튼 */
 .Community .search .Button:nth-child(3) {
+  font-size: 20px;
+  padding: 10px 20px;
+       font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 300;
   background-color: #f7a75b;
   color: #fffbf3;
 }
@@ -88,7 +97,7 @@
   align-items: center; /* 세로 중앙 정렬 */
   padding: 15px 25px; /* 내부 패딩 */
   border-bottom: 1px solid #eee; /* 하단 구분선 */
-  background-color: #e6ffe6; /* 연한 초록색 배경 (이미지 참고) */
+  background-color: #d8e8d1;; /* 연한 초록색 배경 (이미지 참고) */
   margin-bottom: 8px; /* 각 게시글 항목 간의 간격 */
   margin-left: 8px;
   margin-right: 8px;
@@ -108,7 +117,7 @@
 }
 
 .Community .community-content:hover {
-  background-color: #d9f5d9; /* 호버 시 배경색 변경 */
+  background-color: rgb(194, 230, 194);; /* 호버 시 배경색 변경 */
   transform: translateY(-2px); /* 약간 위로 뜨는 효과 */
 }
 
@@ -116,12 +125,14 @@
 .Community .community-title {
   flex-grow: 1; /* 가능한 공간을 차지하여 제목이 길어도 잘림 방지 */
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   color: #333;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: fit-content;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 .Community .community-title-admin {
@@ -143,18 +154,22 @@
 }
 
 .Community .community-date {
-  font-size: 0.9em;
+  font-size: 16px;
   color: #666;
   margin: 0 15px;
   white-space: nowrap;
+  font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 300;
 }
 
 /* 게시글 작성자 이름 */
 .Community .community-userName {
-  font-size: 0.95em;
+  font-size: 16px;
   color: #555;
   font-weight: 500;
   white-space: nowrap;
+   font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 300;
 }
 
 .Community .community-content .Button {

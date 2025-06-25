@@ -3,14 +3,12 @@ import { useEffect, useState, useContext } from "react";
 import "./NaverBook_page05.css";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
-import { DataDispatchContext, DataStateContext } from "../../App";
+import { DataDispatchContext } from "../../App";
 import "../../components/highlight.css";
 
 const NaverBook_page05 = () => {
   const location = useLocation();
-  const { getIsChallenged, setIsChallenged, onUpdate } =
-    useContext(DataDispatchContext);
-  const userState = useContext(DataStateContext);
+  const { getIsChallenged, setIsChallenged } = useContext(DataDispatchContext);
   const { date, time, slot, purposeTreatment, treatmentRequest } =
     location.state || {};
 
@@ -22,6 +20,7 @@ const NaverBook_page05 = () => {
   };
 
   const [isConfirmed, setIsConfirmed] = useState(false);
+  const [isFailed, setIsFailed] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const NaverBook_page05 = () => {
       if (isAllMatch) {
         setIsConfirmed(true);
       } else {
-        setIsConfirmed(false);
+        setIsFailed(true);
       }
       setShowResult(true);
     }, 3000);
@@ -50,32 +49,18 @@ const NaverBook_page05 = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    if (isConfirmed && getIsChallenged() && userState.loginedId) {
-      console.log("fgdfg");
-      let tempMission = userState.loginedId.mission;
-      tempMission[1] = true;
-      onUpdate(
-        userState.loginedId.id,
-        userState.loginedId.phoneNum,
-        userState.loginedId.password,
-        userState.loginedId.birth,
-        tempMission
-      );
-    }
-  }, [isConfirmed]);
-  console.log(showResult);
-
   return (
     <div className="bigContainer">
-      <Header leftIcon="left1" rightIcon="right1" />
+      <Header />
       <div className="bookWrapper">
         <img src="/phone.png" alt="phone" />
         <div className="NaverBook_page05">
           <div className="bookImg">
             <img
               src={
-                showResult ? isConfirmed ? "/icon_friends.png"
+                showResult
+                  ? isConfirmed
+                    ? "/icon_friends.png"
                     : getIsChallenged()
                     ? "/icon_sad.png"
                     : "/icon_friends.png"
@@ -107,14 +92,10 @@ const NaverBook_page05 = () => {
               </div>
             )}
 
-            {showResult && !isConfirmed && getIsChallenged() && (
+            {showResult && isFailed && getIsChallenged() && (
               <div className="resultBox fail">
                 <h2>미션 실패 </h2>
-                <p className="missionReason">
-                  조건이 맞지 않거나,
-                  <br />
-                  1분이 지나서 실패했어요!
-                </p>
+                <p className="missionReason">조건이 맞지 않아 실패했어요</p>
                 <p className="retryAgain">다시 도전해보세요!</p>
                 <div className="retryBtn">
                   <Button text={"다시 도전하기"} onClick={retryPage} />
@@ -122,7 +103,7 @@ const NaverBook_page05 = () => {
               </div>
             )}
 
-            {showResult && !getIsChallenged() && (
+            {showResult && isFailed && !getIsChallenged() && (
               <div className="resultBox fail">
                 <h2>연습모드 종료 </h2>
                 <p className="missionReason">

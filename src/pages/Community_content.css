@@ -39,38 +39,45 @@
 /* 게시글 제목 섹션 */
 .content-info-wrapper .content-title {
   flex-grow: 1; /* 가능한 공간을 차지하도록 확장 */
-  background-color: #e6ffe6; /* 이미지 와 같은 연한 초록색 배경 */
-  padding: 15px 20px;
+  background-color: #d8e8d1;; /* 이미지 와 같은 연한 초록색 배경 */
+  padding: 18px 20px;
   border-radius: 8px;
-  font-size: 1.5em; /* 제목 폰트 크기 조정 */
+  font-size: 1.3em; /* 제목 폰트 크기 조정 */
   font-weight: bold;
   color: #333;
   word-break: break-word; /* 긴 단어 줄바꿈 */
   min-width: 0; /* flex 아이템의 최소 너비 설정 */
+    font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 /* 게시글 작성자 이름 (제목 옆 오른쪽 상단에 배치) */
 .content-info-wrapper .content-userName {
-  background-color: #e6ffe6; /* 이미지 와 같은 연한 초록색 배경 */
+  background-color:#d8e8d1;; /* 이미지 와 같은 연한 초록색 배경 */
   padding: 15px 20px; /* 제목 박스보다 약간 작은 패딩 */
   border-radius: 8px;
-  font-size: 1.5em; /* 작성자 폰트 크기 조정 */
-  color: #333;
+  font-size: 1.3em; /* 작성자 폰트 크기 조정 */
+  color:  #444;
   white-space: nowrap; /* 이름이 한 줄에 표시되도록 */
   flex-shrink: 0;
+  white-space: nowrap; /* 이름이 한 줄에 표시되도록 */
+   font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 /* 게시글 내용 */
 .content-text {
-  background-color: #f0f8f0; /* 더 연한 초록색 배경 */
+  background-color: #d8e8d1;; /* 더 연한 초록색 배경 */
   padding: 20px;
   border-radius: 8px;
-  font-size: 1.1em;
+  font-size: 1.3em;
   line-height: 1.6;
   color: #444;
   white-space: pre-wrap; /* 공백과 줄바꿈 유지 */
   word-break: break-word;
   min-height: 150px; /* 최소 높이 */
+   font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 /* 답변 섹션 */
@@ -78,7 +85,7 @@
   background-color: #ffe6d6; /* 주황색 계열 배경 (이미지 참고) */
   padding: 20px;
   border-radius: 8px;
-  font-size: 1.1em;
+  font-size: 1.3em;
   line-height: 1.6;
   color: #555;
   white-space: pre-wrap;
@@ -86,6 +93,8 @@
   min-height: 80px; /* 최소 높이 */
   border-left: 5px solid #ff9966; /* 왼쪽 테두리 강조 */
   position: relative;
+   font-family: 'Pretendard-Regular'; /* 또는 'Noto Sans KR', sans-serif */
+  font-weight: 600;
 }
 
 .content-answer::before {
@@ -354,20 +363,41 @@
   }
 
   .content-info-wrapper {
-    gap: 6px;
-    padding-bottom: 6px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+  margin-bottom: 10px;
+}
   .content-info-wrapper .content-title {
-    font-size: 1.3em; /* 폰트 크기 약간 키움 */
-    line-height: 1.3; /* 줄 간격 유지 */
-  }
+.content-title {
+  width: 100%;
+  background-color: #f0f8f0;
+  padding: 20px 25px;
+  border-radius: 10px;
+  font-size: 1.6em;
+  font-weight: bold;
+  font-family: 'Paperlogy-8ExtraBold';
+  color: #333;
+  word-break: break-word;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
   .content-info-wrapper .content-userName {
-    font-size: 0.85em; /* 폰트 크기 약간 키움 */
-  }
+    align-self: flex-end;
+  background-color: #f6fdf6;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #3a3a3a;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  font-family: 'Pretendard-Regular';
+}
 
   .content-text {
     padding: 15px; /* 패딩 유지 또는 약간 늘림 */
-    font-size: 0.88em;
+    font-size: 18px;
     line-height: 1.5; /* 줄 간격 유지 */
     min-height: 120px; /* 최소 높이 다시 설정 또는 약간 늘림 */
   }
@@ -398,4 +428,5 @@
     padding: 7px 12px;
     font-size: 0.8em;
   }
+}
 }
