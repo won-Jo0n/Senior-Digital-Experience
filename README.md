@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/7be7041e-4d3e-4542-b177-607d572c7e85)
+
 # 🧓 해봐YOU - 고령층을 대상으로한 디지털 교육 플랫폼
 > 디지털 소외 없는 세상으로 한 걸음  
 > **노년층 대상 디지털 학습 시뮬레이터**
