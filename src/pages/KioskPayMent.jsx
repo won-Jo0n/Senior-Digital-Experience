@@ -42,14 +42,14 @@ const KioskPayMent = () => {
                   className={getIsChallenged() ? "" : "CARDBTN highlighPay"}
                 >
                   <div>
-                    <img src="/public/card.png" className="CardImg" />
+                    <img src="/card.png" className="CardImg" />
                   </div>
                   <div>신용카드</div>
                 </button>
 
                 <button>
                   <div>
-                    <img src="/public//coupon.png" className="CardImg" />
+                    <img src="/coupon.png" className="CardImg" />
                   </div>
                   모바일 쿠폰
                 </button>
@@ -66,7 +66,7 @@ const KioskPayMent = () => {
                 </button>
                 <button className="bottomBtn">
                   <div>
-                    <img src="/public//kakaoPay.png" className="CardImg" />
+                    <img src="/kakaoPay.png" className="CardImg" />
                   </div>
                   카카오페이
                 </button>
