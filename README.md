@@ -74,7 +74,7 @@
 - 지도에 마커 출력, 키워드 검색, 리스트 → 맵 중심 이동 기능
 
 ### 📝 문의 및 건의 게시판
-- 게시판 기능 (작성, 조회, 수정, 삭제 - CRUD)
+- 게시판 기능 (`작성`, `조회`, `수정`, `삭제` - `CRUD`)
 - 관리자 답변 시 → `토스트 알림` 및 상태 업데이트
 
 ---
@@ -83,11 +83,11 @@
 
 | 분류 | 기술 |
 |------|------|
-| Frontend | React, CSS Modules, React Router |
-| 상태 관리 | React Context API |
-| API | 공공데이터 API, Kakao Map API |
-| 기타 | sessionStorage, Toast 메시지, highlight 컴포넌트 |
-| 형상관리 | Git, GitHub, Sourcetree |
+| `Frontend` | `React, CSS Modules, React Router` |
+| `상태 관리` | `React Context API` |
+| `API` | `공공데이터 API, Kakao Map API` |
+| `기타` | `sessionStorage, Toast 메시지, highlight 컴포넌트` |
+| `형상관리` | `Git, GitHub, Sourcetree` |
 
 ---
 
