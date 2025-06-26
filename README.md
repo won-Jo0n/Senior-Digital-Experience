@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/7be7041e-4d3e-4542-b177-607d572c7e85)
+![image](https://github.com/user-attachments/assets/2eb3f5f7-3976-44b8-830e-103ac5648ea7)
+
 
 # 🧓 해봐YOU - 고령층을 대상으로한 디지털 교육 플랫폼
 > 디지털 소외 없는 세상으로 한 걸음  
