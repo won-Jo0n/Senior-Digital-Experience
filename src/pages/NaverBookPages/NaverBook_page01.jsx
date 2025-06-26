@@ -9,12 +9,13 @@ import { DataDispatchContext } from "../../App";
 
 const NaverBook_page01 = () => {
   const nav = useNavigate(); // 페이지 이동 함수
-  const [showPopup, setShowPopup] = useState(true); // 팝업창 표시 여부
+  const [showPopup, setShowPopup] = useState(true); // 팝업창 표시 여부-> TRUE였다가 FALSE로 되면 팝업창닫힘
+  // USECONTEXT : useContext(DataDispatchContext)를 쓰면, 그 안에 저장된 데이터/함수들을 가져올 수 있음
   const { getIsChallenged } = useContext(DataDispatchContext); // 미션모드 여부 가져오기
 
   // 페이지 이동 + 시작 시간 저장 (미션 타이머 시작)
   const secondPage = () => {
-    sessionStorage.setItem("missionStart", new Date().toISOString()); // 시간 저장
+    sessionStorage.setItem("missionStart", new Date().toISOString()); // 시간 저장 -> 처음에 넣엇다가 뺴야되는 부분
     nav("/NaverBook/page02"); // 다음 페이지로 이동
   };
 

@@ -8,7 +8,9 @@ import Highlight from "../../components/highlight";
 
 const NaverBook_page04 = () => {
   // 이전 페이지에서 넘어온 예약 정보 (날짜, 시간)
+  // navigate()로 페이지 이동할 때 함께 넘긴 state 데이터를 받아올 때 사용
   const location = useLocation();
+  // location.state가 undefined일 경우를 대비한 안전장치 -> 에러 없이 구조분해 할당이 가능
   const { date, time } = location.state || {};
 
   const nav = useNavigate(); // 페이지 이동
@@ -18,6 +20,9 @@ const NaverBook_page04 = () => {
   const [medicaRequest, setMedicaRequest] = useState(false); // 요청사항 선택 여부
 
   const userState = useContext(DataStateContext); // 로그인 유저 정보
+  // userState는 전역 상태(Context)에서 가져온 로그인 정보 객체 -> 그런데 userState가 아직 undefined일 수 있다. 
+  // ?. (optional chaining, 옵셔널 체이닝
+  // 만약 userState?.loginedId가 없으면(= 로그인 안 했으면) 빈 객체 할당
   const loginedUser = userState?.loginedId || {};
 
   const [purposeTreatment, setPurposeTreatment] = useState([]); // 선택된 진료 목적
@@ -25,6 +30,7 @@ const NaverBook_page04 = () => {
 
   // 시간대(오전/오후) 계산 함수
   const getSlot = (time) => {
+    // : 기준으로 "14"와 "30"으로 나눠진 배열
     const hour = parseInt(time.split(":")[0]);
     return hour < 12 ? "오전" : "오후";
   };

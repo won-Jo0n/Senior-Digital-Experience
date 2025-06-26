@@ -20,9 +20,9 @@ const NaverBook_page03 = () => {
   const month = currentDate.getMonth();
 
   // 달력 시작 날짜 계산 (해당 월의 첫 날에서 일요일까지 포함)
-  const firstDayOfMonth = new Date(year, month, 1);
+  const firstDayOfMonth = new Date(year, month, 1); // 1은 그 달의 1일을 의미
   const startDay = new Date(firstDayOfMonth);
-  startDay.setDate(1 - firstDayOfMonth.getDay());
+  startDay.setDate(1 - firstDayOfMonth.getDay()); // 그 달 1일이 무슨 요일인지 알려준다.
 
   // 달력 끝 날짜 계산 (해당 월의 마지막 날에서 토요일까지 포함)
   const lastDayOfMonth = new Date(year, month + 1, 0);
@@ -31,23 +31,24 @@ const NaverBook_page03 = () => {
 
   // 날짜들을 주 단위로 그룹화
   const groupDatesByWeek = (start, end) => {
-    const weeks = [];
-    let currentWeek = [];
-    let current = new Date(start);
+    const weeks = []; // 결과를 담을 배열 (주 단위 묶음)
+    let currentWeek = []; // 현재 주에 해당하는 7일 묶음
+    let current = new Date(start); // 현재 날짜 (반복하면서 이동)
     while (current <= end) {
-      currentWeek.push(new Date(current));
+      currentWeek.push(new Date(current)); // 현재 날짜를 현재 주에 추가
       if (currentWeek.length === 7) {
-        weeks.push(currentWeek);
-        currentWeek = [];
+        weeks.push(currentWeek); // 7일 모이면 주 배열에 추가
+        currentWeek = []; // 다음 주를 위한 배열 초기화
       }
-      current.setDate(current.getDate() + 1);
+      current.setDate(current.getDate() + 1); // 다음 날짜로 이동
     }
-    return weeks;
+    return weeks; // 전체 주 배열 반환
   };
 
   // 오늘 이전 날짜인지 확인 (선택 불가하도록 막기)
   const isPastDate = (date) => {
     const today = new Date();
+    //  시간을 00:00:00.000으로 초기화
     today.setHours(0, 0, 0, 0);
     return date < today;
   };
@@ -137,6 +138,7 @@ const NaverBook_page03 = () => {
               {!selectedDate && !selectedTime && !getIsChallenged() ? (
                 <Highlight tooltip="날짜를 선택해주세요" color="green">
                   <div className="calendarDay">
+                    {/* map()으로 각 주, 각 날짜를 반복 렌더링 */}
                     {weeks.map((week, weekIndex) => (
                       <div className="week" key={weekIndex}>
                         {week.map((date, dayIndex) => {
