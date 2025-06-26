@@ -83,11 +83,11 @@
 
 | 분류 | 기술 |
 |------|------|
-| `Frontend` | `React, CSS Modules, React Router` |
-| `상태 관리` | `React Context API` |
-| `API` | `공공데이터 API, Kakao Map API` |
-| `기타` | `sessionStorage, Toast 메시지, highlight 컴포넌트` |
-| `형상관리` | `Git, GitHub, Sourcetree` |
+| Frontend | React, CSS Modules, React Router |
+| 상태 관리 | React Context API |
+| API | 공공데이터 API, Kakao Map API |
+| 기타 | sessionStorage, Toast 메시지, highlight 컴포넌트 |
+| 형상관리 | Git, GitHub, Sourcetree |
 
 ---
 
