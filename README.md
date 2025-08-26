@@ -1,11 +1,11 @@
-[PDF 문서보기](https://github.com/won-Jo0n/Senior-Digital-Experience/blob/main/docs/%ED%95%B4%EB%B4%90YOU_1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%B5%9C%EC%A2%85%EB%B3%B8.pdf)
-![image](https://github.com/user-attachments/assets/41a95458-2e88-4c5c-a1be-3d992e2083fb)
-
 ## 해봐YOU - 고령층을 대상으로한 디지털 교육 플랫폼
 > 디지털 소외 없는 세상으로 한 걸음  
 > **노년층 대상 디지털 학습 시뮬레이터**
 
 ---
+
+[📄 프로젝트 문서 (PDF 보기)]([https://github.com/won-Jo0n/moim/blob/master/docs/moim.pdf](https://github.com/won-Jo0n/Senior-Digital-Experience/blob/main/docs/%ED%95%B4%EB%B4%90YOU_1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%B5%9C%EC%A2%85%EB%B3%B8.pdf)
+![image](https://github.com/user-attachments/assets/41a95458-2e88-4c5c-a1be-3d992e2083fb))
 
 ### 📅 프로젝트 개요
 
@@ -52,6 +52,11 @@
 | 일회성 교육 | 반복 가능한 연습 모드 제공 |
 | 실생활 시나리오 부족 | 실제 서비스 UI 모사 |
 | 실전 시 두려움 | 미션형 실전 모드로 자신감 강화 |
+
+---
+
+## 📺 시연 영상
+👉 ([https://drive.google.com/file/d/1IHb9xr6SdozYoE7-RIzYjYQZfTg79Qe0/view?usp=drive_link](https://drive.google.com/file/d/1_yxef0e9bQZ4GAP8JKUPgPiqbe14ht0e/view?usp=drive_link))
 
 ---
 
