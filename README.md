@@ -4,7 +4,8 @@
 
 ---
 
-![📄 프로젝트 문서 (PDF 보기)]([https://github.com/won-Jo0n/moim/blob/master/docs/moim.pdf](https://github.com/won-Jo0n/Senior-Digital-Experience/blob/main/docs/%ED%95%B4%EB%B4%90YOU_1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%B5%9C%EC%A2%85%EB%B3%B8.pdf)
+[📄 프로젝트 문서 (PDF 보기)]([https://github.com/won-Jo0n/moim/blob/master/docs/moim.pdf](https://github.com/won-Jo0n/Senior-Digital-Experience/blob/main/docs/%ED%95%B4%EB%B4%90YOU_1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%B5%9C%EC%A2%85%EB%B3%B8.pdf))
+
 
 ![image](https://github.com/user-attachments/assets/41a95458-2e88-4c5c-a1be-3d992e2083fb)
 
